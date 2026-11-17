@@ -19,27 +19,177 @@ topics:
     grade: K
     xp: 8
     standards: [K.CC.B.5]
-  - id: add-within-10
-    title: Adding to 10
-    strand: add-sub
-    grade: K
-    requires: [count-objects]
-    xp: 8
-    standards: [K.OA.A.5]
-  - id: compare-numbers-20
-    title: Bigger or smaller
+  - id: numbers-to-10
+    title: Reading numbers to 10
     strand: place-value
     grade: K
     requires: [count-objects]
     xp: 8
+    standards: [K.CC.A.3]
+  - id: count-on-from
+    title: Counting on
+    strand: place-value
+    grade: K
+    requires: [numbers-to-10]
+    xp: 8
+    standards: [K.CC.A.2]
+  - id: one-more-one-less
+    title: One more and one less
+    strand: place-value
+    grade: K
+    requires: [count-on-from]
+    encompasses: [{topic: count-on-from, weight: 0.5}]
+    xp: 8
+    standards: [K.CC.B.4c]
+  - id: compare-groups
+    title: Which group has more
+    strand: place-value
+    grade: K
+    requires: [count-objects]
+    xp: 8
+    standards: [K.CC.C.6]
+  - id: count-to-20
+    title: Counting to 20
+    strand: place-value
+    grade: K
+    requires: [numbers-to-10]
+    encompasses: [{topic: numbers-to-10, weight: 0.5}]
+    xp: 8
+    standards: [K.CC.B.5]
+  - id: compare-numbers-20
+    title: Bigger or smaller
+    strand: place-value
+    grade: K
+    requires: [compare-groups, count-to-20]
+    encompasses: [{topic: compare-groups, weight: 0.5}]
+    xp: 8
     standards: [K.CC.C.7]
+  - id: teen-numbers
+    title: Ten and some more
+    strand: place-value
+    grade: K
+    requires: [count-to-20]
+    encompasses: [{topic: count-to-20, weight: 0.5}]
+    xp: 8
+    standards: [K.NBT.A.1]
+  - id: count-by-tens
+    title: Counting in tens
+    strand: place-value
+    grade: K
+    requires: [teen-numbers]
+    xp: 8
+    standards: [K.CC.A.1]
+  - id: count-to-100
+    title: Counting to 100
+    strand: place-value
+    grade: K
+    requires: [count-by-tens]
+    encompasses: [{topic: count-by-tens, weight: 0.5}]
+    xp: 8
+    standards: [K.CC.A.1]
+  - id: add-within-5
+    title: Adding to 5
+    strand: add-sub
+    grade: K
+    requires: [count-on-from]
+    xp: 8
+    standards: [K.OA.A.5]
+  - id: sub-within-5
+    title: Taking away to 5
+    strand: add-sub
+    grade: K
+    requires: [add-within-5]
+    xp: 8
+    standards: [K.OA.A.5]
+  - id: add-within-10
+    title: Adding to 10
+    strand: add-sub
+    grade: K
+    requires: [add-within-5]
+    encompasses: [{topic: add-within-5, weight: 1.0}]
+    xp: 8
+    standards: [K.OA.A.5]
   - id: sub-within-10
     title: Taking away to 10
     strand: add-sub
     grade: K
-    requires: [add-within-10]
+    requires: [add-within-10, sub-within-5]
+    encompasses: [{topic: sub-within-5, weight: 1.0}]
     xp: 8
     standards: [K.OA.A.5]
+  - id: split-numbers-10
+    title: Splitting numbers to 10
+    strand: add-sub
+    grade: K
+    requires: [add-within-5]
+    xp: 8
+    standards: [K.OA.A.3]
+  - id: make-10
+    title: Making 10
+    strand: add-sub
+    grade: K
+    requires: [split-numbers-10, add-within-10]
+    encompasses: [{topic: split-numbers-10, weight: 0.5}]
+    xp: 8
+    standards: [K.OA.A.4]
+  - id: add-sub-stories-10
+    title: Adding and taking away stories
+    strand: add-sub
+    grade: K
+    requires: [add-within-10, sub-within-10]
+    encompasses: [{topic: add-within-10, weight: 0.5}, {topic: sub-within-10, weight: 0.5}]
+    xp: 8
+    standards: [K.OA.A.2]
+  - id: compare-measures
+    title: Longer, taller or heavier
+    strand: measurement
+    grade: K
+    requires: [count-objects]
+    xp: 8
+    standards: [K.MD.A.1, K.MD.A.2]
+  - id: sort-and-count
+    title: Sorting and counting
+    strand: measurement
+    grade: K
+    requires: [compare-groups]
+    xp: 8
+    standards: [K.MD.B.3]
+  - id: name-flat-shapes
+    title: Flat shapes
+    strand: geometry
+    grade: K
+    requires: [count-objects]
+    xp: 8
+    standards: [K.G.A.2]
+  - id: shape-positions
+    title: Above, below and beside
+    strand: geometry
+    grade: K
+    requires: [name-flat-shapes]
+    xp: 8
+    standards: [K.G.A.1]
+  - id: name-solid-shapes
+    title: Solid shapes
+    strand: geometry
+    grade: K
+    requires: [name-flat-shapes]
+    xp: 8
+    standards: [K.G.A.2, K.G.A.3]
+  - id: count-sides-corners
+    title: Sides and corners
+    strand: geometry
+    grade: K
+    requires: [name-flat-shapes, count-to-20]
+    encompasses: [{topic: name-flat-shapes, weight: 0.5}]
+    xp: 8
+    standards: [K.G.B.4]
+  - id: compose-shapes
+    title: Putting shapes together
+    strand: geometry
+    grade: K
+    requires: [count-sides-corners]
+    xp: 8
+    standards: [K.G.B.6]
 
   # Grade 1
   - id: number-line-to-20

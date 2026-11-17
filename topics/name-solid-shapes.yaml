@@ -1,0 +1,58 @@
+id: name-solid-shapes
+kps:
+  - id: name-solid-shapes.kp1
+    explain: >-
+      Solid shapes are not flat. You can hold them.
+    templates:
+      - id: name-solid-shapes.kp1.t1
+        vars:
+          k: {int: [0, 3]}
+          name: "pick(k, 'cube', 'cone', 'cylinder', 'sphere')"
+        prompt: "What solid shape is this?"
+        layout: figure
+        figure: solid
+        figure_args: {name: name}
+        answer:
+          type: choice
+          right: "{name}"
+          distractors:
+            - "{pick(k, 'square', 'cylinder', 'cone', 'circle')}"
+            - "{pick(k, 'cylinder', 'triangle', 'cube', 'cylinder')}"
+        min_variety: 4
+        solution:
+          - "{pick(k, 'It has 6 square faces.', 'It has a point and a round base.', 'It is round with two flat ends.', 'It is round like a ball.')}"
+          - "It is a {name}."
+  - id: name-solid-shapes.kp2
+    explain: >-
+      A flat shape lies on paper. A solid shape stands up.
+    templates:
+      - id: name-solid-shapes.kp2.t1
+        vars:
+          k: {int: [0, 4]}
+          name: "pick(k, 'circle', 'triangle', 'square', 'rectangle', 'hexagon')"
+        prompt: "Is this shape flat or solid?"
+        layout: figure
+        figure: shape
+        figure_args: {name: name, turn: 0}
+        answer:
+          type: choice
+          right: "flat"
+          distractors: ["solid"]
+        min_variety: 5
+        solution:
+          - "It lies flat, like a drawing on paper. It is flat."
+      - id: name-solid-shapes.kp2.t2
+        vars:
+          k: {int: [0, 5]}
+          name: "pick(k, 'box', 'cone', 'cube', 'cylinder', 'pyramid', 'sphere')"
+        prompt: "Is this shape flat or solid?"
+        layout: figure
+        figure: solid
+        figure_args: {name: name}
+        answer:
+          type: choice
+          right: "solid"
+          distractors: ["flat"]
+        min_variety: 6
+        solution:
+          - "You could pick it up and hold it. It is solid."

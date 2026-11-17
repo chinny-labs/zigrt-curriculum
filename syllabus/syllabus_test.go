@@ -3,6 +3,7 @@
 package syllabus
 
 import (
+	"bytes"
 	"os"
 	"regexp"
 	"slices"
@@ -35,21 +36,23 @@ var (
 	strandIn = map[string]bool{}
 )
 
-func load(t *testing.T, path string, v any) {
+func load(t *testing.T, path string, v any, strict bool) {
 	t.Helper()
 	b, err := os.ReadFile(path)
 	if err != nil {
 		t.Fatal(err)
 	}
-	if err := yaml.Unmarshal(b, v); err != nil {
+	dec := yaml.NewDecoder(bytes.NewReader(b))
+	dec.KnownFields(strict) // a stray key means a title or list lost its quotes
+	if err := dec.Decode(v); err != nil {
 		t.Fatalf("%s: %v", path, err)
 	}
 }
 
 func TestSyllabus(t *testing.T) {
 	var s, pack file
-	load(t, "syllabus.yaml", &s)
-	load(t, "../topics.yaml", &pack)
+	load(t, "syllabus.yaml", &s, true)
+	load(t, "../topics.yaml", &pack, false)
 	for _, st := range pack.Strand {
 		strandIn[st.ID] = true
 	}

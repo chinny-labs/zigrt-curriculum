@@ -1,0 +1,28 @@
+id: count-to-100
+kps:
+  - id: count-to-100.kp1
+    explain: >-
+      The ones go 0 to 9. After 9, the tens go up.
+    templates:
+      - id: count-to-100.kp1.t1
+        vars:
+          t: {int: [2, 9]}
+          o: {choose: [9, 9, 3, 5, 7]}
+          n: 10 * t + o
+        where: ["n < 100"]
+        prompt: "What number comes after {n}?"
+        answer: {type: integer, value: n + 1}
+        solution:
+          - "{o == 9 ? join('After ', text(n), ' comes the next ten.') : 'The ones go up by one.'}"
+          - "{n} then {n + 1}."
+  - id: count-to-100.kp2
+    explain: >-
+      The number before is one less.
+    templates:
+      - id: count-to-100.kp2.t1
+        vars:
+          n: {int: [21, 100]}
+        prompt: "What number comes just before {n}?"
+        answer: {type: integer, value: n - 1}
+        solution:
+          - "Count back one from {n}: {n - 1}."

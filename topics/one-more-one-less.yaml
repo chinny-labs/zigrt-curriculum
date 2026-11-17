@@ -1,0 +1,53 @@
+id: one-more-one-less
+kps:
+  - id: one-more-one-less.kp1
+    explain: >-
+      One more is the next number when you count.
+    templates:
+      - id: one-more-one-less.kp1.t1
+        vars:
+          n: {int: [1, 9]}
+        prompt: "Here are {n} dots. What is one more than {n}?"
+        layout: figure
+        figure: dots
+        figure_args: {count: n, arrange: "'line'"}
+        answer: {type: integer, value: n + 1}
+        min_variety: 9
+        solution:
+          - "Add one more dot and count."
+          - "One more than {n} is {n + 1}."
+      - id: one-more-one-less.kp1.t2
+        vars:
+          n: {int: [5, 19]}
+        prompt: "What is one more than {n}?"
+        answer: {type: integer, value: n + 1}
+        min_variety: 15
+        solution:
+          - "The number after {n} is {n + 1}."
+  - id: one-more-one-less.kp2
+    explain: >-
+      One less is the number just before.
+    templates:
+      - id: one-more-one-less.kp2.t1
+        vars:
+          n: {int: [2, 10]}
+        prompt: "One dot is crossed out. How many are left?"
+        layout: figure
+        figure: dot-groups
+        figure_args: {a: n, b: 1, style: "'crossed'"}
+        answer: {type: integer, value: n - 1}
+        min_variety: 9
+        solution:
+          - "There were {n} dots. One is crossed out."
+          - "One less than {n} is {n - 1}."
+      - id: one-more-one-less.kp2.t2
+        vars:
+          n: {int: [2, 20]}
+        prompt: "What is one less than {n}?"
+        answer:
+          type: choice
+          right: "{n - 1}"
+          distractors: ["{n + 1}", "{n}"]
+        min_variety: 19
+        solution:
+          - "The number before {n} is {n - 1}."

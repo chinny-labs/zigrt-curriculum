@@ -9,271 +9,271 @@
 
 topics:
   # --- Kindergarten -----------------------------------------------------------
-  - {id: count-objects, title: Counting dots, grade: K, strand: place-value, standards: [K.CC.B.5]}
-  - {id: numbers-to-10, title: Reading numbers to 10, grade: K, strand: place-value, requires: [count-objects], standards: [K.CC.A.3], needs: [dots]}
-  - {id: count-on-from, title: Counting on, grade: K, strand: place-value, requires: [numbers-to-10], standards: [K.CC.A.2]}
-  - {id: one-more-one-less, title: One more and one less, grade: K, strand: place-value, requires: [count-on-from], standards: [K.CC.B.4c]}
-  - {id: compare-groups, title: Which group has more, grade: K, strand: place-value, requires: [count-objects], standards: [K.CC.C.6], needs: [dots]}
-  - {id: count-to-20, title: Counting to 20, grade: K, strand: place-value, requires: [numbers-to-10], standards: [K.CC.B.5], needs: [ten-frame]}
-  - {id: compare-numbers-20, title: Bigger or smaller, grade: K, strand: place-value, requires: [compare-groups, count-to-20], standards: [K.CC.C.7]}
-  - {id: teen-numbers, title: Ten and some more, grade: K, strand: place-value, requires: [count-to-20], standards: [K.NBT.A.1], needs: [ten-frame]}
-  - {id: count-by-tens, title: Counting in tens, grade: K, strand: place-value, requires: [teen-numbers], standards: [K.CC.A.1]}
-  - {id: count-to-100, title: Counting to 100, grade: K, strand: place-value, requires: [count-by-tens], standards: [K.CC.A.1]}
-  - {id: add-within-5, title: Adding to 5, grade: K, strand: add-sub, requires: [count-on-from], standards: [K.OA.A.5], needs: [dots]}
-  - {id: sub-within-5, title: Taking away to 5, grade: K, strand: add-sub, requires: [add-within-5], standards: [K.OA.A.5], needs: [dots]}
-  - {id: add-within-10, title: Adding to 10, grade: K, strand: add-sub, requires: [add-within-5], standards: [K.OA.A.5]}
-  - {id: sub-within-10, title: Taking away to 10, grade: K, strand: add-sub, requires: [add-within-10, sub-within-5], standards: [K.OA.A.5]}
-  - {id: split-numbers-10, title: Splitting numbers to 10, grade: K, strand: add-sub, requires: [add-within-5], standards: [K.OA.A.3], needs: [dots]}
-  - {id: make-10, title: Making 10, grade: K, strand: add-sub, requires: [split-numbers-10, add-within-10], standards: [K.OA.A.4], needs: [ten-frame]}
-  - {id: add-sub-stories-10, title: Adding and taking away stories, grade: K, strand: add-sub, requires: [add-within-10, sub-within-10], standards: [K.OA.A.2]}
-  - {id: compare-measures, title: Longer, taller or heavier, grade: K, strand: measurement, requires: [count-objects], standards: [K.MD.A.1, K.MD.A.2], needs: [compare-pictures]}
-  - {id: sort-and-count, title: Sorting and counting, grade: K, strand: measurement, requires: [compare-groups], standards: [K.MD.B.3], needs: [dots]}
-  - {id: name-flat-shapes, title: Flat shapes, grade: K, strand: geometry, requires: [count-objects], standards: [K.G.A.2], needs: [shapes]}
-  - {id: shape-positions, title: Above, below and beside, grade: K, strand: geometry, requires: [name-flat-shapes], standards: [K.G.A.1], needs: [scenes]}
-  - {id: name-solid-shapes, title: Solid shapes, grade: K, strand: geometry, requires: [name-flat-shapes], standards: [K.G.A.2, K.G.A.3], needs: [solids]}
-  - {id: count-sides-corners, title: Sides and corners, grade: K, strand: geometry, requires: [name-flat-shapes, count-to-20], standards: [K.G.B.4], needs: [shapes]}
-  - {id: compose-shapes, title: Putting shapes together, grade: K, strand: geometry, requires: [count-sides-corners], standards: [K.G.B.6], needs: [shapes]}
+  - {id: count-objects, title: "Counting dots", grade: K, strand: place-value, standards: [K.CC.B.5]}
+  - {id: numbers-to-10, title: "Reading numbers to 10", grade: K, strand: place-value, requires: [count-objects], standards: [K.CC.A.3], needs: [dots]}
+  - {id: count-on-from, title: "Counting on", grade: K, strand: place-value, requires: [numbers-to-10], standards: [K.CC.A.2]}
+  - {id: one-more-one-less, title: "One more and one less", grade: K, strand: place-value, requires: [count-on-from], standards: [K.CC.B.4c]}
+  - {id: compare-groups, title: "Which group has more", grade: K, strand: place-value, requires: [count-objects], standards: [K.CC.C.6], needs: [dots]}
+  - {id: count-to-20, title: "Counting to 20", grade: K, strand: place-value, requires: [numbers-to-10], standards: [K.CC.B.5], needs: [ten-frame]}
+  - {id: compare-numbers-20, title: "Bigger or smaller", grade: K, strand: place-value, requires: [compare-groups, count-to-20], standards: [K.CC.C.7]}
+  - {id: teen-numbers, title: "Ten and some more", grade: K, strand: place-value, requires: [count-to-20], standards: [K.NBT.A.1], needs: [ten-frame]}
+  - {id: count-by-tens, title: "Counting in tens", grade: K, strand: place-value, requires: [teen-numbers], standards: [K.CC.A.1]}
+  - {id: count-to-100, title: "Counting to 100", grade: K, strand: place-value, requires: [count-by-tens], standards: [K.CC.A.1]}
+  - {id: add-within-5, title: "Adding to 5", grade: K, strand: add-sub, requires: [count-on-from], standards: [K.OA.A.5], needs: [dots]}
+  - {id: sub-within-5, title: "Taking away to 5", grade: K, strand: add-sub, requires: [add-within-5], standards: [K.OA.A.5], needs: [dots]}
+  - {id: add-within-10, title: "Adding to 10", grade: K, strand: add-sub, requires: [add-within-5], standards: [K.OA.A.5]}
+  - {id: sub-within-10, title: "Taking away to 10", grade: K, strand: add-sub, requires: [add-within-10, sub-within-5], standards: [K.OA.A.5]}
+  - {id: split-numbers-10, title: "Splitting numbers to 10", grade: K, strand: add-sub, requires: [add-within-5], standards: [K.OA.A.3], needs: [dots]}
+  - {id: make-10, title: "Making 10", grade: K, strand: add-sub, requires: [split-numbers-10, add-within-10], standards: [K.OA.A.4], needs: [ten-frame]}
+  - {id: add-sub-stories-10, title: "Adding and taking away stories", grade: K, strand: add-sub, requires: [add-within-10, sub-within-10], standards: [K.OA.A.2]}
+  - {id: compare-measures, title: "Longer, taller or heavier", grade: K, strand: measurement, requires: [count-objects], standards: [K.MD.A.1, K.MD.A.2], needs: [compare-pictures]}
+  - {id: sort-and-count, title: "Sorting and counting", grade: K, strand: measurement, requires: [compare-groups], standards: [K.MD.B.3], needs: [dots]}
+  - {id: name-flat-shapes, title: "Flat shapes", grade: K, strand: geometry, requires: [count-objects], standards: [K.G.A.2], needs: [shapes]}
+  - {id: shape-positions, title: "Above, below and beside", grade: K, strand: geometry, requires: [name-flat-shapes], standards: [K.G.A.1], needs: [scenes]}
+  - {id: name-solid-shapes, title: "Solid shapes", grade: K, strand: geometry, requires: [name-flat-shapes], standards: [K.G.A.2, K.G.A.3], needs: [solids]}
+  - {id: count-sides-corners, title: "Sides and corners", grade: K, strand: geometry, requires: [name-flat-shapes, count-to-20], standards: [K.G.B.4], needs: [shapes]}
+  - {id: compose-shapes, title: "Putting shapes together", grade: K, strand: geometry, requires: [count-sides-corners], standards: [K.G.B.6], needs: [shapes]}
 
   # --- Grade 1 ------------------------------------------------------------------
-  - {id: count-to-120, title: Counting to 120, grade: "1", strand: place-value, requires: [count-to-100], standards: [1.NBT.A.1]}
-  - {id: number-line-to-20, title: Numbers on a line, grade: "1", strand: place-value, requires: [compare-numbers-20], standards: [1.NBT.A.1]}
-  - {id: tens-and-ones, title: Tens and ones, grade: "1", strand: place-value, requires: [number-line-to-20, teen-numbers], standards: [1.NBT.B.2], needs: [base-ten]}
-  - {id: compare-2-digit, title: Comparing numbers to 100, grade: "1", strand: place-value, requires: [tens-and-ones, compare-numbers-20], standards: [1.NBT.B.3]}
-  - {id: ten-more-ten-less, title: Ten more and ten less, grade: "1", strand: place-value, requires: [tens-and-ones, count-by-tens], standards: [1.NBT.C.5]}
-  - {id: number-line-to-100, title: Numbers on a line to 100, grade: "1", strand: place-value, requires: [number-line-to-20, count-to-100], standards: [1.NBT.A.1]}
-  - {id: count-on-to-add, title: Counting on to add, grade: "1", strand: add-sub, requires: [add-within-10, count-on-from], standards: [1.OA.C.5]}
-  - {id: doubles, title: Doubles and near doubles, grade: "1", strand: add-sub, requires: [add-within-10], standards: [1.OA.C.6]}
-  - {id: make-10-to-add, title: Making 10 to add, grade: "1", strand: add-sub, requires: [make-10], standards: [1.OA.C.6], needs: [ten-frame]}
-  - {id: add-within-20, title: Adding to 20, grade: "1", strand: add-sub, requires: [count-on-to-add, doubles, make-10-to-add], standards: [1.OA.C.6]}
-  - {id: count-back-to-sub, title: Counting back to take away, grade: "1", strand: add-sub, requires: [sub-within-10, one-more-one-less], standards: [1.OA.C.5]}
-  - {id: sub-through-10, title: Taking away through 10, grade: "1", strand: add-sub, requires: [make-10-to-add, sub-within-10], standards: [1.OA.C.6], needs: [ten-frame]}
-  - {id: sub-within-20, title: Taking away to 20, grade: "1", strand: add-sub, requires: [count-back-to-sub, sub-through-10, add-within-20], standards: [1.OA.C.6]}
-  - {id: add-three-numbers, title: Adding three numbers, grade: "1", strand: add-sub, requires: [add-within-20], standards: [1.OA.B.3, 1.OA.A.2]}
-  - {id: missing-addend, title: The missing number, grade: "1", strand: add-sub, requires: [add-within-20, sub-within-20], standards: [1.OA.D.8]}
-  - {id: fact-families-20, title: Fact families, grade: "1", strand: add-sub, requires: [missing-addend], standards: [1.OA.B.4]}
-  - {id: true-false-equations, title: Is it equal, grade: "1", strand: add-sub, requires: [add-within-20, sub-within-20], standards: [1.OA.D.7]}
-  - {id: add-sub-stories-20, title: Word problems to 20, grade: "1", strand: add-sub, requires: [add-sub-stories-10, missing-addend], standards: [1.OA.A.1]}
-  - {id: compare-stories, title: How many more, grade: "1", strand: add-sub, requires: [add-sub-stories-20], standards: [1.OA.A.1]}
-  - {id: add-tens, title: Adding tens, grade: "1", strand: add-sub, requires: [ten-more-ten-less], standards: [1.NBT.C.4]}
-  - {id: sub-tens, title: Taking away tens, grade: "1", strand: add-sub, requires: [add-tens], standards: [1.NBT.C.6]}
-  - {id: add-2d-1d, title: Adding ones to a 2-digit number, grade: "1", strand: add-sub, requires: [tens-and-ones, add-within-20], standards: [1.NBT.C.4]}
-  - {id: add-2d-tens, title: Adding tens to a 2-digit number, grade: "1", strand: add-sub, requires: [add-tens, add-2d-1d], standards: [1.NBT.C.4]}
-  - {id: add-2d-1d-regroup, title: Adding ones to make a new ten, grade: "1", strand: add-sub, requires: [add-2d-1d, make-10-to-add], standards: [1.NBT.C.4], needs: [base-ten]}
-  - {id: order-lengths, title: Ordering by length, grade: "1", strand: measurement, requires: [compare-measures], standards: [1.MD.A.1], needs: [compare-pictures]}
-  - {id: measure-units, title: Measuring with units, grade: "1", strand: measurement, requires: [order-lengths, count-to-20], standards: [1.MD.A.2], needs: [ruler]}
-  - {id: tell-time-hour, title: Telling the time to the half hour, grade: "1", strand: measurement, requires: [number-line-to-20], standards: [1.MD.B.3]}
-  - {id: tally-charts, title: Tally charts and tables, grade: "1", strand: measurement, requires: [sort-and-count, count-to-20], standards: [1.MD.C.4], needs: [table]}
-  - {id: data-how-many-more, title: How many more in the chart, grade: "1", strand: measurement, requires: [tally-charts, compare-stories], standards: [1.MD.C.4], needs: [table]}
-  - {id: shape-attributes, title: What makes a shape, grade: "1", strand: geometry, requires: [count-sides-corners], standards: [1.G.A.1], needs: [shapes]}
-  - {id: compose-flat-shapes, title: Making new shapes, grade: "1", strand: geometry, requires: [compose-shapes, shape-attributes], standards: [1.G.A.2], needs: [shapes]}
-  - {id: equal-parts, title: Equal parts, grade: "1", strand: fractions, requires: [name-flat-shapes, count-to-20], standards: [1.G.A.3], needs: [shapes]}
-  - {id: halves-quarters, title: Halves and quarters, grade: "1", strand: fractions, requires: [equal-parts], standards: [1.G.A.3]}
+  - {id: count-to-120, title: "Counting to 120", grade: "1", strand: place-value, requires: [count-to-100], standards: [1.NBT.A.1]}
+  - {id: number-line-to-20, title: "Numbers on a line", grade: "1", strand: place-value, requires: [compare-numbers-20], standards: [1.NBT.A.1]}
+  - {id: tens-and-ones, title: "Tens and ones", grade: "1", strand: place-value, requires: [number-line-to-20, teen-numbers], standards: [1.NBT.B.2], needs: [base-ten]}
+  - {id: compare-2-digit, title: "Comparing numbers to 100", grade: "1", strand: place-value, requires: [tens-and-ones, compare-numbers-20], standards: [1.NBT.B.3]}
+  - {id: ten-more-ten-less, title: "Ten more and ten less", grade: "1", strand: place-value, requires: [tens-and-ones, count-by-tens], standards: [1.NBT.C.5]}
+  - {id: number-line-to-100, title: "Numbers on a line to 100", grade: "1", strand: place-value, requires: [number-line-to-20, count-to-100], standards: [1.NBT.A.1]}
+  - {id: count-on-to-add, title: "Counting on to add", grade: "1", strand: add-sub, requires: [add-within-10, count-on-from], standards: [1.OA.C.5]}
+  - {id: doubles, title: "Doubles and near doubles", grade: "1", strand: add-sub, requires: [add-within-10], standards: [1.OA.C.6]}
+  - {id: make-10-to-add, title: "Making 10 to add", grade: "1", strand: add-sub, requires: [make-10], standards: [1.OA.C.6], needs: [ten-frame]}
+  - {id: add-within-20, title: "Adding to 20", grade: "1", strand: add-sub, requires: [count-on-to-add, doubles, make-10-to-add], standards: [1.OA.C.6]}
+  - {id: count-back-to-sub, title: "Counting back to take away", grade: "1", strand: add-sub, requires: [sub-within-10, one-more-one-less], standards: [1.OA.C.5]}
+  - {id: sub-through-10, title: "Taking away through 10", grade: "1", strand: add-sub, requires: [make-10-to-add, sub-within-10], standards: [1.OA.C.6], needs: [ten-frame]}
+  - {id: sub-within-20, title: "Taking away to 20", grade: "1", strand: add-sub, requires: [count-back-to-sub, sub-through-10, add-within-20], standards: [1.OA.C.6]}
+  - {id: add-three-numbers, title: "Adding three numbers", grade: "1", strand: add-sub, requires: [add-within-20], standards: [1.OA.B.3, 1.OA.A.2]}
+  - {id: missing-addend, title: "The missing number", grade: "1", strand: add-sub, requires: [add-within-20, sub-within-20], standards: [1.OA.D.8]}
+  - {id: fact-families-20, title: "Fact families", grade: "1", strand: add-sub, requires: [missing-addend], standards: [1.OA.B.4]}
+  - {id: true-false-equations, title: "Is it equal", grade: "1", strand: add-sub, requires: [add-within-20, sub-within-20], standards: [1.OA.D.7]}
+  - {id: add-sub-stories-20, title: "Word problems to 20", grade: "1", strand: add-sub, requires: [add-sub-stories-10, missing-addend], standards: [1.OA.A.1]}
+  - {id: compare-stories, title: "How many more", grade: "1", strand: add-sub, requires: [add-sub-stories-20], standards: [1.OA.A.1]}
+  - {id: add-tens, title: "Adding tens", grade: "1", strand: add-sub, requires: [ten-more-ten-less], standards: [1.NBT.C.4]}
+  - {id: sub-tens, title: "Taking away tens", grade: "1", strand: add-sub, requires: [add-tens], standards: [1.NBT.C.6]}
+  - {id: add-2d-1d, title: "Adding ones to a 2-digit number", grade: "1", strand: add-sub, requires: [tens-and-ones, add-within-20], standards: [1.NBT.C.4]}
+  - {id: add-2d-tens, title: "Adding tens to a 2-digit number", grade: "1", strand: add-sub, requires: [add-tens, add-2d-1d], standards: [1.NBT.C.4]}
+  - {id: add-2d-1d-regroup, title: "Adding ones to make a new ten", grade: "1", strand: add-sub, requires: [add-2d-1d, make-10-to-add], standards: [1.NBT.C.4], needs: [base-ten]}
+  - {id: order-lengths, title: "Ordering by length", grade: "1", strand: measurement, requires: [compare-measures], standards: [1.MD.A.1], needs: [compare-pictures]}
+  - {id: measure-units, title: "Measuring with units", grade: "1", strand: measurement, requires: [order-lengths, count-to-20], standards: [1.MD.A.2], needs: [ruler]}
+  - {id: tell-time-hour, title: "Telling the time to the half hour", grade: "1", strand: measurement, requires: [number-line-to-20], standards: [1.MD.B.3]}
+  - {id: tally-charts, title: "Tally charts and tables", grade: "1", strand: measurement, requires: [sort-and-count, count-to-20], standards: [1.MD.C.4], needs: [table]}
+  - {id: data-how-many-more, title: "How many more in the chart", grade: "1", strand: measurement, requires: [tally-charts, compare-stories], standards: [1.MD.C.4], needs: [table]}
+  - {id: shape-attributes, title: "What makes a shape", grade: "1", strand: geometry, requires: [count-sides-corners], standards: [1.G.A.1], needs: [shapes]}
+  - {id: compose-flat-shapes, title: "Making new shapes", grade: "1", strand: geometry, requires: [compose-shapes, shape-attributes], standards: [1.G.A.2], needs: [shapes]}
+  - {id: equal-parts, title: "Equal parts", grade: "1", strand: fractions, requires: [name-flat-shapes, count-to-20], standards: [1.G.A.3], needs: [shapes]}
+  - {id: halves-quarters, title: "Halves and quarters", grade: "1", strand: fractions, requires: [equal-parts], standards: [1.G.A.3]}
 
   # --- Grade 2 ------------------------------------------------------------------
-  - {id: hundreds-tens-ones, title: Hundreds, tens and ones, grade: "2", strand: place-value, requires: [tens-and-ones, count-to-120], standards: [2.NBT.A.1], needs: [base-ten]}
-  - {id: skip-count-5-10-100, title: Counting in 5s, 10s and 100s, grade: "2", strand: place-value, requires: [count-by-tens, hundreds-tens-ones], standards: [2.NBT.A.2]}
-  - {id: count-to-1000, title: Counting to 1000, grade: "2", strand: place-value, requires: [skip-count-5-10-100], standards: [2.NBT.A.2]}
-  - {id: expanded-form-3d, title: Writing numbers in parts, grade: "2", strand: place-value, requires: [hundreds-tens-ones], standards: [2.NBT.A.3]}
-  - {id: number-words-1000, title: Number names to 1000, grade: "2", strand: place-value, requires: [expanded-form-3d], standards: [2.NBT.A.3]}
-  - {id: compare-3-digit, title: Comparing numbers to 1000, grade: "2", strand: place-value, requires: [hundreds-tens-ones, compare-2-digit], standards: [2.NBT.A.4]}
-  - {id: ten-hundred-more-less, title: 10 or 100 more or less, grade: "2", strand: place-value, requires: [hundreds-tens-ones, ten-more-ten-less], standards: [2.NBT.B.8]}
-  - {id: number-line-to-1000, title: Numbers on a line to 1000, grade: "2", strand: place-value, requires: [number-line-to-100, count-to-1000], standards: [2.MD.B.6]}
-  - {id: odd-even, title: Odd and even, grade: "2", strand: place-value, requires: [doubles, skip-count-5-10-100], standards: [2.OA.C.3]}
-  - {id: add-2d-2d-no-regroup, title: Adding 2-digit numbers, no new ten, grade: "2", strand: add-sub, requires: [add-2d-tens], standards: [2.NBT.B.5]}
-  - {id: add-2d-2d-regroup, title: Adding 2-digit numbers, grade: "2", strand: add-sub, requires: [add-2d-2d-no-regroup, add-2d-1d-regroup], standards: [2.NBT.B.5]}
-  - {id: sub-2d-1d, title: Taking ones from a 2-digit number, grade: "2", strand: add-sub, requires: [sub-tens, sub-within-20], standards: [2.NBT.B.5]}
-  - {id: sub-2d-2d-no-regroup, title: Taking away 2-digit numbers, no ten broken, grade: "2", strand: add-sub, requires: [sub-2d-1d], standards: [2.NBT.B.5]}
-  - {id: sub-2d-2d-regroup, title: Taking away 2-digit numbers, grade: "2", strand: add-sub, requires: [sub-2d-2d-no-regroup, add-2d-2d-regroup], standards: [2.NBT.B.5]}
-  - {id: add-four-2d, title: Adding up to four numbers, grade: "2", strand: add-sub, requires: [add-2d-2d-regroup, add-three-numbers], standards: [2.NBT.B.6]}
-  - {id: add-3d, title: Adding 3-digit numbers, grade: "2", strand: add-sub, requires: [add-2d-2d-regroup, hundreds-tens-ones], standards: [2.NBT.B.7]}
-  - {id: sub-3d, title: Taking away 3-digit numbers, grade: "2", strand: add-sub, requires: [add-3d, sub-2d-2d-regroup], standards: [2.NBT.B.7]}
-  - {id: missing-number-100, title: The missing number to 100, grade: "2", strand: add-sub, requires: [missing-addend, sub-2d-2d-regroup], standards: [2.OA.A.1]}
-  - {id: word-problems-100, title: Word problems to 100, grade: "2", strand: add-sub, requires: [add-sub-stories-20, sub-2d-2d-regroup], standards: [2.OA.A.1]}
-  - {id: two-step-problems-100, title: Two-step word problems, grade: "2", strand: add-sub, requires: [word-problems-100], standards: [2.OA.A.1]}
-  - {id: facts-to-20-fluent, title: Facts to 20 from memory, grade: "2", strand: add-sub, requires: [fact-families-20], standards: [2.OA.B.2]}
-  - {id: add-3d-regroup, title: Adding 3-digit numbers with new tens and hundreds, grade: "2", strand: add-sub, requires: [add-3d], standards: [2.NBT.B.7]}
-  - {id: sub-3d-regroup, title: Taking away 3-digit numbers, breaking tens and hundreds, grade: "2", strand: add-sub, requires: [sub-3d, add-3d-regroup], standards: [2.NBT.B.7]}
-  - {id: equal-groups-arrays, title: Rows of dots, grade: "2", strand: multiplication, requires: [add-within-20], standards: [2.OA.C.4]}
-  - {id: repeated-addition, title: Adding equal groups, grade: "2", strand: multiplication, requires: [equal-groups-arrays, add-three-numbers, skip-count-5-10-100], standards: [2.OA.C.4]}
-  - {id: measure-length, title: Measuring with a ruler, grade: "2", strand: measurement, requires: [measure-units], standards: [2.MD.A.1], needs: [ruler]}
-  - {id: measure-two-units, title: Measuring in two units, grade: "2", strand: measurement, requires: [measure-length], standards: [2.MD.A.2], needs: [ruler]}
-  - {id: estimate-lengths, title: Estimating length, grade: "2", strand: measurement, requires: [measure-length], standards: [2.MD.A.3], needs: [ruler]}
-  - {id: compare-lengths-units, title: How much longer, grade: "2", strand: measurement, requires: [measure-length, sub-2d-1d], standards: [2.MD.A.4], needs: [ruler]}
-  - {id: length-word-problems, title: Length word problems, grade: "2", strand: measurement, requires: [compare-lengths-units, word-problems-100], standards: [2.MD.B.5]}
-  - {id: tell-time-5min, title: Telling the time to 5 minutes, grade: "2", strand: measurement, requires: [tell-time-hour, skip-count-5-10-100], standards: [2.MD.C.7]}
-  - {id: am-pm, title: Morning or afternoon, grade: "2", strand: measurement, requires: [tell-time-5min], standards: [2.MD.C.7]}
-  - {id: count-coins, title: Counting coins, grade: "2", strand: measurement, requires: [add-2d-2d-regroup], standards: [2.MD.C.8], needs: [coins]}
-  - {id: dollars-and-cents, title: Dollars and cents, grade: "2", strand: measurement, requires: [count-coins], standards: [2.MD.C.8], needs: [coins]}
-  - {id: money-word-problems, title: Money word problems, grade: "2", strand: measurement, requires: [dollars-and-cents, word-problems-100], standards: [2.MD.C.8], needs: [coins]}
-  - {id: picture-graphs, title: Picture graphs, grade: "2", strand: measurement, requires: [tally-charts], standards: [2.MD.D.10], needs: [picture-graph]}
-  - {id: bar-graphs, title: Bar graphs, grade: "2", strand: measurement, requires: [picture-graphs, data-how-many-more], standards: [2.MD.D.10], needs: [bar-graph]}
-  - {id: line-plots-whole, title: Line plots, grade: "2", strand: measurement, requires: [measure-length, tally-charts], standards: [2.MD.D.9], needs: [line-plot]}
-  - {id: name-shapes, title: Naming shapes, grade: "2", strand: geometry, requires: [shape-attributes], standards: [2.G.A.1]}
-  - {id: partition-rectangles, title: Rows and columns of squares, grade: "2", strand: geometry, requires: [equal-groups-arrays], standards: [2.G.A.2]}
-  - {id: thirds, title: Halves, thirds and quarters, grade: "2", strand: fractions, requires: [halves-quarters], standards: [2.G.A.3]}
+  - {id: hundreds-tens-ones, title: "Hundreds, tens and ones", grade: "2", strand: place-value, requires: [tens-and-ones, count-to-120], standards: [2.NBT.A.1], needs: [base-ten]}
+  - {id: skip-count-5-10-100, title: "Counting in 5s, 10s and 100s", grade: "2", strand: place-value, requires: [count-by-tens, hundreds-tens-ones], standards: [2.NBT.A.2]}
+  - {id: count-to-1000, title: "Counting to 1000", grade: "2", strand: place-value, requires: [skip-count-5-10-100], standards: [2.NBT.A.2]}
+  - {id: expanded-form-3d, title: "Writing numbers in parts", grade: "2", strand: place-value, requires: [hundreds-tens-ones], standards: [2.NBT.A.3]}
+  - {id: number-words-1000, title: "Number names to 1000", grade: "2", strand: place-value, requires: [expanded-form-3d], standards: [2.NBT.A.3]}
+  - {id: compare-3-digit, title: "Comparing numbers to 1000", grade: "2", strand: place-value, requires: [hundreds-tens-ones, compare-2-digit], standards: [2.NBT.A.4]}
+  - {id: ten-hundred-more-less, title: "10 or 100 more or less", grade: "2", strand: place-value, requires: [hundreds-tens-ones, ten-more-ten-less], standards: [2.NBT.B.8]}
+  - {id: number-line-to-1000, title: "Numbers on a line to 1000", grade: "2", strand: place-value, requires: [number-line-to-100, count-to-1000], standards: [2.MD.B.6]}
+  - {id: odd-even, title: "Odd and even", grade: "2", strand: place-value, requires: [doubles, skip-count-5-10-100], standards: [2.OA.C.3]}
+  - {id: add-2d-2d-no-regroup, title: "Adding 2-digit numbers, no new ten", grade: "2", strand: add-sub, requires: [add-2d-tens], standards: [2.NBT.B.5]}
+  - {id: add-2d-2d-regroup, title: "Adding 2-digit numbers", grade: "2", strand: add-sub, requires: [add-2d-2d-no-regroup, add-2d-1d-regroup], standards: [2.NBT.B.5]}
+  - {id: sub-2d-1d, title: "Taking ones from a 2-digit number", grade: "2", strand: add-sub, requires: [sub-tens, sub-within-20], standards: [2.NBT.B.5]}
+  - {id: sub-2d-2d-no-regroup, title: "Taking away 2-digit numbers, no ten broken", grade: "2", strand: add-sub, requires: [sub-2d-1d], standards: [2.NBT.B.5]}
+  - {id: sub-2d-2d-regroup, title: "Taking away 2-digit numbers", grade: "2", strand: add-sub, requires: [sub-2d-2d-no-regroup, add-2d-2d-regroup], standards: [2.NBT.B.5]}
+  - {id: add-four-2d, title: "Adding up to four numbers", grade: "2", strand: add-sub, requires: [add-2d-2d-regroup, add-three-numbers], standards: [2.NBT.B.6]}
+  - {id: add-3d, title: "Adding 3-digit numbers", grade: "2", strand: add-sub, requires: [add-2d-2d-regroup, hundreds-tens-ones], standards: [2.NBT.B.7]}
+  - {id: sub-3d, title: "Taking away 3-digit numbers", grade: "2", strand: add-sub, requires: [add-3d, sub-2d-2d-regroup], standards: [2.NBT.B.7]}
+  - {id: missing-number-100, title: "The missing number to 100", grade: "2", strand: add-sub, requires: [missing-addend, sub-2d-2d-regroup], standards: [2.OA.A.1]}
+  - {id: word-problems-100, title: "Word problems to 100", grade: "2", strand: add-sub, requires: [add-sub-stories-20, sub-2d-2d-regroup], standards: [2.OA.A.1]}
+  - {id: two-step-problems-100, title: "Two-step word problems", grade: "2", strand: add-sub, requires: [word-problems-100], standards: [2.OA.A.1]}
+  - {id: facts-to-20-fluent, title: "Facts to 20 from memory", grade: "2", strand: add-sub, requires: [fact-families-20], standards: [2.OA.B.2]}
+  - {id: add-3d-regroup, title: "Adding 3-digit numbers with new tens and hundreds", grade: "2", strand: add-sub, requires: [add-3d], standards: [2.NBT.B.7]}
+  - {id: sub-3d-regroup, title: "Taking away 3-digit numbers, breaking tens and hundreds", grade: "2", strand: add-sub, requires: [sub-3d, add-3d-regroup], standards: [2.NBT.B.7]}
+  - {id: equal-groups-arrays, title: "Rows of dots", grade: "2", strand: multiplication, requires: [add-within-20], standards: [2.OA.C.4]}
+  - {id: repeated-addition, title: "Adding equal groups", grade: "2", strand: multiplication, requires: [equal-groups-arrays, add-three-numbers, skip-count-5-10-100], standards: [2.OA.C.4]}
+  - {id: measure-length, title: "Measuring with a ruler", grade: "2", strand: measurement, requires: [measure-units], standards: [2.MD.A.1], needs: [ruler]}
+  - {id: measure-two-units, title: "Measuring in two units", grade: "2", strand: measurement, requires: [measure-length], standards: [2.MD.A.2], needs: [ruler]}
+  - {id: estimate-lengths, title: "Estimating length", grade: "2", strand: measurement, requires: [measure-length], standards: [2.MD.A.3], needs: [ruler]}
+  - {id: compare-lengths-units, title: "How much longer", grade: "2", strand: measurement, requires: [measure-length, sub-2d-1d], standards: [2.MD.A.4], needs: [ruler]}
+  - {id: length-word-problems, title: "Length word problems", grade: "2", strand: measurement, requires: [compare-lengths-units, word-problems-100], standards: [2.MD.B.5]}
+  - {id: tell-time-5min, title: "Telling the time to 5 minutes", grade: "2", strand: measurement, requires: [tell-time-hour, skip-count-5-10-100], standards: [2.MD.C.7]}
+  - {id: am-pm, title: "Morning or afternoon", grade: "2", strand: measurement, requires: [tell-time-5min], standards: [2.MD.C.7]}
+  - {id: count-coins, title: "Counting coins", grade: "2", strand: measurement, requires: [add-2d-2d-regroup], standards: [2.MD.C.8], needs: [coins]}
+  - {id: dollars-and-cents, title: "Dollars and cents", grade: "2", strand: measurement, requires: [count-coins], standards: [2.MD.C.8], needs: [coins]}
+  - {id: money-word-problems, title: "Money word problems", grade: "2", strand: measurement, requires: [dollars-and-cents, word-problems-100], standards: [2.MD.C.8], needs: [coins]}
+  - {id: picture-graphs, title: "Picture graphs", grade: "2", strand: measurement, requires: [tally-charts], standards: [2.MD.D.10], needs: [picture-graph]}
+  - {id: bar-graphs, title: "Bar graphs", grade: "2", strand: measurement, requires: [picture-graphs, data-how-many-more], standards: [2.MD.D.10], needs: [bar-graph]}
+  - {id: line-plots-whole, title: "Line plots", grade: "2", strand: measurement, requires: [measure-length, tally-charts], standards: [2.MD.D.9], needs: [line-plot]}
+  - {id: name-shapes, title: "Naming shapes", grade: "2", strand: geometry, requires: [shape-attributes], standards: [2.G.A.1]}
+  - {id: partition-rectangles, title: "Rows and columns of squares", grade: "2", strand: geometry, requires: [equal-groups-arrays], standards: [2.G.A.2]}
+  - {id: thirds, title: "Halves, thirds and quarters", grade: "2", strand: fractions, requires: [halves-quarters], standards: [2.G.A.3]}
 
   # --- Grade 3 ------------------------------------------------------------------
-  - {id: round-10-100, title: Rounding to 10 or 100, grade: "3", strand: place-value, requires: [number-line-to-1000], standards: [3.NBT.A.1]}
-  - {id: sub-across-zeros, title: Taking away across zeros, grade: "3", strand: add-sub, requires: [sub-3d-regroup], standards: [3.NBT.A.2]}
-  - {id: word-problems-1000, title: Word problems to 1000, grade: "3", strand: add-sub, requires: [two-step-problems-100, add-3d, sub-3d], standards: [3.NBT.A.2]}
-  - {id: estimate-sums, title: Estimating sums and differences, grade: "3", strand: add-sub, requires: [round-10-100, add-3d, sub-3d], standards: [3.OA.D.8]}
-  - {id: mult-meaning, title: What times means, grade: "3", strand: multiplication, requires: [repeated-addition], standards: [3.OA.A.1]}
-  - {id: mult-facts-5, title: Times tables to 5, grade: "3", strand: multiplication, requires: [mult-meaning], standards: [3.OA.C.7]}
-  - {id: mult-by-0-1, title: Times 0 and times 1, grade: "3", strand: multiplication, requires: [mult-meaning], standards: [3.OA.B.5]}
-  - {id: mult-commutative, title: Turning a times fact around, grade: "3", strand: multiplication, requires: [mult-facts-5], standards: [3.OA.B.5]}
-  - {id: mult-facts-10, title: Times tables to 10, grade: "3", strand: multiplication, requires: [mult-facts-5, mult-by-0-1, mult-commutative], standards: [3.OA.C.7]}
-  - {id: mult-distributive, title: Splitting a times fact, grade: "3", strand: multiplication, requires: [mult-facts-5, add-2d-2d-regroup], standards: [3.OA.B.5], needs: [split-rectangle]}
-  - {id: mult-three-numbers, title: Times with three numbers, grade: "3", strand: multiplication, requires: [mult-facts-10], standards: [3.OA.B.5]}
-  - {id: mult-unknown, title: The missing factor, grade: "3", strand: multiplication, requires: [mult-facts-10], standards: [3.OA.A.4]}
-  - {id: mult-word-problems, title: Times word problems, grade: "3", strand: multiplication, requires: [mult-facts-10], standards: [3.OA.A.3]}
-  - {id: mult-by-tens, title: Times multiples of 10, grade: "3", strand: multiplication, requires: [mult-facts-10, add-tens], standards: [3.NBT.A.3]}
-  - {id: times-table-patterns, title: Patterns in the tables, grade: "3", strand: multiplication, requires: [mult-facts-10, odd-even], standards: [3.OA.D.9]}
-  - {id: div-meaning, title: What dividing means, grade: "3", strand: division, requires: [mult-meaning], standards: [3.OA.A.2], needs: [dots]}
-  - {id: div-facts, title: Dividing facts, grade: "3", strand: division, requires: [mult-facts-10, div-meaning], standards: [3.OA.C.7]}
-  - {id: div-by-1-and-itself, title: Dividing by 1 and by itself, grade: "3", strand: division, requires: [div-meaning, mult-by-0-1], standards: [3.OA.B.5]}
-  - {id: div-as-missing-factor, title: Dividing as a missing factor, grade: "3", strand: division, requires: [div-facts, mult-unknown], standards: [3.OA.B.6]}
-  - {id: div-word-problems, title: Dividing word problems, grade: "3", strand: division, requires: [div-facts, mult-word-problems], standards: [3.OA.A.3]}
-  - {id: two-step-word-problems, title: Two-step problems, grade: "3", strand: division, requires: [div-word-problems, word-problems-1000], standards: [3.OA.D.8]}
-  - {id: unit-fractions, title: Naming fractions, grade: "3", strand: fractions, requires: [thirds, equal-groups-arrays], standards: [3.NF.A.1]}
-  - {id: non-unit-fractions, title: Fractions like 3/4, grade: "3", strand: fractions, requires: [unit-fractions], standards: [3.NF.A.1]}
-  - {id: fractions-on-number-line, title: Fractions on a number line, grade: "3", strand: fractions, requires: [non-unit-fractions, number-line-to-20], standards: [3.NF.A.2]}
-  - {id: whole-numbers-as-fractions, title: Whole numbers as fractions, grade: "3", strand: fractions, requires: [fractions-on-number-line], standards: [3.NF.A.3c]}
-  - {id: same-size-fractions, title: Same size, different fraction, grade: "3", strand: fractions, requires: [fractions-on-number-line], standards: [3.NF.A.3a, 3.NF.A.3b]}
-  - {id: compare-fractions-same, title: Comparing fractions with a number the same, grade: "3", strand: fractions, requires: [non-unit-fractions], standards: [3.NF.A.3d]}
-  - {id: tell-time-minute, title: Telling the time to the minute, grade: "3", strand: measurement, requires: [tell-time-5min], standards: [3.MD.A.1]}
-  - {id: elapsed-time, title: How long did it take, grade: "3", strand: measurement, requires: [tell-time-minute, am-pm, sub-2d-2d-regroup], standards: [3.MD.A.1]}
-  - {id: mass-and-volume, title: Grams, kilograms and litres, grade: "3", strand: measurement, requires: [measure-length, word-problems-100], standards: [3.MD.A.2], needs: [scales]}
-  - {id: scaled-picture-graphs, title: Picture graphs where one picture is many, grade: "3", strand: measurement, requires: [picture-graphs, mult-facts-5], standards: [3.MD.B.3], needs: [picture-graph]}
-  - {id: scaled-bar-graphs, title: Bar graphs with a scale, grade: "3", strand: measurement, requires: [bar-graphs, mult-facts-5], standards: [3.MD.B.3], needs: [bar-graph]}
-  - {id: line-plots-fractions, title: Line plots with halves and quarters, grade: "3", strand: measurement, requires: [line-plots-whole, fractions-on-number-line], standards: [3.MD.B.4], needs: [line-plot]}
-  - {id: area-unit-squares, title: Counting square units, grade: "3", strand: measurement, requires: [partition-rectangles, mult-meaning], standards: [3.MD.C.5, 3.MD.C.6]}
-  - {id: rectangle-area, title: Area of a rectangle, grade: "3", strand: measurement, requires: [area-unit-squares, mult-facts-10], standards: [3.MD.C.7]}
-  - {id: area-split-rectangles, title: Splitting a rectangle's area, grade: "3", strand: measurement, requires: [rectangle-area, mult-distributive], standards: [3.MD.C.7c], needs: [split-rectangle]}
-  - {id: area-composite, title: Area of L shapes, grade: "3", strand: measurement, requires: [rectangle-area, add-3d], standards: [3.MD.C.7d], needs: [polygon]}
-  - {id: perimeter, title: Perimeter, grade: "3", strand: measurement, requires: [add-four-2d, name-shapes], standards: [3.MD.D.8], needs: [polygon]}
-  - {id: perimeter-missing-side, title: Finding a missing side, grade: "3", strand: measurement, requires: [perimeter, missing-number-100], standards: [3.MD.D.8], needs: [polygon]}
-  - {id: area-vs-perimeter, title: Same perimeter, different area, grade: "3", strand: measurement, requires: [perimeter, rectangle-area], standards: [3.MD.D.8]}
-  - {id: quadrilaterals, title: Kinds of quadrilaterals, grade: "3", strand: geometry, requires: [name-shapes], standards: [3.G.A.1], needs: [shapes]}
-  - {id: equal-area-parts, title: Shapes cut into equal areas, grade: "3", strand: geometry, requires: [unit-fractions, area-unit-squares], standards: [3.G.A.2], needs: [shapes]}
+  - {id: round-10-100, title: "Rounding to 10 or 100", grade: "3", strand: place-value, requires: [number-line-to-1000], standards: [3.NBT.A.1]}
+  - {id: sub-across-zeros, title: "Taking away across zeros", grade: "3", strand: add-sub, requires: [sub-3d-regroup], standards: [3.NBT.A.2]}
+  - {id: word-problems-1000, title: "Word problems to 1000", grade: "3", strand: add-sub, requires: [two-step-problems-100, add-3d, sub-3d], standards: [3.NBT.A.2]}
+  - {id: estimate-sums, title: "Estimating sums and differences", grade: "3", strand: add-sub, requires: [round-10-100, add-3d, sub-3d], standards: [3.OA.D.8]}
+  - {id: mult-meaning, title: "What times means", grade: "3", strand: multiplication, requires: [repeated-addition], standards: [3.OA.A.1]}
+  - {id: mult-facts-5, title: "Times tables to 5", grade: "3", strand: multiplication, requires: [mult-meaning], standards: [3.OA.C.7]}
+  - {id: mult-by-0-1, title: "Times 0 and times 1", grade: "3", strand: multiplication, requires: [mult-meaning], standards: [3.OA.B.5]}
+  - {id: mult-commutative, title: "Turning a times fact around", grade: "3", strand: multiplication, requires: [mult-facts-5], standards: [3.OA.B.5]}
+  - {id: mult-facts-10, title: "Times tables to 10", grade: "3", strand: multiplication, requires: [mult-facts-5, mult-by-0-1, mult-commutative], standards: [3.OA.C.7]}
+  - {id: mult-distributive, title: "Splitting a times fact", grade: "3", strand: multiplication, requires: [mult-facts-5, add-2d-2d-regroup], standards: [3.OA.B.5], needs: [split-rectangle]}
+  - {id: mult-three-numbers, title: "Times with three numbers", grade: "3", strand: multiplication, requires: [mult-facts-10], standards: [3.OA.B.5]}
+  - {id: mult-unknown, title: "The missing factor", grade: "3", strand: multiplication, requires: [mult-facts-10], standards: [3.OA.A.4]}
+  - {id: mult-word-problems, title: "Times word problems", grade: "3", strand: multiplication, requires: [mult-facts-10], standards: [3.OA.A.3]}
+  - {id: mult-by-tens, title: "Times multiples of 10", grade: "3", strand: multiplication, requires: [mult-facts-10, add-tens], standards: [3.NBT.A.3]}
+  - {id: times-table-patterns, title: "Patterns in the tables", grade: "3", strand: multiplication, requires: [mult-facts-10, odd-even], standards: [3.OA.D.9]}
+  - {id: div-meaning, title: "What dividing means", grade: "3", strand: division, requires: [mult-meaning], standards: [3.OA.A.2], needs: [dots]}
+  - {id: div-facts, title: "Dividing facts", grade: "3", strand: division, requires: [mult-facts-10, div-meaning], standards: [3.OA.C.7]}
+  - {id: div-by-1-and-itself, title: "Dividing by 1 and by itself", grade: "3", strand: division, requires: [div-meaning, mult-by-0-1], standards: [3.OA.B.5]}
+  - {id: div-as-missing-factor, title: "Dividing as a missing factor", grade: "3", strand: division, requires: [div-facts, mult-unknown], standards: [3.OA.B.6]}
+  - {id: div-word-problems, title: "Dividing word problems", grade: "3", strand: division, requires: [div-facts, mult-word-problems], standards: [3.OA.A.3]}
+  - {id: two-step-word-problems, title: "Two-step problems", grade: "3", strand: division, requires: [div-word-problems, word-problems-1000], standards: [3.OA.D.8]}
+  - {id: unit-fractions, title: "Naming fractions", grade: "3", strand: fractions, requires: [thirds, equal-groups-arrays], standards: [3.NF.A.1]}
+  - {id: non-unit-fractions, title: "Fractions like 3/4", grade: "3", strand: fractions, requires: [unit-fractions], standards: [3.NF.A.1]}
+  - {id: fractions-on-number-line, title: "Fractions on a number line", grade: "3", strand: fractions, requires: [non-unit-fractions, number-line-to-20], standards: [3.NF.A.2]}
+  - {id: whole-numbers-as-fractions, title: "Whole numbers as fractions", grade: "3", strand: fractions, requires: [fractions-on-number-line], standards: [3.NF.A.3c]}
+  - {id: same-size-fractions, title: "Same size, different fraction", grade: "3", strand: fractions, requires: [fractions-on-number-line], standards: [3.NF.A.3a, 3.NF.A.3b]}
+  - {id: compare-fractions-same, title: "Comparing fractions with a number the same", grade: "3", strand: fractions, requires: [non-unit-fractions], standards: [3.NF.A.3d]}
+  - {id: tell-time-minute, title: "Telling the time to the minute", grade: "3", strand: measurement, requires: [tell-time-5min], standards: [3.MD.A.1]}
+  - {id: elapsed-time, title: "How long did it take", grade: "3", strand: measurement, requires: [tell-time-minute, am-pm, sub-2d-2d-regroup], standards: [3.MD.A.1]}
+  - {id: mass-and-volume, title: "Grams, kilograms and litres", grade: "3", strand: measurement, requires: [measure-length, word-problems-100], standards: [3.MD.A.2], needs: [scales]}
+  - {id: scaled-picture-graphs, title: "Picture graphs where one picture is many", grade: "3", strand: measurement, requires: [picture-graphs, mult-facts-5], standards: [3.MD.B.3], needs: [picture-graph]}
+  - {id: scaled-bar-graphs, title: "Bar graphs with a scale", grade: "3", strand: measurement, requires: [bar-graphs, mult-facts-5], standards: [3.MD.B.3], needs: [bar-graph]}
+  - {id: line-plots-fractions, title: "Line plots with halves and quarters", grade: "3", strand: measurement, requires: [line-plots-whole, fractions-on-number-line], standards: [3.MD.B.4], needs: [line-plot]}
+  - {id: area-unit-squares, title: "Counting square units", grade: "3", strand: measurement, requires: [partition-rectangles, mult-meaning], standards: [3.MD.C.5, 3.MD.C.6]}
+  - {id: rectangle-area, title: "Area of a rectangle", grade: "3", strand: measurement, requires: [area-unit-squares, mult-facts-10], standards: [3.MD.C.7]}
+  - {id: area-split-rectangles, title: "Splitting a rectangle's area", grade: "3", strand: measurement, requires: [rectangle-area, mult-distributive], standards: [3.MD.C.7c], needs: [split-rectangle]}
+  - {id: area-composite, title: "Area of L shapes", grade: "3", strand: measurement, requires: [rectangle-area, add-3d], standards: [3.MD.C.7d], needs: [polygon]}
+  - {id: perimeter, title: "Perimeter", grade: "3", strand: measurement, requires: [add-four-2d, name-shapes], standards: [3.MD.D.8], needs: [polygon]}
+  - {id: perimeter-missing-side, title: "Finding a missing side", grade: "3", strand: measurement, requires: [perimeter, missing-number-100], standards: [3.MD.D.8], needs: [polygon]}
+  - {id: area-vs-perimeter, title: "Same perimeter, different area", grade: "3", strand: measurement, requires: [perimeter, rectangle-area], standards: [3.MD.D.8]}
+  - {id: quadrilaterals, title: "Kinds of quadrilaterals", grade: "3", strand: geometry, requires: [name-shapes], standards: [3.G.A.1], needs: [shapes]}
+  - {id: equal-area-parts, title: "Shapes cut into equal areas", grade: "3", strand: geometry, requires: [unit-fractions, area-unit-squares], standards: [3.G.A.2], needs: [shapes]}
 
   # --- Grade 4 ------------------------------------------------------------------
-  - {id: place-value-million, title: Place value to a million, grade: "4", strand: place-value, requires: [expanded-form-3d, count-to-1000], standards: [4.NBT.A.2]}
-  - {id: place-value-ten-times, title: Each place is ten times the next, grade: "4", strand: place-value, requires: [place-value-million, mult-by-tens], standards: [4.NBT.A.1]}
-  - {id: read-big-numbers, title: Reading and writing big numbers, grade: "4", strand: place-value, requires: [place-value-million, number-words-1000], standards: [4.NBT.A.2]}
-  - {id: compare-big-numbers, title: Comparing big numbers, grade: "4", strand: place-value, requires: [place-value-million, compare-3-digit], standards: [4.NBT.A.2]}
-  - {id: round-big-numbers, title: Rounding big numbers, grade: "4", strand: place-value, requires: [round-10-100, place-value-million], standards: [4.NBT.A.3]}
-  - {id: add-multi-digit, title: Adding big numbers, grade: "4", strand: add-sub, requires: [add-3d, place-value-million], standards: [4.NBT.B.4]}
-  - {id: sub-multi-digit, title: Taking away big numbers, grade: "4", strand: add-sub, requires: [add-multi-digit, sub-across-zeros], standards: [4.NBT.B.4]}
-  - {id: mult-compare, title: Times as many, grade: "4", strand: multiplication, requires: [mult-word-problems], standards: [4.OA.A.1, 4.OA.A.2]}
-  - {id: multiples, title: Multiples, grade: "4", strand: multiplication, requires: [mult-facts-10], standards: [4.OA.B.4]}
-  - {id: factor-pairs, title: Factor pairs, grade: "4", strand: multiplication, requires: [multiples, div-facts], standards: [4.OA.B.4]}
-  - {id: prime-composite, title: Prime or composite, grade: "4", strand: multiplication, requires: [factor-pairs], standards: [4.OA.B.4]}
-  - {id: number-patterns, title: Number patterns, grade: "4", strand: multiplication, requires: [multiples, add-3d], standards: [4.OA.C.5]}
-  - {id: mult-by-10-100-1000, title: Times 10, 100 and 1000, grade: "4", strand: multiplication, requires: [mult-by-tens, place-value-ten-times], standards: [4.NBT.B.5]}
-  - {id: mult-2d-1d, title: 2-digit times 1-digit, grade: "4", strand: multiplication, requires: [mult-distributive, mult-by-tens], standards: [4.NBT.B.5]}
-  - {id: mult-area-model, title: Area models for multiplying, grade: "4", strand: multiplication, requires: [mult-2d-1d, area-split-rectangles], standards: [4.NBT.B.5], needs: [split-rectangle]}
-  - {id: mult-3d-1d, title: 3-digit times 1-digit, grade: "4", strand: multiplication, requires: [mult-2d-1d], standards: [4.NBT.B.5]}
-  - {id: mult-4d-1d, title: 4-digit times 1-digit, grade: "4", strand: multiplication, requires: [mult-3d-1d, place-value-million], standards: [4.NBT.B.5]}
-  - {id: mult-2d-2d, title: 2-digit times 2-digit, grade: "4", strand: multiplication, requires: [mult-area-model, mult-by-10-100-1000], standards: [4.NBT.B.5]}
-  - {id: estimate-products, title: Estimating products, grade: "4", strand: multiplication, requires: [round-big-numbers, mult-2d-1d], standards: [4.OA.A.3]}
-  - {id: div-with-remainder, title: Dividing with a remainder, grade: "4", strand: division, requires: [div-facts], standards: [4.NBT.B.6]}
-  - {id: remainders-in-stories, title: What to do with the remainder, grade: "4", strand: division, requires: [div-with-remainder, div-word-problems], standards: [4.OA.A.3]}
-  - {id: div-tens-hundreds, title: Dividing tens and hundreds, grade: "4", strand: division, requires: [div-facts, mult-by-10-100-1000], standards: [4.NBT.B.6]}
-  - {id: div-3d-1d, title: 3-digit divided by 1-digit, grade: "4", strand: division, requires: [div-with-remainder, div-tens-hundreds], standards: [4.NBT.B.6]}
-  - {id: div-zero-in-quotient, title: Zeros in the answer, grade: "4", strand: division, requires: [div-3d-1d], standards: [4.NBT.B.6]}
-  - {id: div-4d-1d, title: 4-digit divided by 1-digit, grade: "4", strand: division, requires: [div-zero-in-quotient], standards: [4.NBT.B.6]}
-  - {id: multi-step-word-problems, title: Multi-step word problems, grade: "4", strand: division, requires: [sub-multi-digit, mult-3d-1d, remainders-in-stories, two-step-word-problems], standards: [4.OA.A.3]}
-  - {id: equivalent-fractions, title: Equivalent fractions, grade: "4", strand: fractions, requires: [compare-fractions-same, same-size-fractions, mult-facts-10], standards: [4.NF.A.1]}
-  - {id: simplest-form, title: Fractions in simplest form, grade: "4", strand: fractions, requires: [equivalent-fractions, factor-pairs], standards: [4.NF.A.1]}
-  - {id: compare-to-half, title: Bigger or smaller than a half, grade: "4", strand: fractions, requires: [equivalent-fractions], standards: [4.NF.A.2]}
-  - {id: compare-fractions-unlike, title: Comparing any two fractions, grade: "4", strand: fractions, requires: [equivalent-fractions, compare-to-half], standards: [4.NF.A.2]}
-  - {id: add-fractions-same, title: Adding fractions with the same bottom, grade: "4", strand: fractions, requires: [non-unit-fractions, whole-numbers-as-fractions], standards: [4.NF.B.3a]}
-  - {id: sub-fractions-same, title: Taking away fractions with the same bottom, grade: "4", strand: fractions, requires: [add-fractions-same], standards: [4.NF.B.3a]}
-  - {id: split-fractions, title: Splitting a fraction into parts, grade: "4", strand: fractions, requires: [add-fractions-same], standards: [4.NF.B.3b]}
-  - {id: mixed-numbers, title: Mixed numbers, grade: "4", strand: fractions, requires: [add-fractions-same, whole-numbers-as-fractions], standards: [4.NF.B.3]}
-  - {id: improper-to-mixed, title: Improper fractions and mixed numbers, grade: "4", strand: fractions, requires: [mixed-numbers, div-with-remainder], standards: [4.NF.B.3]}
-  - {id: add-mixed-same, title: Adding mixed numbers, grade: "4", strand: fractions, requires: [improper-to-mixed], standards: [4.NF.B.3c]}
-  - {id: sub-mixed-same, title: Taking away mixed numbers, grade: "4", strand: fractions, requires: [add-mixed-same, sub-fractions-same], standards: [4.NF.B.3c]}
-  - {id: fraction-word-problems-same, title: Fraction word problems, grade: "4", strand: fractions, requires: [sub-mixed-same], standards: [4.NF.B.3d]}
-  - {id: mult-unit-fraction-whole, title: A whole number times a unit fraction, grade: "4", strand: fractions, requires: [non-unit-fractions, mult-facts-10], standards: [4.NF.B.4a]}
-  - {id: mult-fraction-whole, title: A whole number times a fraction, grade: "4", strand: fractions, requires: [mult-unit-fraction-whole, improper-to-mixed], standards: [4.NF.B.4b, 4.NF.B.4c]}
-  - {id: tenths-hundredths, title: Tenths and hundredths as decimals, grade: "4", strand: decimals, requires: [equivalent-fractions], standards: [4.NF.C.6]}
-  - {id: tenths-as-hundredths, title: Tenths as hundredths, grade: "4", strand: decimals, requires: [tenths-hundredths], standards: [4.NF.C.5]}
-  - {id: add-tenths-hundredths, title: Adding tenths and hundredths, grade: "4", strand: decimals, requires: [tenths-as-hundredths, add-fractions-same], standards: [4.NF.C.5]}
-  - {id: decimals-on-number-line, title: Decimals on a number line, grade: "4", strand: decimals, requires: [tenths-hundredths, fractions-on-number-line], standards: [4.NF.C.6], needs: [number-line-decimal]}
-  - {id: compare-decimals, title: Comparing decimals, grade: "4", strand: decimals, requires: [tenths-hundredths], standards: [4.NF.C.7]}
-  - {id: money-decimals, title: Money as decimals, grade: "4", strand: decimals, requires: [tenths-hundredths, dollars-and-cents], standards: [4.MD.A.2]}
-  - {id: convert-metric-length, title: Metres and centimetres, grade: "4", strand: measurement, requires: [mult-by-10-100-1000, measure-length], standards: [4.MD.A.1]}
-  - {id: convert-customary-length, title: Feet and inches, grade: "4", strand: measurement, requires: [mult-facts-10, measure-length], standards: [4.MD.A.1]}
-  - {id: convert-mass-capacity, title: Kilograms, grams and litres, grade: "4", strand: measurement, requires: [convert-metric-length, mass-and-volume], standards: [4.MD.A.1]}
-  - {id: convert-time, title: Hours, minutes and seconds, grade: "4", strand: measurement, requires: [mult-2d-1d, elapsed-time], standards: [4.MD.A.1]}
-  - {id: measure-word-problems, title: Measurement word problems, grade: "4", strand: measurement, requires: [convert-mass-capacity, convert-time, money-decimals], standards: [4.MD.A.2]}
-  - {id: area-perimeter-rules, title: Area and perimeter rules, grade: "4", strand: measurement, requires: [area-vs-perimeter, mult-2d-1d], standards: [4.MD.A.3]}
-  - {id: area-perimeter-missing, title: Finding a missing length, grade: "4", strand: measurement, requires: [area-perimeter-rules, div-facts], standards: [4.MD.A.3]}
-  - {id: line-plots-eighths, title: Line plots with eighths, grade: "4", strand: measurement, requires: [line-plots-fractions, add-fractions-same], standards: [4.MD.B.4], needs: [line-plot]}
-  - {id: points-lines-rays, title: Points, lines and rays, grade: "4", strand: geometry, requires: [quadrilaterals], standards: [4.G.A.1], needs: [lines]}
-  - {id: parallel-perpendicular, title: Parallel and perpendicular, grade: "4", strand: geometry, requires: [points-lines-rays], standards: [4.G.A.1], needs: [lines]}
-  - {id: angle-types, title: Right, acute and obtuse angles, grade: "4", strand: geometry, requires: [points-lines-rays], standards: [4.G.A.1], needs: [angle]}
-  - {id: angle-degrees, title: Angles in degrees, grade: "4", strand: geometry, requires: [angle-types, mult-by-tens], standards: [4.MD.C.5], needs: [angle]}
-  - {id: measure-angles, title: Measuring angles, grade: "4", strand: geometry, requires: [angle-degrees], standards: [4.MD.C.6], needs: [protractor]}
-  - {id: add-angles, title: Adding angles, grade: "4", strand: geometry, requires: [measure-angles, add-3d], standards: [4.MD.C.7], needs: [angle]}
-  - {id: missing-angle, title: Finding a missing angle, grade: "4", strand: geometry, requires: [add-angles, sub-3d], standards: [4.MD.C.7], needs: [angle]}
-  - {id: classify-triangles, title: Kinds of triangles, grade: "4", strand: geometry, requires: [angle-types], standards: [4.G.A.2], needs: [shapes]}
-  - {id: classify-quadrilaterals, title: Sorting quadrilaterals, grade: "4", strand: geometry, requires: [quadrilaterals, parallel-perpendicular, angle-types], standards: [4.G.A.2], needs: [shapes]}
-  - {id: lines-of-symmetry, title: Lines of symmetry, grade: "4", strand: geometry, requires: [name-shapes], standards: [4.G.A.3], needs: [shapes]}
+  - {id: place-value-million, title: "Place value to a million", grade: "4", strand: place-value, requires: [expanded-form-3d, count-to-1000], standards: [4.NBT.A.2]}
+  - {id: place-value-ten-times, title: "Each place is ten times the next", grade: "4", strand: place-value, requires: [place-value-million, mult-by-tens], standards: [4.NBT.A.1]}
+  - {id: read-big-numbers, title: "Reading and writing big numbers", grade: "4", strand: place-value, requires: [place-value-million, number-words-1000], standards: [4.NBT.A.2]}
+  - {id: compare-big-numbers, title: "Comparing big numbers", grade: "4", strand: place-value, requires: [place-value-million, compare-3-digit], standards: [4.NBT.A.2]}
+  - {id: round-big-numbers, title: "Rounding big numbers", grade: "4", strand: place-value, requires: [round-10-100, place-value-million], standards: [4.NBT.A.3]}
+  - {id: add-multi-digit, title: "Adding big numbers", grade: "4", strand: add-sub, requires: [add-3d, place-value-million], standards: [4.NBT.B.4]}
+  - {id: sub-multi-digit, title: "Taking away big numbers", grade: "4", strand: add-sub, requires: [add-multi-digit, sub-across-zeros], standards: [4.NBT.B.4]}
+  - {id: mult-compare, title: "Times as many", grade: "4", strand: multiplication, requires: [mult-word-problems], standards: [4.OA.A.1, 4.OA.A.2]}
+  - {id: multiples, title: "Multiples", grade: "4", strand: multiplication, requires: [mult-facts-10], standards: [4.OA.B.4]}
+  - {id: factor-pairs, title: "Factor pairs", grade: "4", strand: multiplication, requires: [multiples, div-facts], standards: [4.OA.B.4]}
+  - {id: prime-composite, title: "Prime or composite", grade: "4", strand: multiplication, requires: [factor-pairs], standards: [4.OA.B.4]}
+  - {id: number-patterns, title: "Number patterns", grade: "4", strand: multiplication, requires: [multiples, add-3d], standards: [4.OA.C.5]}
+  - {id: mult-by-10-100-1000, title: "Times 10, 100 and 1000", grade: "4", strand: multiplication, requires: [mult-by-tens, place-value-ten-times], standards: [4.NBT.B.5]}
+  - {id: mult-2d-1d, title: "2-digit times 1-digit", grade: "4", strand: multiplication, requires: [mult-distributive, mult-by-tens], standards: [4.NBT.B.5]}
+  - {id: mult-area-model, title: "Area models for multiplying", grade: "4", strand: multiplication, requires: [mult-2d-1d, area-split-rectangles], standards: [4.NBT.B.5], needs: [split-rectangle]}
+  - {id: mult-3d-1d, title: "3-digit times 1-digit", grade: "4", strand: multiplication, requires: [mult-2d-1d], standards: [4.NBT.B.5]}
+  - {id: mult-4d-1d, title: "4-digit times 1-digit", grade: "4", strand: multiplication, requires: [mult-3d-1d, place-value-million], standards: [4.NBT.B.5]}
+  - {id: mult-2d-2d, title: "2-digit times 2-digit", grade: "4", strand: multiplication, requires: [mult-area-model, mult-by-10-100-1000], standards: [4.NBT.B.5]}
+  - {id: estimate-products, title: "Estimating products", grade: "4", strand: multiplication, requires: [round-big-numbers, mult-2d-1d], standards: [4.OA.A.3]}
+  - {id: div-with-remainder, title: "Dividing with a remainder", grade: "4", strand: division, requires: [div-facts], standards: [4.NBT.B.6]}
+  - {id: remainders-in-stories, title: "What to do with the remainder", grade: "4", strand: division, requires: [div-with-remainder, div-word-problems], standards: [4.OA.A.3]}
+  - {id: div-tens-hundreds, title: "Dividing tens and hundreds", grade: "4", strand: division, requires: [div-facts, mult-by-10-100-1000], standards: [4.NBT.B.6]}
+  - {id: div-3d-1d, title: "3-digit divided by 1-digit", grade: "4", strand: division, requires: [div-with-remainder, div-tens-hundreds], standards: [4.NBT.B.6]}
+  - {id: div-zero-in-quotient, title: "Zeros in the answer", grade: "4", strand: division, requires: [div-3d-1d], standards: [4.NBT.B.6]}
+  - {id: div-4d-1d, title: "4-digit divided by 1-digit", grade: "4", strand: division, requires: [div-zero-in-quotient], standards: [4.NBT.B.6]}
+  - {id: multi-step-word-problems, title: "Multi-step word problems", grade: "4", strand: division, requires: [sub-multi-digit, mult-3d-1d, remainders-in-stories, two-step-word-problems], standards: [4.OA.A.3]}
+  - {id: equivalent-fractions, title: "Equivalent fractions", grade: "4", strand: fractions, requires: [compare-fractions-same, same-size-fractions, mult-facts-10], standards: [4.NF.A.1]}
+  - {id: simplest-form, title: "Fractions in simplest form", grade: "4", strand: fractions, requires: [equivalent-fractions, factor-pairs], standards: [4.NF.A.1]}
+  - {id: compare-to-half, title: "Bigger or smaller than a half", grade: "4", strand: fractions, requires: [equivalent-fractions], standards: [4.NF.A.2]}
+  - {id: compare-fractions-unlike, title: "Comparing any two fractions", grade: "4", strand: fractions, requires: [equivalent-fractions, compare-to-half], standards: [4.NF.A.2]}
+  - {id: add-fractions-same, title: "Adding fractions with the same bottom", grade: "4", strand: fractions, requires: [non-unit-fractions, whole-numbers-as-fractions], standards: [4.NF.B.3a]}
+  - {id: sub-fractions-same, title: "Taking away fractions with the same bottom", grade: "4", strand: fractions, requires: [add-fractions-same], standards: [4.NF.B.3a]}
+  - {id: split-fractions, title: "Splitting a fraction into parts", grade: "4", strand: fractions, requires: [add-fractions-same], standards: [4.NF.B.3b]}
+  - {id: mixed-numbers, title: "Mixed numbers", grade: "4", strand: fractions, requires: [add-fractions-same, whole-numbers-as-fractions], standards: [4.NF.B.3]}
+  - {id: improper-to-mixed, title: "Improper fractions and mixed numbers", grade: "4", strand: fractions, requires: [mixed-numbers, div-with-remainder], standards: [4.NF.B.3]}
+  - {id: add-mixed-same, title: "Adding mixed numbers", grade: "4", strand: fractions, requires: [improper-to-mixed], standards: [4.NF.B.3c]}
+  - {id: sub-mixed-same, title: "Taking away mixed numbers", grade: "4", strand: fractions, requires: [add-mixed-same, sub-fractions-same], standards: [4.NF.B.3c]}
+  - {id: fraction-word-problems-same, title: "Fraction word problems", grade: "4", strand: fractions, requires: [sub-mixed-same], standards: [4.NF.B.3d]}
+  - {id: mult-unit-fraction-whole, title: "A whole number times a unit fraction", grade: "4", strand: fractions, requires: [non-unit-fractions, mult-facts-10], standards: [4.NF.B.4a]}
+  - {id: mult-fraction-whole, title: "A whole number times a fraction", grade: "4", strand: fractions, requires: [mult-unit-fraction-whole, improper-to-mixed], standards: [4.NF.B.4b, 4.NF.B.4c]}
+  - {id: tenths-hundredths, title: "Tenths and hundredths as decimals", grade: "4", strand: decimals, requires: [equivalent-fractions], standards: [4.NF.C.6]}
+  - {id: tenths-as-hundredths, title: "Tenths as hundredths", grade: "4", strand: decimals, requires: [tenths-hundredths], standards: [4.NF.C.5]}
+  - {id: add-tenths-hundredths, title: "Adding tenths and hundredths", grade: "4", strand: decimals, requires: [tenths-as-hundredths, add-fractions-same], standards: [4.NF.C.5]}
+  - {id: decimals-on-number-line, title: "Decimals on a number line", grade: "4", strand: decimals, requires: [tenths-hundredths, fractions-on-number-line], standards: [4.NF.C.6], needs: [number-line-decimal]}
+  - {id: compare-decimals, title: "Comparing decimals", grade: "4", strand: decimals, requires: [tenths-hundredths], standards: [4.NF.C.7]}
+  - {id: money-decimals, title: "Money as decimals", grade: "4", strand: decimals, requires: [tenths-hundredths, dollars-and-cents], standards: [4.MD.A.2]}
+  - {id: convert-metric-length, title: "Metres and centimetres", grade: "4", strand: measurement, requires: [mult-by-10-100-1000, measure-length], standards: [4.MD.A.1]}
+  - {id: convert-customary-length, title: "Feet and inches", grade: "4", strand: measurement, requires: [mult-facts-10, measure-length], standards: [4.MD.A.1]}
+  - {id: convert-mass-capacity, title: "Kilograms, grams and litres", grade: "4", strand: measurement, requires: [convert-metric-length, mass-and-volume], standards: [4.MD.A.1]}
+  - {id: convert-time, title: "Hours, minutes and seconds", grade: "4", strand: measurement, requires: [mult-2d-1d, elapsed-time], standards: [4.MD.A.1]}
+  - {id: measure-word-problems, title: "Measurement word problems", grade: "4", strand: measurement, requires: [convert-mass-capacity, convert-time, money-decimals], standards: [4.MD.A.2]}
+  - {id: area-perimeter-rules, title: "Area and perimeter rules", grade: "4", strand: measurement, requires: [area-vs-perimeter, mult-2d-1d], standards: [4.MD.A.3]}
+  - {id: area-perimeter-missing, title: "Finding a missing length", grade: "4", strand: measurement, requires: [area-perimeter-rules, div-facts], standards: [4.MD.A.3]}
+  - {id: line-plots-eighths, title: "Line plots with eighths", grade: "4", strand: measurement, requires: [line-plots-fractions, add-fractions-same], standards: [4.MD.B.4], needs: [line-plot]}
+  - {id: points-lines-rays, title: "Points, lines and rays", grade: "4", strand: geometry, requires: [quadrilaterals], standards: [4.G.A.1], needs: [lines]}
+  - {id: parallel-perpendicular, title: "Parallel and perpendicular", grade: "4", strand: geometry, requires: [points-lines-rays], standards: [4.G.A.1], needs: [lines]}
+  - {id: angle-types, title: "Right, acute and obtuse angles", grade: "4", strand: geometry, requires: [points-lines-rays], standards: [4.G.A.1], needs: [angle]}
+  - {id: angle-degrees, title: "Angles in degrees", grade: "4", strand: geometry, requires: [angle-types, mult-by-tens], standards: [4.MD.C.5], needs: [angle]}
+  - {id: measure-angles, title: "Measuring angles", grade: "4", strand: geometry, requires: [angle-degrees], standards: [4.MD.C.6], needs: [protractor]}
+  - {id: add-angles, title: "Adding angles", grade: "4", strand: geometry, requires: [measure-angles, add-3d], standards: [4.MD.C.7], needs: [angle]}
+  - {id: missing-angle, title: "Finding a missing angle", grade: "4", strand: geometry, requires: [add-angles, sub-3d], standards: [4.MD.C.7], needs: [angle]}
+  - {id: classify-triangles, title: "Kinds of triangles", grade: "4", strand: geometry, requires: [angle-types], standards: [4.G.A.2], needs: [shapes]}
+  - {id: classify-quadrilaterals, title: "Sorting quadrilaterals", grade: "4", strand: geometry, requires: [quadrilaterals, parallel-perpendicular, angle-types], standards: [4.G.A.2], needs: [shapes]}
+  - {id: lines-of-symmetry, title: "Lines of symmetry", grade: "4", strand: geometry, requires: [name-shapes], standards: [4.G.A.3], needs: [shapes]}
 
   # --- Grade 5 ------------------------------------------------------------------
-  - {id: powers-of-ten, title: Powers of ten, grade: "5", strand: place-value, requires: [mult-by-10-100-1000], standards: [5.NBT.A.2]}
-  - {id: decimal-place-value, title: Decimals to thousandths, grade: "5", strand: decimals, requires: [tenths-as-hundredths, place-value-ten-times], standards: [5.NBT.A.1, 5.NBT.A.3a]}
-  - {id: decimal-expanded-form, title: Decimals in parts, grade: "5", strand: decimals, requires: [decimal-place-value], standards: [5.NBT.A.3a]}
-  - {id: compare-decimals-thousandths, title: Comparing decimals to thousandths, grade: "5", strand: decimals, requires: [compare-decimals, decimal-place-value], standards: [5.NBT.A.3b]}
-  - {id: round-decimals, title: Rounding decimals, grade: "5", strand: decimals, requires: [decimal-place-value, round-big-numbers], standards: [5.NBT.A.4]}
-  - {id: add-decimals, title: Adding decimals, grade: "5", strand: decimals, requires: [add-tenths-hundredths, decimal-place-value, add-multi-digit], standards: [5.NBT.B.7]}
-  - {id: sub-decimals, title: Taking away decimals, grade: "5", strand: decimals, requires: [add-decimals, sub-multi-digit], standards: [5.NBT.B.7]}
-  - {id: mult-decimal-by-10s, title: Decimals times 10, 100 and 1000, grade: "5", strand: decimals, requires: [powers-of-ten, decimal-place-value], standards: [5.NBT.A.2]}
-  - {id: div-decimal-by-10s, title: Decimals divided by 10, 100 and 1000, grade: "5", strand: decimals, requires: [mult-decimal-by-10s], standards: [5.NBT.A.2]}
-  - {id: mult-decimal-whole, title: A decimal times a whole number, grade: "5", strand: decimals, requires: [mult-2d-1d, decimal-place-value], standards: [5.NBT.B.7]}
-  - {id: mult-decimals, title: Multiplying decimals, grade: "5", strand: decimals, requires: [mult-decimal-whole, mult-2d-2d, div-decimal-by-10s], standards: [5.NBT.B.7]}
-  - {id: div-decimal-by-whole, title: A decimal divided by a whole number, grade: "5", strand: decimals, requires: [div-3d-1d, sub-decimals], standards: [5.NBT.B.7]}
-  - {id: div-by-decimal, title: Dividing by a decimal, grade: "5", strand: decimals, requires: [div-decimal-by-whole, mult-decimal-by-10s], standards: [5.NBT.B.7]}
-  - {id: decimal-word-problems, title: Decimal word problems, grade: "5", strand: decimals, requires: [sub-decimals, mult-decimal-whole, div-decimal-by-whole], standards: [5.NBT.B.7]}
-  - {id: fractions-as-decimals, title: Fractions as decimals, grade: "5", strand: decimals, requires: [div-decimal-by-whole, equivalent-fractions], standards: [5.NF.B.3]}
-  - {id: mult-3d-2d, title: 3-digit times 2-digit, grade: "5", strand: multiplication, requires: [mult-2d-2d, mult-3d-1d], standards: [5.NBT.B.5]}
-  - {id: mult-multi-digit, title: Multiplying big numbers, grade: "5", strand: multiplication, requires: [mult-3d-2d, mult-4d-1d], standards: [5.NBT.B.5]}
-  - {id: order-of-operations, title: Brackets first, grade: "5", strand: multiplication, requires: [two-step-word-problems, mult-three-numbers], standards: [5.OA.A.1]}
-  - {id: write-expressions, title: Writing expressions, grade: "5", strand: multiplication, requires: [order-of-operations], standards: [5.OA.A.2]}
-  - {id: common-multiples, title: Common multiples, grade: "5", strand: multiplication, requires: [multiples, factor-pairs], standards: [5.NF.A.1]}
-  - {id: patterns-two-rules, title: Two patterns side by side, grade: "5", strand: multiplication, requires: [number-patterns, coordinate-points], standards: [5.OA.B.3]}
-  - {id: div-2d-divisor, title: Dividing by a 2-digit number, grade: "5", strand: division, requires: [div-4d-1d, mult-2d-2d, estimate-products], standards: [5.NBT.B.6]}
-  - {id: div-3d-2d, title: 3-digit divided by 2-digit, grade: "5", strand: division, requires: [div-2d-divisor], standards: [5.NBT.B.6]}
-  - {id: div-4d-2d, title: 4-digit divided by 2-digit, grade: "5", strand: division, requires: [div-3d-2d], standards: [5.NBT.B.6]}
-  - {id: div-word-problems-2d, title: Long division word problems, grade: "5", strand: division, requires: [div-4d-2d, multi-step-word-problems], standards: [5.NBT.B.6]}
-  - {id: fractions-as-division, title: Fractions are division, grade: "5", strand: fractions, requires: [improper-to-mixed, div-word-problems], standards: [5.NF.B.3]}
-  - {id: common-denominators, title: A common bottom number, grade: "5", strand: fractions, requires: [equivalent-fractions, common-multiples], standards: [5.NF.A.1]}
-  - {id: add-fractions-unlike, title: Adding fractions with different bottoms, grade: "5", strand: fractions, requires: [common-denominators, add-fractions-same, simplest-form], standards: [5.NF.A.1]}
-  - {id: sub-fractions-unlike, title: Taking away fractions with different bottoms, grade: "5", strand: fractions, requires: [add-fractions-unlike, sub-fractions-same], standards: [5.NF.A.1]}
-  - {id: add-mixed-unlike, title: Adding mixed numbers with different bottoms, grade: "5", strand: fractions, requires: [add-fractions-unlike, add-mixed-same], standards: [5.NF.A.1]}
-  - {id: sub-mixed-unlike, title: Taking away mixed numbers with different bottoms, grade: "5", strand: fractions, requires: [add-mixed-unlike, sub-fractions-unlike, sub-mixed-same], standards: [5.NF.A.1]}
-  - {id: estimate-fraction-sums, title: Is the answer sensible, grade: "5", strand: fractions, requires: [add-fractions-unlike, compare-fractions-unlike], standards: [5.NF.A.2]}
-  - {id: fraction-word-problems-unlike, title: Fraction word problems with different bottoms, grade: "5", strand: fractions, requires: [sub-mixed-unlike, fraction-word-problems-same], standards: [5.NF.A.2]}
-  - {id: fraction-of-a-number, title: A fraction of a number, grade: "5", strand: fractions, requires: [mult-fraction-whole, div-facts], standards: [5.NF.B.4a]}
-  - {id: mult-fractions, title: Multiplying fractions, grade: "5", strand: fractions, requires: [fraction-of-a-number, simplest-form], standards: [5.NF.B.4a]}
-  - {id: area-fraction-sides, title: Area with fraction sides, grade: "5", strand: fractions, requires: [mult-fractions, rectangle-area], standards: [5.NF.B.4b]}
-  - {id: mult-scaling, title: Bigger or smaller after multiplying, grade: "5", strand: fractions, requires: [mult-fractions, compare-to-half], standards: [5.NF.B.5]}
-  - {id: mult-mixed-numbers, title: Multiplying mixed numbers, grade: "5", strand: fractions, requires: [mult-fractions, improper-to-mixed], standards: [5.NF.B.6]}
-  - {id: div-unit-fraction-by-whole, title: A unit fraction divided by a whole number, grade: "5", strand: fractions, requires: [mult-fractions], standards: [5.NF.B.7a]}
-  - {id: div-whole-by-unit-fraction, title: A whole number divided by a unit fraction, grade: "5", strand: fractions, requires: [div-unit-fraction-by-whole], standards: [5.NF.B.7b]}
-  - {id: fraction-division-stories, title: Sharing with fractions, grade: "5", strand: fractions, requires: [div-whole-by-unit-fraction], standards: [5.NF.B.7c]}
-  - {id: convert-units-decimals, title: Converting metric units with decimals, grade: "5", strand: measurement, requires: [convert-mass-capacity, mult-decimal-by-10s, div-decimal-by-10s], standards: [5.MD.A.1]}
-  - {id: convert-customary-units, title: Feet, yards, pounds and ounces, grade: "5", strand: measurement, requires: [convert-customary-length, mult-2d-1d, div-with-remainder], standards: [5.MD.A.1]}
-  - {id: line-plots-fraction-sums, title: Line plots with fraction sums, grade: "5", strand: measurement, requires: [line-plots-eighths, add-fractions-unlike], standards: [5.MD.B.2], needs: [line-plot]}
-  - {id: volume-unit-cubes, title: Volume of a box, grade: "5", strand: measurement, requires: [rectangle-area, mult-three-numbers], standards: [5.MD.C.3, 5.MD.C.4]}
-  - {id: volume-formula, title: Length times width times height, grade: "5", strand: measurement, requires: [volume-unit-cubes, mult-2d-1d], standards: [5.MD.C.5b]}
-  - {id: volume-missing-edge, title: Finding a missing edge, grade: "5", strand: measurement, requires: [volume-formula, div-facts], standards: [5.MD.C.5b]}
-  - {id: volume-composite, title: Volume of joined boxes, grade: "5", strand: measurement, requires: [volume-formula, add-3d], standards: [5.MD.C.5c], needs: [joined-prisms]}
-  - {id: coordinate-points, title: Points on a grid, grade: "5", strand: geometry, requires: [number-line-to-20], standards: [5.G.A.1]}
-  - {id: coordinate-pictures, title: Graphs of real things, grade: "5", strand: geometry, requires: [coordinate-points, patterns-two-rules], standards: [5.G.A.2]}
-  - {id: shape-families, title: Shape families, grade: "5", strand: geometry, requires: [classify-quadrilaterals, classify-triangles], standards: [5.G.B.3, 5.G.B.4], needs: [shapes]}
+  - {id: powers-of-ten, title: "Powers of ten", grade: "5", strand: place-value, requires: [mult-by-10-100-1000], standards: [5.NBT.A.2]}
+  - {id: decimal-place-value, title: "Decimals to thousandths", grade: "5", strand: decimals, requires: [tenths-as-hundredths, place-value-ten-times], standards: [5.NBT.A.1, 5.NBT.A.3a]}
+  - {id: decimal-expanded-form, title: "Decimals in parts", grade: "5", strand: decimals, requires: [decimal-place-value], standards: [5.NBT.A.3a]}
+  - {id: compare-decimals-thousandths, title: "Comparing decimals to thousandths", grade: "5", strand: decimals, requires: [compare-decimals, decimal-place-value], standards: [5.NBT.A.3b]}
+  - {id: round-decimals, title: "Rounding decimals", grade: "5", strand: decimals, requires: [decimal-place-value, round-big-numbers], standards: [5.NBT.A.4]}
+  - {id: add-decimals, title: "Adding decimals", grade: "5", strand: decimals, requires: [add-tenths-hundredths, decimal-place-value, add-multi-digit], standards: [5.NBT.B.7]}
+  - {id: sub-decimals, title: "Taking away decimals", grade: "5", strand: decimals, requires: [add-decimals, sub-multi-digit], standards: [5.NBT.B.7]}
+  - {id: mult-decimal-by-10s, title: "Decimals times 10, 100 and 1000", grade: "5", strand: decimals, requires: [powers-of-ten, decimal-place-value], standards: [5.NBT.A.2]}
+  - {id: div-decimal-by-10s, title: "Decimals divided by 10, 100 and 1000", grade: "5", strand: decimals, requires: [mult-decimal-by-10s], standards: [5.NBT.A.2]}
+  - {id: mult-decimal-whole, title: "A decimal times a whole number", grade: "5", strand: decimals, requires: [mult-2d-1d, decimal-place-value], standards: [5.NBT.B.7]}
+  - {id: mult-decimals, title: "Multiplying decimals", grade: "5", strand: decimals, requires: [mult-decimal-whole, mult-2d-2d, div-decimal-by-10s], standards: [5.NBT.B.7]}
+  - {id: div-decimal-by-whole, title: "A decimal divided by a whole number", grade: "5", strand: decimals, requires: [div-3d-1d, sub-decimals], standards: [5.NBT.B.7]}
+  - {id: div-by-decimal, title: "Dividing by a decimal", grade: "5", strand: decimals, requires: [div-decimal-by-whole, mult-decimal-by-10s], standards: [5.NBT.B.7]}
+  - {id: decimal-word-problems, title: "Decimal word problems", grade: "5", strand: decimals, requires: [sub-decimals, mult-decimal-whole, div-decimal-by-whole], standards: [5.NBT.B.7]}
+  - {id: fractions-as-decimals, title: "Fractions as decimals", grade: "5", strand: decimals, requires: [div-decimal-by-whole, equivalent-fractions], standards: [5.NF.B.3]}
+  - {id: mult-3d-2d, title: "3-digit times 2-digit", grade: "5", strand: multiplication, requires: [mult-2d-2d, mult-3d-1d], standards: [5.NBT.B.5]}
+  - {id: mult-multi-digit, title: "Multiplying big numbers", grade: "5", strand: multiplication, requires: [mult-3d-2d, mult-4d-1d], standards: [5.NBT.B.5]}
+  - {id: order-of-operations, title: "Brackets first", grade: "5", strand: multiplication, requires: [two-step-word-problems, mult-three-numbers], standards: [5.OA.A.1]}
+  - {id: write-expressions, title: "Writing expressions", grade: "5", strand: multiplication, requires: [order-of-operations], standards: [5.OA.A.2]}
+  - {id: common-multiples, title: "Common multiples", grade: "5", strand: multiplication, requires: [multiples, factor-pairs], standards: [5.NF.A.1]}
+  - {id: patterns-two-rules, title: "Two patterns side by side", grade: "5", strand: multiplication, requires: [number-patterns, coordinate-points], standards: [5.OA.B.3]}
+  - {id: div-2d-divisor, title: "Dividing by a 2-digit number", grade: "5", strand: division, requires: [div-4d-1d, mult-2d-2d, estimate-products], standards: [5.NBT.B.6]}
+  - {id: div-3d-2d, title: "3-digit divided by 2-digit", grade: "5", strand: division, requires: [div-2d-divisor], standards: [5.NBT.B.6]}
+  - {id: div-4d-2d, title: "4-digit divided by 2-digit", grade: "5", strand: division, requires: [div-3d-2d], standards: [5.NBT.B.6]}
+  - {id: div-word-problems-2d, title: "Long division word problems", grade: "5", strand: division, requires: [div-4d-2d, multi-step-word-problems], standards: [5.NBT.B.6]}
+  - {id: fractions-as-division, title: "Fractions are division", grade: "5", strand: fractions, requires: [improper-to-mixed, div-word-problems], standards: [5.NF.B.3]}
+  - {id: common-denominators, title: "A common bottom number", grade: "5", strand: fractions, requires: [equivalent-fractions, common-multiples], standards: [5.NF.A.1]}
+  - {id: add-fractions-unlike, title: "Adding fractions with different bottoms", grade: "5", strand: fractions, requires: [common-denominators, add-fractions-same, simplest-form], standards: [5.NF.A.1]}
+  - {id: sub-fractions-unlike, title: "Taking away fractions with different bottoms", grade: "5", strand: fractions, requires: [add-fractions-unlike, sub-fractions-same], standards: [5.NF.A.1]}
+  - {id: add-mixed-unlike, title: "Adding mixed numbers with different bottoms", grade: "5", strand: fractions, requires: [add-fractions-unlike, add-mixed-same], standards: [5.NF.A.1]}
+  - {id: sub-mixed-unlike, title: "Taking away mixed numbers with different bottoms", grade: "5", strand: fractions, requires: [add-mixed-unlike, sub-fractions-unlike, sub-mixed-same], standards: [5.NF.A.1]}
+  - {id: estimate-fraction-sums, title: "Is the answer sensible", grade: "5", strand: fractions, requires: [add-fractions-unlike, compare-fractions-unlike], standards: [5.NF.A.2]}
+  - {id: fraction-word-problems-unlike, title: "Fraction word problems with different bottoms", grade: "5", strand: fractions, requires: [sub-mixed-unlike, fraction-word-problems-same], standards: [5.NF.A.2]}
+  - {id: fraction-of-a-number, title: "A fraction of a number", grade: "5", strand: fractions, requires: [mult-fraction-whole, div-facts], standards: [5.NF.B.4a]}
+  - {id: mult-fractions, title: "Multiplying fractions", grade: "5", strand: fractions, requires: [fraction-of-a-number, simplest-form], standards: [5.NF.B.4a]}
+  - {id: area-fraction-sides, title: "Area with fraction sides", grade: "5", strand: fractions, requires: [mult-fractions, rectangle-area], standards: [5.NF.B.4b]}
+  - {id: mult-scaling, title: "Bigger or smaller after multiplying", grade: "5", strand: fractions, requires: [mult-fractions, compare-to-half], standards: [5.NF.B.5]}
+  - {id: mult-mixed-numbers, title: "Multiplying mixed numbers", grade: "5", strand: fractions, requires: [mult-fractions, improper-to-mixed], standards: [5.NF.B.6]}
+  - {id: div-unit-fraction-by-whole, title: "A unit fraction divided by a whole number", grade: "5", strand: fractions, requires: [mult-fractions], standards: [5.NF.B.7a]}
+  - {id: div-whole-by-unit-fraction, title: "A whole number divided by a unit fraction", grade: "5", strand: fractions, requires: [div-unit-fraction-by-whole], standards: [5.NF.B.7b]}
+  - {id: fraction-division-stories, title: "Sharing with fractions", grade: "5", strand: fractions, requires: [div-whole-by-unit-fraction], standards: [5.NF.B.7c]}
+  - {id: convert-units-decimals, title: "Converting metric units with decimals", grade: "5", strand: measurement, requires: [convert-mass-capacity, mult-decimal-by-10s, div-decimal-by-10s], standards: [5.MD.A.1]}
+  - {id: convert-customary-units, title: "Feet, yards, pounds and ounces", grade: "5", strand: measurement, requires: [convert-customary-length, mult-2d-1d, div-with-remainder], standards: [5.MD.A.1]}
+  - {id: line-plots-fraction-sums, title: "Line plots with fraction sums", grade: "5", strand: measurement, requires: [line-plots-eighths, add-fractions-unlike], standards: [5.MD.B.2], needs: [line-plot]}
+  - {id: volume-unit-cubes, title: "Volume of a box", grade: "5", strand: measurement, requires: [rectangle-area, mult-three-numbers], standards: [5.MD.C.3, 5.MD.C.4]}
+  - {id: volume-formula, title: "Length times width times height", grade: "5", strand: measurement, requires: [volume-unit-cubes, mult-2d-1d], standards: [5.MD.C.5b]}
+  - {id: volume-missing-edge, title: "Finding a missing edge", grade: "5", strand: measurement, requires: [volume-formula, div-facts], standards: [5.MD.C.5b]}
+  - {id: volume-composite, title: "Volume of joined boxes", grade: "5", strand: measurement, requires: [volume-formula, add-3d], standards: [5.MD.C.5c], needs: [joined-prisms]}
+  - {id: coordinate-points, title: "Points on a grid", grade: "5", strand: geometry, requires: [number-line-to-20], standards: [5.G.A.1]}
+  - {id: coordinate-pictures, title: "Graphs of real things", grade: "5", strand: geometry, requires: [coordinate-points, patterns-two-rules], standards: [5.G.A.2]}
+  - {id: shape-families, title: "Shape families", grade: "5", strand: geometry, requires: [classify-quadrilaterals, classify-triangles], standards: [5.G.B.3, 5.G.B.4], needs: [shapes]}
 
 # Figures and inputs the syllabus needs that the app does not draw yet. Each
 # is app work (the figure catalogue, Apache-2.0) to do before the grade that

@@ -1,0 +1,26 @@
+id: count-by-tens
+kps:
+  - id: count-by-tens.kp1
+    explain: >-
+      Count full frames: 10, 20, 30. Each frame is ten.
+    templates:
+      - id: count-by-tens.kp1.t1
+        vars:
+          n: {int: [1, 8]}
+        prompt: "What comes after {10 * n} when you count in tens?"
+        answer: {type: integer, value: 10 * n + 10}
+        min_variety: 8
+        solution:
+          - "Counting in tens: {10 * n}, {10 * n + 10}."
+  - id: count-by-tens.kp2
+    explain: >-
+      Tens numbers end in 0. The first digit grows by one.
+    templates:
+      - id: count-by-tens.kp2.t1
+        vars:
+          n: {int: [1, 7]}
+        prompt: "{10 * n}, {10 * n + 10}, ?, {10 * n + 30}. What is missing?"
+        answer: {type: integer, value: 10 * n + 20}
+        min_variety: 7
+        solution:
+          - "Count in tens: {10 * n}, {10 * n + 10}, {10 * n + 20}, {10 * n + 30}."

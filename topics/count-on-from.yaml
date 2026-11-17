@@ -1,0 +1,27 @@
+id: count-on-from
+kps:
+  - id: count-on-from.kp1
+    explain: >-
+      You do not have to start at 1. Start at a number. Say the next one.
+    templates:
+      - id: count-on-from.kp1.t1
+        vars:
+          n: {int: [1, 19]}
+        prompt: "What number comes after {n}?"
+        answer: {type: integer, value: n + 1}
+        min_variety: 19
+        solution:
+          - "Count on from {n}: {n}, {n + 1}."
+  - id: count-on-from.kp2
+    explain: >-
+      Keep counting on, one number at a time.
+    templates:
+      - id: count-on-from.kp2.t1
+        vars:
+          n: {int: [1, 16]}
+        prompt: "{n}, {n + 1}, ?, {n + 3}. What number is missing?"
+        answer: {type: integer, value: n + 2}
+        min_variety: 16
+        solution:
+          - "After {n + 1} comes {n + 2}."
+          - "{n}, {n + 1}, {n + 2}, {n + 3}"

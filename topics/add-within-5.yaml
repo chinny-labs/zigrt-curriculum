@@ -1,0 +1,38 @@
+id: add-within-5
+kps:
+  - id: add-within-5.kp1
+    explain: >-
+      Put the two groups together. Count them all.
+    templates:
+      - id: add-within-5.kp1.t1
+        vars:
+          a: {int: [1, 4]}
+          b: {int: [1, 4]}
+        where: ["a + b <= 5"]
+        prompt: "How many dots in all?"
+        layout: figure
+        figure: dot-groups
+        figure_args: {a: a, b: b, style: "'apart'"}
+        answer: {type: integer, value: a + b}
+        min_variety: 10
+        solution:
+          - "{a} dots and {b} {plural(b, 'dot', 'dots')}. Count them all."
+          - "{a} + {b} = {a + b}"
+  - id: add-within-5.kp2
+    explain: >-
+      The plus sign means put together.
+    templates:
+      - id: add-within-5.kp2.t1
+        vars:
+          a: {int: [0, 5]}
+          b: {int: [0, 5]}
+        where: ["a + b <= 5"]
+        prompt: "{a} + {b}"
+        layout: across
+        op: "+"
+        parts: [a, b]
+        answer: {type: integer, value: a + b}
+        min_variety: 21
+        solution:
+          - "{b == 0 ? 'Adding 0 leaves it the same.' : join('Start at ', text(a), '. Count on ', text(b), '.')}"
+          - "{a} + {b} = {a + b}"

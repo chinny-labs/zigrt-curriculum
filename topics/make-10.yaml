@@ -1,0 +1,35 @@
+id: make-10
+kps:
+  - id: make-10.kp1
+    explain: >-
+      The empty boxes show how many more make 10.
+    templates:
+      - id: make-10.kp1.t1
+        vars:
+          n: {int: [1, 9]}
+        prompt: "How many more counters make 10?"
+        layout: figure
+        figure: ten-frame
+        figure_args: {frames: 1, filled: n}
+        answer: {type: integer, value: 10 - n}
+        min_variety: 9
+        solution:
+          - "There are {n} counters and {10 - n} empty {plural(10 - n, 'box', 'boxes')}."
+          - "{n} + {10 - n} = 10"
+  - id: make-10.kp2
+    explain: >-
+      Learn the pairs that make 10. One and nine, two and eight.
+    templates:
+      - id: make-10.kp2.t1
+        vars:
+          n: {int: [1, 9]}
+        prompt: "{n} + ? = 10"
+        layout: missing
+        op: "+"
+        parts: [n, 10 - n, 10]
+        blank: 1
+        answer: {type: integer, value: 10 - n}
+        min_variety: 9
+        solution:
+          - "{n} and {10 - n} make 10."
+          - "{n} + {10 - n} = 10"

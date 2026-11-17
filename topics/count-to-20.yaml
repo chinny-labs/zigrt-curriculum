@@ -1,0 +1,50 @@
+id: count-to-20
+kps:
+  - id: count-to-20.kp1
+    explain: >-
+      A ten frame holds 10. Count the full rows by fives.
+    templates:
+      - id: count-to-20.kp1.t1
+        vars:
+          n: {int: [3, 10]}
+        prompt: "How many counters?"
+        layout: figure
+        figure: ten-frame
+        figure_args: {frames: 1, filled: n}
+        answer: {type: integer, value: n}
+        min_variety: 8
+        solution:
+          - "{n >= 5 ? 'The top row is 5. Count on.' : 'Count each counter.'}"
+          - "There are {n} counters."
+  - id: count-to-20.kp2
+    explain: >-
+      A full frame is 10. Count on from 10.
+    templates:
+      - id: count-to-20.kp2.t1
+        vars:
+          n: {int: [11, 20]}
+        prompt: "How many counters?"
+        layout: figure
+        figure: ten-frame
+        figure_args: {frames: 2, filled: n}
+        answer: {type: integer, value: n}
+        min_variety: 10
+        solution:
+          - "The top frame is full: 10."
+          - "Count on {n - 10} more: {n}."
+  - id: count-to-20.kp3
+    explain: >-
+      When dots are mixed up, count each one once.
+    templates:
+      - id: count-to-20.kp3.t1
+        vars:
+          n: {int: [6, 15]}
+        prompt: "How many dots?"
+        layout: figure
+        figure: dots
+        figure_args: {count: n, arrange: "'scatter'"}
+        answer: {type: integer, value: n}
+        min_variety: 10
+        solution:
+          - "Touch each dot as you count it."
+          - "There are {n} dots."

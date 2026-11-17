@@ -1,0 +1,43 @@
+id: sort-and-count
+kps:
+  - id: sort-and-count.kp1
+    explain: >-
+      Find one kind of shape. Count only that kind.
+    templates:
+      - id: sort-and-count.kp1.t1
+        vars:
+          c: {int: [1, 5]}
+          t: {int: [1, 5]}
+          q: {int: [1, 5]}
+          k: {int: [0, 2]}
+          name: "pick(k, 'circles', 'triangles', 'squares')"
+        prompt: "How many {name}?"
+        layout: figure
+        figure: shape-mix
+        figure_args: {circles: c, triangles: t, squares: q}
+        answer: {type: integer, value: "pick(k, c, t, q)"}
+        solution:
+          - "Look for {name} only."
+          - "There are {pick(k, c, t, q)} {name}."
+  - id: sort-and-count.kp2
+    explain: >-
+      Count each kind. The biggest number is the most.
+    templates:
+      - id: sort-and-count.kp2.t1
+        vars:
+          c: {int: [1, 5]}
+          t: {int: [1, 5]}
+          q: {int: [1, 5]}
+          most: "c > t && c > q ? 'circles' : t > q ? 'triangles' : 'squares'"
+        where: ["c != t && t != q && c != q"]
+        prompt: "Which shape is there the most of?"
+        layout: figure
+        figure: shape-mix
+        figure_args: {circles: c, triangles: t, squares: q}
+        answer:
+          type: choice
+          right: "{most}"
+          distractors: ["{most == 'circles' ? 'triangles' : 'circles'}", "{most == 'squares' ? 'triangles' : 'squares'}"]
+        solution:
+          - "{c} {plural(c, 'circle', 'circles')}, {t} {plural(t, 'triangle', 'triangles')}, {q} {plural(q, 'square', 'squares')}."
+          - "There are the most {most}."

@@ -1,0 +1,21 @@
+id: compose-shapes
+kps:
+  - id: compose-shapes.kp1
+    explain: >-
+      Small shapes can join to make a bigger shape.
+    templates:
+      - id: compose-shapes.kp1.t1
+        vars:
+          k: {int: [0, 4]}
+          parts: "pick(k, 'two squares side by side', 'two halves of a circle', 'six triangles around one point', 'the two halves of a square cut corner to corner', 'two trapezoids, long sides together')"
+          makes: "pick(k, 'rectangle', 'circle', 'hexagon', 'square', 'hexagon')"
+        prompt: "Put together {parts}. What shape do they make?"
+        answer:
+          type: choice
+          right: "{makes}"
+          distractors:
+            - "{pick(k, 'square', 'triangle', 'circle', 'triangle', 'rectangle')}"
+            - "{pick(k, 'triangle', 'square', 'triangle', 'circle', 'triangle')}"
+        min_variety: 5
+        solution:
+          - "Together, {parts} make a {makes}."

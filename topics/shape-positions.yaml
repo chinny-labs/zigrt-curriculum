@@ -1,0 +1,24 @@
+id: shape-positions
+kps:
+  - id: shape-positions.kp1
+    explain: >-
+      Above means higher up. Below means lower down.
+    templates:
+      - id: shape-positions.kp1.t1
+        vars:
+          k: {int: [0, 4]}
+          place: "pick(k, 'above', 'below', 'left', 'right', 'inside')"
+          spot: "pick(k, 'above the box', 'below the box', 'next to the box', 'next to the box', 'in the box')"
+        prompt: "Where is the ball?"
+        layout: figure
+        figure: position
+        figure_args: {place: place}
+        answer:
+          type: choice
+          right: "{spot}"
+          distractors:
+            - "{pick(k, 'below the box', 'above the box', 'above the box', 'below the box', 'above the box')}"
+            - "{pick(k, 'in the box', 'in the box', 'in the box', 'in the box', 'next to the box')}"
+        min_variety: 5
+        solution:
+          - "The ball is {spot}."
