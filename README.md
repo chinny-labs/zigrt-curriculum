@@ -17,7 +17,7 @@ The repository root is the pack (format: [Writing content](https://github.com/ch
 
 ## Working on it
 
-`zigrt-content` is pinned by the `tool` line in `go.mod`, so it is always the `problem` and `content` packages of the Zigrt release it targets (Zigrt ADR 10). It needs Go 1.26.
+`zigrt-content` and the `zigrt` app itself are pinned by the `tool` lines in `go.mod`, so they are always the Zigrt release this pack targets (Zigrt ADRs 10 and 13). They need Go 1.26.
 
 ```sh
 go tool zigrt-content check                            # every gate, as CI runs it
@@ -25,11 +25,18 @@ go tool zigrt-content lint add-within-20               # one topic, fast
 go tool zigrt-content sample add-within-20.kp1.t1 -seeds 1-20
 go tool zigrt-content graph -strand fractions
 go tool zigrt-content build -out dist                  # the pack file and its checksum
+go tool zigrt preview add-2d-2d-regroup                # lessons as a child sees them: open preview/index.html
 ```
+
+`preview` draws the lessons with the app's own layouts, figures and answer boxes: every explanation with its worked example, and problems from each template before and after answering (`-seeds` sets how many). Leave out the topic to preview them all. The first run compiles the app, which takes a minute.
 
 Read `sample` output, not just `check`: the gates catch broken templates, only reading catches a clumsy sentence.
 
-To move to a newer Zigrt release: `go get -tool github.com/chinny-labs/zigrt/cmd/zigrt-content@vX.Y.Z`.
+To move to a newer Zigrt release, move both tools together:
+
+```sh
+go get -tool github.com/chinny-labs/zigrt/cmd/zigrt-content@vX.Y.Z github.com/chinny-labs/zigrt/cmd/zigrt@vX.Y.Z
+```
 
 ## Rules
 
