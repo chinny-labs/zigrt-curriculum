@@ -1,0 +1,37 @@
+id: split-numbers-10
+kps:
+  - id: split-numbers-10.kp1
+    explain: >-
+      A number can split into two parts. Both parts make the whole.
+    templates:
+      - id: split-numbers-10.kp1.t1
+        vars:
+          a: {int: [1, 5]}
+          b: {int: [1, 5]}
+        where: ["a + b <= 6"]
+        prompt: "{a + b} dots split into two groups. One group has {a}. How many in the other?"
+        layout: figure
+        figure: dots
+        figure_args: {count: a + b, arrange: "'line'"}
+        answer: {type: integer, value: b}
+        min_variety: 15
+        solution:
+          - "Count {a} dots. Count the rest."
+          - "{a} and {b} make {a + b}."
+  - id: split-numbers-10.kp2
+    explain: >-
+      Find the part that is missing. Count on to the whole.
+    templates:
+      - id: split-numbers-10.kp2.t1
+        vars:
+          n: {int: [4, 10]}
+          a: {int: [1, n - 1]}
+        prompt: "{a} + ? = {n}"
+        layout: missing
+        op: "+"
+        parts: [a, n - a, n]
+        blank: 1
+        answer: {type: integer, value: n - a}
+        solution:
+          - "Count on from {a} to {n}. That is {n - a}."
+          - "{a} + {n - a} = {n}"

@@ -1,0 +1,70 @@
+id: compare-measures
+kps:
+  - id: compare-measures.kp1
+    explain: >-
+      Line up the ends. The one that sticks out is longer.
+    templates:
+      - id: compare-measures.kp1.t1
+        vars:
+          a: {int: [2, 10]}
+          b: {int: [2, 10]}
+          s: {int: [0, 1]}
+          word: "s == 0 ? 'longer' : 'shorter'"
+          ans: "(a > b) == (s == 0) ? 'A' : 'B'"
+        where: ["abs(a - b) >= 2"]
+        prompt: "Which bar is {word}, A or B?"
+        layout: figure
+        figure: compare
+        figure_args: {a: a, b: b, c: 0, kind: "'length'"}
+        answer:
+          type: choice
+          right: "{ans}"
+          distractors: ["{ans == 'A' ? 'B' : 'A'}"]
+        solution:
+          - "Both bars start at the same place."
+          - "Bar {ans} is {word}."
+  - id: compare-measures.kp2
+    explain: >-
+      Stand them on the ground. The one that reaches higher is taller.
+    templates:
+      - id: compare-measures.kp2.t1
+        vars:
+          a: {int: [2, 10]}
+          b: {int: [2, 10]}
+          s: {int: [0, 1]}
+          word: "s == 0 ? 'taller' : 'shorter'"
+          ans: "(a > b) == (s == 0) ? 'A' : 'B'"
+        where: ["abs(a - b) >= 2"]
+        prompt: "Which tower is {word}, A or B?"
+        layout: figure
+        figure: compare
+        figure_args: {a: a, b: b, c: 0, kind: "'height'"}
+        answer:
+          type: choice
+          right: "{ans}"
+          distractors: ["{ans == 'A' ? 'B' : 'A'}"]
+        solution:
+          - "Both towers stand on the ground."
+          - "Tower {ans} is {word}."
+  - id: compare-measures.kp3
+    explain: >-
+      On a balance, the heavier side goes down.
+    templates:
+      - id: compare-measures.kp3.t1
+        vars:
+          k: {int: [0, 1]}
+          s: {int: [0, 1]}
+          word: "s == 0 ? 'heavier' : 'lighter'"
+          ans: "(k == 0) == (s == 0) ? 'The box' : 'The ball'"
+        prompt: "Which is {word}, the box or the ball?"
+        layout: figure
+        figure: balance
+        figure_args: {tip: "pick(k, 'left', 'right')"}
+        answer:
+          type: choice
+          right: "{ans}"
+          distractors: ["{ans == 'The box' ? 'The ball' : 'The box'}", "They weigh the same"]
+        min_variety: 4
+        solution:
+          - "The {k == 0 ? 'box' : 'ball'} side is down, so the {k == 0 ? 'box' : 'ball'} is heavier."
+          - "{ans} is {word}."

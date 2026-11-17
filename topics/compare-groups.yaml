@@ -1,0 +1,47 @@
+id: compare-groups
+kps:
+  - id: compare-groups.kp1
+    explain: >-
+      Line the dots up in pairs. The row with dots left over has more.
+    templates:
+      - id: compare-groups.kp1.t1
+        vars:
+          a: {int: [1, 10]}
+          b: {int: [1, 10]}
+          more: "a > b ? 'The top row' : 'The bottom row'"
+        where: ["a != b"]
+        prompt: "Which row has more dots?"
+        layout: figure
+        figure: dot-groups
+        figure_args: {a: a, b: b, style: "'rows'"}
+        answer:
+          type: choice
+          right: "{more}"
+          distractors: ["{a > b ? 'The bottom row' : 'The top row'}", "They are the same"]
+        solution:
+          - "The top row has {a}. The bottom row has {b}."
+          - "{more} has more."
+  - id: compare-groups.kp2
+    explain: >-
+      When every dot has a partner, the rows match.
+    templates:
+      - id: compare-groups.kp2.t1
+        vars:
+          a: {int: [2, 9]}
+          d: {choose: [-1, 0, 0, 1]}
+          b: a + d
+          ans: "d == 0 ? 'They are the same' : d < 0 ? 'The top row' : 'The bottom row'"
+        prompt: "Which row has more dots?"
+        layout: figure
+        figure: dot-groups
+        figure_args: {a: a, b: b, style: "'rows'"}
+        answer:
+          type: choice
+          right: "{ans}"
+          distractors:
+            - "{d == 0 ? 'The top row' : 'They are the same'}"
+            - "{d > 0 ? 'The top row' : 'The bottom row'}"
+        min_variety: 24
+        solution:
+          - "The top row has {a}. The bottom row has {b}."
+          - "{ans}."

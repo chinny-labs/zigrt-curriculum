@@ -1,0 +1,36 @@
+id: sub-within-5
+kps:
+  - id: sub-within-5.kp1
+    explain: >-
+      Taking away leaves fewer. Count the ones that are left.
+    templates:
+      - id: sub-within-5.kp1.t1
+        vars:
+          a: {int: [2, 5]}
+          b: {int: [1, a - 1]}
+        prompt: "Some dots are crossed out. How many are left?"
+        layout: figure
+        figure: dot-groups
+        figure_args: {a: a, b: b, style: "'crossed'"}
+        answer: {type: integer, value: a - b}
+        min_variety: 10
+        solution:
+          - "There were {a}. {b} {plural(b, 'is', 'are')} crossed out."
+          - "{a} − {b} = {a - b}"
+  - id: sub-within-5.kp2
+    explain: >-
+      The minus sign means take away.
+    templates:
+      - id: sub-within-5.kp2.t1
+        vars:
+          a: {int: [1, 5]}
+          b: {int: [0, a]}
+        prompt: "{a} − {b}"
+        layout: across
+        op: "-"
+        parts: [a, b]
+        answer: {type: integer, value: a - b}
+        min_variety: 20
+        solution:
+          - "{b == 0 ? 'Taking away 0 leaves it the same.' : join('Start at ', text(a), '. Count back ', text(b), '.')}"
+          - "{a} − {b} = {a - b}"

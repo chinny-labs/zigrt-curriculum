@@ -1,0 +1,43 @@
+id: add-sub-stories-10
+kps:
+  - id: add-sub-stories-10.kp1
+    explain: >-
+      Getting more means add. Put the two numbers together.
+    templates:
+      - id: add-sub-stories-10.kp1.t1
+        vars:
+          who: {choose: ["'Ava'", "'Ben'", "'Mia'", "'Leo'", "'Zoe'", "'Sam'"]}
+          k: {int: [0, 3]}
+          one: "pick(k, 'apple', 'shell', 'sticker', 'block')"
+          many: "pick(k, 'apples', 'shells', 'stickers', 'blocks')"
+          a: {int: [1, 8]}
+          b: {int: [1, 8]}
+        where: ["a + b <= 10"]
+        prompt: "{who} has {a} {plural(a, one, many)}. {who} gets {b} more. How many {many} now?"
+        answer: {type: integer, value: a + b}
+        solution:
+          - "Getting more means add."
+          - "{a} + {b} = {a + b}"
+  - id: add-sub-stories-10.kp2
+    explain: >-
+      Losing some or giving some away means take away.
+    templates:
+      - id: add-sub-stories-10.kp2.t1
+        vars:
+          who: {choose: ["'Ava'", "'Ben'", "'Mia'", "'Leo'", "'Zoe'", "'Sam'"]}
+          a: {int: [3, 10]}
+          b: {int: [1, a - 1]}
+        prompt: "{who} has {a} balloons. {b} {plural(b, 'balloon floats', 'balloons float')} away. How many are left?"
+        answer: {type: integer, value: a - b}
+        solution:
+          - "Floating away means take away."
+          - "{a} − {b} = {a - b}"
+      - id: add-sub-stories-10.kp2.t2
+        vars:
+          a: {int: [3, 10]}
+          b: {int: [1, a - 1]}
+        prompt: "There are {a} birds on a branch. {b} {plural(b, 'bird flies', 'birds fly')} away. How many birds are still there?"
+        answer: {type: integer, value: a - b}
+        solution:
+          - "Flying away means take away."
+          - "{a} − {b} = {a - b}"

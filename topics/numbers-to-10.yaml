@@ -1,0 +1,48 @@
+id: numbers-to-10
+kps:
+  - id: numbers-to-10.kp1
+    explain: >-
+      Each number has a shape. Count the dots. Then write that number.
+    templates:
+      - id: numbers-to-10.kp1.t1
+        vars:
+          n: {int: [1, 6]}
+        prompt: "How many dots?"
+        layout: figure
+        figure: dots
+        figure_args: {count: n, arrange: "'dice'"}
+        answer: {type: integer, value: n}
+        min_variety: 6
+        solution:
+          - "Count each dot once."
+          - "There are {n} dots."
+      - id: numbers-to-10.kp1.t2
+        vars:
+          n: {int: [1, 10]}
+        prompt: "How many dots?"
+        layout: figure
+        figure: dots
+        figure_args: {count: n, arrange: "'line'"}
+        answer: {type: integer, value: n}
+        min_variety: 10
+        solution:
+          - "Count each dot once."
+          - "There are {n} dots."
+  - id: numbers-to-10.kp2
+    explain: >-
+      Six and nine look alike. Six has its round part at the bottom.
+    templates:
+      - id: numbers-to-10.kp2.t1
+        vars:
+          n: {int: [1, 10]}
+          word: "pick(n - 1, 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten')"
+        prompt: "Which number is {word}?"
+        answer:
+          type: choice
+          right: "{n}"
+          distractors:
+            - "{n == 6 ? 9 : n == 9 ? 6 : n % 10 + 1}"
+            - "{(n + 7) % 10 + 1}"
+        min_variety: 10
+        solution:
+          - "The number {word} is written {n}."

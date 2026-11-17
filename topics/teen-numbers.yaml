@@ -1,0 +1,35 @@
+id: teen-numbers
+kps:
+  - id: teen-numbers.kp1
+    explain: >-
+      Numbers from 11 to 19 are ten and some more.
+    templates:
+      - id: teen-numbers.kp1.t1
+        vars:
+          o: {int: [1, 9]}
+        prompt: "One frame is full. How many counters in all?"
+        layout: figure
+        figure: ten-frame
+        figure_args: {frames: 2, filled: 10 + o}
+        answer: {type: integer, value: 10 + o}
+        min_variety: 9
+        solution:
+          - "A full frame is 10. There are {o} more."
+          - "10 and {o} make {10 + o}."
+  - id: teen-numbers.kp2
+    explain: >-
+      In 13, the 1 means one ten. The 3 means three more.
+    templates:
+      - id: teen-numbers.kp2.t1
+        vars:
+          o: {int: [1, 9]}
+        prompt: "10 + ? = {10 + o}"
+        layout: missing
+        op: "+"
+        parts: [10, o, 10 + o]
+        blank: 1
+        answer: {type: integer, value: o}
+        min_variety: 9
+        solution:
+          - "{10 + o} is ten and {o} more."
+          - "10 + {o} = {10 + o}"

@@ -40,6 +40,6 @@ Lessons are written **grade by grade**, K first, so a younger child has a comple
 
 `needs` at the end of `syllabus.yaml` describes each one.
 
-## Open question: reading
+## Reading
 
-Kindergarten and early grade 1 children mostly can't read the prompts yet. The plan has no audio. For now a parent reads along. Before the K lessons are finished, decide whether prompts for K and 1 should be read aloud: a browser's speech synthesis would need no audio files and no outbound requests.
+Kindergarten and early grade 1 children mostly can't read the prompts yet. Decided (2026-11-17): a parent reads along; Zigrt doesn't read aloud. So K and 1 lessons lean on pictures, keep prompts to a few words, and offer answers as short phrases a parent can read out.
