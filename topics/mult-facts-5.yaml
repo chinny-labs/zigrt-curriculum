@@ -1,0 +1,39 @@
+id: mult-facts-5
+kps:
+  - id: mult-facts-5.kp1
+    explain: >-
+      Times means equal groups. 4 × 3 is 4 groups of 3. Count by 3s four
+      times.
+    templates:
+      - id: mult-facts-5.kp1.t1
+        vars:
+          a: {int: [2, 5]}
+          b: {int: [1, 10]}
+        prompt: "{a} × {b}"
+        layout: across
+        op: "*"
+        parts: [a, b]
+        answer: {type: integer, value: a * b}
+        solution:
+          - "{a} groups of {b}: count by {b}s {a} times."
+          - "{a} × {b} = {a * b}"
+  - id: mult-facts-5.kp2
+    explain: >-
+      Anything times 0 is 0. Anything times 1 stays the same.
+    templates:
+      - id: mult-facts-5.kp2.t1
+        vars:
+          a: {choose: [0, 1]}
+          b: {int: [0, 12]}
+        prompt: "{a} × {b}"
+        layout: across
+        op: "*"
+        parts: [a, b]
+        answer: {type: integer, value: a * b}
+        min_variety: 26
+        solution:
+          - when: a == 0
+            text: "0 groups of anything is 0."
+          - when: a == 1
+            text: "1 group of {b} is just {b}."
+          - "{a} × {b} = {a * b}"

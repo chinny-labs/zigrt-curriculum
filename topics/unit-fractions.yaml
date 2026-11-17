@@ -1,0 +1,36 @@
+id: unit-fractions
+kps:
+  - id: unit-fractions.kp1
+    explain: >-
+      A fraction is a part of a whole cut into equal parts. The bottom
+      number says how many parts.
+    templates:
+      - id: unit-fractions.kp1.t1
+        vars:
+          d: {int: [2, 12]}
+        prompt: "What fraction is shaded?"
+        layout: figure
+        figure: fraction-bar
+        figure_args: {parts: d, shaded: 1}
+        answer: {type: fraction, value: 1 / d, simplest: false}
+        min_variety: 11
+        solution:
+          - "The bar has {d} equal parts."
+          - "One part is shaded: 1/{d}"
+  - id: unit-fractions.kp2
+    explain: >-
+      The top number says how many parts are shaded. Three of four equal
+      parts is 3/4.
+    templates:
+      - id: unit-fractions.kp2.t1
+        vars:
+          d: {choose: [2, 3, 4, 5, 6, 8, 10, 12]}
+          n: {int: [1, d - 1]}
+        prompt: "What fraction is shaded?"
+        layout: figure
+        figure: fraction-bar
+        figure_args: {parts: d, shaded: n}
+        answer: {type: fraction, value: n / d, simplest: false}
+        solution:
+          - "The bar has {d} equal parts, and {n} {plural(n, 'is', 'are')} shaded."
+          - "{n} of {d} parts: {n}/{d}"

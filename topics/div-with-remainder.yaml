@@ -1,0 +1,46 @@
+id: div-with-remainder
+kps:
+  - id: div-with-remainder.kp1
+    explain: >-
+      Sometimes a number does not share out evenly. What is left over is the
+      remainder, and it is always smaller than the number you divide by.
+    templates:
+      - id: div-with-remainder.kp1.t1
+        vars:
+          b: {int: [2, 9]}
+          q: {int: [1, 9]}
+          r: {int: [1, b - 1]}
+          n: b * q + r
+        prompt: "{n} ÷ {b}"
+        layout: across
+        op: "/"
+        parts: [n, b]
+        answer: {type: quotient_remainder, value: q, remainder: r}
+        solution:
+          - "{b} × {q} = {b * q} is the biggest fact that fits in {n}."
+          - "{n} − {b * q} = {r} left over."
+          - "{n} ÷ {b} = {q} r {r}"
+  - id: div-with-remainder.kp2
+    explain: >-
+      Divide the tens first, then bring down the ones. Find the biggest
+      times fact that fits each time. What is left at the end is the
+      remainder.
+    templates:
+      - id: div-with-remainder.kp2.t1
+        vars:
+          b: {int: [2, 9]}
+          n: {int: [20, 99]}
+          q: n // b
+          r: n % b
+          t: (n // 10) // b
+        where:
+          - n // 10 >= b
+          - r != 0
+        prompt: "{n} ÷ {b}"
+        layout: long-division
+        parts: [n, b]
+        answer: {type: quotient_remainder, value: q, remainder: r}
+        solution:
+          - "Tens: {n // 10} ÷ {b} = {t}, with {n // 10 - b * t} left over."
+          - "Ones: bring down {n % 10} to make {n - 10 * b * t}. That ÷ {b} = {q % 10}, with {r} left over."
+          - "{n} ÷ {b} = {q} r {r}"

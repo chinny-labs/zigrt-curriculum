@@ -1,0 +1,35 @@
+id: tenths-hundredths
+kps:
+  - id: tenths-hundredths.kp1
+    explain: >-
+      The first place after the point is tenths. So 7/10 is written 0.7.
+    templates:
+      - id: tenths-hundredths.kp1.t1
+        vars:
+          n: {int: [1, 99]}
+        where:
+          - n % 10 != 0
+        prompt: "Write {n}/10 as a decimal."
+        answer: {type: decimal, value: n / 10}
+        solution:
+          - "{n}/10 means {n} tenths."
+          - when: n >= 10
+            text: "{n} tenths is {n // 10} {plural(n // 10, 'one', 'ones')} and {n % 10} {plural(n % 10, 'tenth', 'tenths')}."
+          - "{n}/10 = {dec(n / 10)}"
+  - id: tenths-hundredths.kp2
+    explain: >-
+      The second place after the point is hundredths. So 7/100 is 0.07 and
+      37/100 is 0.37.
+    templates:
+      - id: tenths-hundredths.kp2.t1
+        vars:
+          n: {int: [1, 99]}
+        where:
+          - n % 10 != 0
+        prompt: "Write {n}/100 as a decimal."
+        answer: {type: decimal, value: n / 100}
+        solution:
+          - "{n}/100 means {n} hundredths."
+          - when: n < 10
+            text: "There are no tenths, so write 0 in the tenths place."
+          - "{n}/100 = {dec(n / 100)}"

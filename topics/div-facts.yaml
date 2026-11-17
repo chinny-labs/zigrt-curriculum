@@ -1,0 +1,35 @@
+id: div-facts
+kps:
+  - id: div-facts.kp1
+    explain: >-
+      Dividing undoes times. For 24 ÷ 6, ask: 6 times what makes 24?
+    templates:
+      - id: div-facts.kp1.t1
+        vars:
+          b: {int: [2, 10]}
+          q: {int: [1, 10]}
+          n: b * q
+        prompt: "{n} ÷ {b}"
+        layout: across
+        op: "/"
+        parts: [n, b]
+        answer: {type: integer, value: q}
+        solution:
+          - "{b} × {q} = {n}"
+          - "So {n} ÷ {b} = {q}"
+  - id: div-facts.kp2
+    explain: >-
+      Sharing equally is dividing. Each friend gets the same number.
+    templates:
+      - id: div-facts.kp2.t1
+        vars:
+          who: {words: [Mika, Theo, June, Ava, Sam]}
+          thing: {words: [grapes, cards, marbles, pencils]}
+          b: {int: [2, 10]}
+          q: {int: [2, 10]}
+          n: b * q
+        prompt: "{who} shares {n} {thing} equally between {b} friends. How many does each friend get?"
+        answer: {type: integer, value: q}
+        solution:
+          - "{n} ÷ {b}: what times {b} makes {n}? {q} × {b} = {n}."
+          - "Each friend gets {q} {thing}."

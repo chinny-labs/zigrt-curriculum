@@ -1,0 +1,35 @@
+id: equal-groups-arrays
+kps:
+  - id: equal-groups-arrays.kp1
+    explain: >-
+      An array is dots in equal rows. Count one row, then add that many for
+      each row.
+    templates:
+      - id: equal-groups-arrays.kp1.t1
+        vars:
+          r: {int: [2, 5]}
+          c: {int: [2, 5]}
+        prompt: "{r} rows of {c}. How many dots?"
+        layout: figure
+        figure: array
+        figure_args: {rows: r, cols: c}
+        answer: {type: integer, value: r * c}
+        min_variety: 16
+        solution:
+          - "Each row has {c}. Add {c} for each of the {r} rows."
+          - "There are {r * c} dots."
+  - id: equal-groups-arrays.kp2
+    explain: >-
+      Equal groups have the same number in each. Add the same number once
+      for each group.
+    templates:
+      - id: equal-groups-arrays.kp2.t1
+        vars:
+          r: {int: [2, 5]}
+          c: {int: [2, 10]}
+          thing: {words: [apples, shells, crayons, stickers]}
+        prompt: "There are {r} bags with {c} {thing} in each. How many {thing} are there?"
+        answer: {type: integer, value: r * c}
+        solution:
+          - "Add {c} once for each of the {r} bags."
+          - "There are {r * c} {thing}."

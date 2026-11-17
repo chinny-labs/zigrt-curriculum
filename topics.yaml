@@ -1,0 +1,254 @@
+strands:
+  - {id: place-value, title: Counting and place value}
+  - {id: add-sub, title: Adding and taking away}
+  - {id: multiplication, title: Multiplying}
+  - {id: division, title: Dividing}
+  - {id: fractions, title: Fractions}
+  - {id: decimals, title: Decimals}
+  - {id: measurement, title: Measuring}
+  - {id: geometry, title: Shapes and space}
+
+# Teaching order is the order written here. Strands alternate where the graph
+# allows. IDs are never renamed or reused once released; a split or merge is
+# a transitions entry.
+topics:
+  # Kindergarten
+  - id: count-objects
+    title: Counting dots
+    strand: place-value
+    grade: K
+    xp: 8
+    standards: [K.CC.B.5]
+  - id: add-within-10
+    title: Adding to 10
+    strand: add-sub
+    grade: K
+    requires: [count-objects]
+    xp: 8
+    standards: [K.OA.A.5]
+  - id: compare-numbers-20
+    title: Bigger or smaller
+    strand: place-value
+    grade: K
+    requires: [count-objects]
+    xp: 8
+    standards: [K.CC.C.7]
+  - id: sub-within-10
+    title: Taking away to 10
+    strand: add-sub
+    grade: K
+    requires: [add-within-10]
+    xp: 8
+    standards: [K.OA.A.5]
+
+  # Grade 1
+  - id: number-line-to-20
+    title: Numbers on a line
+    strand: place-value
+    grade: "1"
+    requires: [compare-numbers-20]
+    xp: 8
+    standards: [1.NBT.A.1]
+  - id: add-within-20
+    title: Adding to 20
+    strand: add-sub
+    grade: "1"
+    requires: [add-within-10]
+    encompasses: [{topic: add-within-10, weight: 1.0}]
+    xp: 10
+    standards: [1.OA.C.6]
+    fluency_seconds: 6
+  - id: tell-time-hour
+    title: Telling the time to the half hour
+    strand: measurement
+    grade: "1"
+    requires: [number-line-to-20]
+    xp: 10
+    standards: [1.MD.B.3]
+  - id: sub-within-20
+    title: Taking away to 20
+    strand: add-sub
+    grade: "1"
+    requires: [sub-within-10, add-within-20]
+    encompasses: [{topic: sub-within-10, weight: 1.0}]
+    xp: 10
+    standards: [1.OA.C.6]
+    fluency_seconds: 6
+  - id: tens-and-ones
+    title: Tens and ones
+    strand: place-value
+    grade: "1"
+    requires: [number-line-to-20]
+    xp: 10
+    standards: [1.NBT.B.2]
+  - id: missing-addend
+    title: The missing number
+    strand: add-sub
+    grade: "1"
+    requires: [add-within-20, sub-within-20]
+    encompasses: [{topic: add-within-20, weight: 0.5}, {topic: sub-within-20, weight: 0.5}]
+    xp: 10
+    standards: [1.OA.D.8]
+
+  # Grade 2
+  - id: add-2d-2d-regroup
+    title: Adding 2-digit numbers
+    strand: add-sub
+    grade: "2"
+    requires: [add-within-20, tens-and-ones]
+    encompasses: [{topic: add-within-20, weight: 1.0}, {topic: tens-and-ones, weight: 0.5}]
+    xp: 12
+    standards: [2.NBT.B.5]
+  - id: name-shapes
+    title: Naming shapes
+    strand: geometry
+    grade: "2"
+    requires: [count-objects]
+    xp: 8
+    standards: [2.G.A.1]
+  - id: tell-time-5min
+    title: Telling the time to 5 minutes
+    strand: measurement
+    grade: "2"
+    requires: [tell-time-hour]
+    encompasses: [{topic: tell-time-hour, weight: 1.0}]
+    xp: 10
+    standards: [2.MD.C.7]
+  - id: sub-2d-2d-regroup
+    title: Taking away 2-digit numbers
+    strand: add-sub
+    grade: "2"
+    requires: [add-2d-2d-regroup, sub-within-20]
+    encompasses: [{topic: sub-within-20, weight: 1.0}]
+    xp: 12
+    standards: [2.NBT.B.5]
+  - id: equal-groups-arrays
+    title: Rows of dots
+    strand: multiplication
+    grade: "2"
+    requires: [add-within-20]
+    xp: 10
+    standards: [2.OA.C.4]
+  - id: count-coins
+    title: Counting coins
+    strand: measurement
+    grade: "2"
+    requires: [add-2d-2d-regroup]
+    encompasses: [{topic: add-2d-2d-regroup, weight: 0.3}]
+    xp: 12
+    standards: [2.MD.C.8]
+
+  # Grade 3
+  - id: mult-facts-5
+    title: Times tables to 5
+    strand: multiplication
+    grade: "3"
+    requires: [equal-groups-arrays]
+    encompasses: [{topic: equal-groups-arrays, weight: 0.5}]
+    xp: 10
+    standards: [3.OA.C.7]
+    fluency_seconds: 6
+  - id: unit-fractions
+    title: Naming fractions
+    strand: fractions
+    grade: "3"
+    requires: [equal-groups-arrays]
+    xp: 10
+    standards: [3.NF.A.1]
+  - id: mult-facts-10
+    title: Times tables to 10
+    strand: multiplication
+    grade: "3"
+    requires: [mult-facts-5]
+    encompasses: [{topic: mult-facts-5, weight: 1.0}]
+    xp: 12
+    standards: [3.OA.C.7]
+    fluency_seconds: 6
+  - id: fractions-on-number-line
+    title: Fractions on a number line
+    strand: fractions
+    grade: "3"
+    requires: [unit-fractions, number-line-to-20]
+    encompasses: [{topic: unit-fractions, weight: 0.5}]
+    xp: 10
+    standards: [3.NF.A.2]
+  - id: div-facts
+    title: Dividing facts
+    strand: division
+    grade: "3"
+    requires: [mult-facts-10]
+    encompasses: [{topic: mult-facts-10, weight: 0.5}]
+    xp: 12
+    standards: [3.OA.C.7]
+    fluency_seconds: 6
+  - id: rectangle-area
+    title: Area of a rectangle
+    strand: measurement
+    grade: "3"
+    requires: [mult-facts-10]
+    encompasses: [{topic: mult-facts-10, weight: 0.5}]
+    xp: 10
+    standards: [3.MD.C.7]
+  - id: compare-fractions-same
+    title: Comparing fractions with a number the same
+    strand: fractions
+    grade: "3"
+    requires: [unit-fractions]
+    xp: 10
+    standards: [3.NF.A.3d]
+
+  # Grade 4
+  - id: div-with-remainder
+    title: Dividing with a remainder
+    strand: division
+    grade: "4"
+    requires: [div-facts]
+    encompasses: [{topic: div-facts, weight: 1.0}]
+    xp: 12
+    standards: [4.NBT.B.6]
+  - id: equivalent-fractions
+    title: Equivalent fractions
+    strand: fractions
+    grade: "4"
+    requires: [compare-fractions-same, mult-facts-10]
+    xp: 10
+    standards: [4.NF.A.1]
+  - id: compare-fractions-unlike
+    title: Comparing any two fractions
+    strand: fractions
+    grade: "4"
+    requires: [equivalent-fractions]
+    encompasses: [{topic: equivalent-fractions, weight: 0.5}, {topic: compare-fractions-same, weight: 1.0}]
+    xp: 12
+    standards: [4.NF.A.2]
+  - id: tenths-hundredths
+    title: Tenths and hundredths as decimals
+    strand: decimals
+    grade: "4"
+    requires: [equivalent-fractions]
+    xp: 10
+    standards: [4.NF.C.6]
+  - id: compare-decimals
+    title: Comparing decimals
+    strand: decimals
+    grade: "4"
+    requires: [tenths-hundredths]
+    xp: 10
+    standards: [4.NF.C.7]
+
+  # Grade 5
+  - id: coordinate-points
+    title: Points on a grid
+    strand: geometry
+    grade: "5"
+    requires: [number-line-to-20]
+    xp: 10
+    standards: [5.G.A.2]
+  - id: volume-unit-cubes
+    title: Volume of a box
+    strand: measurement
+    grade: "5"
+    requires: [rectangle-area]
+    encompasses: [{topic: rectangle-area, weight: 0.5}]
+    xp: 12
+    standards: [5.MD.C.5]

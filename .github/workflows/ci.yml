@@ -1,0 +1,24 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+      # zigrt-content is pinned by the tool line in go.mod, so these are the
+      # same problem and content packages the pinned app release runs (ADR 10).
+      - name: every gate
+        run: go tool zigrt-content check
+      - name: the pack builds
+        run: go tool zigrt-content build -out dist

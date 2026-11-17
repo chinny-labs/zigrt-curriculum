@@ -1,0 +1,37 @@
+id: count-objects
+kps:
+  - id: count-objects.kp1
+    explain: >-
+      Touch each dot once. Say one number for each dot. The last number
+      you say is how many.
+    templates:
+      - id: count-objects.kp1.t1
+        vars:
+          n: {int: [2, 10]}
+        prompt: "How many dots?"
+        layout: figure
+        figure: array
+        figure_args: {rows: 1, cols: n}
+        answer: {type: integer, value: n}
+        min_variety: 9
+        solution:
+          - "Touch each dot as you count."
+          - "There are {n} dots."
+  - id: count-objects.kp2
+    explain: >-
+      Count one row. Then keep counting the next row. Do not count a dot
+      twice.
+    templates:
+      - id: count-objects.kp2.t1
+        vars:
+          rows: {int: [2, 4]}
+          cols: {int: [2, 5]}
+        prompt: "How many dots?"
+        layout: figure
+        figure: array
+        figure_args: {rows: rows, cols: cols}
+        answer: {type: integer, value: rows * cols}
+        min_variety: 12
+        solution:
+          - "Count one row at a time. Keep counting on."
+          - "There are {rows * cols} dots."

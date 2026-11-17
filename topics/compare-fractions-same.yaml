@@ -1,0 +1,38 @@
+id: compare-fractions-same
+kps:
+  - id: compare-fractions-same.kp1
+    explain: >-
+      When the bottom numbers match, the parts are the same size. Compare
+      the top numbers.
+    templates:
+      - id: compare-fractions-same.kp1.t1
+        vars:
+          d: {int: [3, 12]}
+          n1: {int: [1, d - 1]}
+          n2: {int: [1, d - 1]}
+          sym: "n1 < n2 ? '<' : '>'"
+        where:
+          - n1 != n2
+        prompt: "{n1}/{d} ○ {n2}/{d}"
+        answer: {type: comparison, compare: ["n1 / d", "n2 / d"]}
+        solution:
+          - "The bottom numbers are both {d}, so the parts are the same size."
+          - "{n1} {sym} {n2}, so {n1}/{d} {sym} {n2}/{d}"
+  - id: compare-fractions-same.kp2
+    explain: >-
+      When the top numbers match, look at the bottom. A bigger bottom number
+      means smaller parts.
+    templates:
+      - id: compare-fractions-same.kp2.t1
+        vars:
+          n: {int: [1, 5]}
+          d1: {int: [n + 1, 12]}
+          d2: {int: [n + 1, 12]}
+          sym: "d1 > d2 ? '<' : '>'"
+        where:
+          - d1 != d2
+        prompt: "{n}/{d1} ○ {n}/{d2}"
+        answer: {type: comparison, compare: ["n / d1", "n / d2"]}
+        solution:
+          - "The top numbers match. Cutting into {max(d1, d2)} parts makes smaller parts than {min(d1, d2)}."
+          - "{n}/{d1} {sym} {n}/{d2}"

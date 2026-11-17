@@ -1,0 +1,38 @@
+id: mult-facts-10
+kps:
+  - id: mult-facts-10.kp1
+    explain: >-
+      For bigger facts, split a number into 5 and the rest. Then add the two
+      smaller facts.
+    templates:
+      - id: mult-facts-10.kp1.t1
+        vars:
+          a: {int: [6, 10]}
+          b: {int: [2, 10]}
+        prompt: "{a} × {b}"
+        layout: across
+        op: "*"
+        parts: [a, b]
+        answer: {type: integer, value: a * b}
+        solution:
+          - "Split {a} into 5 and {a - 5}."
+          - "5 × {b} = {5 * b} and {a - 5} × {b} = {(a - 5) * b}."
+          - "{5 * b} + {(a - 5) * b} = {a * b}, so {a} × {b} = {a * b}"
+  - id: mult-facts-10.kp2
+    explain: >-
+      Use a fact you know. Turning a fact around gives the same answer:
+      7 × 3 = 3 × 7.
+    templates:
+      - id: mult-facts-10.kp2.t1
+        vars:
+          a: {int: [2, 10]}
+          b: {int: [2, 10]}
+        prompt: "{a} × {b}"
+        layout: across
+        op: "*"
+        parts: [a, b]
+        answer: {type: integer, value: a * b}
+        solution:
+          - when: a < b
+            text: "{a} × {b} is the same as {b} × {a}."
+          - "{a} × {b} = {a * b}"

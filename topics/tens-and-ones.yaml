@@ -1,0 +1,28 @@
+id: tens-and-ones
+kps:
+  - id: tens-and-ones.kp1
+    explain: >-
+      A two-digit number is tens and ones. The first digit tells how many
+      tens.
+    templates:
+      - id: tens-and-ones.kp1.t1
+        vars:
+          n: {int: [10, 99]}
+        prompt: "How many tens are in {n}?"
+        answer: {type: integer, value: n // 10}
+        solution:
+          - "{n} is {n // 10} {plural(n // 10, 'ten', 'tens')} and {n % 10} {plural(n % 10, 'one', 'ones')}."
+          - "{n} has {n // 10} {plural(n // 10, 'ten', 'tens')}."
+  - id: tens-and-ones.kp2
+    explain: >-
+      Each ten is worth 10. Count the tens by tens, then add the ones.
+    templates:
+      - id: tens-and-ones.kp2.t1
+        vars:
+          t: {int: [1, 9]}
+          o: {int: [0, 9]}
+        prompt: "What number is {t} {plural(t, 'ten', 'tens')} and {o} {plural(o, 'one', 'ones')}?"
+        answer: {type: integer, value: t * 10 + o}
+        solution:
+          - "{t} {plural(t, 'ten', 'tens')} is {t * 10}."
+          - "{t * 10} + {o} = {t * 10 + o}"

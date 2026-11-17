@@ -1,0 +1,36 @@
+id: sub-within-10
+kps:
+  - id: sub-within-10.kp1
+    explain: >-
+      Taking away makes a group smaller. Start with all of them. Take some
+      away. Count what is left.
+    templates:
+      - id: sub-within-10.kp1.t1
+        vars:
+          a: {int: [1, 5]}
+          b: {int: [1, a]}
+        prompt: "{a} − {b}"
+        layout: across
+        op: "-"
+        parts: [a, b]
+        answer: {type: integer, value: a - b}
+        min_variety: 15
+        solution:
+          - "Start with {a}. Take away {b}."
+          - "{a} − {b} = {a - b}"
+  - id: sub-within-10.kp2
+    explain: >-
+      Start at the bigger number. Count back one for each you take away.
+    templates:
+      - id: sub-within-10.kp2.t1
+        vars:
+          a: {int: [6, 10]}
+          b: {int: [1, a]}
+        prompt: "{a} − {b}"
+        layout: across
+        op: "-"
+        parts: [a, b]
+        answer: {type: integer, value: a - b}
+        solution:
+          - "Start at {a}. Count back {b}."
+          - "{a} − {b} = {a - b}"

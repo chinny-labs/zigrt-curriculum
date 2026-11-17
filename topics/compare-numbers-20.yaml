@@ -1,0 +1,34 @@
+id: compare-numbers-20
+kps:
+  - id: compare-numbers-20.kp1
+    explain: >-
+      The bigger number comes later when you count. The open side faces
+      the bigger number.
+    templates:
+      - id: compare-numbers-20.kp1.t1
+        vars:
+          a: {int: [0, 10]}
+          b: {int: [0, 10]}
+          sym: "a < b ? '<' : (a > b ? '>' : '=')"
+        prompt: "{a} ○ {b}"
+        answer: {type: comparison, compare: [a, b]}
+        solution:
+          - when: a != b
+            text: "{max(a, b)} comes after {min(a, b)} when you count."
+          - when: a == b
+            text: "They are the same number."
+          - "{a} {sym} {b}"
+  - id: compare-numbers-20.kp2
+    explain: >-
+      Numbers from 11 to 19 have one ten. So look at the ones to compare.
+    templates:
+      - id: compare-numbers-20.kp2.t1
+        vars:
+          a: {int: [11, 19]}
+          b: {int: [11, 19]}
+          sym: "a < b ? '<' : (a > b ? '>' : '=')"
+        prompt: "{a} ○ {b}"
+        answer: {type: comparison, compare: [a, b]}
+        solution:
+          - "{a} has {a - 10} ones. {b} has {b - 10} ones."
+          - "{a} {sym} {b}"

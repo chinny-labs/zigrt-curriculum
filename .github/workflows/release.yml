@@ -1,0 +1,44 @@
+name: release
+
+# The pack releases on a calendar version (2026.11.1), independently of the
+# app's semver; min_app_version in manifest.yaml keeps the two honest.
+#
+# To release: open a PR that sets `version` in manifest.yaml and runs
+# `go tool zigrt-content ids -write`, merge it, then push the tag.
+on:
+  push:
+    tags: ["20*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-go@v7
+        with:
+          go-version-file: go.mod
+      - name: the tag matches manifest.yaml
+        run: |
+          declared="$(sed -n 's/^version: *//p' manifest.yaml | tr -d '"')"
+          if [ "$declared" != "$GITHUB_REF_NAME" ]; then
+            echo "::error::manifest.yaml declares $declared but the tag is $GITHUB_REF_NAME"
+            exit 1
+          fi
+      - name: every ID is recorded as released
+        run: |
+          go tool zigrt-content ids -write
+          git diff --exit-code released-ids.json || {
+            echo "::error::released-ids.json is missing IDs: run 'go tool zigrt-content ids -write' in the release PR"
+            exit 1
+          }
+      - name: every gate
+        run: go tool zigrt-content check
+      - name: build the pack file and its checksum
+        run: go tool zigrt-content build -out dist
+      - name: publish the GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" --title "$GITHUB_REF_NAME" --generate-notes --verify-tag dist/*.zip dist/*.zip.sha256

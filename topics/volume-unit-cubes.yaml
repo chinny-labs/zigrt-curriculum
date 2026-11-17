@@ -1,0 +1,36 @@
+id: volume-unit-cubes
+kps:
+  - id: volume-unit-cubes.kp1
+    explain: >-
+      Volume is how many unit cubes fill a solid. Count the cubes in one
+      layer, then multiply by the number of layers.
+    templates:
+      - id: volume-unit-cubes.kp1.t1
+        vars:
+          l: {int: [2, 6]}
+          w: {int: [2, 5]}
+          h: {int: [2, 5]}
+        prompt: "How many unit cubes fill this box?"
+        layout: figure
+        figure: prism
+        figure_args: {length: l, width: w, height: h, unit: "'cubes'"}
+        answer: {type: integer, value: l * w * h}
+        solution:
+          - "One layer has {l} × {w} = {l * w} cubes."
+          - "There are {h} layers: {l * w} × {h} = {l * w * h}."
+          - "The box holds {l * w * h} cubes."
+  - id: volume-unit-cubes.kp2
+    explain: >-
+      For a box, multiply the length, the width and the height. The answer
+      is in cubic units.
+    templates:
+      - id: volume-unit-cubes.kp2.t1
+        vars:
+          l: {int: [2, 10]}
+          w: {int: [2, 8]}
+          h: {int: [2, 8]}
+        prompt: "A box is {l} inches long, {w} inches wide and {h} inches tall. What is its volume in cubic inches?"
+        answer: {type: integer, value: l * w * h}
+        solution:
+          - "Volume = length × width × height"
+          - "{l} × {w} × {h} = {l * w * h} cubic inches"
