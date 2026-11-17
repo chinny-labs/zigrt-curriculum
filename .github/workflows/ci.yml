@@ -18,6 +18,8 @@ jobs:
           go-version-file: go.mod
       # zigrt-content is pinned by the tool line in go.mod, so these are the
       # same problem and content packages the pinned app release runs (ADR 10).
+      - name: the syllabus graph
+        run: go test ./...
       - name: every gate
         run: go tool zigrt-content check
       - name: the pack builds
