@@ -1,0 +1,53 @@
+id: tell-time-hour
+kps:
+  - id: tell-time-hour.kp1
+    explain: >-
+      The short hand shows the hour. When the long hand points to 12, it is
+      o'clock.
+    templates:
+      - id: tell-time-hour.kp1.t1
+        vars:
+          h: {int: [1, 11]}
+        prompt: "What time does the clock show?"
+        layout: figure
+        figure: clock
+        figure_args: {hour: h, minute: 0}
+        answer:
+          type: choice
+          right: "{h}:00"
+          distractors:
+            - "12:{pad(h * 5, 2)}"     # read the hands the wrong way round
+            - "{h + 1}:00"
+            - "{h}:30"
+        min_variety: 11
+        solution:
+          - "The short hand points to {h}."
+          - "The long hand points to 12, so it is {h} o'clock."
+          - "The time is {h}:00."
+  - id: tell-time-hour.kp2
+    explain: >-
+      When the long hand points to 6, it is half past. The short hand sits
+      halfway between two numbers.
+    templates:
+      - id: tell-time-hour.kp2.t1
+        vars:
+          h: {int: [1, 12]}
+          next: h % 12 + 1
+        where:
+          - h != 6
+        prompt: "What time does the clock show?"
+        layout: figure
+        figure: clock
+        figure_args: {hour: h, minute: 30}
+        answer:
+          type: choice
+          right: "{h}:30"
+          distractors:
+            - "{next}:30"              # read the hour the short hand is heading for
+            - "{h}:00"
+            - "6:{pad(h * 5 % 60, 2)}" # read the hands the wrong way round
+        min_variety: 11
+        solution:
+          - "The long hand points to 6. That is half past."
+          - "The short hand is between {h} and {next}, so the hour is {h}."
+          - "The time is {h}:30."

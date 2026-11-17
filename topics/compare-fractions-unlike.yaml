@@ -1,0 +1,49 @@
+id: compare-fractions-unlike
+kps:
+  - id: compare-fractions-unlike.kp1
+    explain: >-
+      If one bottom number goes into the other, change just one fraction.
+      Then both have the same bottom number.
+    templates:
+      - id: compare-fractions-unlike.kp1.t1
+        vars:
+          d1: {int: [2, 6]}
+          m: {int: [2, 4]}
+          d2: d1 * m
+          n1: {int: [1, d1 - 1]}
+          n2: {int: [1, d2 - 1]}
+          a: n1 * m
+          sym: "a < n2 ? '<' : (a > n2 ? '>' : '=')"
+        where:
+          - d2 <= 12
+          - gcd(n1, d1) == 1
+        prompt: "{n1}/{d1} ○ {n2}/{d2}"
+        answer: {type: comparison, compare: ["n1 / d1", "n2 / d2"]}
+        solution:
+          - "{d1} goes into {d2}, so {n1}/{d1} = {a}/{d2}."
+          - "{a} {sym} {n2}, so {n1}/{d1} {sym} {n2}/{d2}"
+  - id: compare-fractions-unlike.kp2
+    explain: >-
+      Otherwise, find a number both bottoms go into. Change both fractions,
+      then compare the tops.
+    templates:
+      - id: compare-fractions-unlike.kp2.t1
+        vars:
+          d1: {int: [2, 10]}
+          n1: {int: [1, d1 - 1]}
+          d2: {int: [2, 10]}
+          n2: {int: [1, d2 - 1]}
+          l: lcm(d1, d2)
+          a: n1 * l / d1
+          b: n2 * l / d2
+          sym: "a < b ? '<' : (a > b ? '>' : '=')"
+        where:
+          - gcd(n1, d1) == 1
+          - d1 != d2 && gcd(n2, d2) == 1
+          - l != d1 && l != d2 && l <= 40
+        prompt: "{n1}/{d1} ○ {n2}/{d2}"
+        answer: {type: comparison, compare: ["n1 / d1", "n2 / d2"]}
+        solution:
+          - "{d1} and {d2} both go into {l}."
+          - "{n1}/{d1} = {a}/{l} and {n2}/{d2} = {b}/{l}."
+          - "{a} {sym} {b}, so {n1}/{d1} {sym} {n2}/{d2}"

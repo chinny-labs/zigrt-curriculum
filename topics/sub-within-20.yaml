@@ -1,0 +1,35 @@
+id: sub-within-20
+kps:
+  - id: sub-within-20.kp1
+    explain: >-
+      Take away to get to 10 first. Then take away the rest.
+    templates:
+      - id: sub-within-20.kp1.t1
+        vars:
+          a: {int: [11, 18]}
+          b: {int: [a - 9, 9]}
+        prompt: "{a} − {b}"
+        layout: across
+        op: "-"
+        parts: [a, b]
+        answer: {type: integer, value: a - b}
+        solution:
+          - "Take away {a - 10} to get to 10."
+          - "Take away {b - a + 10} more. That leaves {a - b}."
+          - "{a} − {b} = {a - b}"
+  - id: sub-within-20.kp2
+    explain: >-
+      Think of adding. For 15 − 8, ask what adds to 8 to make 15.
+    templates:
+      - id: sub-within-20.kp2.t1
+        vars:
+          a: {int: [10, 20]}
+          b: {int: [1, 10]}
+        prompt: "{a} − {b}"
+        layout: across
+        op: "-"
+        parts: [a, b]
+        answer: {type: integer, value: a - b}
+        solution:
+          - "{b} + {a - b} = {a}"
+          - "So {a} − {b} = {a - b}"

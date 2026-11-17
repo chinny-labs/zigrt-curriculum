@@ -1,0 +1,44 @@
+id: tell-time-5min
+kps:
+  - id: tell-time-5min.kp1
+    explain: >-
+      Each number on the clock is 5 minutes for the long hand. Count by
+      fives to where it points.
+    templates:
+      - id: tell-time-5min.kp1.t1
+        vars:
+          h: {int: [1, 12]}
+          m: {int: [5, 55], step: 5}
+        prompt: "How many minutes past the hour is it?"
+        layout: figure
+        figure: clock
+        figure_args: {hour: h, minute: m}
+        answer: {type: integer, value: m}
+        solution:
+          - "The long hand points to {m // 5}."
+          - "Count by fives {m // 5} times: {m} minutes."
+  - id: tell-time-5min.kp2
+    explain: >-
+      Read the hour from the short hand. It is the number it has just
+      passed. Then read the minutes.
+    templates:
+      - id: tell-time-5min.kp2.t1
+        vars:
+          h: {int: [1, 12]}
+          m: {int: [5, 55], step: 5}
+          next: h % 12 + 1
+        prompt: "What time does the clock show?"
+        layout: figure
+        figure: clock
+        figure_args: {hour: h, minute: m}
+        answer:
+          type: choice
+          right: "{h}:{pad(m, 2)}"
+          distractors:
+            - "{h}:{pad(m // 5, 2)}"   # read the number, not the minutes
+            - "{next}:{pad(m, 2)}"     # read the hour the short hand is heading for
+            - "{m // 5}:{pad(h * 5 % 60, 2)}"  # read the hands the wrong way round
+        solution:
+          - "The short hand has just passed {h}, so the hour is {h}."
+          - "The long hand points to {m // 5}. Count by fives: {m} minutes."
+          - "The time is {h}:{pad(m, 2)}."

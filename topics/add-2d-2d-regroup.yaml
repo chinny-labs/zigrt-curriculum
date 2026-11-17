@@ -1,0 +1,43 @@
+id: add-2d-2d-regroup
+kps:
+  - id: add-2d-2d-regroup.kp1
+    explain: >-
+      Line up the tens and the ones. Add the ones first, then add the tens.
+    templates:
+      - id: add-2d-2d-regroup.kp1.t1
+        vars:
+          a: {int: [10, 89]}
+          b: {int: [10, 89]}
+        where:
+          - (a % 10) + (b % 10) < 10
+          - a + b <= 99
+        prompt: "{a} + {b}"
+        layout: stacked
+        op: "+"
+        parts: [a, b]
+        answer: {type: integer, value: a + b}
+        solution:
+          - "Add the ones: {a % 10} + {b % 10} = {(a % 10) + (b % 10)}."
+          - "Add the tens: {a // 10} + {b // 10} = {(a // 10) + (b // 10)}."
+          - "{a} + {b} = {a + b}"
+  - id: add-2d-2d-regroup.kp2
+    explain: >-
+      If the ones make 10 or more, make a new ten. Write the ones and carry
+      the ten to the tens.
+    templates:
+      - id: add-2d-2d-regroup.kp2.t1
+        vars:
+          a: {int: [10, 99]}
+          b: {int: [10, 99]}
+        where:
+          - (a % 10) + (b % 10) >= 10      # forces regrouping in the ones
+          - a + b <= 99
+        prompt: "{a} + {b}"
+        layout: stacked
+        op: "+"
+        parts: [a, b]
+        answer: {type: integer, value: a + b}
+        solution:
+          - "Add the ones: {a % 10} + {b % 10} = {(a % 10) + (b % 10)}. Write {(a + b) % 10}, carry 1."
+          - "Add the tens: {a // 10} + {b // 10} + 1 = {(a + b) // 10}."
+          - "{a} + {b} = {a + b}"

@@ -1,0 +1,40 @@
+id: missing-addend
+kps:
+  - id: missing-addend.kp1
+    explain: >-
+      A box means a number is missing. Count on from the first number to
+      the total.
+    templates:
+      - id: missing-addend.kp1.t1
+        vars:
+          a: {int: [1, 10]}
+          b: {int: [1, 10]}
+          c: a + b
+        prompt: "{a} + ? = {c}"
+        layout: missing
+        op: "+"
+        parts: [a, b, c]
+        blank: 1
+        answer: {type: integer, value: b}
+        solution:
+          - "Count on from {a} to {c}. That is {b} more."
+          - "The missing number is {b}."
+  - id: missing-addend.kp2
+    explain: >-
+      When the first number is missing, take away. Take the part you know
+      away from the total.
+    templates:
+      - id: missing-addend.kp2.t1
+        vars:
+          a: {int: [1, 10]}
+          b: {int: [1, 10]}
+          c: a + b
+        prompt: "? + {b} = {c}"
+        layout: missing
+        op: "+"
+        parts: [a, b, c]
+        blank: 0
+        answer: {type: integer, value: a}
+        solution:
+          - "{c} − {b} = {a}"
+          - "The missing number is {a}."

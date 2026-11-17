@@ -1,0 +1,36 @@
+id: number-line-to-20
+kps:
+  - id: number-line-to-20.kp1
+    explain: >-
+      Numbers on a line go up by one each step. Count the steps from 0 to
+      the dot.
+    templates:
+      - id: number-line-to-20.kp1.t1
+        vars:
+          mark: {int: [1, 9]}
+        prompt: "What number is at the dot?"
+        layout: figure
+        figure: number-line
+        figure_args: {from: 0, to: 10, step: 1, mark: mark}
+        answer: {type: integer, value: mark}
+        min_variety: 9
+        solution:
+          - "Count the steps from 0."
+          - "The dot is at {mark}."
+  - id: number-line-to-20.kp2
+    explain: >-
+      Find a number you know on the line. Count on from there to the dot.
+    templates:
+      - id: number-line-to-20.kp2.t1
+        vars:
+          from: {int: [0, 10]}
+          to: from + 10
+          mark: {int: [from + 1, to - 1]}
+        prompt: "What number is at the dot?"
+        layout: figure
+        figure: number-line
+        figure_args: {from: from, to: to, step: 1, mark: mark}
+        answer: {type: integer, value: mark}
+        solution:
+          - "Start at {from}. Count on {mark - from} {plural(mark - from, 'step', 'steps')}."
+          - "The dot is at {mark}."

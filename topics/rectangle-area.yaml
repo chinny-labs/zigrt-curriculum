@@ -1,0 +1,36 @@
+id: rectangle-area
+kps:
+  - id: rectangle-area.kp1
+    explain: >-
+      Area is how many unit squares cover a shape. For a rectangle, multiply
+      the length by the width.
+    templates:
+      - id: rectangle-area.kp1.t1
+        vars:
+          w: {int: [2, 10]}
+          h: {int: [2, 10]}
+          i: {int: [0, 3]}
+          unit: "pick(i, 'cm', 'm', 'in', 'ft')"
+          name: "pick(i, 'centimeters', 'meters', 'inches', 'feet')"
+        prompt: "What is the area of this rectangle in square {name}?"
+        layout: figure
+        figure: rectangle
+        figure_args: {width: w, height: h, unit: unit}
+        answer: {type: integer, value: w * h}
+        solution:
+          - "Area is length times width."
+          - "{w} × {h} = {w * h} square {name}"
+  - id: rectangle-area.kp2
+    explain: >-
+      Draw a picture if it helps. Then multiply the two side lengths.
+    templates:
+      - id: rectangle-area.kp2.t1
+        vars:
+          what: {words: [garden, rug, poster, table top]}
+          w: {int: [2, 10]}
+          h: {int: [2, 10]}
+        prompt: "A {what} is {w} feet long and {h} feet wide. What is its area in square feet?"
+        answer: {type: integer, value: w * h}
+        solution:
+          - "Multiply the length by the width."
+          - "{w} × {h} = {w * h} square feet"

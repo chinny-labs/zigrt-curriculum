@@ -1,0 +1,45 @@
+id: name-shapes
+kps:
+  - id: name-shapes.kp1
+    explain: >-
+      Count the straight sides of a shape. Three sides make a triangle. Four
+      sides make a quadrilateral.
+    templates:
+      - id: name-shapes.kp1.t1
+        vars:
+          n: {int: [3, 6]}
+          name: "pick(n - 3, 'triangle', 'quadrilateral', 'pentagon', 'hexagon')"
+        prompt: "A shape has {n} straight sides. What is it called?"
+        answer:
+          type: choice
+          right: "{name}"
+          distractors:
+            - "{pick((n - 2) % 4, 'triangle', 'quadrilateral', 'pentagon', 'hexagon')}"
+            - "{pick((n - 1) % 4, 'triangle', 'quadrilateral', 'pentagon', 'hexagon')}"
+            - "{pick(n % 4, 'triangle', 'quadrilateral', 'pentagon', 'hexagon')}"
+        min_variety: 4
+        solution:
+          - "A shape with {n} sides is a {name}."
+  - id: name-shapes.kp2
+    explain: >-
+      A shape has as many corners as it has sides. Learn the names: pentagon
+      is 5, hexagon is 6.
+    templates:
+      - id: name-shapes.kp2.t1
+        vars:
+          n: {int: [3, 6]}
+          name: "pick(n - 3, 'triangle', 'quadrilateral', 'pentagon', 'hexagon')"
+        prompt: "How many sides does a {name} have?"
+        answer: {type: integer, value: n}
+        min_variety: 4
+        solution:
+          - "A {name} has {n} sides."
+      - id: name-shapes.kp2.t2
+        vars:
+          n: {int: [3, 6]}
+          name: "pick(n - 3, 'triangle', 'quadrilateral', 'pentagon', 'hexagon')"
+        prompt: "How many corners does a {name} have?"
+        answer: {type: integer, value: n}
+        min_variety: 4
+        solution:
+          - "A {name} has {n} sides, so it has {n} corners."

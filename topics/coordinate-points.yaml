@@ -1,0 +1,44 @@
+id: coordinate-points
+kps:
+  - id: coordinate-points.kp1
+    explain: >-
+      A point on a grid has two numbers. The first number, x, tells how far
+      across to go from 0.
+    templates:
+      - id: coordinate-points.kp1.t1
+        vars:
+          x: {int: [1, 9]}
+          y: {int: [1, 9]}
+        prompt: "How far across from 0 is the point?"
+        layout: figure
+        figure: coordinate
+        figure_args: {size: 10, x: x, y: y}
+        answer: {type: integer, value: x}
+        solution:
+          - "Start at 0. Count the lines across to the point."
+          - "The x-coordinate is {x}."
+  - id: coordinate-points.kp2
+    explain: >-
+      Write the pair as (x, y): across first, then up. Swapping them names a
+      different point.
+    templates:
+      - id: coordinate-points.kp2.t1
+        vars:
+          x: {int: [1, 9]}
+          y: {int: [1, 9]}
+        where:
+          - x != y
+        prompt: "Which pair names the point?"
+        layout: figure
+        figure: coordinate
+        figure_args: {size: 10, x: x, y: y}
+        answer:
+          type: choice
+          right: "({x}, {y})"
+          distractors:
+            - "({y}, {x})"         # up first, then across
+            - "({x + 1}, {y})"     # counted squares, not lines
+            - "({x}, {y + 1})"
+        solution:
+          - "Go across {x} from 0, then up {y}."
+          - "The point is ({x}, {y})."

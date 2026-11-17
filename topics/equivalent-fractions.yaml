@@ -1,0 +1,38 @@
+id: equivalent-fractions
+kps:
+  - id: equivalent-fractions.kp1
+    explain: >-
+      Multiply the top and bottom by the same number. The fraction looks
+      different but stays the same size.
+    templates:
+      - id: equivalent-fractions.kp1.t1
+        vars:
+          d: {int: [2, 6]}
+          n: {int: [1, d - 1]}
+          k: {int: [2, 6]}
+        where:
+          - gcd(n, d) == 1
+        prompt: "{n}/{d} = ?/{d * k}"
+        answer: {type: integer, value: n * k}
+        solution:
+          - "{d} × {k} = {d * k}, so multiply the top by {k} too."
+          - "{n} × {k} = {n * k}"
+          - "The missing number is {n * k}."
+  - id: equivalent-fractions.kp2
+    explain: >-
+      To simplify, divide the top and bottom by a number that goes into
+      both. Stop when only 1 goes into both.
+    templates:
+      - id: equivalent-fractions.kp2.t1
+        vars:
+          d: {int: [2, 6]}
+          n: {int: [1, d - 1]}
+          k: {int: [2, 6]}
+        where:
+          - gcd(n, d) == 1
+        prompt: "Write {n * k}/{d * k} in simplest form."
+        answer: {type: fraction, value: n / d}
+        solution:
+          - "{k} goes into both {n * k} and {d * k}."
+          - "{n * k} ÷ {k} = {n} and {d * k} ÷ {k} = {d}."
+          - "{n * k}/{d * k} = {n}/{d}"

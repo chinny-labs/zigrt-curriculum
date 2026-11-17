@@ -1,0 +1,37 @@
+id: add-within-10
+kps:
+  - id: add-within-10.kp1
+    explain: >-
+      Adding puts two groups together. Count them all to find how many.
+    templates:
+      - id: add-within-10.kp1.t1
+        vars:
+          a: {int: [1, 4]}
+          b: {int: [1, 5 - a]}
+        prompt: "{a} + {b}"
+        layout: across
+        op: "+"
+        parts: [a, b]
+        answer: {type: integer, value: a + b}
+        min_variety: 10
+        solution:
+          - "Start at {a}. Count on {b}."
+          - "{a} + {b} = {a + b}"
+  - id: add-within-10.kp2
+    explain: >-
+      Start with the bigger number. Count on the smaller one.
+    templates:
+      - id: add-within-10.kp2.t1
+        vars:
+          a: {int: [1, 9]}
+          b: {int: [1, 9]}
+        where:
+          - a + b >= 6 && a + b <= 10
+        prompt: "{a} + {b}"
+        layout: across
+        op: "+"
+        parts: [a, b]
+        answer: {type: integer, value: a + b}
+        solution:
+          - "Start at {max(a, b)}. Count on {min(a, b)}."
+          - "{a} + {b} = {a + b}"

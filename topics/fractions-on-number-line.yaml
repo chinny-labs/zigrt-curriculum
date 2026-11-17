@@ -1,0 +1,37 @@
+id: fractions-on-number-line
+kps:
+  - id: fractions-on-number-line.kp1
+    explain: >-
+      Cut the space from 0 to 1 into equal jumps. Each jump is one part of
+      the whole.
+    templates:
+      - id: fractions-on-number-line.kp1.t1
+        vars:
+          d: {choose: [2, 3, 4, 5, 6, 8, 10, 12]}
+          n: {int: [1, d - 1]}
+        prompt: "What fraction is at the dot?"
+        layout: figure
+        figure: number-line
+        figure_args: {from: 0, to: 1, step: 1 / d, mark: n / d}
+        answer: {type: fraction, value: n / d, simplest: false}
+        solution:
+          - "From 0 to 1 is cut into {d} equal jumps. Each jump is 1/{d}."
+          - "The dot is {n} {plural(n, 'jump', 'jumps')} from 0: {n}/{d}"
+  - id: fractions-on-number-line.kp2
+    explain: >-
+      Keep counting jumps past 1. Four quarters make one whole, so 5/4 is
+      past 1.
+    templates:
+      - id: fractions-on-number-line.kp2.t1
+        vars:
+          d: {choose: [2, 3, 4, 6, 8]}
+          n: {int: [d + 1, 2 * d - 1]}
+        prompt: "What fraction is at the dot?"
+        layout: figure
+        figure: number-line
+        figure_args: {from: 0, to: 2, step: 1 / d, mark: n / d}
+        answer: {type: fraction, value: n / d, simplest: false}
+        min_variety: 18
+        solution:
+          - "Each jump is 1/{d}. {d} jumps reach 1."
+          - "The dot is {n} jumps from 0: {n}/{d}"

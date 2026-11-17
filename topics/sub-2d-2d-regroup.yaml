@@ -1,0 +1,42 @@
+id: sub-2d-2d-regroup
+kps:
+  - id: sub-2d-2d-regroup.kp1
+    explain: >-
+      Line up the digits. Take away the ones, then take away the tens.
+    templates:
+      - id: sub-2d-2d-regroup.kp1.t1
+        vars:
+          a: {int: [20, 99]}
+          b: {int: [10, a]}
+        where:
+          - a % 10 >= b % 10
+        prompt: "{a} − {b}"
+        layout: stacked
+        op: "-"
+        parts: [a, b]
+        answer: {type: integer, value: a - b}
+        solution:
+          - "Ones: {a % 10} − {b % 10} = {a % 10 - b % 10}."
+          - "Tens: {a // 10} − {b // 10} = {a // 10 - b // 10}."
+          - "{a} − {b} = {a - b}"
+  - id: sub-2d-2d-regroup.kp2
+    explain: >-
+      If there are not enough ones, break one ten into 10 ones. Then take
+      away.
+    templates:
+      - id: sub-2d-2d-regroup.kp2.t1
+        vars:
+          a: {int: [20, 99]}
+          b: {int: [10, a - 1]}
+        where:
+          - a % 10 < b % 10
+        prompt: "{a} − {b}"
+        layout: stacked
+        op: "-"
+        parts: [a, b]
+        answer: {type: integer, value: a - b}
+        solution:
+          - "There are not enough ones to take {b % 10} from {a % 10}, so break a ten."
+          - "Ones: {a % 10 + 10} − {b % 10} = {a % 10 + 10 - b % 10}."
+          - "Tens: {a // 10 - 1} − {b // 10} = {a // 10 - 1 - b // 10}."
+          - "{a} − {b} = {a - b}"
