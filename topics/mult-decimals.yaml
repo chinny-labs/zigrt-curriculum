@@ -1,0 +1,21 @@
+id: mult-decimals
+kps:
+  - id: mult-decimals.kp1
+    explain: >-
+      Multiply as whole numbers. The answer has as many decimal places as both numbers together.
+    templates:
+      - id: mult-decimals.kp1.t1
+        vars:
+          m: {int: [2, 99]}
+          n: {int: [2, 99]}
+          a: m / 10
+          b: n / 10
+        where: ["m % 10 != 0", "n % 10 != 0"]
+        prompt: "{dec(a, 1)} × {dec(b, 1)}"
+        answer:
+          type: choice
+          right: "{dec(a * b)}"
+          distractors: ["{dec(a * b * 10)}", "{dec(a * b * 100)}"]
+        solution:
+          - "{m} × {n} = {m * n}."
+          - "One place and one place make two: {dec(a, 1)} × {dec(b, 1)} = {dec(a * b)}"

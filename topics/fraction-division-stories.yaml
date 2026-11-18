@@ -1,0 +1,24 @@
+id: fraction-division-stories
+kps:
+  - id: fraction-division-stories.kp1
+    explain: >-
+      How many small parts fit? Divide by the unit fraction. Sharing a part? Divide by the whole number.
+    templates:
+      - id: fraction-division-stories.kp1.t1
+        vars:
+          n: {int: [2, 6]}
+          a: {choose: [2, 3, 4, 5]}
+        prompt: "{n} litres of lemonade are poured into cups that hold 1/{a} litre each. How many cups are filled?"
+        answer: {type: integer, value: n * a}
+        min_variety: 20
+        solution:
+          - "{n} ÷ 1/{a} = {n} × {a} = {n * a} cups"
+      - id: fraction-division-stories.kp1.t2
+        vars:
+          a: {choose: [2, 3, 4]}
+          n: {int: [2, 4]}
+        prompt: "1/{a} of a cake is shared equally by {n} children. What fraction of the whole cake does each get?"
+        answer: {type: fraction, value: 1 / (a * n)}
+        min_variety: 9
+        solution:
+          - "1/{a} ÷ {n} = 1/{a * n}"

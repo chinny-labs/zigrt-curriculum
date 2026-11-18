@@ -1,0 +1,16 @@
+id: volume-missing-edge
+kps:
+  - id: volume-missing-edge.kp1
+    explain: >-
+      If you know the volume and two edges, divide the volume by their product to find the third.
+    templates:
+      - id: volume-missing-edge.kp1.t1
+        vars:
+          l: {int: [2, 10]}
+          w: {int: [2, 8]}
+          h: {int: [2, 9]}
+        prompt: "A box has a volume of {l * w * h} cubic cm. It is {l} cm long and {w} cm wide. How tall is it, in centimetres?"
+        answer: {type: integer, value: h}
+        solution:
+          - "{l} × {w} = {l * w}."
+          - "{l * w * h} ÷ {l * w} = {h} cm"

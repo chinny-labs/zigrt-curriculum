@@ -1,0 +1,17 @@
+id: mult-fractions
+kps:
+  - id: mult-fractions.kp1
+    explain: >-
+      To multiply fractions, multiply the tops and multiply the bottoms.
+    templates:
+      - id: mult-fractions.kp1.t1
+        vars:
+          b: {int: [2, 9]}
+          d: {int: [2, 9]}
+          a: {int: [1, b - 1]}
+          c: {int: [1, d - 1]}
+        prompt: "{a}/{b} × {c}/{d}"
+        answer: {type: fraction, value: a * c / (b * d), simplest: false}
+        solution:
+          - "Tops: {a} × {c} = {a * c}. Bottoms: {b} × {d} = {b * d}."
+          - "{a}/{b} × {c}/{d} = {a * c}/{b * d}"

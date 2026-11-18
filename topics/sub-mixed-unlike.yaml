@@ -1,0 +1,24 @@
+id: sub-mixed-unlike
+kps:
+  - id: sub-mixed-unlike.kp1
+    explain: >-
+      Give the fractions a common bottom. If the first fraction is too small, break a whole into parts.
+    templates:
+      - id: sub-mixed-unlike.kp1.t1
+        vars:
+          w1: {int: [3, 8]}
+          w2: {int: [1, 2]}
+          b: {int: [2, 6]}
+          d: {int: [2, 6]}
+          a: {int: [1, b - 1]}
+          c: {int: [1, d - 1]}
+          L: lcm(b, d)
+          ans: w1 + a / b - w2 - c / d
+        where: ["b != d"]
+        prompt: "{w1} {a}/{b} − {w2} {c}/{d}"
+        answer: {type: fraction, value: ans, simplest: false}
+        solution:
+          - "Common bottom {L}: {w1} {a * L / b}/{L} − {w2} {c * L / d}/{L}."
+          - when: a / b < c / d
+            text: "{a * L / b}/{L} is too small: break a whole, {w1 - 1} {a * L / b + L}/{L}."
+          - "The answer is {mixed(ans)}."

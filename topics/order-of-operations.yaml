@@ -1,0 +1,44 @@
+id: order-of-operations
+kps:
+  - id: order-of-operations.kp1
+    explain: >-
+      Work out brackets first. Then times and divide, left to right. Then add and take away, left to right.
+    templates:
+      - id: order-of-operations.kp1.t1
+        vars:
+          a: {int: [2, 20]}
+          b: {int: [2, 9]}
+          c: {int: [2, 9]}
+        prompt: "{a} + {b} × {c}"
+        answer:
+          type: choice
+          right: "{a + b * c}"
+          distractors: ["{(a + b) * c}", "{a + b + c}"]
+        solution:
+          - "Times first: {b} × {c} = {b * c}."
+          - "Then add: {a} + {b * c} = {a + b * c}."
+      - id: order-of-operations.kp1.t2
+        vars:
+          a: {int: [2, 20]}
+          b: {int: [2, 9]}
+          c: {int: [2, 9]}
+        prompt: "({a} + {b}) × {c}"
+        answer:
+          type: choice
+          right: "{(a + b) * c}"
+          distractors: ["{a + b * c}", "{a * c + b}"]
+        solution:
+          - "Brackets first: {a} + {b} = {a + b}."
+          - "Then times: {a + b} × {c} = {(a + b) * c}."
+      - id: order-of-operations.kp1.t3
+        vars:
+          a: {int: [20, 60]}
+          b: {int: [2, 9]}
+          c: {int: [2, 9]}
+          d: {int: [2, 9]}
+        where: ["a - b * c > 0"]
+        prompt: "{a} − {b} × {c} + {d}"
+        answer: {type: integer, value: a - b * c + d}
+        solution:
+          - "Times first: {b} × {c} = {b * c}."
+          - "Left to right: {a} − {b * c} = {a - b * c}, then + {d} = {a - b * c + d}."

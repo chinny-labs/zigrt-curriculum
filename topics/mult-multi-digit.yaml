@@ -1,0 +1,20 @@
+id: mult-multi-digit
+kps:
+  - id: mult-multi-digit.kp1
+    explain: >-
+      With bigger numbers, keep the rows lined up. Each row moves one place left.
+    templates:
+      - id: mult-multi-digit.kp1.t1
+        vars:
+          a: {int: [1002, 9999]}
+          b: {int: [12, 99]}
+        where: ["b % 10 != 0"]
+        prompt: "{a} × {b}"
+        layout: stacked
+        op: "*"
+        parts: [a, b]
+        answer: {type: integer, value: a * b}
+        solution:
+          - "{group(a)} × {b % 10} = {group(a * (b % 10))}"
+          - "{group(a)} × {b - b % 10} = {group(a * (b - b % 10))}"
+          - "{group(a * (b % 10))} + {group(a * (b - b % 10))} = {group(a * b)}"

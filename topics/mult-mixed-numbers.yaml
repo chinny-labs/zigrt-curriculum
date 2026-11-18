@@ -1,0 +1,18 @@
+id: mult-mixed-numbers
+kps:
+  - id: mult-mixed-numbers.kp1
+    explain: >-
+      Turn the mixed number into a fraction first. Then multiply.
+    templates:
+      - id: mult-mixed-numbers.kp1.t1
+        vars:
+          w: {int: [1, 4]}
+          b: {int: [2, 6]}
+          a: {int: [1, b - 1]}
+          n: {int: [2, 6]}
+          m: w + a / b
+        prompt: "{w} {a}/{b} × {n}"
+        answer: {type: fraction, value: m * n, simplest: false}
+        solution:
+          - "{w} {a}/{b} = {w * b + a}/{b}."
+          - "{w * b + a}/{b} × {n} = {(w * b + a) * n}/{b}, which is {mixed(m * n)}."

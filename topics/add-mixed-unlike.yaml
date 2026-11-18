@@ -1,0 +1,22 @@
+id: add-mixed-unlike
+kps:
+  - id: add-mixed-unlike.kp1
+    explain: >-
+      Add the wholes. Give the fractions a common bottom and add them. Carry a whole if they make one.
+    templates:
+      - id: add-mixed-unlike.kp1.t1
+        vars:
+          w1: {int: [1, 5]}
+          w2: {int: [1, 5]}
+          b: {int: [2, 6]}
+          d: {int: [2, 6]}
+          a: {int: [1, b - 1]}
+          c: {int: [1, d - 1]}
+          L: lcm(b, d)
+          ans: w1 + w2 + a / b + c / d
+        where: ["b != d"]
+        prompt: "{w1} {a}/{b} + {w2} {c}/{d}"
+        answer: {type: fraction, value: ans, simplest: false}
+        solution:
+          - "Wholes: {w1 + w2}. Fractions: {a * L / b}/{L} + {c * L / d}/{L} = {a * L / b + c * L / d}/{L}."
+          - "The total is {mixed(ans)}."

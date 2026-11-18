@@ -1,0 +1,17 @@
+id: fraction-of-a-number
+kps:
+  - id: fraction-of-a-number.kp1
+    explain: >-
+      To find 2/3 of 18, find 1/3 of 18 by dividing by 3. Then take 2 of those.
+    templates:
+      - id: fraction-of-a-number.kp1.t1
+        vars:
+          d: {int: [2, 10]}
+          n: {int: [1, d - 1]}
+          k: {int: [2, 12]}
+          w: d * k
+        prompt: "What is {n}/{d} of {w}?"
+        answer: {type: integer, value: n * k}
+        solution:
+          - "1/{d} of {w} is {w} ÷ {d} = {k}."
+          - "{n} × {k} = {n * k}"

@@ -1,0 +1,28 @@
+id: div-word-problems-2d
+kps:
+  - id: div-word-problems-2d.kp1
+    explain: >-
+      Divide, then decide what the remainder means for the question.
+    templates:
+      - id: div-word-problems-2d.kp1.t1
+        vars:
+          d: {int: [12, 36]}
+          q: {int: [11, 40]}
+          r: {int: [1, d - 1]}
+          n: d * q + r
+        prompt: "{n} students go on a trip. Each bus holds {d}. How many buses are needed?"
+        answer:
+          type: choice
+          right: "{q + 1}"
+          distractors: ["{q}", "{q} r {r}"]
+        solution:
+          - "{n} ÷ {d} = {q} r {r}."
+          - "The {r} left over need another bus: {q + 1} buses."
+      - id: div-word-problems-2d.kp1.t2
+        vars:
+          d: {int: [12, 48]}
+          q: {int: [11, 60]}
+        prompt: "{group(d * q)} sheets of paper are packed {d} to a pack. How many packs is that?"
+        answer: {type: integer, value: q}
+        solution:
+          - "{group(d * q)} ÷ {d} = {q}"

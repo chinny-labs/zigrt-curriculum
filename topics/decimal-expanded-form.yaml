@@ -1,0 +1,32 @@
+id: decimal-expanded-form
+kps:
+  - id: decimal-expanded-form.kp1
+    explain: >-
+      Put the parts together, each in its place. A missing place gets a 0.
+    templates:
+      - id: decimal-expanded-form.kp1.t1
+        vars:
+          w: {int: [1, 9]}
+          a: {int: [0, 9]}
+          b: {int: [1, 9]}
+          c: {int: [1, 9]}
+        prompt: "{w} + {dec(a / 10)} + {dec(b / 100)} + {dec(c / 1000)} = ?"
+        answer: {type: decimal, value: w + a / 10 + b / 100 + c / 1000}
+        solution:
+          - "{w} ones, {a} tenths, {b} hundredths, {c} thousandths."
+          - "The number is {dec(w + a / 10 + b / 100 + c / 1000, 3)}."
+  - id: decimal-expanded-form.kp2
+    explain: >-
+      Decimals can be written as fractions over 10, 100 and 1000.
+    templates:
+      - id: decimal-expanded-form.kp2.t1
+        vars:
+          w: {int: [1, 9]}
+          a: {int: [1, 9]}
+          b: {int: [0, 9]}
+          c: {int: [1, 9]}
+        prompt: "{w} + {a}/10 + {b}/100 + {c}/1000 = ?"
+        answer: {type: decimal, value: w + a / 10 + b / 100 + c / 1000}
+        solution:
+          - "{a}/10 is the tenths digit, {b}/100 the hundredths, {c}/1000 the thousandths."
+          - "The number is {dec(w + a / 10 + b / 100 + c / 1000, 3)}."

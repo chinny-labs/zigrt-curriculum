@@ -1,0 +1,16 @@
+id: div-by-decimal
+kps:
+  - id: div-by-decimal.kp1
+    explain: >-
+      Multiply both numbers by 10 (or 100) until you divide by a whole number. The answer stays the same.
+    templates:
+      - id: div-by-decimal.kp1.t1
+        vars:
+          d: {int: [2, 9]}
+          q: {int: [2, 60]}
+          x: d * q / 10
+        prompt: "{dec(x)} ÷ {dec(d / 10)}"
+        answer: {type: decimal, value: q}
+        solution:
+          - "Times both by 10: {dec(10 * x)} ÷ {d}."
+          - "{dec(10 * x)} ÷ {d} = {q}"

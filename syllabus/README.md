@@ -19,7 +19,7 @@
 | Shapes and space | 5 | 2 | 2 | 2 | 10 | 3 | 24 |
 | **All** | **24** | **33** | **41** | **42** | **64** | **51** | **255** |
 
-30 topics are written (the 2026.11 sample pack). Grade 4 is the largest because Common Core puts most of fractions, multi-digit multiplication and division, and angles there.
+All 255 are written (finished 2026-11-18, grade by grade from K). Grade 4 is the largest because Common Core puts most of fractions, multi-digit multiplication and division, and angles there.
 
 ## Order of work
 
@@ -37,6 +37,8 @@ Lessons are written **grade by grade**, K first, so a younger child has a comple
 | 3 | rectilinear polygon with labelled sides, scales, split rectangle (area model) |
 | 4 | lines and rays, angle, protractor, decimal number line |
 | 5 | joined boxes |
+
+Writing the lessons turned up a few more, added with their grade: `cut-shape` (1), `grid` (2), `symmetry` and `triangle` (4), and `plot` (5). The decimal number line needed nothing new.
 
 `needs` at the end of `syllabus.yaml` describes each one.
 

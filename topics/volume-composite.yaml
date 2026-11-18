@@ -1,0 +1,24 @@
+id: volume-composite
+kps:
+  - id: volume-composite.kp1
+    explain: >-
+      Split a solid into boxes. Find each box's volume, then add them.
+    templates:
+      - id: volume-composite.kp1.t1
+        vars:
+          a: {int: [2, 6]}
+          b: {int: [2, 6]}
+          h1: {int: [2, 8]}
+          h2: {int: [2, 8]}
+          w: {int: [2, 5]}
+          v1: a * w * h1
+          v2: b * w * h2
+        where: ["h1 != h2"]
+        prompt: "Two boxes are joined. Both are {w} cm deep. What is the total volume, in cubic centimetres?"
+        layout: figure
+        figure: joined-prisms
+        figure_args: {a: a, b: b, h1: h1, h2: h2, w: w, unit: "'cm'"}
+        answer: {type: integer, value: v1 + v2}
+        solution:
+          - "First box: {a} × {w} × {h1} = {v1}. Second: {b} × {w} × {h2} = {v2}."
+          - "{v1} + {v2} = {v1 + v2} cubic cm"

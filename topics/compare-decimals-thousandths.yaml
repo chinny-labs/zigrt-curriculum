@@ -1,0 +1,33 @@
+id: compare-decimals-thousandths
+kps:
+  - id: compare-decimals-thousandths.kp1
+    explain: >-
+      Compare place by place from the left. More digits does not mean bigger: 0.4 is more than 0.395.
+    templates:
+      - id: compare-decimals-thousandths.kp1.t1
+        vars:
+          t: {int: [1, 9]}
+          h: {int: [0, 9]}
+          th: {int: [1, 9]}
+          h2: {int: [0, 9]}
+          a: t / 10 + h / 100 + th / 1000
+          b: t / 10 + h2 / 100
+          sym: "a < b ? '<' : '>'"
+        where: ["h2 != h"]
+        prompt: "{dec(a, 3)} ○ {dec(b, 2)}"
+        answer: {type: comparison, compare: [a, b]}
+        solution:
+          - "Compare tenths, then hundredths: {digit(a, 0.01)} and {digit(b, 0.01)}."
+          - "{dec(a, 3)} {sym} {dec(b, 2)}"
+      - id: compare-decimals-thousandths.kp1.t2
+        vars:
+          m: {int: [1000, 9999]}
+          n: {int: [1000, 9999]}
+          a: m / 1000
+          b: n / 1000
+          sym: "a < b ? '<' : (a > b ? '>' : '=')"
+        prompt: "{dec(a, 3)} ○ {dec(b, 3)}"
+        answer: {type: comparison, compare: [a, b]}
+        solution:
+          - "Compare from the left, place by place."
+          - "{dec(a, 3)} {sym} {dec(b, 3)}"
