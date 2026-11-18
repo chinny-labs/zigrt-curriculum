@@ -4,7 +4,7 @@
 id: zigrt-k5
 title: Arithmetic K-5
 version: 2026.11.1
-min_app_version: 0.8.0
+min_app_version: 0.9.0
 licence: CC-BY-SA-4.0
 locales: [en]
 courses:
