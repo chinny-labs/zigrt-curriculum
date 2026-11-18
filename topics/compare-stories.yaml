@@ -1,0 +1,33 @@
+id: compare-stories
+kps:
+  - id: compare-stories.kp1
+    explain: >-
+      How many more? Find the difference. Take the smaller from the bigger.
+    templates:
+      - id: compare-stories.kp1.t1
+        vars:
+          k: {int: [0, 2]}
+          p: "pick(k, 'Ava', 'Mia', 'Zoe')"
+          q: "pick(k, 'Ben', 'Leo', 'Sam')"
+          a: {int: [6, 20]}
+          b: {int: [2, 15]}
+        where: ["b < a"]
+        prompt: "{p} has {a} marbles. {q} has {b} marbles. How many more marbles does {p} have than {q}?"
+        answer: {type: integer, value: a - b}
+        solution:
+          - "Line them up. {a - b} of {p}'s marbles have no partner."
+          - "{a} − {b} = {a - b}"
+  - id: compare-stories.kp2
+    explain: >-
+      How many fewer is the same difference, looked at the other way.
+    templates:
+      - id: compare-stories.kp2.t1
+        vars:
+          a: {int: [6, 20]}
+          b: {int: [2, 15]}
+        where: ["b < a"]
+        prompt: "A red tower has {a} blocks. A blue tower has {b} blocks. How many fewer blocks does the blue tower have?"
+        answer: {type: integer, value: a - b}
+        solution:
+          - "The difference is {a} − {b}."
+          - "The blue tower has {a - b} fewer."

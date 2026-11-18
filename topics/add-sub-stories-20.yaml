@@ -1,0 +1,43 @@
+id: add-sub-stories-20
+kps:
+  - id: add-sub-stories-20.kp1
+    explain: >-
+      Read the story. Ask: are things put together, or taken away?
+    templates:
+      - id: add-sub-stories-20.kp1.t1
+        vars:
+          who: {choose: ["'Ava'", "'Ben'", "'Mia'", "'Leo'", "'Zoe'", "'Sam'"]}
+          a: {int: [5, 15]}
+          b: {int: [2, 9]}
+        where: ["a + b <= 20"]
+        prompt: "{who} has {a} stickers. {who} gets {b} more. How many stickers does {who} have now?"
+        answer: {type: integer, value: a + b}
+        solution:
+          - "Getting more means add."
+          - "{a} + {b} = {a + b}"
+      - id: add-sub-stories-20.kp1.t2
+        vars:
+          a: {int: [8, 20]}
+          b: {int: [2, 9]}
+        where: ["b < a"]
+        prompt: "There are {a} ducks on a pond. {b} ducks swim away. How many ducks are left?"
+        answer: {type: integer, value: a - b}
+        solution:
+          - "Swimming away means take away."
+          - "{a} − {b} = {a - b}"
+  - id: add-sub-stories-20.kp2
+    explain: >-
+      Sometimes the middle number is missing. Count on from the start to the end.
+    templates:
+      - id: add-sub-stories-20.kp2.t1
+        vars:
+          who: {choose: ["'Ava'", "'Ben'", "'Mia'", "'Leo'", "'Zoe'", "'Sam'"]}
+          a: {int: [3, 12]}
+          b: {int: [2, 8]}
+          s: a + b
+        where: ["s <= 20"]
+        prompt: "{who} had {a} shells. After finding some more, {who} has {s}. How many shells did {who} find?"
+        answer: {type: integer, value: b}
+        solution:
+          - "{a} + ? = {s}. Count on from {a} to {s}."
+          - "{who} found {b} shells."

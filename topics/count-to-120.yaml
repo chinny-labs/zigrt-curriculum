@@ -1,0 +1,26 @@
+id: count-to-120
+kps:
+  - id: count-to-120.kp1
+    explain: >-
+      After 99 comes 100. Then count on just like before: 101, 102, 103.
+    templates:
+      - id: count-to-120.kp1.t1
+        vars:
+          n: {int: [95, 119]}
+        prompt: "What number comes after {n}?"
+        answer: {type: integer, value: n + 1}
+        min_variety: 25
+        solution:
+          - "{n == 99 ? 'After 99 comes 100.' : join('The ones go up by one: ', text(n + 1), '.')}"
+  - id: count-to-120.kp2
+    explain: >-
+      Count on one at a time to find the missing number.
+    templates:
+      - id: count-to-120.kp2.t1
+        vars:
+          n: {int: [94, 116]}
+        prompt: "{n}, {n + 1}, ?, {n + 3}. What number is missing?"
+        answer: {type: integer, value: n + 2}
+        min_variety: 23
+        solution:
+          - "After {n + 1} comes {n + 2}."

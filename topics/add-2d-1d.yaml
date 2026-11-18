@@ -1,0 +1,20 @@
+id: add-2d-1d
+kps:
+  - id: add-2d-1d.kp1
+    explain: >-
+      Add the ones to the ones. The tens stay the same.
+    templates:
+      - id: add-2d-1d.kp1.t1
+        vars:
+          t: {int: [1, 8]}
+          o: {int: [0, 8]}
+          k: {int: [1, 9]}
+        where: ["o + k <= 9"]
+        prompt: "{10 * t + o} + {k}"
+        layout: across
+        op: "+"
+        parts: [10 * t + o, k]
+        answer: {type: integer, value: 10 * t + o + k}
+        solution:
+          - "Ones: {o} + {k} = {o + k}. The {t} tens stay."
+          - "{10 * t + o} + {k} = {10 * t + o + k}"

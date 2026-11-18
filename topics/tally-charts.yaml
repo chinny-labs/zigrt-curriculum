@@ -1,0 +1,39 @@
+id: tally-charts
+kps:
+  - id: tally-charts.kp1
+    explain: >-
+      Each line is one. A bundle of five has a line across it.
+    templates:
+      - id: tally-charts.kp1.t1
+        vars:
+          a: {int: [1, 14]}
+          b: {int: [1, 14]}
+          c: {int: [1, 14]}
+          k: {int: [0, 2]}
+          name: "pick(k, 'Sun', 'Rain', 'Snow')"
+          n: "pick(k, a, b, c)"
+        prompt: "The class kept a tally of the weather. How many days were {pick(k, 'sunny', 'rainy', 'snowy')}?"
+        layout: figure
+        figure: table
+        figure_args: {rows: "join('Sun:', text(a), '|Rain:', text(b), '|Snow:', text(c))", style: "'tally'"}
+        answer: {type: integer, value: n}
+        solution:
+          - "{n >= 5 ? join('Count the bundles in fives: ', text(5 * (n // 5)), '. Then count on.') : 'Count each line.'}"
+          - "{name}: {n} days."
+  - id: tally-charts.kp2
+    explain: >-
+      To find how many in all, add every row.
+    templates:
+      - id: tally-charts.kp2.t1
+        vars:
+          a: {int: [1, 8]}
+          b: {int: [1, 8]}
+          c: {int: [1, 8]}
+        where: ["a + b + c <= 20"]
+        prompt: "How many pets are there in all?"
+        layout: figure
+        figure: table
+        figure_args: {rows: "join('Cats:', text(a), '|Dogs:', text(b), '|Fish:', text(c))", style: "'number'"}
+        answer: {type: integer, value: a + b + c}
+        solution:
+          - "{a} + {b} + {c} = {a + b + c}"

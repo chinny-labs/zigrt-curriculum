@@ -1,0 +1,43 @@
+id: true-false-equations
+kps:
+  - id: true-false-equations.kp1
+    explain: >-
+      The equals sign means both sides are worth the same.
+    templates:
+      - id: true-false-equations.kp1.t1
+        vars:
+          a: {int: [1, 9]}
+          b: {int: [1, 9]}
+          d: {choose: [-1, 0, 0, 1]}
+          c: a + b + d
+          ok: "d == 0 ? 'true' : 'false'"
+        prompt: "Is this true or false? {a} + {b} = {c}"
+        answer:
+          type: choice
+          right: "{ok}"
+          distractors: ["{d == 0 ? 'false' : 'true'}"]
+        solution:
+          - "{a} + {b} is {a + b}."
+          - "{d == 0 ? 'Both sides are the same, so it is true.' : join('That is not ', text(c), ', so it is false.')}"
+  - id: true-false-equations.kp2
+    explain: >-
+      Work out each side. They must be the same number.
+    templates:
+      - id: true-false-equations.kp2.t1
+        vars:
+          a: {int: [1, 9]}
+          b: {int: [1, 9]}
+          c: {int: [1, 9]}
+          d0: a + b - c
+          w: {choose: [0, 0, 1]}
+          d: d0 + w
+          ok: "w == 0 ? 'true' : 'false'"
+        where: ["d0 >= 1 && d <= 10 && c != a && c != b"]
+        prompt: "Is this true or false? {a} + {b} = {c} + {d}"
+        answer:
+          type: choice
+          right: "{ok}"
+          distractors: ["{w == 0 ? 'false' : 'true'}"]
+        solution:
+          - "Left side: {a} + {b} = {a + b}. Right side: {c} + {d} = {c + d}."
+          - "{w == 0 ? 'They are the same, so it is true.' : 'They are not the same, so it is false.'}"

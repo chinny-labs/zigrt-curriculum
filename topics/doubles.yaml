@@ -1,0 +1,36 @@
+id: doubles
+kps:
+  - id: doubles.kp1
+    explain: >-
+      A double adds a number to itself. Learn the doubles by heart.
+    templates:
+      - id: doubles.kp1.t1
+        vars:
+          a: {int: [1, 10]}
+        prompt: "{a} + {a}"
+        layout: across
+        op: "+"
+        parts: [a, a]
+        answer: {type: integer, value: 2 * a}
+        min_variety: 10
+        solution:
+          - "Double {a} is {2 * a}."
+  - id: doubles.kp2
+    explain: >-
+      A near double is one more than a double.
+    templates:
+      - id: doubles.kp2.t1
+        vars:
+          a: {int: [2, 9]}
+          s: {int: [0, 1]}
+          x: a + s
+          y: a + 1 - s
+        prompt: "{x} + {y}"
+        layout: across
+        op: "+"
+        parts: [x, y]
+        answer: {type: integer, value: 2 * a + 1}
+        min_variety: 16
+        solution:
+          - "Double {a} is {2 * a}."
+          - "One more is {2 * a + 1}. So {x} + {y} = {2 * a + 1}."

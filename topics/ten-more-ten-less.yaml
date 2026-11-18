@@ -1,0 +1,41 @@
+id: ten-more-ten-less
+kps:
+  - id: ten-more-ten-less.kp1
+    explain: >-
+      Ten more adds one ten. The ones stay the same.
+    templates:
+      - id: ten-more-ten-less.kp1.t1
+        vars:
+          t: {int: [1, 8]}
+          o: {int: [0, 9]}
+        prompt: "What number is 10 more than this?"
+        layout: figure
+        figure: base-ten
+        figure_args: {hundreds: 0, tens: t, ones: o}
+        answer: {type: integer, value: 10 * t + o + 10}
+        solution:
+          - "The blocks show {10 * t + o}. Add one more ten."
+          - "{t + 1} tens and {o} ones is {10 * t + o + 10}."
+      - id: ten-more-ten-less.kp1.t2
+        vars:
+          n: {int: [10, 89]}
+        prompt: "What is 10 more than {n}?"
+        answer:
+          type: choice
+          right: "{n + 10}"
+          distractors: ["{n + 1}", "{n + 100}"]
+        solution:
+          - "The tens go up by one. The ones stay {n % 10}."
+          - "10 more than {n} is {n + 10}."
+  - id: ten-more-ten-less.kp2
+    explain: >-
+      Ten less takes away one ten. The ones stay the same.
+    templates:
+      - id: ten-more-ten-less.kp2.t1
+        vars:
+          n: {int: [20, 99]}
+        prompt: "What is 10 less than {n}?"
+        answer: {type: integer, value: n - 10}
+        solution:
+          - "The tens go down by one. The ones stay {n % 10}."
+          - "10 less than {n} is {n - 10}."

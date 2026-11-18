@@ -1,0 +1,37 @@
+id: make-10-to-add
+kps:
+  - id: make-10-to-add.kp1
+    explain: >-
+      Fill a ten frame first. Then add what is left over.
+    templates:
+      - id: make-10-to-add.kp1.t1
+        vars:
+          a: {int: [7, 9]}
+          b: {int: [2, 9]}
+        where: ["a + b > 10"]
+        prompt: "{a} + {b} = 10 + ?"
+        min_variety: 21
+        answer: {type: integer, value: a + b - 10}
+        solution:
+          - "{a} needs {10 - a} more to make 10."
+          - "Take {10 - a} from {b}. {b - (10 - a)} {b - (10 - a) == 1 ? 'is' : 'are'} left."
+          - "{a} + {b} = 10 + {a + b - 10}"
+  - id: make-10-to-add.kp2
+    explain: >-
+      Make 10, then add on the rest. Ten and some more is easy.
+    templates:
+      - id: make-10-to-add.kp2.t1
+        vars:
+          a: {int: [6, 9]}
+          b: {int: [3, 9]}
+        where: ["a + b > 10"]
+        prompt: "{a} + {b}"
+        min_variety: 25
+        layout: across
+        op: "+"
+        parts: [a, b]
+        answer: {type: integer, value: a + b}
+        solution:
+          - "Make 10: {a} + {10 - a} = 10."
+          - "{b - (10 - a)} more makes {a + b}."
+          - "{a} + {b} = {a + b}"

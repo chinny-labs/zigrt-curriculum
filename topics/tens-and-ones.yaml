@@ -1,5 +1,21 @@
 id: tens-and-ones
 kps:
+  - id: tens-and-ones.kp3
+    explain: >-
+      A rod is a ten. A small cube is a one. Count the rods by tens.
+    templates:
+      - id: tens-and-ones.kp3.t1
+        vars:
+          t: {int: [1, 9]}
+          o: {int: [0, 9]}
+        prompt: "What number do the blocks show?"
+        layout: figure
+        figure: base-ten
+        figure_args: {hundreds: 0, tens: t, ones: o}
+        answer: {type: integer, value: 10 * t + o}
+        solution:
+          - "{t} {plural(t, 'rod', 'rods')} is {10 * t}. {o} {plural(o, 'cube', 'cubes')} more."
+          - "{10 * t} + {o} = {10 * t + o}"
   - id: tens-and-ones.kp1
     explain: >-
       A two-digit number is tens and ones. The first digit tells how many
