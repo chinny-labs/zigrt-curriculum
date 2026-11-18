@@ -1,0 +1,19 @@
+id: mult-decimal-whole
+kps:
+  - id: mult-decimal-whole.kp1
+    explain: >-
+      Multiply as if there were no point. Then put the point back with the same number of decimal places.
+    templates:
+      - id: mult-decimal-whole.kp1.t1
+        vars:
+          m: {int: [11, 999]}
+          x: m / 100
+          n: {int: [2, 9]}
+        prompt: "{dec(x, 2)} × {n}"
+        answer:
+          type: choice
+          right: "{dec(x * n)}"
+          distractors: ["{dec(x * n * 10)}", "{dec(x * n / 10)}"]
+        solution:
+          - "{m} × {n} = {m * n}."
+          - "Two decimal places: {dec(x, 2)} × {n} = {dec(x * n)}"

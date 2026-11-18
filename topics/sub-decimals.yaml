@@ -1,0 +1,29 @@
+id: sub-decimals
+kps:
+  - id: sub-decimals.kp1
+    explain: >-
+      Line up the points. Write zeros so both numbers have the same places, then take away.
+    templates:
+      - id: sub-decimals.kp1.t1
+        vars:
+          m: {int: [101, 999]}
+          n: {int: [101, 9999]}
+          a: m / 10
+          b: n / 100
+        where: ["b < a"]
+        prompt: "{dec(a, 1)} − {dec(b, 2)}"
+        answer: {type: decimal, value: a - b}
+        solution:
+          - "Write {dec(a, 1)} as {dec(a, 2)} so the places match."
+          - "{dec(a, 2)} − {dec(b, 2)} = {dec(a - b)}"
+      - id: sub-decimals.kp1.t2
+        vars:
+          w: {int: [2, 20]}
+          n: {int: [101, 999]}
+          b: n / 100
+        where: ["b < w"]
+        prompt: "{w} − {dec(b, 2)}"
+        answer: {type: decimal, value: w - b}
+        solution:
+          - "Write {w} as {dec(w, 2)}."
+          - "{dec(w, 2)} − {dec(b, 2)} = {dec(w - b)}"

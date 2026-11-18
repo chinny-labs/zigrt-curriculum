@@ -1,0 +1,42 @@
+id: estimate-fraction-sums
+kps:
+  - id: estimate-fraction-sums.kp1
+    explain: >-
+      Compare each fraction with 0, 1/2 and 1 to judge the size of a sum.
+    templates:
+      - id: estimate-fraction-sums.kp1.t1
+        vars:
+          b: {int: [3, 10]}
+          d: {int: [3, 10]}
+          a: {int: [1, b - 1]}
+          c: {int: [1, d - 1]}
+          s: a / b + c / d
+          ans: "s > 1 ? 'more than 1' : 'less than 1'"
+        where: ["s != 1", "abs(s - 1) >= 1/6"]
+        prompt: "Without working it out exactly, is {a}/{b} + {c}/{d} more or less than 1?"
+        answer:
+          type: choice
+          right: "{ans}"
+          distractors: ["{s > 1 ? 'less than 1' : 'more than 1'}"]
+        solution:
+          - "{a}/{b} is {2 * a > b ? 'more' : (2 * a == b ? 'exactly' : 'less')} than a half; {c}/{d} is {2 * c > d ? 'more' : (2 * c == d ? 'exactly' : 'less')} than a half."
+          - "The sum is {frac(s)}, which is {ans}."
+  - id: estimate-fraction-sums.kp2
+    explain: >-
+      Adding the tops and adding the bottoms is a common mistake. The sum must be bigger than each part.
+    templates:
+      - id: estimate-fraction-sums.kp2.t1
+        vars:
+          b: {int: [2, 6]}
+          d: {int: [3, 8]}
+          a: {int: [1, b - 1]}
+          c: {int: [1, d - 1]}
+        where: ["b != d"]
+        prompt: "Sam says {a}/{b} + {c}/{d} = {a + c}/{b + d}. Is that sensible?"
+        answer:
+          type: choice
+          right: "no"
+          distractors: ["yes"]
+        solution:
+          - "{a + c}/{b + d} is less than {a}/{b}, but adding should make it bigger."
+          - "So no."

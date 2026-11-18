@@ -1,0 +1,19 @@
+id: sub-fractions-unlike
+kps:
+  - id: sub-fractions-unlike.kp1
+    explain: >-
+      Write both fractions with a common bottom number. Then take away the tops.
+    templates:
+      - id: sub-fractions-unlike.kp1.t1
+        vars:
+          b: {int: [2, 8]}
+          d: {int: [2, 8]}
+          a: {int: [1, b - 1]}
+          c: {int: [1, d - 1]}
+          L: lcm(b, d)
+        where: ["b != d", "a / b > c / d"]
+        prompt: "{a}/{b} − {c}/{d}"
+        answer: {type: fraction, value: a / b - c / d, simplest: false}
+        solution:
+          - "Common bottom {L}: {a * L / b}/{L} − {c * L / d}/{L}."
+          - "{a * L / b - c * L / d}/{L} = {frac(a / b - c / d)}"

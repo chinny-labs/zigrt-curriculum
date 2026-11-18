@@ -1,0 +1,22 @@
+id: volume-formula
+kps:
+  - id: volume-formula.kp1
+    explain: >-
+      The volume of a box is length × width × height, in cubic units.
+    templates:
+      - id: volume-formula.kp1.t1
+        vars:
+          l: {int: [2, 12]}
+          w: {int: [2, 9]}
+          h: {int: [2, 9]}
+        prompt: "What is the volume of the box, in cubic centimetres?"
+        layout: figure
+        figure: prism
+        figure_args: {length: l, width: w, height: h, unit: "'cm'"}
+        answer:
+          type: choice
+          right: "{l * w * h}"
+          distractors: ["{l + w + h}", "{l * w}"]
+        solution:
+          - "{l} × {w} × {h} = {l * w * h}"
+          - "The volume is {l * w * h} cubic cm."

@@ -1594,6 +1594,376 @@ topics:
     standards: [4.G.A.3]
 
   # Grade 5
+  - id: powers-of-ten
+    title: Powers of ten
+    strand: place-value
+    grade: "5"
+    requires: [mult-by-10-100-1000]
+    xp: 15
+    standards: [5.NBT.A.2]
+  - id: decimal-place-value
+    title: Decimals to thousandths
+    strand: decimals
+    grade: "5"
+    requires: [tenths-as-hundredths, place-value-ten-times]
+    encompasses: [{topic: tenths-hundredths, weight: 0.5}]
+    xp: 15
+    standards: [5.NBT.A.1, 5.NBT.A.3a]
+  - id: decimal-expanded-form
+    title: Decimals in parts
+    strand: decimals
+    grade: "5"
+    requires: [decimal-place-value]
+    xp: 15
+    standards: [5.NBT.A.3a]
+  - id: compare-decimals-thousandths
+    title: Comparing decimals to thousandths
+    strand: decimals
+    grade: "5"
+    requires: [compare-decimals, decimal-place-value]
+    encompasses: [{topic: compare-decimals, weight: 1.0}]
+    xp: 15
+    standards: [5.NBT.A.3b]
+  - id: round-decimals
+    title: Rounding decimals
+    strand: decimals
+    grade: "5"
+    requires: [decimal-place-value, round-big-numbers]
+    encompasses: [{topic: decimal-place-value, weight: 0.3}]
+    xp: 15
+    standards: [5.NBT.A.4]
+  - id: add-decimals
+    title: Adding decimals
+    strand: decimals
+    grade: "5"
+    requires: [add-tenths-hundredths, decimal-place-value, add-multi-digit]
+    encompasses: [{topic: add-tenths-hundredths, weight: 1.0}]
+    xp: 15
+    standards: [5.NBT.B.7]
+  - id: sub-decimals
+    title: Taking away decimals
+    strand: decimals
+    grade: "5"
+    requires: [add-decimals, sub-multi-digit]
+    encompasses: [{topic: add-decimals, weight: 0.3}]
+    xp: 15
+    standards: [5.NBT.B.7]
+  - id: mult-decimal-by-10s
+    title: "Decimals times 10, 100 and 1000"
+    strand: decimals
+    grade: "5"
+    requires: [powers-of-ten, decimal-place-value]
+    xp: 15
+    standards: [5.NBT.A.2]
+  - id: div-decimal-by-10s
+    title: "Decimals divided by 10, 100 and 1000"
+    strand: decimals
+    grade: "5"
+    requires: [mult-decimal-by-10s]
+    encompasses: [{topic: mult-decimal-by-10s, weight: 0.5}]
+    xp: 15
+    standards: [5.NBT.A.2]
+  - id: mult-decimal-whole
+    title: A decimal times a whole number
+    strand: decimals
+    grade: "5"
+    requires: [mult-2d-1d, decimal-place-value]
+    xp: 15
+    standards: [5.NBT.B.7]
+  - id: mult-decimals
+    title: Multiplying decimals
+    strand: decimals
+    grade: "5"
+    requires: [mult-decimal-whole, mult-2d-2d, div-decimal-by-10s]
+    encompasses: [{topic: mult-decimal-whole, weight: 1.0}]
+    xp: 15
+    standards: [5.NBT.B.7]
+  - id: div-decimal-by-whole
+    title: A decimal divided by a whole number
+    strand: decimals
+    grade: "5"
+    requires: [div-3d-1d, sub-decimals]
+    xp: 15
+    standards: [5.NBT.B.7]
+  - id: div-by-decimal
+    title: Dividing by a decimal
+    strand: decimals
+    grade: "5"
+    requires: [div-decimal-by-whole, mult-decimal-by-10s]
+    encompasses: [{topic: div-decimal-by-whole, weight: 0.5}]
+    xp: 15
+    standards: [5.NBT.B.7]
+  - id: decimal-word-problems
+    title: Decimal word problems
+    strand: decimals
+    grade: "5"
+    requires: [sub-decimals, mult-decimal-whole, div-decimal-by-whole]
+    encompasses: [{topic: mult-decimal-whole, weight: 0.5}]
+    xp: 15
+    standards: [5.NBT.B.7]
+  - id: fractions-as-decimals
+    title: Fractions as decimals
+    strand: decimals
+    grade: "5"
+    requires: [div-decimal-by-whole, equivalent-fractions]
+    xp: 15
+    standards: [5.NF.B.3]
+  - id: mult-3d-2d
+    title: 3-digit times 2-digit
+    strand: multiplication
+    grade: "5"
+    requires: [mult-2d-2d, mult-3d-1d]
+    encompasses: [{topic: mult-2d-2d, weight: 1.0}]
+    xp: 15
+    standards: [5.NBT.B.5]
+  - id: mult-multi-digit
+    title: Multiplying big numbers
+    strand: multiplication
+    grade: "5"
+    requires: [mult-3d-2d, mult-4d-1d]
+    encompasses: [{topic: mult-3d-2d, weight: 1.0}]
+    xp: 15
+    standards: [5.NBT.B.5]
+  - id: order-of-operations
+    title: Brackets first
+    strand: multiplication
+    grade: "5"
+    requires: [two-step-word-problems, mult-three-numbers]
+    xp: 15
+    standards: [5.OA.A.1]
+  - id: write-expressions
+    title: Writing expressions
+    strand: multiplication
+    grade: "5"
+    requires: [order-of-operations]
+    encompasses: [{topic: order-of-operations, weight: 0.5}]
+    xp: 15
+    standards: [5.OA.A.2]
+  - id: common-multiples
+    title: Common multiples
+    strand: multiplication
+    grade: "5"
+    requires: [multiples, factor-pairs]
+    xp: 15
+    standards: [5.NF.A.1]
+  - id: patterns-two-rules
+    title: Two patterns side by side
+    strand: multiplication
+    grade: "5"
+    requires: [number-patterns, coordinate-points]
+    xp: 15
+    standards: [5.OA.B.3]
+  - id: div-2d-divisor
+    title: Dividing by a 2-digit number
+    strand: division
+    grade: "5"
+    requires: [div-4d-1d, mult-2d-2d, estimate-products]
+    xp: 15
+    standards: [5.NBT.B.6]
+  - id: div-3d-2d
+    title: 3-digit divided by 2-digit
+    strand: division
+    grade: "5"
+    requires: [div-2d-divisor]
+    encompasses: [{topic: div-2d-divisor, weight: 1.0}]
+    xp: 15
+    standards: [5.NBT.B.6]
+  - id: div-4d-2d
+    title: 4-digit divided by 2-digit
+    strand: division
+    grade: "5"
+    requires: [div-3d-2d]
+    encompasses: [{topic: div-3d-2d, weight: 1.0}]
+    xp: 15
+    standards: [5.NBT.B.6]
+  - id: div-word-problems-2d
+    title: Long division word problems
+    strand: division
+    grade: "5"
+    requires: [div-4d-2d, multi-step-word-problems]
+    encompasses: [{topic: div-4d-2d, weight: 0.5}]
+    xp: 15
+    standards: [5.NBT.B.6]
+  - id: fractions-as-division
+    title: Fractions are division
+    strand: fractions
+    grade: "5"
+    requires: [improper-to-mixed, div-word-problems]
+    encompasses: [{topic: improper-to-mixed, weight: 0.3}]
+    xp: 15
+    standards: [5.NF.B.3]
+  - id: common-denominators
+    title: A common bottom number
+    strand: fractions
+    grade: "5"
+    requires: [equivalent-fractions, common-multiples]
+    xp: 15
+    standards: [5.NF.A.1]
+  - id: add-fractions-unlike
+    title: Adding fractions with different bottoms
+    strand: fractions
+    grade: "5"
+    requires: [common-denominators, add-fractions-same, simplest-form]
+    encompasses: [{topic: common-denominators, weight: 1.0}, {topic: add-fractions-same, weight: 1.0}]
+    xp: 15
+    standards: [5.NF.A.1]
+  - id: sub-fractions-unlike
+    title: Taking away fractions with different bottoms
+    strand: fractions
+    grade: "5"
+    requires: [add-fractions-unlike, sub-fractions-same]
+    encompasses: [{topic: add-fractions-unlike, weight: 0.5}, {topic: sub-fractions-same, weight: 1.0}]
+    xp: 15
+    standards: [5.NF.A.1]
+  - id: add-mixed-unlike
+    title: Adding mixed numbers with different bottoms
+    strand: fractions
+    grade: "5"
+    requires: [add-fractions-unlike, add-mixed-same]
+    encompasses: [{topic: add-fractions-unlike, weight: 1.0}, {topic: add-mixed-same, weight: 1.0}]
+    xp: 15
+    standards: [5.NF.A.1]
+  - id: sub-mixed-unlike
+    title: Taking away mixed numbers with different bottoms
+    strand: fractions
+    grade: "5"
+    requires: [add-mixed-unlike, sub-fractions-unlike, sub-mixed-same]
+    encompasses: [{topic: sub-fractions-unlike, weight: 1.0}, {topic: sub-mixed-same, weight: 1.0}]
+    xp: 15
+    standards: [5.NF.A.1]
+  - id: estimate-fraction-sums
+    title: Is the answer sensible
+    strand: fractions
+    grade: "5"
+    requires: [add-fractions-unlike, compare-fractions-unlike]
+    xp: 15
+    standards: [5.NF.A.2]
+  - id: fraction-word-problems-unlike
+    title: Fraction word problems with different bottoms
+    strand: fractions
+    grade: "5"
+    requires: [sub-mixed-unlike, fraction-word-problems-same]
+    encompasses: [{topic: sub-mixed-unlike, weight: 0.3}]
+    xp: 15
+    standards: [5.NF.A.2]
+  - id: fraction-of-a-number
+    title: A fraction of a number
+    strand: fractions
+    grade: "5"
+    requires: [mult-fraction-whole, div-facts]
+    encompasses: [{topic: mult-fraction-whole, weight: 0.5}]
+    xp: 15
+    standards: [5.NF.B.4a]
+  - id: mult-fractions
+    title: Multiplying fractions
+    strand: fractions
+    grade: "5"
+    requires: [fraction-of-a-number, simplest-form]
+    encompasses: [{topic: fraction-of-a-number, weight: 0.5}]
+    xp: 15
+    standards: [5.NF.B.4a]
+  - id: area-fraction-sides
+    title: Area with fraction sides
+    strand: fractions
+    grade: "5"
+    requires: [mult-fractions, rectangle-area]
+    encompasses: [{topic: mult-fractions, weight: 1.0}]
+    xp: 15
+    standards: [5.NF.B.4b]
+  - id: mult-scaling
+    title: Bigger or smaller after multiplying
+    strand: fractions
+    grade: "5"
+    requires: [mult-fractions, compare-to-half]
+    xp: 15
+    standards: [5.NF.B.5]
+  - id: mult-mixed-numbers
+    title: Multiplying mixed numbers
+    strand: fractions
+    grade: "5"
+    requires: [mult-fractions, improper-to-mixed]
+    encompasses: [{topic: mult-fractions, weight: 1.0}]
+    xp: 15
+    standards: [5.NF.B.6]
+  - id: div-unit-fraction-by-whole
+    title: A unit fraction divided by a whole number
+    strand: fractions
+    grade: "5"
+    requires: [mult-fractions]
+    xp: 15
+    standards: [5.NF.B.7a]
+  - id: div-whole-by-unit-fraction
+    title: A whole number divided by a unit fraction
+    strand: fractions
+    grade: "5"
+    requires: [div-unit-fraction-by-whole]
+    encompasses: [{topic: div-unit-fraction-by-whole, weight: 0.3}]
+    xp: 15
+    standards: [5.NF.B.7b]
+  - id: fraction-division-stories
+    title: Sharing with fractions
+    strand: fractions
+    grade: "5"
+    requires: [div-whole-by-unit-fraction]
+    encompasses: [{topic: div-whole-by-unit-fraction, weight: 1.0}, {topic: div-unit-fraction-by-whole, weight: 1.0}]
+    xp: 15
+    standards: [5.NF.B.7c]
+  - id: convert-units-decimals
+    title: Converting metric units with decimals
+    strand: measurement
+    grade: "5"
+    requires: [convert-mass-capacity, mult-decimal-by-10s, div-decimal-by-10s]
+    encompasses: [{topic: convert-mass-capacity, weight: 1.0}]
+    xp: 15
+    standards: [5.MD.A.1]
+  - id: convert-customary-units
+    title: "Feet, yards, pounds and ounces"
+    strand: measurement
+    grade: "5"
+    requires: [convert-customary-length, mult-2d-1d, div-with-remainder]
+    encompasses: [{topic: convert-customary-length, weight: 1.0}]
+    xp: 15
+    standards: [5.MD.A.1]
+  - id: line-plots-fraction-sums
+    title: Line plots with fraction sums
+    strand: measurement
+    grade: "5"
+    requires: [line-plots-eighths, add-fractions-unlike]
+    encompasses: [{topic: line-plots-eighths, weight: 1.0}]
+    xp: 15
+    standards: [5.MD.B.2]
+  - id: volume-unit-cubes
+    title: Volume of a box
+    strand: measurement
+    grade: "5"
+    requires: [rectangle-area, mult-three-numbers]
+    encompasses: [{topic: rectangle-area, weight: 0.5}]
+    xp: 12
+    standards: [5.MD.C.5]
+  - id: volume-formula
+    title: Length times width times height
+    strand: measurement
+    grade: "5"
+    requires: [volume-unit-cubes, mult-2d-1d]
+    encompasses: [{topic: volume-unit-cubes, weight: 1.0}]
+    xp: 15
+    standards: [5.MD.C.5b]
+  - id: volume-missing-edge
+    title: Finding a missing edge
+    strand: measurement
+    grade: "5"
+    requires: [volume-formula, div-facts]
+    encompasses: [{topic: volume-formula, weight: 0.5}]
+    xp: 15
+    standards: [5.MD.C.5b]
+  - id: volume-composite
+    title: Volume of joined boxes
+    strand: measurement
+    grade: "5"
+    requires: [volume-formula, add-3d]
+    encompasses: [{topic: volume-formula, weight: 1.0}]
+    xp: 15
+    standards: [5.MD.C.5c]
   - id: coordinate-points
     title: Points on a grid
     strand: geometry
@@ -1601,11 +1971,19 @@ topics:
     requires: [number-line-to-20]
     xp: 10
     standards: [5.G.A.2]
-  - id: volume-unit-cubes
-    title: Volume of a box
-    strand: measurement
+  - id: coordinate-pictures
+    title: Graphs of real things
+    strand: geometry
     grade: "5"
-    requires: [rectangle-area]
-    encompasses: [{topic: rectangle-area, weight: 0.5}]
-    xp: 12
-    standards: [5.MD.C.5]
+    requires: [coordinate-points, patterns-two-rules]
+    encompasses: [{topic: coordinate-points, weight: 1.0}]
+    xp: 15
+    standards: [5.G.A.2]
+  - id: shape-families
+    title: Shape families
+    strand: geometry
+    grade: "5"
+    requires: [classify-quadrilaterals, classify-triangles]
+    encompasses: [{topic: classify-quadrilaterals, weight: 0.5}, {topic: classify-triangles, weight: 0.5}]
+    xp: 15
+    standards: [5.G.B.3, 5.G.B.4]

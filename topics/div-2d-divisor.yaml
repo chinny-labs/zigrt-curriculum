@@ -1,0 +1,19 @@
+id: div-2d-divisor
+kps:
+  - id: div-2d-divisor.kp1
+    explain: >-
+      Round the divisor to estimate how many fit, then check by multiplying. Adjust up or down by one.
+    templates:
+      - id: div-2d-divisor.kp1.t1
+        vars:
+          d: {int: [11, 29]}
+          q: {int: [2, 9]}
+          r: {int: [0, d - 1]}
+          n: d * q + r
+        prompt: "{n} ÷ {d}"
+        layout: long-division
+        parts: [n, d]
+        answer: {type: quotient_remainder, value: q, remainder: r}
+        solution:
+          - "{d} is about {round(d, 10)}. Try {q}: {d} × {q} = {d * q}."
+          - "{n} − {d * q} = {r}, so {n} ÷ {d} = {q} r {r}"

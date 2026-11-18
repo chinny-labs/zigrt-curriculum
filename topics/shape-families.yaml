@@ -1,0 +1,21 @@
+id: shape-families
+kps:
+  - id: shape-families.kp1
+    explain: >-
+      Shapes belong to families. Every square is a rectangle, because it has four right angles.
+    templates:
+      - id: shape-families.kp1.t1
+        vars:
+          k: {int: [0, 7]}
+          q: "pick(k, 'Is every square a rectangle?', 'Is every rectangle a square?', 'Is every square a rhombus?', 'Is every rhombus a parallelogram?', 'Is every parallelogram a rectangle?', 'Is every rectangle a parallelogram?', 'Is every trapezoid a parallelogram?', 'Is every equilateral triangle an isosceles triangle?')"
+          ans: "pick(k, 'yes', 'no', 'yes', 'yes', 'no', 'yes', 'no', 'yes')"
+          why: "pick(k, 'A square has four right angles.', 'A rectangle need not have four equal sides.', 'A square has four equal sides.', 'A rhombus has two pairs of parallel sides.', 'A parallelogram need not have right angles.', 'A rectangle has two pairs of parallel sides.', 'A trapezoid has only one pair of parallel sides.', 'An equilateral triangle has at least two equal sides.')"
+        prompt: "{q}"
+        answer:
+          type: choice
+          right: "{ans}"
+          distractors: ["{ans == 'yes' ? 'no' : 'yes'}"]
+        min_variety: 8
+        solution:
+          - "{why}"
+          - "So: {ans}."

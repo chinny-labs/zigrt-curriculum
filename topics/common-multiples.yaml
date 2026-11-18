@@ -1,0 +1,16 @@
+id: common-multiples
+kps:
+  - id: common-multiples.kp1
+    explain: >-
+      List the multiples of each number. The first one in both lists is the least common multiple.
+    templates:
+      - id: common-multiples.kp1.t1
+        vars:
+          a: {int: [2, 12]}
+          b: {int: [2, 12]}
+        where: ["a < b", "lcm(a, b) != a * b || a <= 6"]
+        prompt: "What is the smallest number that is a multiple of both {a} and {b}?"
+        answer: {type: integer, value: "lcm(a, b)"}
+        solution:
+          - "Multiples of {b}: {b}, {2 * b}, {3 * b}, ... The first one {a} also divides is {lcm(a, b)}."
+          - "The least common multiple is {lcm(a, b)}."

@@ -1,0 +1,29 @@
+id: common-denominators
+kps:
+  - id: common-denominators.kp1
+    explain: >-
+      To give two fractions the same bottom number, use a common multiple of both bottoms.
+    templates:
+      - id: common-denominators.kp1.t1
+        vars:
+          a: {int: [2, 10]}
+          b: {int: [2, 10]}
+        where: ["a < b", "b % a != 0 || a > 2"]
+        prompt: "What is the smallest bottom number that both 1/{a} and 1/{b} can be written with?"
+        answer: {type: integer, value: "lcm(a, b)"}
+        solution:
+          - "The least common multiple of {a} and {b} is {lcm(a, b)}."
+  - id: common-denominators.kp2
+    explain: >-
+      Then multiply top and bottom by the same number to reach the new bottom.
+    templates:
+      - id: common-denominators.kp2.t1
+        vars:
+          d: {int: [2, 9]}
+          n: {int: [1, d - 1]}
+          k: {int: [2, 6]}
+        prompt: "{n}/{d} = ?/{d * k}"
+        answer: {type: integer, value: n * k}
+        solution:
+          - "{d} × {k} = {d * k}, so multiply the top by {k} too."
+          - "{n}/{d} = {n * k}/{d * k}, so the missing number is {n * k}."

@@ -1,0 +1,33 @@
+id: powers-of-ten
+kps:
+  - id: powers-of-ten.kp1
+    explain: >-
+      10³ means 10 × 10 × 10. The small number says how many tens to multiply, which is how many zeros.
+    templates:
+      - id: powers-of-ten.kp1.t1
+        vars:
+          k: {int: [2, 6]}
+          sup: "pick(k - 2, '²', '³', '⁴', '⁵', '⁶')"
+        prompt: "10{sup} = ?"
+        answer:
+          type: choice
+          right: "{group(10 ^ k)}"
+          distractors: ["{10 * k}", "{group(10 ^ (k + 1))}"]
+        min_variety: 5
+        solution:
+          - "10{sup} is {k} tens multiplied together: 1 followed by {k} zeros."
+          - "10{sup} = {group(10 ^ k)}"
+  - id: powers-of-ten.kp2
+    explain: >-
+      Multiplying by 10³ moves every digit three places to the left.
+    templates:
+      - id: powers-of-ten.kp2.t1
+        vars:
+          a: {int: [2, 99]}
+          k: {int: [2, 4]}
+          sup: "pick(k - 2, '²', '³', '⁴')"
+        prompt: "{a} × 10{sup}"
+        answer: {type: integer, value: a * 10 ^ k}
+        solution:
+          - "10{sup} = {group(10 ^ k)}."
+          - "{a} × {group(10 ^ k)} = {group(a * 10 ^ k)}"

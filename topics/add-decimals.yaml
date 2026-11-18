@@ -1,0 +1,28 @@
+id: add-decimals
+kps:
+  - id: add-decimals.kp1
+    explain: >-
+      Line up the points. Fill empty places with zeros, then add as with whole numbers.
+    templates:
+      - id: add-decimals.kp1.t1
+        vars:
+          m: {int: [101, 9999]}
+          n: {int: [11, 999]}
+          a: m / 100
+          b: n / 10
+        prompt: "{dec(a, 2)} + {dec(b, 1)}"
+        answer: {type: decimal, value: a + b}
+        solution:
+          - "Line up the points: {dec(a, 2)} + {dec(b, 2)}."
+          - "{dec(a, 2)} + {dec(b, 1)} = {dec(a + b)}"
+      - id: add-decimals.kp1.t2
+        vars:
+          m: {int: [1001, 9999]}
+          n: {int: [101, 999]}
+          a: m / 1000
+          b: n / 100
+        prompt: "{dec(a, 3)} + {dec(b, 2)}"
+        answer: {type: decimal, value: a + b}
+        solution:
+          - "Line up the points: {dec(a, 3)} + {dec(b, 3)}."
+          - "{dec(a, 3)} + {dec(b, 2)} = {dec(a + b)}"

@@ -1,0 +1,20 @@
+id: div-3d-2d
+kps:
+  - id: div-3d-2d.kp1
+    explain: >-
+      Divide the first two or three digits, then bring down the next. Estimate each step by rounding the divisor.
+    templates:
+      - id: div-3d-2d.kp1.t1
+        vars:
+          d: {int: [12, 45]}
+          q: {int: [11, 60]}
+          r: {int: [0, d - 1]}
+          n: d * q + r
+        where: ["n <= 999"]
+        prompt: "{n} ÷ {d}"
+        layout: long-division
+        parts: [n, d]
+        answer: {type: quotient_remainder, value: q, remainder: r}
+        solution:
+          - "{d} × {q} = {d * q}, and {n} − {d * q} = {r}."
+          - "{n} ÷ {d} = {q} r {r}"

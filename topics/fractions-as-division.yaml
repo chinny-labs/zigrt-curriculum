@@ -1,0 +1,18 @@
+id: fractions-as-division
+kps:
+  - id: fractions-as-division.kp1
+    explain: >-
+      3 ÷ 4 is the same as 3/4. Sharing 3 things among 4 gives each 3/4.
+    templates:
+      - id: fractions-as-division.kp1.t1
+        vars:
+          a: {int: [1, 9]}
+          b: {int: [2, 10]}
+        where: ["a != b"]
+        prompt: "{a} pizzas are shared equally by {b} children. How much pizza does each child get?"
+        answer: {type: fraction, value: a / b, simplest: false}
+        solution:
+          - "{a} ÷ {b} = {a}/{b}"
+          - when: a > b
+            text: "That is {mixed(a / b)} pizzas each."
+          - "Each child gets {a}/{b} of a pizza."

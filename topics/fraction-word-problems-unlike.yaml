@@ -1,0 +1,30 @@
+id: fraction-word-problems-unlike
+kps:
+  - id: fraction-word-problems-unlike.kp1
+    explain: >-
+      Find a common bottom number, then add or take away as the story says.
+    templates:
+      - id: fraction-word-problems-unlike.kp1.t1
+        vars:
+          b: {choose: [2, 3, 4]}
+          d: {choose: [6, 8, 12]}
+          a: {int: [1, b - 1]}
+          c: {int: [1, d - 1]}
+          s: a / b + c / d
+        where: ["s <= 1"]
+        prompt: "Leo walked {a}/{b} km to the park and {c}/{d} km to the shop. How far is that in all, in km?"
+        answer: {type: fraction, value: s, simplest: false}
+        solution:
+          - "{a}/{b} + {c}/{d} = {frac(s)} km"
+      - id: fraction-word-problems-unlike.kp1.t2
+        vars:
+          b: {choose: [2, 3, 4]}
+          d: {choose: [6, 8, 12]}
+          a: {int: [1, b - 1]}
+          c: {int: [1, d - 1]}
+          r: a / b - c / d
+        where: ["r > 0"]
+        prompt: "A jug holds {a}/{b} litre of juice. Zoe pours out {c}/{d} litre. How much is left, in litres?"
+        answer: {type: fraction, value: r, simplest: false}
+        solution:
+          - "{a}/{b} − {c}/{d} = {frac(r)} litre"

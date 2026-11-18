@@ -1,0 +1,20 @@
+id: area-fraction-sides
+kps:
+  - id: area-fraction-sides.kp1
+    explain: >-
+      Area is still length times width when the sides are fractions.
+    templates:
+      - id: area-fraction-sides.kp1.t1
+        vars:
+          b: {int: [2, 6]}
+          d: {int: [2, 6]}
+          a: {int: [1, b - 1]}
+          c: {int: [1, d - 1]}
+        prompt: "What is the area of the rectangle, in square metres?"
+        layout: figure
+        figure: rectangle
+        figure_args: {width: a / b, height: c / d, unit: "'m'"}
+        answer: {type: fraction, value: a * c / (b * d), simplest: false}
+        solution:
+          - "{a}/{b} × {c}/{d} = {a * c}/{b * d}"
+          - "The area is {frac(a * c / (b * d))} square metres."

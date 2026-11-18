@@ -1,0 +1,16 @@
+id: div-decimal-by-whole
+kps:
+  - id: div-decimal-by-whole.kp1
+    explain: >-
+      Divide as usual. Put the point in the answer straight above the point in the number.
+    templates:
+      - id: div-decimal-by-whole.kp1.t1
+        vars:
+          q: {int: [11, 999]}
+          d: {int: [2, 9]}
+          x: d * q / 100
+        prompt: "{dec(x, 2)} ÷ {d}"
+        answer: {type: decimal, value: q / 100}
+        solution:
+          - "{d * q} ÷ {d} = {q}."
+          - "Keep the point above: {dec(x, 2)} ÷ {d} = {dec(q / 100)}"

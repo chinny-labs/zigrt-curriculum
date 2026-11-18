@@ -1,0 +1,21 @@
+id: mult-scaling
+kps:
+  - id: mult-scaling.kp1
+    explain: >-
+      Multiplying by a fraction less than 1 makes a number smaller. More than 1 makes it bigger.
+    templates:
+      - id: mult-scaling.kp1.t1
+        vars:
+          n: {int: [6, 40]}
+          b: {int: [2, 9]}
+          a: {int: [1, 2 * b]}
+          ans: "a < b ? 'smaller than' : (a > b ? 'bigger than' : 'equal to')"
+        where: ["a != b"]
+        prompt: "Without working it out, is {n} × {a}/{b} bigger or smaller than {n}?"
+        answer:
+          type: choice
+          right: "{ans} {n}"
+          distractors: ["{a < b ? 'bigger than' : 'smaller than'} {n}", "equal to {n}"]
+        solution:
+          - "{a}/{b} is {a < b ? 'less' : 'more'} than 1."
+          - "So {n} × {a}/{b} is {ans} {n}."

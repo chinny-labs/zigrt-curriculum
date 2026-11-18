@@ -1,0 +1,23 @@
+id: mult-3d-2d
+kps:
+  - id: mult-3d-2d.kp1
+    explain: >-
+      Multiply by the ones digit, then by the tens (with a 0 first). Add the two rows.
+    templates:
+      - id: mult-3d-2d.kp1.t1
+        vars:
+          a: {int: [102, 999]}
+          b: {int: [12, 99]}
+        where: ["b % 10 != 0"]
+        prompt: "{a} × {b}"
+        layout: stacked
+        op: "*"
+        parts: [a, b]
+        answer:
+          type: choice
+          right: "{group(a * b)}"
+          distractors: ["{group(a * (b % 10) + a * (b // 10))}", "{group(a * b - 10 * a)}"]
+        solution:
+          - "{a} × {b % 10} = {group(a * (b % 10))}"
+          - "{a} × {b - b % 10} = {group(a * (b - b % 10))}"
+          - "{group(a * (b % 10))} + {group(a * (b - b % 10))} = {group(a * b)}"
