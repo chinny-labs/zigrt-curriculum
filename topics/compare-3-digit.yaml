@@ -1,0 +1,38 @@
+id: compare-3-digit
+kps:
+  - id: compare-3-digit.kp1
+    explain: >-
+      Compare the hundreds first. More hundreds means a bigger number.
+    templates:
+      - id: compare-3-digit.kp1.t1
+        vars:
+          a: {int: [100, 999]}
+          b: {int: [100, 999]}
+          sym: "a < b ? '<' : '>'"
+        where: ["a // 100 != b // 100"]
+        prompt: "{a} ○ {b}"
+        answer: {type: comparison, compare: [a, b]}
+        solution:
+          - "{a} has {a // 100} hundreds. {b} has {b // 100} hundreds."
+          - "{a} {sym} {b}"
+  - id: compare-3-digit.kp2
+    explain: >-
+      If the hundreds are the same, compare the tens. Then the ones.
+    templates:
+      - id: compare-3-digit.kp2.t1
+        vars:
+          h: {int: [1, 9]}
+          x: {int: [0, 99]}
+          y: {int: [0, 99]}
+          a: 100 * h + x
+          b: 100 * h + y
+          sym: "a < b ? '<' : (a > b ? '>' : '=')"
+        prompt: "{a} ○ {b}"
+        answer: {type: comparison, compare: [a, b]}
+        solution:
+          - "Both have {h} hundreds."
+          - when: a // 10 != b // 10
+            text: "Tens: {(a // 10) % 10} and {(b // 10) % 10}."
+          - when: a // 10 == b // 10 && a != b
+            text: "The tens match. Ones: {a % 10} and {b % 10}."
+          - "{a} {sym} {b}"

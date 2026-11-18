@@ -1,0 +1,41 @@
+id: add-3d-regroup
+kps:
+  - id: add-3d-regroup.kp1
+    explain: >-
+      If the tens make 10 or more, carry a hundred to the hundreds.
+    templates:
+      - id: add-3d-regroup.kp1.t1
+        vars:
+          a: {int: [110, 789]}
+          b: {int: [110, 199]}
+        where: ["a % 10 + b % 10 <= 9", "(a // 10) % 10 + (b // 10) % 10 >= 10", "a + b <= 999"]
+        prompt: "{a} + {b}"
+        layout: stacked
+        op: "+"
+        parts: [a, b]
+        answer: {type: integer, value: a + b}
+        solution:
+          - "Tens: {(a // 10) % 10} + {(b // 10) % 10} = {(a // 10) % 10 + (b // 10) % 10}. Write {((a + b) // 10) % 10}, carry 1."
+          - "Hundreds: {a // 100} + {b // 100} + 1 = {(a + b) // 100}."
+          - "{a} + {b} = {a + b}"
+  - id: add-3d-regroup.kp2
+    explain: >-
+      Sometimes you carry twice: from the ones, then from the tens.
+    templates:
+      - id: add-3d-regroup.kp2.t1
+        vars:
+          a: {int: [115, 789]}
+          b: {int: [115, 299]}
+        where: ["a % 10 + b % 10 >= 10", "(a // 10) % 10 + (b // 10) % 10 + 1 >= 10", "a + b <= 999"]
+        prompt: "{a} + {b}"
+        layout: stacked
+        op: "+"
+        parts: [a, b]
+        answer:
+          type: choice
+          right: "{a + b}"
+          distractors: ["{a + b - 10}", "{a + b - 100}", "{a + b - 110}"]
+        solution:
+          - "Ones: {a % 10 + b % 10}. Write {(a + b) % 10}, carry 1."
+          - "Tens: {(a // 10) % 10} + {(b // 10) % 10} + 1 = {(a // 10) % 10 + (b // 10) % 10 + 1}. Write {((a + b) // 10) % 10}, carry 1."
+          - "{a} + {b} = {a + b}"

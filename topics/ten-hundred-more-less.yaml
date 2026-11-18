@@ -1,0 +1,36 @@
+id: ten-hundred-more-less
+kps:
+  - id: ten-hundred-more-less.kp1
+    explain: >-
+      Ten more or less changes the tens digit. The others stay the same.
+    templates:
+      - id: ten-hundred-more-less.kp1.t1
+        vars:
+          n: {int: [110, 989]}
+          s: {int: [0, 1]}
+          word: "s == 0 ? 'more' : 'less'"
+          ans: "s == 0 ? n + 10 : n - 10"
+        where: ["(n // 10) % 10 != (s == 0 ? 9 : 0)"]
+        prompt: "What is 10 {word} than {n}?"
+        answer: {type: integer, value: ans}
+        solution:
+          - "The tens digit goes {s == 0 ? 'up' : 'down'} by one."
+          - "10 {word} than {n} is {ans}."
+  - id: ten-hundred-more-less.kp2
+    explain: >-
+      A hundred more or less changes the hundreds digit.
+    templates:
+      - id: ten-hundred-more-less.kp2.t1
+        vars:
+          n: {int: [120, 880]}
+          s: {int: [0, 1]}
+          word: "s == 0 ? 'more' : 'less'"
+          ans: "s == 0 ? n + 100 : n - 100"
+        prompt: "What is 100 {word} than {n}?"
+        answer:
+          type: choice
+          right: "{ans}"
+          distractors: ["{s == 0 ? n + 10 : n - 10}", "{s == 0 ? n + 1 : n - 1}"]
+        solution:
+          - "The hundreds digit goes {s == 0 ? 'up' : 'down'} by one."
+          - "100 {word} than {n} is {ans}."

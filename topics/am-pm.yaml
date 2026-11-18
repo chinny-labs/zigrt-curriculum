@@ -1,0 +1,42 @@
+id: am-pm
+kps:
+  - id: am-pm.kp1
+    explain: >-
+      a.m. is from midnight to noon. p.m. is from noon to midnight.
+    templates:
+      - id: am-pm.kp1.t1
+        vars:
+          k: {int: [0, 5]}
+          what: "pick(k, 'eat breakfast', 'eat dinner', 'go to bed', 'start school', 'eat lunch', 'wake up')"
+          time: "pick(k, '7:30', '6:00', '8:15', '8:45', '12:30', '7:00')"
+          ans: "pick(k, 'a.m.', 'p.m.', 'p.m.', 'a.m.', 'p.m.', 'a.m.')"
+        prompt: "You {what} at {time}. Is that a.m. or p.m.?"
+        answer:
+          type: choice
+          right: "{ans}"
+          distractors: ["{ans == 'a.m.' ? 'p.m.' : 'a.m.'}"]
+        min_variety: 6
+        solution:
+          - "{ans == 'a.m.' ? 'That is in the morning.' : 'That is after noon.'}"
+          - "So it is {time} {ans}."
+  - id: am-pm.kp2
+    explain: >-
+      Read the clock to the nearest five minutes.
+    templates:
+      - id: am-pm.kp2.t1
+        vars:
+          h: {int: [1, 12]}
+          q: {int: [0, 11]}
+          m: 5 * q
+        prompt: "What time does the clock show?"
+        layout: figure
+        figure: clock
+        figure_args: {hour: h, minute: m}
+        answer:
+          type: choice
+          right: "{h}:{pad(m, 2)}"
+          distractors: ["{m == 0 ? 12 : m // 5}:{pad(5 * (h % 12), 2)}", "{h % 12 + 1}:{pad(m, 2)}"]
+        min_variety: 100
+        solution:
+          - "The short hand is {m < 30 ? 'just past' : 'past'} {h}. The long hand points to {m // 5 == 0 ? 12 : m // 5}, which is {m} minutes."
+          - "It is {h}:{pad(m, 2)}."

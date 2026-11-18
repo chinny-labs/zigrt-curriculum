@@ -1,0 +1,39 @@
+id: picture-graphs
+kps:
+  - id: picture-graphs.kp1
+    explain: >-
+      Each picture stands for one. Count the pictures in a row.
+    templates:
+      - id: picture-graphs.kp1.t1
+        vars:
+          a: {int: [1, 9]}
+          b: {int: [1, 9]}
+          c: {int: [1, 9]}
+          k: {int: [0, 2]}
+          name: "pick(k, 'cats', 'dogs', 'fish')"
+        prompt: "How many children chose {name}?"
+        layout: figure
+        figure: picture-graph
+        figure_args: {rows: "join('Cats:', text(a), '|Dogs:', text(b), '|Fish:', text(c))", key: 1}
+        answer: {type: integer, value: "pick(k, a, b, c)"}
+        solution:
+          - "Count the pictures in the {name} row."
+          - "{pick(k, a, b, c)} chose {name}."
+  - id: picture-graphs.kp2
+    explain: >-
+      To compare rows, find the difference between them.
+    templates:
+      - id: picture-graphs.kp2.t1
+        vars:
+          a: {int: [1, 9]}
+          b: {int: [1, 9]}
+          c: {int: [1, 9]}
+        where: ["b > a"]
+        prompt: "How many more chose dogs than cats?"
+        layout: figure
+        figure: picture-graph
+        figure_args: {rows: "join('Cats:', text(a), '|Dogs:', text(b), '|Fish:', text(c))", key: 1}
+        answer: {type: integer, value: b - a}
+        solution:
+          - "Dogs {b}, cats {a}."
+          - "{b} − {a} = {b - a} more chose dogs."

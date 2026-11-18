@@ -1,0 +1,37 @@
+id: sub-2d-1d
+kps:
+  - id: sub-2d-1d.kp1
+    explain: >-
+      Take the ones from the ones. The tens stay the same.
+    templates:
+      - id: sub-2d-1d.kp1.t1
+        vars:
+          n: {int: [12, 99]}
+          k: {int: [1, 9]}
+        where: ["n % 10 >= k"]
+        prompt: "{n} − {k}"
+        layout: across
+        op: "-"
+        parts: [n, k]
+        answer: {type: integer, value: n - k}
+        solution:
+          - "Ones: {n % 10} − {k} = {n % 10 - k}. The tens stay."
+          - "{n} − {k} = {n - k}"
+  - id: sub-2d-1d.kp2
+    explain: >-
+      Not enough ones? Take away down to the ten, then take away the rest.
+    templates:
+      - id: sub-2d-1d.kp2.t1
+        vars:
+          n: {int: [21, 99]}
+          k: {int: [2, 9]}
+        where: ["n % 10 < k"]
+        prompt: "{n} − {k}"
+        layout: across
+        op: "-"
+        parts: [n, k]
+        answer: {type: integer, value: n - k}
+        solution:
+          - "Take away {n % 10} to get to {n - n % 10}."
+          - "Take away {k - n % 10} more: {n - k}."
+          - "{n} − {k} = {n - k}"

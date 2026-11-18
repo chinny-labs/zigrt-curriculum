@@ -1,0 +1,54 @@
+id: bar-graphs
+kps:
+  - id: bar-graphs.kp1
+    explain: >-
+      Read across from the top of a bar to the numbers on the side.
+    templates:
+      - id: bar-graphs.kp1.t1
+        vars:
+          a: {int: [1, 10]}
+          b: {int: [1, 10]}
+          c: {int: [1, 10]}
+          d: {int: [1, 10]}
+          k: {int: [0, 3]}
+          name: "pick(k, 'Red', 'Blue', 'Green', 'Gold')"
+        prompt: "How many votes did {name} get?"
+        layout: figure
+        figure: bar-graph
+        figure_args: {rows: "join('Red:', text(a), '|Blue:', text(b), '|Green:', text(c), '|Gold:', text(d))", scale: 1}
+        answer: {type: integer, value: "pick(k, a, b, c, d)"}
+        solution:
+          - "The {name} bar reaches {pick(k, a, b, c, d)}."
+  - id: bar-graphs.kp2
+    explain: >-
+      To find a total, add the bars. To compare, find the difference.
+    templates:
+      - id: bar-graphs.kp2.t1
+        vars:
+          a: {int: [1, 10]}
+          b: {int: [1, 10]}
+          c: {int: [1, 10]}
+          d: {int: [1, 10]}
+        prompt: "How many votes did Red and Blue get together?"
+        layout: figure
+        figure: bar-graph
+        figure_args: {rows: "join('Red:', text(a), '|Blue:', text(b), '|Green:', text(c), '|Gold:', text(d))", scale: 1}
+        answer: {type: integer, value: a + b}
+        solution:
+          - "Red {a}, Blue {b}."
+          - "{a} + {b} = {a + b}"
+      - id: bar-graphs.kp2.t2
+        vars:
+          a: {int: [1, 10]}
+          b: {int: [1, 10]}
+          c: {int: [1, 10]}
+          d: {int: [1, 10]}
+        where: ["c > d"]
+        prompt: "How many fewer votes did Gold get than Green?"
+        layout: figure
+        figure: bar-graph
+        figure_args: {rows: "join('Red:', text(a), '|Blue:', text(b), '|Green:', text(c), '|Gold:', text(d))", scale: 1}
+        answer: {type: integer, value: c - d}
+        solution:
+          - "Green {c}, Gold {d}."
+          - "{c} − {d} = {c - d} fewer."

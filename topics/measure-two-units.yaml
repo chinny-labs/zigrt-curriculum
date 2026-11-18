@@ -1,0 +1,37 @@
+id: measure-two-units
+kps:
+  - id: measure-two-units.kp1
+    explain: >-
+      A smaller unit fits more times. So the number of units is bigger.
+    templates:
+      - id: measure-two-units.kp1.t1
+        vars:
+          k: {int: [0, 2]}
+          thing: "pick(k, 'a book', 'a table', 'a shoe')"
+          small: "pick(k, 'centimetres', 'inches', 'centimetres')"
+          big: "pick(k, 'inches', 'feet', 'feet')"
+        prompt: "You measure {thing} in {small}, then in {big}. Which gives the bigger number?"
+        answer:
+          type: choice
+          right: "{small}"
+          distractors: ["{big}", "They are the same"]
+        min_variety: 3
+        solution:
+          - "{small} are smaller, so more of them fit."
+          - "So {small} give the bigger number."
+  - id: measure-two-units.kp2
+    explain: >-
+      Measure the same pencil two ways. Read each ruler from 0.
+    templates:
+      - id: measure-two-units.kp2.t1
+        vars:
+          n: {int: [5, 15]}
+        prompt: "This pencil is {n} cm long. Would it be more or fewer than {n} inches?"
+        answer:
+          type: choice
+          right: "fewer"
+          distractors: ["more", "the same"]
+        min_variety: 10
+        solution:
+          - "An inch is longer than a centimetre."
+          - "So the pencil is fewer than {n} inches long."

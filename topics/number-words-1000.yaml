@@ -1,0 +1,44 @@
+id: number-words-1000
+kps:
+  - id: number-words-1000.kp1
+    explain: >-
+      Say the hundreds first. Then say the rest like a smaller number.
+    templates:
+      - id: number-words-1000.kp1.t1
+        vars:
+          h: {int: [1, 9]}
+          t: {int: [2, 9]}
+          o: {int: [0, 9]}
+          hw: "pick(h - 1, 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine')"
+          tw: "pick(t - 2, 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety')"
+          ow: "pick(o, '', '-one', '-two', '-three', '-four', '-five', '-six', '-seven', '-eight', '-nine')"
+          words: "join(hw, ' hundred ', tw, ow)"
+          n: 100 * h + 10 * t + o
+        where: ["o != t"]
+        prompt: "Which number is {words}?"
+        answer:
+          type: choice
+          right: "{n}"
+          distractors: ["{100 * h + 10 * o + t}", "{h}0{10 * t + o}"]
+        solution:
+          - "The hundreds part is {100 * h}. The rest, {tw}{ow}, is {10 * t + o}."
+          - "So {words} is {n}."
+  - id: number-words-1000.kp2
+    explain: >-
+      When there are no tens, say the hundreds and then the ones.
+    templates:
+      - id: number-words-1000.kp2.t1
+        vars:
+          h: {int: [1, 9]}
+          o: {int: [1, 9]}
+          hw: "pick(h - 1, 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine')"
+          ow: "pick(o - 1, 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine')"
+          n: 100 * h + o
+        prompt: "Which number is {hw} hundred {ow}?"
+        answer:
+          type: choice
+          right: "{n}"
+          distractors: ["{100 * h + 10 * o}", "{10 * h + o}"]
+        solution:
+          - "There are no tens, so a 0 holds the tens place."
+          - "So {hw} hundred {ow} is {n}."

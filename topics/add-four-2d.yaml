@@ -1,0 +1,34 @@
+id: add-four-2d
+kps:
+  - id: add-four-2d.kp1
+    explain: >-
+      Add the numbers one at a time. Look for pairs that are easy to add.
+    templates:
+      - id: add-four-2d.kp1.t1
+        vars:
+          a: {int: [10, 49]}
+          b: {int: [10, 49]}
+          c: {int: [10, 49]}
+        prompt: "{a} + {b} + {c}"
+        answer: {type: integer, value: a + b + c}
+        solution:
+          - "{a} + {b} = {a + b}"
+          - "{a + b} + {c} = {a + b + c}"
+  - id: add-four-2d.kp2
+    explain: >-
+      With four numbers, add all the ones, then all the tens.
+    templates:
+      - id: add-four-2d.kp2.t1
+        vars:
+          a: {int: [10, 39]}
+          b: {int: [10, 39]}
+          c: {int: [10, 39]}
+          d: {int: [10, 39]}
+          ones: a % 10 + b % 10 + c % 10 + d % 10
+          tens: 10 * (a // 10 + b // 10 + c // 10 + d // 10)
+        prompt: "{a} + {b} + {c} + {d}"
+        answer: {type: integer, value: a + b + c + d}
+        solution:
+          - "Ones: {a % 10} + {b % 10} + {c % 10} + {d % 10} = {ones}."
+          - "Tens: {tens}."
+          - "{tens} + {ones} = {a + b + c + d}"
