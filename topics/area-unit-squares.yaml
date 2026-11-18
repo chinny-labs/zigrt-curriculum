@@ -1,0 +1,35 @@
+id: area-unit-squares
+kps:
+  - id: area-unit-squares.kp1
+    explain: >-
+      Area is how many unit squares cover a shape, with no gaps or overlaps.
+    templates:
+      - id: area-unit-squares.kp1.t1
+        vars:
+          r: {int: [2, 6]}
+          c: {int: [2, 7]}
+          s: {int: [3, r * c - 1]}
+        prompt: "Each small square is 1 square unit. What is the area of the shaded part?"
+        layout: figure
+        figure: grid
+        figure_args: {rows: r, cols: c, shaded: s}
+        answer: {type: integer, value: s}
+        solution:
+          - "Count the shaded squares."
+          - "The area is {s} square units."
+  - id: area-unit-squares.kp2
+    explain: >-
+      Count the squares in a row, then count the rows. That covers the whole rectangle.
+    templates:
+      - id: area-unit-squares.kp2.t1
+        vars:
+          r: {int: [2, 7]}
+          c: {int: [2, 8]}
+        prompt: "Each square is 1 square centimetre. What is the area of the rectangle, in square centimetres?"
+        layout: figure
+        figure: grid
+        figure_args: {rows: r, cols: c, shaded: 0}
+        answer: {type: integer, value: r * c}
+        solution:
+          - "{r} rows of {c} squares."
+          - "{r} × {c} = {r * c} square centimetres."

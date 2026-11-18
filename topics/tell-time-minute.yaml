@@ -1,0 +1,22 @@
+id: tell-time-minute
+kps:
+  - id: tell-time-minute.kp1
+    explain: >-
+      Count by fives to the last number the long hand passed. Then count on the small marks.
+    templates:
+      - id: tell-time-minute.kp1.t1
+        vars:
+          h: {int: [1, 12]}
+          m: {int: [1, 59]}
+        where: ["m % 5 != 0"]
+        prompt: "What time does the clock show?"
+        layout: figure
+        figure: clock
+        figure_args: {hour: h, minute: m}
+        answer:
+          type: choice
+          right: "{h}:{pad(m, 2)}"
+          distractors: ["{h}:{pad(m - m % 5, 2)}", "{h}:{pad(m - m % 5 + 5 > 59 ? 59 : m - m % 5 + 5, 2)}"]
+        solution:
+          - "The long hand is {m % 5} {plural(m % 5, 'mark', 'marks')} past {m - m % 5} minutes."
+          - "It is {h}:{pad(m, 2)}."

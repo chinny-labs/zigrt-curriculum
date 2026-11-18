@@ -1,0 +1,27 @@
+id: mult-word-problems
+kps:
+  - id: mult-word-problems.kp1
+    explain: >-
+      Look for equal groups or rows. Then multiply the groups by the size of each.
+    templates:
+      - id: mult-word-problems.kp1.t1
+        vars:
+          r: {int: [3, 9]}
+          c: {int: [3, 10]}
+        prompt: "A hall has {r} rows of chairs, with {c} chairs in each row. How many chairs are there?"
+        answer: {type: integer, value: r * c}
+        solution:
+          - "{r} rows of {c}."
+          - "{r} × {c} = {r * c}"
+      - id: mult-word-problems.kp1.t2
+        vars:
+          g: {int: [3, 9]}
+          n: {int: [2, 9]}
+          k: {int: [0, 2]}
+          box: "pick(k, 'packs', 'boxes', 'bags')"
+          item: "pick(k, 'juice boxes', 'crayons', 'marbles')"
+        prompt: "Ben buys {g} {box} of {item}. Each has {n}. How many {item} is that?"
+        answer: {type: integer, value: g * n}
+        solution:
+          - "{g} groups of {n}."
+          - "{g} × {n} = {g * n}"

@@ -1,0 +1,20 @@
+id: mult-unknown
+kps:
+  - id: mult-unknown.kp1
+    explain: >-
+      To find a missing factor, ask: what times this number makes the product?
+    templates:
+      - id: mult-unknown.kp1.t1
+        vars:
+          a: {int: [2, 10]}
+          b: {int: [2, 10]}
+        prompt: "{a} × ? = {a * b}"
+        layout: missing
+        op: "*"
+        parts: [a, b, a * b]
+        blank: 1
+        answer: {type: integer, value: b}
+        min_variety: 70
+        solution:
+          - "Count in {a}s to {a * b}: that takes {b} steps."
+          - "{a} × {b} = {a * b}"

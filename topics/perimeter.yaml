@@ -1,0 +1,56 @@
+id: perimeter
+kps:
+  - id: perimeter.kp1
+    explain: >-
+      Perimeter is the distance all the way around. Add up every side.
+    templates:
+      - id: perimeter.kp1.t1
+        vars:
+          w: {int: [3, 15]}
+          h: {int: [2, 12]}
+        where: ["w != h"]
+        prompt: "What is the perimeter of the rectangle, in centimetres?"
+        layout: figure
+        figure: polygon
+        figure_args: {shape: "'rectangle'", sides: "join(text(w), '|', text(h))", hide: -1, unit: "'cm'"}
+        answer:
+          type: choice
+          right: "{2 * (w + h)}"
+          distractors: ["{w + h}", "{w * h}"]
+        solution:
+          - "{w} + {h} + {w} + {h}"
+          - "The perimeter is {2 * (w + h)} cm."
+      - id: perimeter.kp1.t2
+        vars:
+          a: {int: [3, 12]}
+          b: {int: [3, 12]}
+          c: {int: [3, 12]}
+        where: ["a + b > c && a + c > b && b + c > a"]
+        prompt: "What is the perimeter of the triangle, in inches?"
+        layout: figure
+        figure: polygon
+        figure_args: {shape: "'triangle'", sides: "join(text(a), '|', text(b), '|', text(c))", hide: -1, unit: "'in'"}
+        answer: {type: integer, value: a + b + c}
+        solution:
+          - "{a} + {b} + {c} = {a + b + c}"
+          - "The perimeter is {a + b + c} in."
+  - id: perimeter.kp2
+    explain: >-
+      With an L shape, check you have added all six sides.
+    templates:
+      - id: perimeter.kp2.t1
+        vars:
+          t: {int: [2, 6]}
+          r: {int: [2, 5]}
+          dn1: {int: [2, 5]}
+          dn2: {int: [2, 5]}
+          b: t + r
+          up: dn1 + dn2
+        prompt: "What is the perimeter of this shape, in metres?"
+        layout: figure
+        figure: polygon
+        figure_args: {shape: "'L'", sides: "join(text(t), '|', text(dn1), '|', text(r), '|', text(dn2), '|', text(b), '|', text(up))", hide: -1, unit: "'m'"}
+        answer: {type: integer, value: 2 * (b + up)}
+        solution:
+          - "{t} + {dn1} + {r} + {dn2} + {b} + {up}"
+          - "The perimeter is {2 * (b + up)} m."

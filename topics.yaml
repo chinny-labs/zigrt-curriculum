@@ -765,63 +765,335 @@ topics:
     standards: [2.G.A.3]
 
   # Grade 3
+  - id: round-10-100
+    title: Rounding to 10 or 100
+    strand: place-value
+    grade: "3"
+    requires: [number-line-to-1000]
+    xp: 12
+    standards: [3.NBT.A.1]
+  - id: sub-across-zeros
+    title: Taking away across zeros
+    strand: add-sub
+    grade: "3"
+    requires: [sub-3d-regroup]
+    encompasses: [{topic: sub-3d-regroup, weight: 1.0}]
+    xp: 12
+    standards: [3.NBT.A.2]
+  - id: word-problems-1000
+    title: Word problems to 1000
+    strand: add-sub
+    grade: "3"
+    requires: [two-step-problems-100, add-3d, sub-3d]
+    encompasses: [{topic: word-problems-100, weight: 0.5}]
+    xp: 12
+    standards: [3.NBT.A.2]
+  - id: estimate-sums
+    title: Estimating sums and differences
+    strand: add-sub
+    grade: "3"
+    requires: [round-10-100, add-3d, sub-3d]
+    encompasses: [{topic: round-10-100, weight: 0.5}]
+    xp: 12
+    standards: [3.OA.D.8]
+  - id: mult-meaning
+    title: What times means
+    strand: multiplication
+    grade: "3"
+    requires: [repeated-addition]
+    xp: 12
+    standards: [3.OA.A.1]
   - id: mult-facts-5
     title: Times tables to 5
     strand: multiplication
     grade: "3"
-    requires: [equal-groups-arrays]
+    requires: [mult-meaning]
     encompasses: [{topic: equal-groups-arrays, weight: 0.5}]
     xp: 10
     standards: [3.OA.C.7]
     fluency_seconds: 6
-  - id: unit-fractions
-    title: Naming fractions
-    strand: fractions
+  - id: mult-by-0-1
+    title: Times 0 and times 1
+    strand: multiplication
     grade: "3"
-    requires: [equal-groups-arrays]
-    xp: 10
-    standards: [3.NF.A.1]
+    requires: [mult-meaning]
+    xp: 12
+    standards: [3.OA.B.5]
+    fluency_seconds: 6
+  - id: mult-commutative
+    title: Turning a times fact around
+    strand: multiplication
+    grade: "3"
+    requires: [mult-facts-5]
+    encompasses: [{topic: mult-facts-5, weight: 0.3}]
+    xp: 12
+    standards: [3.OA.B.5]
   - id: mult-facts-10
     title: Times tables to 10
     strand: multiplication
     grade: "3"
-    requires: [mult-facts-5]
+    requires: [mult-facts-5, mult-by-0-1, mult-commutative]
     encompasses: [{topic: mult-facts-5, weight: 1.0}]
     xp: 12
     standards: [3.OA.C.7]
     fluency_seconds: 6
-  - id: fractions-on-number-line
-    title: Fractions on a number line
-    strand: fractions
+  - id: mult-distributive
+    title: Splitting a times fact
+    strand: multiplication
     grade: "3"
-    requires: [unit-fractions, number-line-to-20]
-    encompasses: [{topic: unit-fractions, weight: 0.5}]
-    xp: 10
-    standards: [3.NF.A.2]
-  - id: div-facts
-    title: Dividing facts
-    strand: division
+    requires: [mult-facts-5, add-2d-2d-regroup]
+    encompasses: [{topic: mult-facts-5, weight: 0.5}]
+    xp: 12
+    standards: [3.OA.B.5]
+  - id: mult-three-numbers
+    title: Times with three numbers
+    strand: multiplication
     grade: "3"
     requires: [mult-facts-10]
     encompasses: [{topic: mult-facts-10, weight: 0.5}]
     xp: 12
-    standards: [3.OA.C.7]
-    fluency_seconds: 6
-  - id: rectangle-area
-    title: Area of a rectangle
-    strand: measurement
+    standards: [3.OA.B.5]
+  - id: mult-unknown
+    title: The missing factor
+    strand: multiplication
     grade: "3"
     requires: [mult-facts-10]
     encompasses: [{topic: mult-facts-10, weight: 0.5}]
+    xp: 12
+    standards: [3.OA.A.4]
+  - id: mult-word-problems
+    title: Times word problems
+    strand: multiplication
+    grade: "3"
+    requires: [mult-facts-10]
+    encompasses: [{topic: mult-facts-10, weight: 0.5}]
+    xp: 12
+    standards: [3.OA.A.3]
+  - id: mult-by-tens
+    title: Times multiples of 10
+    strand: multiplication
+    grade: "3"
+    requires: [mult-facts-10, add-tens]
+    encompasses: [{topic: mult-facts-10, weight: 0.5}]
+    xp: 12
+    standards: [3.NBT.A.3]
+  - id: times-table-patterns
+    title: Patterns in the tables
+    strand: multiplication
+    grade: "3"
+    requires: [mult-facts-10, odd-even]
+    xp: 12
+    standards: [3.OA.D.9]
+  - id: div-meaning
+    title: What dividing means
+    strand: division
+    grade: "3"
+    requires: [mult-meaning]
+    xp: 12
+    standards: [3.OA.A.2]
+  - id: div-facts
+    title: Dividing facts
+    strand: division
+    grade: "3"
+    requires: [mult-facts-10, div-meaning]
+    encompasses: [{topic: mult-facts-10, weight: 0.5}]
+    xp: 12
+    standards: [3.OA.C.7]
+    fluency_seconds: 6
+  - id: div-by-1-and-itself
+    title: Dividing by 1 and by itself
+    strand: division
+    grade: "3"
+    requires: [div-meaning, mult-by-0-1]
+    xp: 12
+    standards: [3.OA.B.5]
+  - id: div-as-missing-factor
+    title: Dividing as a missing factor
+    strand: division
+    grade: "3"
+    requires: [div-facts, mult-unknown]
+    encompasses: [{topic: div-facts, weight: 0.5}, {topic: mult-unknown, weight: 0.5}]
+    xp: 12
+    standards: [3.OA.B.6]
+  - id: div-word-problems
+    title: Dividing word problems
+    strand: division
+    grade: "3"
+    requires: [div-facts, mult-word-problems]
+    encompasses: [{topic: div-facts, weight: 0.5}]
+    xp: 12
+    standards: [3.OA.A.3]
+  - id: two-step-word-problems
+    title: Two-step problems
+    strand: division
+    grade: "3"
+    requires: [div-word-problems, word-problems-1000]
+    encompasses: [{topic: div-word-problems, weight: 0.5}, {topic: word-problems-1000, weight: 0.5}]
+    xp: 12
+    standards: [3.OA.D.8]
+  - id: unit-fractions
+    title: Naming fractions
+    strand: fractions
+    grade: "3"
+    requires: [thirds, equal-groups-arrays]
     xp: 10
-    standards: [3.MD.C.7]
+    standards: [3.NF.A.1]
+  - id: non-unit-fractions
+    title: Fractions like 3/4
+    strand: fractions
+    grade: "3"
+    requires: [unit-fractions]
+    encompasses: [{topic: unit-fractions, weight: 1.0}]
+    xp: 12
+    standards: [3.NF.A.1]
+  - id: fractions-on-number-line
+    title: Fractions on a number line
+    strand: fractions
+    grade: "3"
+    requires: [non-unit-fractions, number-line-to-20]
+    encompasses: [{topic: unit-fractions, weight: 0.5}]
+    xp: 10
+    standards: [3.NF.A.2]
+  - id: whole-numbers-as-fractions
+    title: Whole numbers as fractions
+    strand: fractions
+    grade: "3"
+    requires: [fractions-on-number-line]
+    encompasses: [{topic: fractions-on-number-line, weight: 0.3}]
+    xp: 12
+    standards: [3.NF.A.3c]
+  - id: same-size-fractions
+    title: "Same size, different fraction"
+    strand: fractions
+    grade: "3"
+    requires: [fractions-on-number-line]
+    encompasses: [{topic: fractions-on-number-line, weight: 0.5}]
+    xp: 12
+    standards: [3.NF.A.3a, 3.NF.A.3b]
   - id: compare-fractions-same
     title: Comparing fractions with a number the same
     strand: fractions
     grade: "3"
-    requires: [unit-fractions]
+    requires: [non-unit-fractions]
     xp: 10
     standards: [3.NF.A.3d]
+  - id: tell-time-minute
+    title: Telling the time to the minute
+    strand: measurement
+    grade: "3"
+    requires: [tell-time-5min]
+    encompasses: [{topic: tell-time-5min, weight: 1.0}]
+    xp: 12
+    standards: [3.MD.A.1]
+  - id: elapsed-time
+    title: How long did it take
+    strand: measurement
+    grade: "3"
+    requires: [tell-time-minute, am-pm, sub-2d-2d-regroup]
+    encompasses: [{topic: tell-time-minute, weight: 0.3}]
+    xp: 12
+    standards: [3.MD.A.1]
+  - id: mass-and-volume
+    title: "Grams, kilograms and litres"
+    strand: measurement
+    grade: "3"
+    requires: [measure-length, word-problems-100]
+    xp: 12
+    standards: [3.MD.A.2]
+  - id: scaled-picture-graphs
+    title: Picture graphs where one picture is many
+    strand: measurement
+    grade: "3"
+    requires: [picture-graphs, mult-facts-5]
+    encompasses: [{topic: picture-graphs, weight: 1.0}]
+    xp: 12
+    standards: [3.MD.B.3]
+  - id: scaled-bar-graphs
+    title: Bar graphs with a scale
+    strand: measurement
+    grade: "3"
+    requires: [bar-graphs, mult-facts-5]
+    encompasses: [{topic: bar-graphs, weight: 1.0}]
+    xp: 12
+    standards: [3.MD.B.3]
+  - id: line-plots-fractions
+    title: Line plots with halves and quarters
+    strand: measurement
+    grade: "3"
+    requires: [line-plots-whole, fractions-on-number-line]
+    encompasses: [{topic: line-plots-whole, weight: 1.0}]
+    xp: 12
+    standards: [3.MD.B.4]
+  - id: area-unit-squares
+    title: Counting square units
+    strand: measurement
+    grade: "3"
+    requires: [partition-rectangles, mult-meaning]
+    xp: 12
+    standards: [3.MD.C.5, 3.MD.C.6]
+  - id: rectangle-area
+    title: Area of a rectangle
+    strand: measurement
+    grade: "3"
+    requires: [area-unit-squares, mult-facts-10]
+    encompasses: [{topic: mult-facts-10, weight: 0.5}]
+    xp: 10
+    standards: [3.MD.C.7]
+  - id: area-split-rectangles
+    title: Splitting a rectangle's area
+    strand: measurement
+    grade: "3"
+    requires: [rectangle-area, mult-distributive]
+    encompasses: [{topic: rectangle-area, weight: 1.0}, {topic: mult-distributive, weight: 0.5}]
+    xp: 12
+    standards: [3.MD.C.7c]
+  - id: area-composite
+    title: Area of L shapes
+    strand: measurement
+    grade: "3"
+    requires: [rectangle-area, add-3d]
+    encompasses: [{topic: rectangle-area, weight: 1.0}]
+    xp: 12
+    standards: [3.MD.C.7d]
+  - id: perimeter
+    title: Perimeter
+    strand: measurement
+    grade: "3"
+    requires: [add-four-2d, name-shapes]
+    xp: 12
+    standards: [3.MD.D.8]
+  - id: perimeter-missing-side
+    title: Finding a missing side
+    strand: measurement
+    grade: "3"
+    requires: [perimeter, missing-number-100]
+    encompasses: [{topic: perimeter, weight: 0.5}]
+    xp: 12
+    standards: [3.MD.D.8]
+  - id: area-vs-perimeter
+    title: "Same perimeter, different area"
+    strand: measurement
+    grade: "3"
+    requires: [perimeter, rectangle-area]
+    encompasses: [{topic: perimeter, weight: 0.5}, {topic: rectangle-area, weight: 0.5}]
+    xp: 12
+    standards: [3.MD.D.8]
+  - id: quadrilaterals
+    title: Kinds of quadrilaterals
+    strand: geometry
+    grade: "3"
+    requires: [name-shapes]
+    encompasses: [{topic: name-shapes, weight: 0.5}]
+    xp: 12
+    standards: [3.G.A.1]
+  - id: equal-area-parts
+    title: Shapes cut into equal areas
+    strand: geometry
+    grade: "3"
+    requires: [unit-fractions, area-unit-squares]
+    encompasses: [{topic: unit-fractions, weight: 0.5}]
+    xp: 12
+    standards: [3.G.A.2]
 
   # Grade 4
   - id: div-with-remainder

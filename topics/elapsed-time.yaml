@@ -1,0 +1,53 @@
+id: elapsed-time
+kps:
+  - id: elapsed-time.kp1
+    explain: >-
+      To find how long something took, count on from the start time to the end time.
+    templates:
+      - id: elapsed-time.kp1.t1
+        vars:
+          h: {int: [1, 11]}
+          a: {int: [0, 6]}
+          b: {int: [2, 5]}
+          s: 5 * a
+          d: 5 * b
+        prompt: "A game starts at {h}:{pad(s, 2)} and ends at {h}:{pad(s + d, 2)}. How many minutes long is it?"
+        answer: {type: integer, value: d}
+        min_variety: 50
+        solution:
+          - "Count on from {s} minutes to {s + d} minutes."
+          - "{s + d} − {s} = {d} minutes."
+  - id: elapsed-time.kp2
+    explain: >-
+      When the time crosses the hour, count to the hour first, then the minutes after.
+    templates:
+      - id: elapsed-time.kp2.t1
+        vars:
+          h: {int: [1, 10]}
+          a: {int: [8, 11]}
+          b: {int: [1, 6]}
+          s: 5 * a
+          e: 5 * b
+          dur: 60 - s + e
+        prompt: "A movie starts at {h}:{pad(s, 2)} and ends at {h + 1}:{pad(e, 2)}. How many minutes long is it?"
+        answer: {type: integer, value: dur}
+        solution:
+          - "From {h}:{pad(s, 2)} to {h + 1}:00 is {60 - s} minutes."
+          - "Then {e} more: {60 - s} + {e} = {dur} minutes."
+      - id: elapsed-time.kp2.t2
+        vars:
+          h: {int: [1, 10]}
+          a: {int: [0, 11]}
+          b: {int: [3, 10]}
+          s: 5 * a
+          d: 5 * b
+          end: s + d
+        where: ["end >= 60"]
+        prompt: "Practice starts at {h}:{pad(s, 2)} and lasts {d} minutes. What time does it end?"
+        answer:
+          type: choice
+          right: "{h + 1}:{pad(end - 60, 2)}"
+          distractors: ["{h}:{pad(end - 60, 2)}", "{h + 1}:{pad(end - 50, 2)}"]
+        solution:
+          - "{60 - s} minutes takes it to {h + 1}:00."
+          - "{d - (60 - s)} more minutes: {h + 1}:{pad(end - 60, 2)}."

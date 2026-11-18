@@ -1,0 +1,33 @@
+id: round-10-100
+kps:
+  - id: round-10-100.kp1
+    explain: >-
+      To round to the nearest ten, look at the ones. 5 or more rounds up.
+    templates:
+      - id: round-10-100.kp1.t1
+        vars:
+          n: {int: [11, 989]}
+          down: 10 * (n // 10)
+        where: ["n % 10 != 0"]
+        prompt: "Round {n} to the nearest ten."
+        answer: {type: integer, value: "round(n, 10)"}
+        solution:
+          - "{n} is between {down} and {down + 10}."
+          - "The ones digit is {n % 10}, so round {n % 10 >= 5 ? 'up' : 'down'} to {round(n, 10)}."
+  - id: round-10-100.kp2
+    explain: >-
+      To round to the nearest hundred, look at the tens digit.
+    templates:
+      - id: round-10-100.kp2.t1
+        vars:
+          n: {int: [101, 949]}
+          down: 100 * (n // 100)
+        where: ["n % 100 != 0"]
+        prompt: "Round {n} to the nearest hundred."
+        answer:
+          type: choice
+          right: "{round(n, 100)}"
+          distractors: ["{round(n, 10)}", "{round(n, 100) == down ? down + 100 : down}"]
+        solution:
+          - "{n} is between {down} and {down + 100}."
+          - "The tens digit is {(n // 10) % 10}, so round {(n // 10) % 10 >= 5 ? 'up' : 'down'} to {round(n, 100)}."

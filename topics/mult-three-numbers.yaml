@@ -1,0 +1,31 @@
+id: mult-three-numbers
+kps:
+  - id: mult-three-numbers.kp1
+    explain: >-
+      Multiply two numbers first, then the third. Any pair can go first.
+    templates:
+      - id: mult-three-numbers.kp1.t1
+        vars:
+          a: {int: [2, 5]}
+          b: {int: [2, 5]}
+          c: {int: [2, 5]}
+        where: ["a * b * c <= 100"]
+        prompt: "{a} × {b} × {c}"
+        answer: {type: integer, value: a * b * c}
+        min_variety: 50
+        solution:
+          - "{a} × {b} = {a * b}"
+          - "{a * b} × {c} = {a * b * c}"
+  - id: mult-three-numbers.kp2
+    explain: >-
+      Look for a pair that makes 10. Times 10 is easy.
+    templates:
+      - id: mult-three-numbers.kp2.t1
+        vars:
+          a: {int: [2, 9]}
+        prompt: "2 × {a} × 5"
+        answer: {type: integer, value: 10 * a}
+        min_variety: 8
+        solution:
+          - "2 × 5 = 10 first."
+          - "10 × {a} = {10 * a}"

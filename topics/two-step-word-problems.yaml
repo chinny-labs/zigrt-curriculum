@@ -1,0 +1,26 @@
+id: two-step-word-problems
+kps:
+  - id: two-step-word-problems.kp1
+    explain: >-
+      Find what the first step tells you. Use that to answer the question.
+    templates:
+      - id: two-step-word-problems.kp1.t1
+        vars:
+          p: {int: [3, 8]}
+          n: {int: [4, 10]}
+          lost: {int: [2, 9]}
+        prompt: "Zoe buys {p} packs of {n} crayons. She loses {lost}. How many crayons does she have now?"
+        answer: {type: integer, value: p * n - lost}
+        solution:
+          - "First: {p} × {n} = {p * n} crayons."
+          - "Then: {p * n} − {lost} = {p * n - lost}."
+      - id: two-step-word-problems.kp1.t2
+        vars:
+          t: {int: [2, 6]}
+          each: {int: [3, 9]}
+          extra: {int: [5, 30]}
+        prompt: "A class shares {t * each + extra} books. They keep {extra} on a shelf and share the rest equally among {t} tables. How many books does each table get?"
+        answer: {type: integer, value: each}
+        solution:
+          - "First: {t * each + extra} − {extra} = {t * each} to share."
+          - "Then: {t * each} ÷ {t} = {each}."

@@ -1,0 +1,39 @@
+id: mult-meaning
+kps:
+  - id: mult-meaning.kp1
+    explain: >-
+      Times means equal groups. 3 × 4 is 3 groups of 4.
+    templates:
+      - id: mult-meaning.kp1.t1
+        vars:
+          r: {int: [2, 6]}
+          c: {int: [2, 6]}
+        prompt: "{r} rows of {c} dots is {r} × {c}. How many dots?"
+        layout: figure
+        figure: array
+        figure_args: {rows: r, cols: c}
+        answer: {type: integer, value: r * c}
+        min_variety: 25
+        solution:
+          - "{r} groups of {c}: skip count by {c}, {r} times."
+          - "{r} × {c} = {r * c}"
+  - id: mult-meaning.kp2
+    explain: >-
+      The first number is how many groups. The second is how many in each group.
+    templates:
+      - id: mult-meaning.kp2.t1
+        vars:
+          g: {int: [2, 9]}
+          n: {int: [2, 9]}
+          k: {int: [0, 2]}
+          thing: "pick(k, 'bags with', 'boxes with', 'plates with')"
+          item: "pick(k, 'apples', 'pens', 'cookies')"
+        where: ["g != n"]
+        prompt: "There are {g} {thing} {n} {item} in each. Which times fact tells how many {item}?"
+        answer:
+          type: choice
+          right: "{g} × {n}"
+          distractors: ["{g} + {n}", "{g} × {g}"]
+        solution:
+          - "{g} equal groups of {n}."
+          - "That is {g} × {n} = {g * n}."

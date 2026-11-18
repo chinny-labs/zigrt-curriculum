@@ -1,0 +1,20 @@
+id: equal-area-parts
+kps:
+  - id: equal-area-parts.kp1
+    explain: >-
+      Cut a shape into equal parts. Each part's area is the same fraction of the whole.
+    templates:
+      - id: equal-area-parts.kp1.t1
+        vars:
+          k: {int: [0, 2]}
+          name: "pick(k, 'circle', 'square', 'rectangle')"
+          p: {int: [2, 8]}
+        prompt: "The shape is cut into equal parts. What fraction of the area is the shaded part?"
+        layout: figure
+        figure: cut-shape
+        figure_args: {name: name, parts: p, equal: 1, shaded: 1}
+        answer: {type: fraction, value: 1 / p, simplest: false}
+        min_variety: 21
+        solution:
+          - "There are {p} equal parts."
+          - "Each part is 1/{p} of the area."

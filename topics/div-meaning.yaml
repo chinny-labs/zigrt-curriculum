@@ -1,0 +1,32 @@
+id: div-meaning
+kps:
+  - id: div-meaning.kp1
+    explain: >-
+      Dividing shares things into equal groups. 12 ÷ 3 shares 12 into 3 equal rows.
+    templates:
+      - id: div-meaning.kp1.t1
+        vars:
+          r: {int: [2, 6]}
+          c: {int: [2, 6]}
+        prompt: "{r * c} dots are shared into {r} equal rows. How many dots are in each row?"
+        layout: figure
+        figure: array
+        figure_args: {rows: r, cols: c}
+        answer: {type: integer, value: c}
+        min_variety: 25
+        solution:
+          - "Count one row."
+          - "{r * c} ÷ {r} = {c}"
+  - id: div-meaning.kp2
+    explain: >-
+      Dividing also asks how many groups you can make. 12 ÷ 4 asks how many 4s are in 12.
+    templates:
+      - id: div-meaning.kp2.t1
+        vars:
+          n: {int: [2, 9]}
+          g: {int: [2, 9]}
+        prompt: "{n * g} eggs are packed in boxes of {n}. How many boxes are filled?"
+        answer: {type: integer, value: g}
+        solution:
+          - "Count in {n}s up to {n * g}: that is {g} boxes."
+          - "{n * g} ÷ {n} = {g}"
