@@ -1,0 +1,44 @@
+id: classify-triangles
+kps:
+  - id: classify-triangles.kp1
+    explain: >-
+      By sides: equilateral has 3 equal sides, isosceles 2, scalene none. Tick marks show equal sides.
+    templates:
+      - id: classify-triangles.kp1.t1
+        vars:
+          k: {int: [0, 2]}
+          kind: "pick(k, 'equilateral', 'isosceles', 'scalene')"
+          turn: {choose: [0, 20, 60, 140]}
+        prompt: "What kind of triangle is this, by its sides?"
+        layout: figure
+        figure: triangle
+        figure_args: {kind: kind, turn: turn}
+        answer:
+          type: choice
+          right: "{kind}"
+          distractors: ["{pick(k, 'isosceles', 'scalene', 'isosceles')}", "{pick(k, 'scalene', 'equilateral', 'equilateral')}"]
+        min_variety: 12
+        solution:
+          - "{pick(k, 'All three sides are marked equal.', 'Two sides are marked equal.', 'No sides are equal.')}"
+          - "It is {kind}."
+  - id: classify-triangles.kp2
+    explain: >-
+      By angles: a right triangle has a square corner. Obtuse has one wide angle. Acute has only small angles.
+    templates:
+      - id: classify-triangles.kp2.t1
+        vars:
+          k: {int: [0, 2]}
+          kind: "pick(k, 'right', 'obtuse', 'acute')"
+          turn: {choose: [0, 30, 90, 200]}
+        prompt: "What kind of triangle is this, by its angles?"
+        layout: figure
+        figure: triangle
+        figure_args: {kind: kind, turn: turn}
+        answer:
+          type: choice
+          right: "{kind}"
+          distractors: ["{pick(k, 'acute', 'right', 'right')}", "{pick(k, 'obtuse', 'acute', 'obtuse')}"]
+        min_variety: 12
+        solution:
+          - "{pick(k, 'One angle is a square corner.', 'One angle is wider than a square corner.', 'Every angle is smaller than a square corner.')}"
+          - "It is a {kind} triangle."

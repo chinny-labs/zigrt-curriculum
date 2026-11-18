@@ -1,0 +1,21 @@
+id: prime-composite
+kps:
+  - id: prime-composite.kp1
+    explain: >-
+      A prime number has exactly two factors: 1 and itself. A composite number has more.
+    templates:
+      - id: prime-composite.kp1.t1
+        vars:
+          k: {int: [0, 1]}
+          i: {int: [0, 13]}
+          n: "k == 0 ? pick(i, 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43) : pick(i, 4, 6, 9, 15, 21, 25, 27, 33, 35, 39, 45, 49, 51, 57)"
+          ans: "k == 0 ? 'prime' : 'composite'"
+        prompt: "Is {n} prime or composite?"
+        answer:
+          type: choice
+          right: "{ans}"
+          distractors: ["{k == 0 ? 'composite' : 'prime'}"]
+        min_variety: 28
+        solution:
+          - "{k == 0 ? join('Only 1 and ', text(n), ' divide it.') : 'It has a factor other than 1 and itself.'}"
+          - "{n} is {ans}."

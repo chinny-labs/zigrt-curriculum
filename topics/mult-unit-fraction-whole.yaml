@@ -1,0 +1,14 @@
+id: mult-unit-fraction-whole
+kps:
+  - id: mult-unit-fraction-whole.kp1
+    explain: >-
+      5 × 1/4 means five copies of 1/4, which is 5/4.
+    templates:
+      - id: mult-unit-fraction-whole.kp1.t1
+        vars:
+          n: {int: [2, 9]}
+          d: {int: [2, 10]}
+        prompt: "{n} × 1/{d}"
+        answer: {type: fraction, value: n / d, simplest: false}
+        solution:
+          - "{n} copies of 1/{d} is {n}/{d}."

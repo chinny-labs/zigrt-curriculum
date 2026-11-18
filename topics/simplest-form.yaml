@@ -1,0 +1,17 @@
+id: simplest-form
+kps:
+  - id: simplest-form.kp1
+    explain: >-
+      Divide the top and bottom by the same number. Keep going until no number but 1 divides both.
+    templates:
+      - id: simplest-form.kp1.t1
+        vars:
+          n: {int: [1, 7]}
+          d: {int: [2, 9]}
+          k: {int: [2, 6]}
+        where: ["n < d", "gcd(n, d) == 1"]
+        prompt: "Write {n * k}/{d * k} in simplest form."
+        answer: {type: fraction, value: n / d}
+        solution:
+          - "{k} divides both {n * k} and {d * k}."
+          - "{n * k}/{d * k} = {n}/{d}"

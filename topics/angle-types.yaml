@@ -1,0 +1,25 @@
+id: angle-types
+kps:
+  - id: angle-types.kp1
+    explain: >-
+      A right angle is a square corner. Smaller is acute. Bigger, but less than a straight line, is obtuse.
+    templates:
+      - id: angle-types.kp1.t1
+        vars:
+          k: {int: [0, 2]}
+          lo: "pick(k, 15, 90, 100)"
+          hi: "pick(k, 75, 90, 165)"
+          a: {int: [lo, hi]}
+          kind: "pick(k, 'acute', 'right', 'obtuse')"
+          turn: {choose: [0, 10, 25, 40]}
+        prompt: "What kind of angle is this?"
+        layout: figure
+        figure: angle
+        figure_args: {a: a, b: 0, turn: turn, labels: "''"}
+        answer:
+          type: choice
+          right: "{kind}"
+          distractors: ["{pick(k, 'right', 'acute', 'right')}", "{pick(k, 'obtuse', 'obtuse', 'acute')}"]
+        solution:
+          - "{pick(k, 'It is smaller than a square corner.', 'It is a square corner.', 'It is bigger than a square corner.')}"
+          - "It is {kind}."

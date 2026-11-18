@@ -1,0 +1,30 @@
+id: tenths-as-hundredths
+kps:
+  - id: tenths-as-hundredths.kp1
+    explain: >-
+      One tenth is ten hundredths. So 3/10 is the same as 30/100.
+    templates:
+      - id: tenths-as-hundredths.kp1.t1
+        vars:
+          a: {int: [1, 9]}
+        prompt: "{a}/10 = ?/100"
+        answer: {type: integer, value: 10 * a}
+        min_variety: 9
+        solution:
+          - "Each tenth is 10 hundredths."
+          - "{a}/10 = {10 * a}/100, so the missing number is {10 * a}."
+  - id: tenths-as-hundredths.kp2
+    explain: >-
+      As decimals, 0.3 and 0.30 are the same number. The 0 on the end changes nothing.
+    templates:
+      - id: tenths-as-hundredths.kp2.t1
+        vars:
+          a: {int: [1, 9]}
+        prompt: "Which decimal is equal to 0.{a}?"
+        answer:
+          type: choice
+          right: "0.{a}0"
+          distractors: ["0.0{a}", "{a}.0"]
+        min_variety: 9
+        solution:
+          - "0.{a} is {a} tenths, which is {10 * a} hundredths: 0.{a}0."

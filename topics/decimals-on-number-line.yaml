@@ -1,0 +1,34 @@
+id: decimals-on-number-line
+kps:
+  - id: decimals-on-number-line.kp1
+    explain: >-
+      Between 0 and 1 there are ten tenths. Count the jumps to find the decimal.
+    templates:
+      - id: decimals-on-number-line.kp1.t1
+        vars:
+          k: {int: [1, 9]}
+        prompt: "What decimal is at the dot?"
+        layout: figure
+        figure: number-line
+        figure_args: {from: 0, to: 1, step: 1/10, mark: k / 10}
+        answer: {type: decimal, value: k / 10}
+        min_variety: 9
+        solution:
+          - "Each jump is 0.1. The dot is {k} jumps from 0."
+          - "It is at {dec(k / 10)}."
+  - id: decimals-on-number-line.kp2
+    explain: >-
+      Between two tenths there are ten hundredths.
+    templates:
+      - id: decimals-on-number-line.kp2.t1
+        vars:
+          t: {int: [1, 8]}
+          k: {int: [1, 9]}
+        prompt: "What decimal is at the dot?"
+        layout: figure
+        figure: number-line
+        figure_args: {from: t / 10, to: (t + 1) / 10, step: 1/100, mark: t / 10 + k / 100}
+        answer: {type: decimal, value: t / 10 + k / 100}
+        solution:
+          - "Each jump is 0.01. Count {k} from {dec(t / 10)}."
+          - "It is at {dec(t / 10 + k / 100)}."

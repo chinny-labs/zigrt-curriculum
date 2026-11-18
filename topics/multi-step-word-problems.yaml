@@ -1,0 +1,38 @@
+id: multi-step-word-problems
+kps:
+  - id: multi-step-word-problems.kp1
+    explain: >-
+      Break a long problem into steps. Write down each answer before you use it.
+    templates:
+      - id: multi-step-word-problems.kp1.t1
+        vars:
+          b: {int: [3, 9]}
+          c: {int: [12, 48]}
+          s: {int: [20, 150]}
+          spent: b * c
+        prompt: "Mia buys {b} books at ${c} each and a bag for ${s}. How much is that in all?"
+        answer: {type: integer, value: spent + s}
+        solution:
+          - "Books: {b} × ${c} = ${spent}."
+          - "In all: ${spent} + ${s} = ${spent + s}."
+      - id: multi-step-word-problems.kp1.t2
+        vars:
+          rows: {int: [12, 30]}
+          per: {int: [8, 15]}
+          sold: {int: [40, 120]}
+        where: ["sold < rows * per"]
+        prompt: "A hall has {rows} rows of {per} seats. {sold} tickets are sold. How many seats are still empty?"
+        answer: {type: integer, value: rows * per - sold}
+        solution:
+          - "Seats: {rows} × {per} = {rows * per}."
+          - "Empty: {rows * per} − {sold} = {rows * per - sold}."
+      - id: multi-step-word-problems.kp1.t3
+        vars:
+          t: {int: [4, 9]}
+          each: {int: [12, 40]}
+          extra: {int: [10, 60]}
+        prompt: "{t * each + extra} pencils are put in {t} equal boxes. {extra} are kept aside first. How many go in each box?"
+        answer: {type: integer, value: each}
+        solution:
+          - "{t * each + extra} − {extra} = {t * each}."
+          - "{t * each} ÷ {t} = {each}."

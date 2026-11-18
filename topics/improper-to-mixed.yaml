@@ -1,0 +1,20 @@
+id: improper-to-mixed
+kps:
+  - id: improper-to-mixed.kp1
+    explain: >-
+      Divide the top by the bottom. The answer is the wholes; the remainder is the parts left over.
+    templates:
+      - id: improper-to-mixed.kp1.t1
+        vars:
+          d: {int: [2, 9]}
+          w: {int: [1, 6]}
+          r: {int: [1, d - 1]}
+          n: w * d + r
+        prompt: "Write {n}/{d} as a mixed number."
+        answer:
+          type: choice
+          right: "{w} {r}/{d}"
+          distractors: ["{w + 1} {r}/{d}", "{r} {w}/{d}"]
+        solution:
+          - "{n} ÷ {d} = {w} r {r}."
+          - "{n}/{d} = {w} {r}/{d}"

@@ -1,0 +1,20 @@
+id: div-4d-1d
+kps:
+  - id: div-4d-1d.kp1
+    explain: >-
+      Four digits work the same way: divide, multiply, take away, bring down, for each place.
+    templates:
+      - id: div-4d-1d.kp1.t1
+        vars:
+          d: {int: [2, 9]}
+          q: {int: [201, 1999]}
+          r: {int: [0, d - 1]}
+          n: d * q + r
+        where: ["n >= 1000 && n <= 9999"]
+        prompt: "{n} ÷ {d}"
+        layout: long-division
+        parts: [n, d]
+        answer: {type: quotient_remainder, value: q, remainder: r}
+        solution:
+          - "{d} × {q} = {group(d * q)}{r == 0 ? '.' : join(', and ', text(r), ' is left.')}"
+          - "{group(n)} ÷ {d} = {q} r {r}"

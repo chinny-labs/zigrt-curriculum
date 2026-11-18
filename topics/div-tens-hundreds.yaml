@@ -1,0 +1,19 @@
+id: div-tens-hundreds
+kps:
+  - id: div-tens-hundreds.kp1
+    explain: >-
+      240 ÷ 6 is 24 tens ÷ 6, which is 4 tens, or 40.
+    templates:
+      - id: div-tens-hundreds.kp1.t1
+        vars:
+          d: {int: [2, 9]}
+          q: {int: [2, 9]}
+          k: {int: [0, 1]}
+          p: "pick(k, 10, 100)"
+        prompt: "{group(d * q * p)} ÷ {d}"
+        answer:
+          type: choice
+          right: "{q * p}"
+          distractors: ["{q}", "{q * p * 10}"]
+        solution:
+          - "{d * q} ÷ {d} = {q}, so {group(d * q * p)} ÷ {d} = {q * p}."

@@ -1,0 +1,30 @@
+id: angle-degrees
+kps:
+  - id: angle-degrees.kp1
+    explain: >-
+      A full turn is 360 degrees. A half turn is 180. A quarter turn, a right angle, is 90.
+    templates:
+      - id: angle-degrees.kp1.t1
+        vars:
+          k: {int: [0, 5]}
+          n: "pick(k, 2, 4, 3, 6, 8, 12)"
+          name: "pick(k, 'a half turn', 'a quarter turn', 'a third of a turn', 'a sixth of a turn', 'an eighth of a turn', 'a twelfth of a turn')"
+        prompt: "How many degrees is {name}?"
+        answer: {type: integer, value: 360 / n}
+        min_variety: 6
+        solution:
+          - "A full turn is 360°."
+          - "360 ÷ {n} = {360 / n}°"
+  - id: angle-degrees.kp2
+    explain: >-
+      An angle made of small equal angles is the small angle times how many.
+    templates:
+      - id: angle-degrees.kp2.t1
+        vars:
+          s: {choose: [10, 15, 20, 30]}
+          n: {int: [2, 5]}
+        prompt: "An angle is made of {n} small angles of {s}° each. How big is it?"
+        answer: {type: integer, value: s * n}
+        min_variety: 16
+        solution:
+          - "{n} × {s}° = {s * n}°"

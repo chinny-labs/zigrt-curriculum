@@ -1,0 +1,35 @@
+id: convert-metric-length
+kps:
+  - id: convert-metric-length.kp1
+    explain: >-
+      1 m = 100 cm and 1 km = 1,000 m. Going to a smaller unit, multiply.
+    templates:
+      - id: convert-metric-length.kp1.t1
+        vars:
+          n: {int: [2, 15]}
+          k: {int: [0, 2]}
+          big: "pick(k, 'm', 'km', 'cm')"
+          small: "pick(k, 'cm', 'm', 'mm')"
+          f: "pick(k, 100, 1000, 10)"
+        prompt: "{n} {big} = ? {small}"
+        answer: {type: integer, value: n * f}
+        solution:
+          - "1 {big} = {group(f)} {small}."
+          - "{n} × {group(f)} = {group(n * f)} {small}"
+  - id: convert-metric-length.kp2
+    explain: >-
+      Going to a bigger unit, divide. 300 cm is 3 m.
+    templates:
+      - id: convert-metric-length.kp2.t1
+        vars:
+          n: {int: [2, 15]}
+          k: {int: [0, 1]}
+          big: "pick(k, 'm', 'km')"
+          small: "pick(k, 'cm', 'm')"
+          f: "pick(k, 100, 1000)"
+        prompt: "{group(n * f)} {small} = ? {big}"
+        min_variety: 28
+        answer: {type: integer, value: n}
+        solution:
+          - "{group(f)} {small} = 1 {big}."
+          - "{group(n * f)} ÷ {group(f)} = {n} {big}"

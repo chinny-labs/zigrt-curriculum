@@ -1,0 +1,16 @@
+id: add-tenths-hundredths
+kps:
+  - id: add-tenths-hundredths.kp1
+    explain: >-
+      To add tenths and hundredths, first write the tenths as hundredths.
+    templates:
+      - id: add-tenths-hundredths.kp1.t1
+        vars:
+          a: {int: [1, 9]}
+          b: {int: [1, 89]}
+        where: ["10 * a + b <= 100"]
+        prompt: "{a}/10 + {b}/100 = ?/100"
+        answer: {type: integer, value: 10 * a + b}
+        solution:
+          - "{a}/10 = {10 * a}/100."
+          - "{10 * a}/100 + {b}/100 = {10 * a + b}/100, so the missing number is {10 * a + b}."

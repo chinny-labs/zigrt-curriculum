@@ -1,0 +1,31 @@
+id: mult-compare
+kps:
+  - id: mult-compare.kp1
+    explain: >-
+      Three times as many means multiply by 3. It is not the same as 3 more.
+    templates:
+      - id: mult-compare.kp1.t1
+        vars:
+          k: {int: [2, 9]}
+          b: {int: [3, 12]}
+        prompt: "Ben has {b} stamps. Ava has {k} times as many. How many stamps does Ava have?"
+        answer:
+          type: choice
+          right: "{k * b}"
+          distractors: ["{k + b}", "{b}"]
+        solution:
+          - "{k} times as many as {b} is {k} × {b}."
+          - "Ava has {k * b} stamps."
+  - id: mult-compare.kp2
+    explain: >-
+      To find how many times as many, divide the bigger amount by the smaller.
+    templates:
+      - id: mult-compare.kp2.t1
+        vars:
+          k: {int: [2, 9]}
+          b: {int: [2, 9]}
+        prompt: "A tree is {k * b} m tall. A bush is {b} m tall. The tree is how many times as tall?"
+        answer: {type: integer, value: k}
+        solution:
+          - "{k * b} ÷ {b} = {k}"
+          - "The tree is {k} times as tall."

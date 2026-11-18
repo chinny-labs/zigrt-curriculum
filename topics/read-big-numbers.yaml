@@ -1,0 +1,35 @@
+id: read-big-numbers
+kps:
+  - id: read-big-numbers.kp1
+    explain: >-
+      Put the parts together: each part fills its own place. Write a 0 where a place is empty.
+    templates:
+      - id: read-big-numbers.kp1.t1
+        vars:
+          a: {int: [1, 9]}
+          b: {int: [0, 9]}
+          c: {int: [1, 9]}
+          e: {int: [0, 9]}
+          n: 10000 * a + 1000 * b + 100 * c + e
+        prompt: "Which number is {group(10000 * a)} + {group(1000 * b)} + {100 * c} + {e}?"
+        answer:
+          type: choice
+          right: "{group(n)}"
+          distractors: ["{group(1000 * a + 100 * b + 10 * c + e)}", "{group(10000 * a + 1000 * b + 10 * c + e)}"]
+        solution:
+          - "{a} ten thousands, {b} thousands, {c} hundreds, no tens, {e} ones."
+          - "{group(n)}"
+  - id: read-big-numbers.kp2
+    explain: >-
+      Read the group of thousands first and say thousand. Then read the last three digits.
+    templates:
+      - id: read-big-numbers.kp2.t1
+        vars:
+          th: {int: [12, 99]}
+          r: {int: [101, 999]}
+          n: 1000 * th + r
+        prompt: "{group(n)} is {th} thousand and how much more?"
+        answer: {type: integer, value: r}
+        solution:
+          - "The digits before the comma make {th} thousand."
+          - "The last three digits are {r}."

@@ -1,0 +1,37 @@
+id: div-3d-1d
+kps:
+  - id: div-3d-1d.kp1
+    explain: >-
+      Divide the hundreds, then bring down the tens, then the ones. Each time, multiply and take away.
+    templates:
+      - id: div-3d-1d.kp1.t1
+        vars:
+          d: {int: [2, 9]}
+          q: {int: [21, 199]}
+          n: d * q
+        where: ["n >= 100 && n <= 999", "q % 10 != 0"]
+        prompt: "{n} ÷ {d}"
+        layout: long-division
+        parts: [n, d]
+        answer: {type: integer, value: q}
+        solution:
+          - "{n} ÷ {d}: {d} × {q} = {n}."
+          - "{n} ÷ {d} = {q}"
+  - id: div-3d-1d.kp2
+    explain: >-
+      At the end, what is left is the remainder. It must be smaller than the number you divide by.
+    templates:
+      - id: div-3d-1d.kp2.t1
+        vars:
+          d: {int: [3, 9]}
+          q: {int: [21, 199]}
+          r: {int: [1, d - 1]}
+          n: d * q + r
+        where: ["n >= 100 && n <= 999"]
+        prompt: "{n} ÷ {d}"
+        layout: long-division
+        parts: [n, d]
+        answer: {type: quotient_remainder, value: q, remainder: r}
+        solution:
+          - "{d} × {q} = {d * q}, and {n} − {d * q} = {r}."
+          - "{n} ÷ {d} = {q} r {r}"

@@ -1,0 +1,28 @@
+id: fraction-word-problems-same
+kps:
+  - id: fraction-word-problems-same.kp1
+    explain: >-
+      Fractions in stories add and take away like other numbers. Check the bottoms match.
+    templates:
+      - id: fraction-word-problems-same.kp1.t1
+        vars:
+          d: {choose: [4, 6, 8]}
+          a: {int: [1, d - 1]}
+          b: {int: [1, d - 1]}
+        where: ["a + b <= d"]
+        prompt: "Leo ate {a}/{d} of a pizza and Zoe ate {b}/{d}. How much of the pizza did they eat together?"
+        answer: {type: fraction, value: (a + b) / d, simplest: false}
+        solution:
+          - "{a}/{d} + {b}/{d} = {a + b}/{d}"
+      - id: fraction-word-problems-same.kp1.t2
+        vars:
+          d: {choose: [4, 8]}
+          w: {int: [2, 5]}
+          a: {int: [1, d - 1]}
+          b: {int: [1, d - 1]}
+          ans: w + a / d - b / d
+        where: ["b < a"]
+        prompt: "A rope is {w} {a}/{d} m long. {b}/{d} m is cut off. How long is it now, in metres?"
+        answer: {type: fraction, value: ans, simplest: false}
+        solution:
+          - "{w} {a}/{d} − {b}/{d} = {mixed(ans)}"

@@ -1,0 +1,31 @@
+id: number-patterns
+kps:
+  - id: number-patterns.kp1
+    explain: >-
+      A pattern rule says what to do each time. Use it to find the next number.
+    templates:
+      - id: number-patterns.kp1.t1
+        vars:
+          a: {int: [1, 20]}
+          s: {int: [3, 12]}
+        prompt: "The rule is add {s}. {a}, {a + s}, {a + 2 * s}, ?"
+        answer: {type: integer, value: a + 3 * s}
+        solution:
+          - "{a + 2 * s} + {s} = {a + 3 * s}"
+  - id: number-patterns.kp2
+    explain: >-
+      Look for features the rule doesn't say. Odd plus even is always odd.
+    templates:
+      - id: number-patterns.kp2.t1
+        vars:
+          a: {int: [1, 15]}
+          s: {int: [2, 9]}
+          ans: "a % 2 == 1 && s % 2 == 0 ? 'always odd' : (a % 2 == 0 && s % 2 == 0 ? 'always even' : 'odd and even in turn')"
+        prompt: "Start at {a} and keep adding {s}. Which is true of the numbers?"
+        answer:
+          type: choice
+          right: "{ans}"
+          distractors: ["{ans == 'always odd' ? 'always even' : 'always odd'}", "{ans == 'odd and even in turn' ? 'always even' : 'odd and even in turn'}"]
+        solution:
+          - "{a}, {a + s}, {a + 2 * s}, {a + 3 * s}, ..."
+          - "They are {ans}."

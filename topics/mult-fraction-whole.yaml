@@ -1,0 +1,31 @@
+id: mult-fraction-whole
+kps:
+  - id: mult-fraction-whole.kp1
+    explain: >-
+      3 × 2/5 is three copies of 2/5. Multiply the top by the whole number.
+    templates:
+      - id: mult-fraction-whole.kp1.t1
+        vars:
+          n: {int: [2, 6]}
+          d: {int: [3, 10]}
+          a: {int: [2, d - 1]}
+        prompt: "{n} × {a}/{d}"
+        answer: {type: fraction, value: n * a / d, simplest: false}
+        solution:
+          - when: n * a >= d
+            text: "{n * a}/{d} is {mixed(n * a / d)}, more than one whole."
+          - "{n} × {a} = {n * a}, so {n} × {a}/{d} = {n * a}/{d}."
+  - id: mult-fraction-whole.kp2
+    explain: >-
+      In a story, groups of a fraction mean multiply.
+    templates:
+      - id: mult-fraction-whole.kp2.t1
+        vars:
+          n: {int: [3, 8]}
+          d: {choose: [2, 4, 8]}
+          a: {int: [1, d - 1]}
+        prompt: "Each child drinks {a}/{d} of a litre of milk. How many litres do {n} children drink?"
+        answer: {type: fraction, value: n * a / d, simplest: false}
+        solution:
+          - "{n} × {a}/{d} = {n * a}/{d}"
+          - "That is {mixed(n * a / d)} litres."

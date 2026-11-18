@@ -1,0 +1,19 @@
+id: mult-2d-1d
+kps:
+  - id: mult-2d-1d.kp1
+    explain: >-
+      Split the 2-digit number into tens and ones. Multiply each, then add.
+    templates:
+      - id: mult-2d-1d.kp1.t1
+        vars:
+          a: {int: [12, 99]}
+          b: {int: [2, 9]}
+        where: ["a % 10 != 0"]
+        prompt: "{a} × {b}"
+        layout: across
+        op: "*"
+        parts: [a, b]
+        answer: {type: integer, value: a * b}
+        solution:
+          - "{a - a % 10} × {b} = {(a - a % 10) * b} and {a % 10} × {b} = {(a % 10) * b}."
+          - "{(a - a % 10) * b} + {(a % 10) * b} = {a * b}"

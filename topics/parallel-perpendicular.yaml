@@ -1,0 +1,23 @@
+id: parallel-perpendicular
+kps:
+  - id: parallel-perpendicular.kp1
+    explain: >-
+      Parallel lines never meet. Perpendicular lines cross at a right angle, marked with a small square.
+    templates:
+      - id: parallel-perpendicular.kp1.t1
+        vars:
+          k: {int: [0, 2]}
+          kind: "pick(k, 'parallel', 'perpendicular', 'intersecting')"
+          turn: {choose: [0, 15, 30, 60, 100]}
+        prompt: "How are these two lines related?"
+        layout: figure
+        figure: lines
+        figure_args: {kind: kind, turn: turn}
+        answer:
+          type: choice
+          right: "{pick(k, 'parallel', 'perpendicular', 'crossing, not at a right angle')}"
+          distractors: ["{pick(k, 'perpendicular', 'parallel', 'perpendicular')}", "{pick(k, 'crossing, not at a right angle', 'crossing, not at a right angle', 'parallel')}"]
+        min_variety: 15
+        solution:
+          - "{pick(k, 'They never meet.', 'They cross with a square corner.', 'They cross, but not at a square corner.')}"
+          - "So they are {pick(k, 'parallel', 'perpendicular', 'crossing, not at a right angle')}."

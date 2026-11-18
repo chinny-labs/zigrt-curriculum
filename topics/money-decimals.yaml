@@ -1,0 +1,29 @@
+id: money-decimals
+kps:
+  - id: money-decimals.kp1
+    explain: >-
+      Cents are hundredths of a dollar. $3.45 is 3 dollars and 45 cents.
+    templates:
+      - id: money-decimals.kp1.t1
+        vars:
+          d: {int: [1, 9]}
+          c: {int: [1, 99]}
+        prompt: "How many cents is ${d}.{pad(c, 2)}?"
+        answer: {type: integer, value: 100 * d + c}
+        solution:
+          - "{d} dollars is {100 * d} cents."
+          - "{100 * d} + {c} = {100 * d + c} cents."
+  - id: money-decimals.kp2
+    explain: >-
+      Line up the points to add money. Add cents, then dollars.
+    templates:
+      - id: money-decimals.kp2.t1
+        vars:
+          a: {int: [105, 899]}
+          b: {int: [105, 599]}
+          s: a + b
+        prompt: "${dec(a / 100, 2)} + ${dec(b / 100, 2)}"
+        answer: {type: decimal, value: s / 100}
+        solution:
+          - "{a} cents + {b} cents = {s} cents."
+          - "That is ${dec(s / 100, 2)}."
