@@ -1,0 +1,42 @@
+id: shape-attributes
+kps:
+  - id: shape-attributes.kp1
+    explain: >-
+      Turning a shape does not change its name. Neither does its size.
+    templates:
+      - id: shape-attributes.kp1.t1
+        vars:
+          k: {int: [0, 3]}
+          name: "pick(k, 'triangle', 'square', 'rectangle', 'hexagon')"
+          turn: {choose: [30, 45, 75, 110, 160]}
+        prompt: "This {name} has been turned. Is it still a {name}?"
+        layout: figure
+        figure: shape
+        figure_args: {name: name, turn: turn}
+        answer:
+          type: choice
+          right: "yes"
+          distractors: ["no"]
+        min_variety: 20
+        solution:
+          - "Same sides, same corners: yes, it is still a {name}."
+  - id: shape-attributes.kp2
+    explain: >-
+      Sides and corners name a shape. Colour and size do not.
+    templates:
+      - id: shape-attributes.kp2.t1
+        vars:
+          k: {int: [0, 3]}
+          name: "pick(k, 'triangle', 'square', 'rectangle', 'hexagon')"
+          rule: "pick(k, 'It has 3 straight sides.', 'It has 4 equal sides and square corners.', 'It has 4 sides and square corners.', 'It has 6 straight sides.')"
+          d1: "pick(k, 'It is small.', 'It is blue.', 'It is big.', 'It is yellow.')"
+          d2: "pick(k, 'It points up.', 'It sits flat.', 'It is long.', 'It is round.')"
+        prompt: "What makes a shape a {name}?"
+        answer:
+          type: choice
+          right: "{rule}"
+          distractors: ["{d1}", "{d2}"]
+        min_variety: 4
+        solution:
+          - "A shape's sides and corners give its name."
+          - "{rule}"

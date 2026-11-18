@@ -1,0 +1,47 @@
+id: order-lengths
+kps:
+  - id: order-lengths.kp1
+    explain: >-
+      Line up the ends. Compare all three bars.
+    templates:
+      - id: order-lengths.kp1.t1
+        vars:
+          a: {int: [2, 10]}
+          b: {int: [2, 10]}
+          c: {int: [2, 10]}
+          s: {int: [0, 1]}
+          word: "s == 0 ? 'longest' : 'shortest'"
+          big: "a > b && a > c ? 'A' : b > c ? 'B' : 'C'"
+          small: "a < b && a < c ? 'A' : b < c ? 'B' : 'C'"
+          ans: "s == 0 ? big : small"
+        where: ["abs(a - b) >= 2 && abs(b - c) >= 2 && abs(a - c) >= 2"]
+        prompt: "Which bar is the {word}?"
+        layout: figure
+        figure: compare
+        figure_args: {a: a, b: b, c: c, kind: "'length'"}
+        answer:
+          type: choice
+          right: "{ans}"
+          distractors: ["{s == 0 ? small : big}", "{ans != 'A' && (s == 0 ? small : big) != 'A' ? 'A' : ans != 'B' && (s == 0 ? small : big) != 'B' ? 'B' : 'C'}"]
+        solution:
+          - "All three start at the same place."
+          - "Bar {ans} is the {word}."
+  - id: order-lengths.kp2
+    explain: >-
+      A is longer than B. B is longer than C. So A is longest.
+    templates:
+      - id: order-lengths.kp2.t1
+        vars:
+          k: {int: [0, 2]}
+          x: "pick(k, 'the rope', 'the ribbon', 'the string')"
+          y: "pick(k, 'the stick', 'the pencil', 'the crayon')"
+          z: "pick(k, 'the leaf', 'the button', 'the bead')"
+        prompt: "{x} is longer than {y}. {y} is longer than {z}. Which is the longest?"
+        answer:
+          type: choice
+          right: "{x}"
+          distractors: ["{y}", "{z}"]
+        min_variety: 3
+        solution:
+          - "{x} is longer than {y}, and {y} is longer than {z}."
+          - "So {x} is the longest."

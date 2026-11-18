@@ -1,0 +1,41 @@
+id: halves-quarters
+kps:
+  - id: halves-quarters.kp1
+    explain: >-
+      Two equal parts are halves. Four equal parts are quarters.
+    templates:
+      - id: halves-quarters.kp1.t1
+        vars:
+          k: {int: [0, 2]}
+          name: "pick(k, 'circle', 'square', 'rectangle')"
+          p: {choose: [2, 4]}
+          word: "p == 2 ? 'one half' : 'one quarter'"
+        prompt: "What part is shaded?"
+        layout: figure
+        figure: cut-shape
+        figure_args: {name: name, parts: p, equal: 1, shaded: 1}
+        answer:
+          type: choice
+          right: "{word}"
+          distractors: ["{p == 2 ? 'one quarter' : 'one half'}", "one third"]
+        min_variety: 6
+        solution:
+          - "The shape has {p} equal parts. One is shaded."
+          - "That is {word}."
+  - id: halves-quarters.kp2
+    explain: >-
+      More equal parts means each part is smaller.
+    templates:
+      - id: halves-quarters.kp2.t1
+        vars:
+          k: {int: [0, 2]}
+          food: "pick(k, 'pizza', 'pie', 'cake')"
+        prompt: "Which is bigger: half of a {food}, or a quarter of the same {food}?"
+        answer:
+          type: choice
+          right: "a half"
+          distractors: ["a quarter", "They are the same"]
+        min_variety: 3
+        solution:
+          - "Cut into 2 parts, each part is bigger than if cut into 4."
+          - "So a half is bigger than a quarter."

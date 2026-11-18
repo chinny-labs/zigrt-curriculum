@@ -1,0 +1,20 @@
+id: add-tens
+kps:
+  - id: add-tens.kp1
+    explain: >-
+      Add tens like ones. 3 tens and 2 tens make 5 tens.
+    templates:
+      - id: add-tens.kp1.t1
+        vars:
+          a: {int: [1, 8]}
+          b: {int: [1, 8]}
+        where: ["a + b <= 9"]
+        prompt: "{10 * a} + {10 * b}"
+        layout: across
+        op: "+"
+        parts: [10 * a, 10 * b]
+        answer: {type: integer, value: 10 * (a + b)}
+        min_variety: 36
+        solution:
+          - "{a} tens + {b} tens = {a + b} tens."
+          - "{10 * a} + {10 * b} = {10 * (a + b)}"

@@ -1,0 +1,36 @@
+id: number-line-to-100
+kps:
+  - id: number-line-to-100.kp1
+    explain: >-
+      Find the numbers at each end. Count the jumps to the dot.
+    templates:
+      - id: number-line-to-100.kp1.t1
+        vars:
+          t: {int: [2, 9]}
+          from: 10 * t
+          mark: {int: [from + 1, from + 9]}
+        prompt: "What number is at the dot?"
+        layout: figure
+        figure: number-line
+        figure_args: {from: from, to: from + 10, step: 1, mark: mark}
+        answer: {type: integer, value: mark}
+        min_variety: 50
+        solution:
+          - "The line starts at {from}. Count on {mark - from}."
+          - "The dot is at {mark}."
+  - id: number-line-to-100.kp2
+    explain: >-
+      On this line each jump is ten. Count in tens.
+    templates:
+      - id: number-line-to-100.kp2.t1
+        vars:
+          k: {int: [1, 9]}
+        prompt: "Each jump is 10. What number is at the dot?"
+        layout: figure
+        figure: number-line
+        figure_args: {from: 0, to: 100, step: 10, mark: 10 * k}
+        answer: {type: integer, value: 10 * k}
+        min_variety: 9
+        solution:
+          - "Count {k} jumps of ten from 0."
+          - "The dot is at {10 * k}."

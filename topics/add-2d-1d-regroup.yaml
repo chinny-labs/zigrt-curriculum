@@ -1,0 +1,38 @@
+id: add-2d-1d-regroup
+kps:
+  - id: add-2d-1d-regroup.kp1
+    explain: >-
+      Ten ones make one ten. Trade them for a rod.
+    templates:
+      - id: add-2d-1d-regroup.kp1.t1
+        vars:
+          t: {int: [1, 7]}
+          o: {int: [10, 16]}
+        prompt: "How many? Ten loose cubes make one more ten."
+        layout: figure
+        figure: base-ten
+        figure_args: {hundreds: 0, tens: t, ones: o}
+        answer: {type: integer, value: 10 * t + o}
+        solution:
+          - "{o} ones is 1 ten and {o - 10} ones."
+          - "{t + 1} tens and {o - 10} ones is {10 * t + o}."
+  - id: add-2d-1d-regroup.kp2
+    explain: >-
+      If the ones add up past 9, you make a new ten.
+    templates:
+      - id: add-2d-1d-regroup.kp2.t1
+        vars:
+          t: {int: [1, 8]}
+          o: {int: [2, 9]}
+          k: {int: [2, 9]}
+          n: 10 * t + o
+        where: ["o + k >= 10"]
+        prompt: "{n} + {k}"
+        layout: across
+        op: "+"
+        parts: [n, k]
+        answer: {type: integer, value: n + k}
+        solution:
+          - "{n} needs {10 - o} more to make {10 * t + 10}."
+          - "Then {k - (10 - o)} more makes {n + k}."
+          - "{n} + {k} = {n + k}"

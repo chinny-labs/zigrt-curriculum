@@ -1,0 +1,41 @@
+id: equal-parts
+kps:
+  - id: equal-parts.kp1
+    explain: >-
+      Equal parts are all the same size.
+    templates:
+      - id: equal-parts.kp1.t1
+        vars:
+          k: {int: [0, 2]}
+          name: "pick(k, 'circle', 'square', 'rectangle')"
+          parts: {int: [2, 4]}
+          eq: {int: [0, 1]}
+          ans: "eq == 1 ? 'yes' : 'no'"
+        prompt: "Are the parts equal?"
+        layout: figure
+        figure: cut-shape
+        figure_args: {name: name, parts: parts, equal: eq, shaded: 0}
+        answer:
+          type: choice
+          right: "{ans}"
+          distractors: ["{eq == 1 ? 'no' : 'yes'}"]
+        min_variety: 18
+        solution:
+          - "{eq == 1 ? 'Every part is the same size, so yes.' : 'Some parts are bigger, so no.'}"
+  - id: equal-parts.kp2
+    explain: >-
+      Count the equal parts the shape is cut into.
+    templates:
+      - id: equal-parts.kp2.t1
+        vars:
+          k: {int: [0, 2]}
+          name: "pick(k, 'circle', 'square', 'rectangle')"
+          parts: {int: [2, 4]}
+        prompt: "How many equal parts?"
+        layout: figure
+        figure: cut-shape
+        figure_args: {name: name, parts: parts, equal: 1, shaded: 0}
+        answer: {type: integer, value: parts}
+        min_variety: 9
+        solution:
+          - "Count each part once. There are {parts}."

@@ -1,0 +1,30 @@
+id: measure-units
+kps:
+  - id: measure-units.kp1
+    explain: >-
+      Line up cubes end to end, with no gaps. Count the cubes.
+    templates:
+      - id: measure-units.kp1.t1
+        vars:
+          n: {int: [3, 10]}
+        prompt: "How many cubes long is the pencil?"
+        layout: figure
+        figure: ruler
+        figure_args: {start: 0, length: n, max: 10, unit: "'cubes'"}
+        answer: {type: integer, value: n}
+        min_variety: 8
+        solution:
+          - "Count the cubes under the pencil."
+          - "The pencil is {n} cubes long."
+      - id: measure-units.kp1.t2
+        vars:
+          n: {int: [4, 12]}
+        prompt: "How many cubes long is the pencil?"
+        layout: figure
+        figure: ruler
+        figure_args: {start: 0, length: n, max: 12, unit: "'cubes'"}
+        answer: {type: integer, value: n}
+        min_variety: 9
+        solution:
+          - "Count the cubes under the pencil."
+          - "The pencil is {n} cubes long."

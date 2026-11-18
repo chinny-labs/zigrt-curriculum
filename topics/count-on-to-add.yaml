@@ -1,0 +1,34 @@
+id: count-on-to-add
+kps:
+  - id: count-on-to-add.kp1
+    explain: >-
+      Keep the first number in your head. Count on the second one.
+    templates:
+      - id: count-on-to-add.kp1.t1
+        vars:
+          a: {int: [5, 17]}
+          b: {int: [1, 3]}
+        prompt: "{a} + {b}"
+        layout: across
+        op: "+"
+        parts: [a, b]
+        answer: {type: integer, value: a + b}
+        solution:
+          - "Start at {a}. Count on {b}: {b == 1 ? text(a + 1) : b == 2 ? join(text(a + 1), ', ', text(a + 2)) : join(text(a + 1), ', ', text(a + 2), ', ', text(a + 3))}."
+          - "{a} + {b} = {a + b}"
+  - id: count-on-to-add.kp2
+    explain: >-
+      Start with the bigger number. Then there is less to count.
+    templates:
+      - id: count-on-to-add.kp2.t1
+        vars:
+          a: {int: [1, 3]}
+          b: {int: [5, 17]}
+        prompt: "{a} + {b}"
+        layout: across
+        op: "+"
+        parts: [a, b]
+        answer: {type: integer, value: a + b}
+        solution:
+          - "Start at the bigger number, {b}. Count on {a}."
+          - "{a} + {b} = {a + b}"

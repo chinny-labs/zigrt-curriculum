@@ -1,0 +1,19 @@
+id: add-2d-tens
+kps:
+  - id: add-2d-tens.kp1
+    explain: >-
+      Adding tens changes the tens. The ones stay the same.
+    templates:
+      - id: add-2d-tens.kp1.t1
+        vars:
+          n: {int: [11, 79]}
+          k: {int: [1, 8]}
+        where: ["n // 10 + k <= 9", "n % 10 != 0"]
+        prompt: "{n} + {10 * k}"
+        layout: across
+        op: "+"
+        parts: [n, 10 * k]
+        answer: {type: integer, value: n + 10 * k}
+        solution:
+          - "Tens: {n // 10} + {k} = {n // 10 + k}. The ones stay {n % 10}."
+          - "{n} + {10 * k} = {n + 10 * k}"

@@ -192,6 +192,14 @@ topics:
     standards: [K.G.B.6]
 
   # Grade 1
+  - id: count-to-120
+    title: Counting to 120
+    strand: place-value
+    grade: "1"
+    requires: [count-to-100]
+    encompasses: [{topic: count-to-100, weight: 0.5}]
+    xp: 10
+    standards: [1.NBT.A.1]
   - id: number-line-to-20
     title: Numbers on a line
     strand: place-value
@@ -199,38 +207,101 @@ topics:
     requires: [compare-numbers-20]
     xp: 8
     standards: [1.NBT.A.1]
-  - id: add-within-20
-    title: Adding to 20
-    strand: add-sub
-    grade: "1"
-    requires: [add-within-10]
-    encompasses: [{topic: add-within-10, weight: 1.0}]
-    xp: 10
-    standards: [1.OA.C.6]
-    fluency_seconds: 6
-  - id: tell-time-hour
-    title: Telling the time to the half hour
-    strand: measurement
-    grade: "1"
-    requires: [number-line-to-20]
-    xp: 10
-    standards: [1.MD.B.3]
-  - id: sub-within-20
-    title: Taking away to 20
-    strand: add-sub
-    grade: "1"
-    requires: [sub-within-10, add-within-20]
-    encompasses: [{topic: sub-within-10, weight: 1.0}]
-    xp: 10
-    standards: [1.OA.C.6]
-    fluency_seconds: 6
   - id: tens-and-ones
     title: Tens and ones
     strand: place-value
     grade: "1"
-    requires: [number-line-to-20]
+    requires: [number-line-to-20, teen-numbers]
     xp: 10
     standards: [1.NBT.B.2]
+  - id: compare-2-digit
+    title: Comparing numbers to 100
+    strand: place-value
+    grade: "1"
+    requires: [tens-and-ones, compare-numbers-20]
+    encompasses: [{topic: compare-numbers-20, weight: 0.5}]
+    xp: 10
+    standards: [1.NBT.B.3]
+  - id: ten-more-ten-less
+    title: Ten more and ten less
+    strand: place-value
+    grade: "1"
+    requires: [tens-and-ones, count-by-tens]
+    xp: 10
+    standards: [1.NBT.C.5]
+  - id: number-line-to-100
+    title: Numbers on a line to 100
+    strand: place-value
+    grade: "1"
+    requires: [number-line-to-20, count-to-100]
+    encompasses: [{topic: number-line-to-20, weight: 0.5}]
+    xp: 10
+    standards: [1.NBT.A.1]
+  - id: count-on-to-add
+    title: Counting on to add
+    strand: add-sub
+    grade: "1"
+    requires: [add-within-10, count-on-from]
+    xp: 10
+    standards: [1.OA.C.5]
+  - id: doubles
+    title: Doubles and near doubles
+    strand: add-sub
+    grade: "1"
+    requires: [add-within-10]
+    xp: 10
+    standards: [1.OA.C.6]
+    fluency_seconds: 6
+  - id: make-10-to-add
+    title: Making 10 to add
+    strand: add-sub
+    grade: "1"
+    requires: [make-10]
+    encompasses: [{topic: make-10, weight: 0.5}]
+    xp: 10
+    standards: [1.OA.C.6]
+  - id: add-within-20
+    title: Adding to 20
+    strand: add-sub
+    grade: "1"
+    requires: [count-on-to-add, doubles, make-10-to-add]
+    encompasses: [{topic: add-within-10, weight: 1.0}]
+    xp: 10
+    standards: [1.OA.C.6]
+    fluency_seconds: 6
+  - id: count-back-to-sub
+    title: Counting back to take away
+    strand: add-sub
+    grade: "1"
+    requires: [sub-within-10, one-more-one-less]
+    encompasses: [{topic: sub-within-10, weight: 0.3}]
+    xp: 10
+    standards: [1.OA.C.5]
+  - id: sub-through-10
+    title: Taking away through 10
+    strand: add-sub
+    grade: "1"
+    requires: [make-10-to-add, sub-within-10]
+    encompasses: [{topic: sub-within-10, weight: 0.5}]
+    xp: 10
+    standards: [1.OA.C.6]
+  - id: sub-within-20
+    title: Taking away to 20
+    strand: add-sub
+    grade: "1"
+    requires: [count-back-to-sub, sub-through-10, add-within-20]
+    encompasses: [{topic: sub-within-10, weight: 1.0}]
+    xp: 10
+    standards: [1.OA.C.6]
+    fluency_seconds: 6
+  - id: add-three-numbers
+    title: Adding three numbers
+    strand: add-sub
+    grade: "1"
+    requires: [add-within-20]
+    encompasses: [{topic: add-within-20, weight: 0.5}]
+    xp: 10
+    standards: [1.OA.B.3, 1.OA.A.2]
   - id: missing-addend
     title: The missing number
     strand: add-sub
@@ -239,6 +310,143 @@ topics:
     encompasses: [{topic: add-within-20, weight: 0.5}, {topic: sub-within-20, weight: 0.5}]
     xp: 10
     standards: [1.OA.D.8]
+  - id: fact-families-20
+    title: Fact families
+    strand: add-sub
+    grade: "1"
+    requires: [missing-addend]
+    encompasses: [{topic: missing-addend, weight: 0.5}]
+    xp: 10
+    standards: [1.OA.B.4]
+  - id: true-false-equations
+    title: Is it equal
+    strand: add-sub
+    grade: "1"
+    requires: [add-within-20, sub-within-20]
+    xp: 10
+    standards: [1.OA.D.7]
+  - id: add-sub-stories-20
+    title: Word problems to 20
+    strand: add-sub
+    grade: "1"
+    requires: [add-sub-stories-10, missing-addend]
+    encompasses: [{topic: add-sub-stories-10, weight: 1.0}]
+    xp: 10
+    standards: [1.OA.A.1]
+  - id: compare-stories
+    title: How many more
+    strand: add-sub
+    grade: "1"
+    requires: [add-sub-stories-20]
+    encompasses: [{topic: add-sub-stories-20, weight: 0.3}]
+    xp: 10
+    standards: [1.OA.A.1]
+  - id: add-tens
+    title: Adding tens
+    strand: add-sub
+    grade: "1"
+    requires: [ten-more-ten-less]
+    xp: 10
+    standards: [1.NBT.C.4]
+  - id: sub-tens
+    title: Taking away tens
+    strand: add-sub
+    grade: "1"
+    requires: [add-tens]
+    encompasses: [{topic: add-tens, weight: 0.3}]
+    xp: 10
+    standards: [1.NBT.C.6]
+  - id: add-2d-1d
+    title: Adding ones to a 2-digit number
+    strand: add-sub
+    grade: "1"
+    requires: [tens-and-ones, add-within-20]
+    xp: 10
+    standards: [1.NBT.C.4]
+  - id: add-2d-tens
+    title: Adding tens to a 2-digit number
+    strand: add-sub
+    grade: "1"
+    requires: [add-tens, add-2d-1d]
+    encompasses: [{topic: add-tens, weight: 0.5}, {topic: add-2d-1d, weight: 0.3}]
+    xp: 10
+    standards: [1.NBT.C.4]
+  - id: add-2d-1d-regroup
+    title: Adding ones to make a new ten
+    strand: add-sub
+    grade: "1"
+    requires: [add-2d-1d, make-10-to-add]
+    encompasses: [{topic: add-2d-1d, weight: 1.0}, {topic: make-10-to-add, weight: 0.5}]
+    xp: 10
+    standards: [1.NBT.C.4]
+  - id: order-lengths
+    title: Ordering by length
+    strand: measurement
+    grade: "1"
+    requires: [compare-measures]
+    encompasses: [{topic: compare-measures, weight: 0.5}]
+    xp: 10
+    standards: [1.MD.A.1]
+  - id: measure-units
+    title: Measuring with units
+    strand: measurement
+    grade: "1"
+    requires: [order-lengths, count-to-20]
+    xp: 10
+    standards: [1.MD.A.2]
+  - id: tell-time-hour
+    title: Telling the time to the half hour
+    strand: measurement
+    grade: "1"
+    requires: [number-line-to-20]
+    xp: 10
+    standards: [1.MD.B.3]
+  - id: tally-charts
+    title: Tally charts and tables
+    strand: measurement
+    grade: "1"
+    requires: [sort-and-count, count-to-20]
+    xp: 10
+    standards: [1.MD.C.4]
+  - id: data-how-many-more
+    title: How many more in the chart
+    strand: measurement
+    grade: "1"
+    requires: [tally-charts, compare-stories]
+    encompasses: [{topic: tally-charts, weight: 0.5}]
+    xp: 10
+    standards: [1.MD.C.4]
+  - id: shape-attributes
+    title: What makes a shape
+    strand: geometry
+    grade: "1"
+    requires: [count-sides-corners]
+    encompasses: [{topic: count-sides-corners, weight: 0.5}]
+    xp: 10
+    standards: [1.G.A.1]
+  - id: compose-flat-shapes
+    title: Making new shapes
+    strand: geometry
+    grade: "1"
+    requires: [compose-shapes, shape-attributes]
+    encompasses: [{topic: compose-shapes, weight: 0.5}]
+    xp: 10
+    standards: [1.G.A.2]
+  - id: equal-parts
+    title: Equal parts
+    strand: fractions
+    grade: "1"
+    requires: [name-flat-shapes, count-to-20]
+    xp: 10
+    standards: [1.G.A.3]
+  - id: halves-quarters
+    title: Halves and quarters
+    strand: fractions
+    grade: "1"
+    requires: [equal-parts]
+    encompasses: [{topic: equal-parts, weight: 0.5}]
+    xp: 10
+    standards: [1.G.A.3]
 
   # Grade 2
   - id: add-2d-2d-regroup

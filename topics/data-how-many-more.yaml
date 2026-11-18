@@ -1,0 +1,42 @@
+id: data-how-many-more
+kps:
+  - id: data-how-many-more.kp1
+    explain: >-
+      To compare two rows, take the smaller number from the bigger.
+    templates:
+      - id: data-how-many-more.kp1.t1
+        vars:
+          a: {int: [2, 15]}
+          b: {int: [2, 15]}
+          c: {int: [2, 15]}
+        where: ["a > b"]
+        prompt: "How many more children chose apples than pears?"
+        layout: figure
+        figure: table
+        figure_args: {rows: "join('Apples:', text(a), '|Pears:', text(b), '|Plums:', text(c))", style: "'number'"}
+        answer: {type: integer, value: a - b}
+        solution:
+          - "Apples {a}, pears {b}."
+          - "{a} − {b} = {a - b} more chose apples."
+  - id: data-how-many-more.kp2
+    explain: >-
+      The fewest is the smallest number in the table.
+    templates:
+      - id: data-how-many-more.kp2.t1
+        vars:
+          a: {int: [1, 12]}
+          b: {int: [1, 12]}
+          c: {int: [1, 12]}
+          few: "a < b && a < c ? 'Apples' : b < c ? 'Pears' : 'Plums'"
+        where: ["a != b && b != c && a != c"]
+        prompt: "Which fruit did the fewest children choose?"
+        layout: figure
+        figure: table
+        figure_args: {rows: "join('Apples:', text(a), '|Pears:', text(b), '|Plums:', text(c))", style: "'tally'"}
+        answer:
+          type: choice
+          right: "{few}"
+          distractors: ["{few == 'Apples' ? 'Pears' : 'Apples'}", "{few == 'Plums' ? 'Pears' : 'Plums'}"]
+        solution:
+          - "Apples {a}, pears {b}, plums {c}."
+          - "The fewest chose {few}."

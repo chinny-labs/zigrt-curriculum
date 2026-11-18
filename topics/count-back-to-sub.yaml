@@ -1,0 +1,18 @@
+id: count-back-to-sub
+kps:
+  - id: count-back-to-sub.kp1
+    explain: >-
+      To take away a small number, count back from the big one.
+    templates:
+      - id: count-back-to-sub.kp1.t1
+        vars:
+          a: {int: [5, 20]}
+          b: {int: [1, 3]}
+        prompt: "{a} − {b}"
+        layout: across
+        op: "-"
+        parts: [a, b]
+        answer: {type: integer, value: a - b}
+        solution:
+          - "Start at {a}. Count back {b}: {b == 1 ? text(a - 1) : b == 2 ? join(text(a - 1), ', ', text(a - 2)) : join(text(a - 1), ', ', text(a - 2), ', ', text(a - 3))}."
+          - "{a} − {b} = {a - b}"

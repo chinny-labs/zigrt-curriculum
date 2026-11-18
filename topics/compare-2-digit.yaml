@@ -1,0 +1,36 @@
+id: compare-2-digit
+kps:
+  - id: compare-2-digit.kp1
+    explain: >-
+      Compare the tens first. More tens means a bigger number.
+    templates:
+      - id: compare-2-digit.kp1.t1
+        vars:
+          a: {int: [10, 99]}
+          b: {int: [10, 99]}
+          sym: "a < b ? '<' : '>'"
+        where: ["a // 10 != b // 10"]
+        prompt: "{a} ○ {b}"
+        answer: {type: comparison, compare: [a, b]}
+        solution:
+          - "{a} has {a // 10} tens. {b} has {b // 10} tens."
+          - "{a} {sym} {b}"
+  - id: compare-2-digit.kp2
+    explain: >-
+      If the tens are the same, compare the ones.
+    templates:
+      - id: compare-2-digit.kp2.t1
+        vars:
+          t: {int: [1, 9]}
+          x: {int: [0, 9]}
+          y: {int: [0, 9]}
+          a: 10 * t + x
+          b: 10 * t + y
+          sym: "a < b ? '<' : (a > b ? '>' : '=')"
+        prompt: "{a} ○ {b}"
+        answer: {type: comparison, compare: [a, b]}
+        solution:
+          - "Both have {t} tens."
+          - when: x != y
+            text: "{a} has {x} ones. {b} has {y} ones."
+          - "{a} {sym} {b}"
