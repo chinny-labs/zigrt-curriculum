@@ -1,0 +1,39 @@
+id: scaled-bar-graphs
+kps:
+  - id: scaled-bar-graphs.kp1
+    explain: >-
+      Read the scale first. The lines may go up in 2s, 5s or 10s.
+    templates:
+      - id: scaled-bar-graphs.kp1.t1
+        vars:
+          sc: {choose: [2, 5, 10]}
+          a: {int: [1, 10]}
+          b: {int: [1, 10]}
+          c: {int: [1, 10]}
+          k: {int: [0, 2]}
+          name: "pick(k, 'Mon', 'Tue', 'Wed')"
+        prompt: "How many books were read on {name}?"
+        layout: figure
+        figure: bar-graph
+        figure_args: {rows: "join('Mon:', text(a * sc), '|Tue:', text(b * sc), '|Wed:', text(c * sc))", scale: sc}
+        answer: {type: integer, value: "pick(k, a, b, c) * sc"}
+        solution:
+          - "Each line is {sc}. The {name} bar reaches line {pick(k, a, b, c)}."
+          - "{pick(k, a, b, c)} × {sc} = {pick(k, a, b, c) * sc}"
+  - id: scaled-bar-graphs.kp2
+    explain: >-
+      A bar that stops halfway between lines is half a step past the lower line.
+    templates:
+      - id: scaled-bar-graphs.kp2.t1
+        vars:
+          sc: {choose: [2, 10]}
+          a: {int: [1, 8]}
+          b: {int: [1, 8]}
+        prompt: "How many books were read on Tue?"
+        layout: figure
+        figure: bar-graph
+        figure_args: {rows: "join('Mon:', text(a * sc), '|Tue:', text(b * sc + sc / 2))", scale: sc}
+        answer: {type: integer, value: b * sc + sc / 2}
+        solution:
+          - "The bar stops halfway between {b * sc} and {b * sc + sc}."
+          - "That is {b * sc + sc / 2}."

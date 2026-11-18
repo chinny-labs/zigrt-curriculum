@@ -1,0 +1,20 @@
+id: mult-by-0-1
+kps:
+  - id: mult-by-0-1.kp1
+    explain: >-
+      Any number times 1 is itself. Any number times 0 is 0.
+    templates:
+      - id: mult-by-0-1.kp1.t1
+        vars:
+          a: {int: [2, 50]}
+          k: {int: [0, 3]}
+          x: "pick(k, a, 1, a, 0)"
+          y: "pick(k, 1, a, 0, a)"
+        prompt: "{x} × {y}"
+        layout: across
+        op: "*"
+        parts: [x, y]
+        answer: {type: integer, value: x * y}
+        solution:
+          - "{k < 2 ? 'One group of a number is the number.' : 'Zero groups, or groups of zero, make nothing.'}"
+          - "{x} × {y} = {x * y}"

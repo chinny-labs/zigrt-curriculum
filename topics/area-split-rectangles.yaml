@@ -1,0 +1,33 @@
+id: area-split-rectangles
+kps:
+  - id: area-split-rectangles.kp1
+    explain: >-
+      Split a big rectangle into two smaller ones. Add their areas.
+    templates:
+      - id: area-split-rectangles.kp1.t1
+        vars:
+          a: {int: [2, 9]}
+          b: {int: [2, 6]}
+          h: {int: [2, 9]}
+        prompt: "What is the area of the whole rectangle?"
+        layout: figure
+        figure: split-rectangle
+        figure_args: {cols: "join(text(a), '|', text(b))", rows: h, areas: 0}
+        answer: {type: integer, value: (a + b) * h}
+        solution:
+          - "{a} × {h} = {a * h} and {b} × {h} = {b * h}."
+          - "{a * h} + {b * h} = {(a + b) * h}, the same as {a + b} × {h}."
+  - id: area-split-rectangles.kp2
+    explain: >-
+      The whole area equals the sum of the parts. Use that to find a missing part.
+    templates:
+      - id: area-split-rectangles.kp2.t1
+        vars:
+          a: {int: [5, 10]}
+          b: {int: [2, 4]}
+          h: {int: [3, 9]}
+        prompt: "{a + b} × {h} = {a} × {h} + ? × {h}"
+        answer: {type: integer, value: b}
+        solution:
+          - "{a + b} splits into {a} and {b}."
+          - "{a + b} × {h} = {a} × {h} + {b} × {h}"

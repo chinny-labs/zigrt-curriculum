@@ -1,0 +1,67 @@
+id: mass-and-volume
+kps:
+  - id: mass-and-volume.kp1
+    explain: >-
+      Read where the needle points. Work out what each small mark is worth.
+    templates:
+      - id: mass-and-volume.kp1.t1
+        vars:
+          v: {int: [1, 9]}
+        prompt: "How many kilograms does the scale show?"
+        layout: figure
+        figure: dial
+        figure_args: {value: v, max: 10, step: 1, unit: "'kg'"}
+        answer: {type: integer, value: v}
+        min_variety: 9
+        solution:
+          - "Each mark is 1 kg. The needle points to {v}."
+          - "It shows {v} kg."
+      - id: mass-and-volume.kp1.t2
+        vars:
+          k: {int: [1, 9]}
+          v: 100 * k
+        prompt: "How many grams does the scale show?"
+        layout: figure
+        figure: dial
+        figure_args: {value: v, max: 1000, step: 100, unit: "'g'"}
+        answer: {type: integer, value: v}
+        min_variety: 9
+        solution:
+          - "Each mark is 100 g. The needle points to {v}."
+          - "It shows {v} g."
+  - id: mass-and-volume.kp2
+    explain: >-
+      Read a jug at the top of the water. Work out what each mark is worth.
+    templates:
+      - id: mass-and-volume.kp2.t1
+        vars:
+          k: {int: [1, 7]}
+          v: 250 * k
+        where: ["v <= 1750"]
+        prompt: "How many millilitres of water are in the jug?"
+        layout: figure
+        figure: jug
+        figure_args: {value: v, max: 2000, step: 250, unit: "'ml'"}
+        answer: {type: integer, value: v}
+        min_variety: 7
+        solution:
+          - "Each mark is 250 ml. The water is at {v}."
+          - "There are {v} ml."
+  - id: mass-and-volume.kp3
+    explain: >-
+      Light things are weighed in grams, heavy things in kilograms. Big amounts of water in litres.
+    templates:
+      - id: mass-and-volume.kp3.t1
+        vars:
+          k: {int: [0, 5]}
+          thing: "pick(k, 'an apple', 'a dog', 'a paper clip', 'a bag of potatoes', 'a bath of water', 'a spoon of medicine')"
+          right: "pick(k, 'grams', 'kilograms', 'grams', 'kilograms', 'litres', 'millilitres')"
+          wrong: "pick(k, 'kilograms', 'grams', 'kilograms', 'grams', 'millilitres', 'litres')"
+        prompt: "Which unit is best for {thing}?"
+        answer:
+          type: choice
+          right: "{right}"
+          distractors: ["{wrong}"]
+        min_variety: 6
+        solution:
+          - "{thing}: measure in {right}."

@@ -1,0 +1,32 @@
+id: non-unit-fractions
+kps:
+  - id: non-unit-fractions.kp1
+    explain: >-
+      The bottom number says how many equal parts. The top says how many are shaded.
+    templates:
+      - id: non-unit-fractions.kp1.t1
+        vars:
+          d: {choose: [3, 4, 5, 6, 8]}
+          n: {int: [2, d - 1]}
+        prompt: "What fraction is shaded?"
+        layout: figure
+        figure: fraction-bar
+        figure_args: {parts: d, shaded: n}
+        answer: {type: fraction, value: n / d, simplest: false}
+        min_variety: 16
+        solution:
+          - "There are {d} equal parts. {n} are shaded."
+          - "{n}/{d} is shaded."
+  - id: non-unit-fractions.kp2
+    explain: >-
+      3/4 is three of the 1/4 parts.
+    templates:
+      - id: non-unit-fractions.kp2.t1
+        vars:
+          d: {choose: [3, 4, 5, 6, 8]}
+          n: {int: [2, d - 1]}
+        prompt: "How many 1/{d} parts make {n}/{d}?"
+        answer: {type: integer, value: n}
+        min_variety: 16
+        solution:
+          - "{n}/{d} is {n} parts of size 1/{d}."

@@ -1,0 +1,26 @@
+id: div-word-problems
+kps:
+  - id: div-word-problems.kp1
+    explain: >-
+      Sharing equally or making equal groups means divide.
+    templates:
+      - id: div-word-problems.kp1.t1
+        vars:
+          n: {int: [2, 9]}
+          g: {int: [2, 9]}
+          k: {int: [0, 2]}
+          item: "pick(k, 'stickers', 'grapes', 'cards')"
+        prompt: "{n * g} {item} are shared equally among {n} friends. How many does each friend get?"
+        answer: {type: integer, value: g}
+        solution:
+          - "Share {n * g} into {n} equal groups."
+          - "{n * g} ÷ {n} = {g}"
+      - id: div-word-problems.kp1.t2
+        vars:
+          n: {int: [2, 9]}
+          g: {int: [2, 9]}
+        prompt: "{n * g} children stand in teams of {n}. How many teams are there?"
+        answer: {type: integer, value: g}
+        solution:
+          - "How many groups of {n} are in {n * g}?"
+          - "{n * g} ÷ {n} = {g}"

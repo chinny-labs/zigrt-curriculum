@@ -1,0 +1,26 @@
+id: sub-across-zeros
+kps:
+  - id: sub-across-zeros.kp1
+    explain: >-
+      With no tens to break, break a hundred into 10 tens first. Then break a ten.
+    templates:
+      - id: sub-across-zeros.kp1.t1
+        vars:
+          h: {int: [2, 9]}
+          o: {int: [0, 5]}
+          a: 100 * h + o
+          b: {int: [101, 199]}
+          slip: "abs(a % 10 - b % 10) + 10 * abs((a // 10) % 10 - (b // 10) % 10) + 100 * abs(a // 100 - b // 100)"
+        where: ["b % 10 > o", "b < a"]
+        prompt: "{a} − {b}"
+        layout: stacked
+        op: "-"
+        parts: [a, b]
+        answer:
+          type: choice
+          right: "{a - b}"
+          distractors: ["{slip}", "{a - b + 100}"]
+        solution:
+          - "There are no tens to break, so break a hundred: {h - 1} hundreds and 10 tens."
+          - "Now break a ten: 9 tens and {o + 10} ones."
+          - "{a} − {b} = {a - b}"

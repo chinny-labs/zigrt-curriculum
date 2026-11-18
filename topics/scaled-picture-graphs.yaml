@@ -1,0 +1,39 @@
+id: scaled-picture-graphs
+kps:
+  - id: scaled-picture-graphs.kp1
+    explain: >-
+      Check the key. If one picture means 2, count the pictures in twos.
+    templates:
+      - id: scaled-picture-graphs.kp1.t1
+        vars:
+          key: {choose: [2, 5, 10]}
+          a: {int: [1, 8]}
+          b: {int: [1, 8]}
+          c: {int: [1, 8]}
+          k: {int: [0, 2]}
+          name: "pick(k, 'cats', 'dogs', 'fish')"
+        prompt: "Each picture means {key}. How many children chose {name}?"
+        layout: figure
+        figure: picture-graph
+        figure_args: {rows: "join('Cats:', text(a * key), '|Dogs:', text(b * key), '|Fish:', text(c * key))", key: key}
+        answer: {type: integer, value: "pick(k, a, b, c) * key"}
+        solution:
+          - "{pick(k, a, b, c)} pictures, each worth {key}."
+          - "{pick(k, a, b, c)} × {key} = {pick(k, a, b, c) * key}"
+  - id: scaled-picture-graphs.kp2
+    explain: >-
+      Half a picture is half of the key.
+    templates:
+      - id: scaled-picture-graphs.kp2.t1
+        vars:
+          key: {choose: [2, 4, 10]}
+          a: {int: [1, 6]}
+          b: {int: [1, 6]}
+        prompt: "Each picture means {key}. How many chose dogs?"
+        layout: figure
+        figure: picture-graph
+        figure_args: {rows: "join('Cats:', text(a * key), '|Dogs:', text(b * key + key / 2))", key: key}
+        answer: {type: integer, value: b * key + key / 2}
+        solution:
+          - "{b} whole {plural(b, 'picture makes', 'pictures make')} {b * key}. Half a picture is {key / 2}."
+          - "{b * key} + {key / 2} = {b * key + key / 2}"

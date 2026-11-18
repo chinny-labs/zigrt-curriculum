@@ -1,0 +1,37 @@
+id: times-table-patterns
+kps:
+  - id: times-table-patterns.kp1
+    explain: >-
+      An even number times any whole number gives an even answer.
+    templates:
+      - id: times-table-patterns.kp1.t1
+        vars:
+          a: {int: [2, 9]}
+          b: {int: [2, 9]}
+          ans: "(a * b) % 2 == 0 ? 'even' : 'odd'"
+        prompt: "Without working it out, is {a} × {b} odd or even?"
+        answer:
+          type: choice
+          right: "{ans}"
+          distractors: ["{ans == 'even' ? 'odd' : 'even'}"]
+        min_variety: 50
+        solution:
+          - "{a % 2 == 0 || b % 2 == 0 ? 'One factor is even, so the product is even.' : 'Both factors are odd, so the product is odd.'}"
+          - "{a} × {b} = {a * b}, which is {ans}."
+  - id: times-table-patterns.kp2
+    explain: >-
+      Answers in the 5 times table end in 0 or 5. In the 10 times table, they end in 0.
+    templates:
+      - id: times-table-patterns.kp2.t1
+        vars:
+          k: {int: [2, 10]}
+          x: {int: [11, 59]}
+        where: ["x % 5 != 0"]
+        prompt: "Which number is in the 5 times table?"
+        answer:
+          type: choice
+          right: "{5 * k}"
+          distractors: ["{x}", "{5 * k + 1}"]
+        solution:
+          - "Answers in the 5 times table end in 0 or 5."
+          - "{5 * k} = 5 × {k}"

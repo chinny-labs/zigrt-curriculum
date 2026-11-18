@@ -1,0 +1,38 @@
+id: same-size-fractions
+kps:
+  - id: same-size-fractions.kp1
+    explain: >-
+      Cut each part in two, and you get twice as many parts. The amount stays the same.
+    templates:
+      - id: same-size-fractions.kp1.t1
+        vars:
+          d: {choose: [2, 3, 4]}
+          n: {int: [1, d - 1]}
+          k: {choose: [2, 3]}
+        where: ["d * k <= 12"]
+        prompt: "{n}/{d} = ?/{d * k}"
+        min_variety: 12
+        answer: {type: integer, value: n * k}
+        solution:
+          - "Each 1/{d} is {k} parts of size 1/{d * k}."
+          - "{n}/{d} = {n * k}/{d * k}, so the missing number is {n * k}."
+  - id: same-size-fractions.kp2
+    explain: >-
+      Fractions at the same point on a number line are equal.
+    templates:
+      - id: same-size-fractions.kp2.t1
+        vars:
+          d: {choose: [2, 3, 4]}
+          n: {int: [1, d - 1]}
+        prompt: "The dot is at {n}/{d}. Name the same point with {2 * d} as the bottom number."
+        layout: figure
+        figure: number-line
+        figure_args: {from: 0, to: 1, step: "1 / (2 * d)", mark: n / d}
+        answer:
+          type: choice
+          right: "{2 * n}/{2 * d}"
+          distractors: ["{2 * n + 1}/{2 * d}", "{n}/{2 * d}"]
+        min_variety: 6
+        solution:
+          - "Each 1/{d} is two jumps of 1/{2 * d}."
+          - "{n}/{d} = {2 * n}/{2 * d}"

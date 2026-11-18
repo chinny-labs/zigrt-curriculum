@@ -1,0 +1,40 @@
+id: estimate-sums
+kps:
+  - id: estimate-sums.kp1
+    explain: >-
+      To estimate, round each number first. Then add or take away the rounded numbers.
+    templates:
+      - id: estimate-sums.kp1.t1
+        vars:
+          a: {int: [110, 480]}
+          b: {int: [110, 480]}
+          s: {int: [0, 1]}
+          op: "s == 0 ? '+' : '−'"
+          ra: round(a, 100)
+          rb: round(b, 100)
+          est: "s == 0 ? ra + rb : ra - rb"
+        where: ["s == 0 || a > b"]
+        prompt: "Estimate {a} {op} {b} by rounding each number to the nearest hundred."
+        answer: {type: integer, value: est}
+        solution:
+          - "{a} rounds to {ra}. {b} rounds to {rb}."
+          - "{ra} {op} {rb} = {est}"
+  - id: estimate-sums.kp2
+    explain: >-
+      An estimate checks an answer. If the answer is far from the estimate, look again.
+    templates:
+      - id: estimate-sums.kp2.t1
+        vars:
+          a: {int: [210, 480]}
+          b: {int: [210, 480]}
+          wrong: {int: [0, 1]}
+          off: {choose: [100, -100, 200]}
+          claim: "wrong == 1 ? a + b + off : a + b"
+        prompt: "Sam says {a} + {b} = {claim}. Is that sensible?"
+        answer:
+          type: choice
+          right: "{wrong == 1 ? 'no' : 'yes'}"
+          distractors: ["{wrong == 1 ? 'yes' : 'no'}"]
+        solution:
+          - "Estimate: {round(a, 100)} + {round(b, 100)} = {round(a, 100) + round(b, 100)}."
+          - "{wrong == 1 ? join(text(claim), ' is too far from that, so no.') : join(text(claim), ' is close to that, so yes.')}"

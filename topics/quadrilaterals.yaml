@@ -1,0 +1,45 @@
+id: quadrilaterals
+kps:
+  - id: quadrilaterals.kp1
+    explain: >-
+      A quadrilateral is any flat shape with four straight sides.
+    templates:
+      - id: quadrilaterals.kp1.t1
+        vars:
+          k: {int: [0, 6]}
+          name: "pick(k, 'square', 'rectangle', 'rhombus', 'trapezoid', 'parallelogram', 'triangle', 'pentagon')"
+          ans: "k <= 4 ? 'yes' : 'no'"
+          turn: {choose: [0, 20, 45, 100]}
+        prompt: "Is this shape a quadrilateral?"
+        layout: figure
+        figure: shape
+        figure_args: {name: name, turn: turn}
+        answer:
+          type: choice
+          right: "{ans}"
+          distractors: ["{ans == 'yes' ? 'no' : 'yes'}"]
+        min_variety: 25
+        solution:
+          - "It has {pick(k, 4, 4, 4, 4, 4, 3, 5)} sides."
+          - "{ans == 'yes' ? 'Four sides, so yes.' : 'Not four sides, so no.'}"
+  - id: quadrilaterals.kp2
+    explain: >-
+      Rhombuses have four equal sides. Rectangles have four square corners. Squares have both.
+    templates:
+      - id: quadrilaterals.kp2.t1
+        vars:
+          k: {int: [0, 4]}
+          name: "pick(k, 'square', 'rectangle', 'rhombus', 'trapezoid', 'parallelogram')"
+          turn: {choose: [0, 15, 30]}
+        prompt: "Which is the best name for this quadrilateral?"
+        layout: figure
+        figure: shape
+        figure_args: {name: name, turn: turn}
+        answer:
+          type: choice
+          right: "{name}"
+          distractors: ["{pick(k, 'rhombus', 'square', 'square', 'parallelogram', 'rectangle')}", "{pick(k, 'rectangle', 'parallelogram', 'parallelogram', 'rectangle', 'trapezoid')}"]
+        min_variety: 15
+        solution:
+          - "{pick(k, 'Four equal sides and four square corners.', 'Four square corners, sides not all equal.', 'Four equal sides, corners not square.', 'Just one pair of parallel sides.', 'Two pairs of parallel sides, corners not square.')}"
+          - "It is a {name}."

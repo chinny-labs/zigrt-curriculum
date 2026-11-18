@@ -1,0 +1,35 @@
+id: mult-commutative
+kps:
+  - id: mult-commutative.kp1
+    explain: >-
+      Turn an array on its side and it is still the same dots. So 3 × 5 = 5 × 3.
+    templates:
+      - id: mult-commutative.kp1.t1
+        vars:
+          a: {int: [2, 9]}
+          b: {int: [2, 9]}
+        where: ["a != b"]
+        prompt: "{a} × {b} = {b} × ?"
+        layout: missing
+        op: "*"
+        parts: [b, a, a * b]
+        blank: 1
+        answer: {type: integer, value: a}
+        min_variety: 50
+        solution:
+          - "The order of the numbers does not change the answer."
+          - "{a} × {b} = {b} × {a} = {a * b}"
+  - id: mult-commutative.kp2
+    explain: >-
+      If you know one fact, you know its turned-around fact too.
+    templates:
+      - id: mult-commutative.kp2.t1
+        vars:
+          a: {int: [2, 5]}
+          b: {int: [6, 10]}
+        prompt: "{a} × {b} = {a * b}. What is {b} × {a}?"
+        answer: {type: integer, value: a * b}
+        min_variety: 20
+        solution:
+          - "Turning the fact around gives the same answer."
+          - "{b} × {a} = {a * b}"

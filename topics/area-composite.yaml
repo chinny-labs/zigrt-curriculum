@@ -1,0 +1,23 @@
+id: area-composite
+kps:
+  - id: area-composite.kp1
+    explain: >-
+      Split an L shape into two rectangles. Find each area, then add them.
+    templates:
+      - id: area-composite.kp1.t1
+        vars:
+          t: {int: [2, 6]}
+          r: {int: [2, 5]}
+          dn1: {int: [2, 5]}
+          dn2: {int: [2, 5]}
+          b: t + r
+          up: dn1 + dn2
+          area: t * dn1 + b * dn2
+        prompt: "What is the area of this shape, in square metres?"
+        layout: figure
+        figure: polygon
+        figure_args: {shape: "'L'", sides: "join(text(t), '|', text(dn1), '|', text(r), '|', text(dn2), '|', text(b), '|', text(up))", hide: -1, unit: "'m'"}
+        answer: {type: integer, value: area}
+        solution:
+          - "Top part: {t} × {dn1} = {t * dn1}. Bottom part: {b} × {dn2} = {b * dn2}."
+          - "{t * dn1} + {b * dn2} = {area} square metres."

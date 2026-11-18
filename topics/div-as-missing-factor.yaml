@@ -1,0 +1,16 @@
+id: div-as-missing-factor
+kps:
+  - id: div-as-missing-factor.kp1
+    explain: >-
+      To divide, think of times. 24 ÷ 6 asks: 6 times what makes 24?
+    templates:
+      - id: div-as-missing-factor.kp1.t1
+        vars:
+          a: {int: [2, 10]}
+          b: {int: [2, 10]}
+        prompt: "{a * b} ÷ {a} = ?  Think: {a} × ? = {a * b}"
+        answer: {type: integer, value: b}
+        min_variety: 70
+        solution:
+          - "{a} × {b} = {a * b}"
+          - "So {a * b} ÷ {a} = {b}."

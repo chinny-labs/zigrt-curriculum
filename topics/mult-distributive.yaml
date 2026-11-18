@@ -1,0 +1,33 @@
+id: mult-distributive
+kps:
+  - id: mult-distributive.kp1
+    explain: >-
+      Split a hard fact into two easy ones. 7 × 6 is 5 × 6 plus 2 × 6.
+    templates:
+      - id: mult-distributive.kp1.t1
+        vars:
+          a: {int: [6, 9]}
+          b: {int: [3, 9]}
+        prompt: "Use the two parts to find {a} × {b}."
+        layout: figure
+        figure: split-rectangle
+        figure_args: {cols: "join('5|', text(a - 5))", rows: b, areas: 0}
+        answer: {type: integer, value: a * b}
+        min_variety: 28
+        solution:
+          - "5 × {b} = {5 * b} and {a - 5} × {b} = {(a - 5) * b}."
+          - "{5 * b} + {(a - 5) * b} = {a * b}"
+  - id: mult-distributive.kp2
+    explain: >-
+      The two parts must add up to the number you split.
+    templates:
+      - id: mult-distributive.kp2.t1
+        vars:
+          a: {int: [6, 9]}
+          b: {int: [3, 9]}
+        prompt: "{a} × {b} = 5 × {b} + ? × {b}"
+        answer: {type: integer, value: a - 5}
+        min_variety: 28
+        solution:
+          - "{a} splits into 5 and {a - 5}."
+          - "{a} × {b} = 5 × {b} + {a - 5} × {b}"

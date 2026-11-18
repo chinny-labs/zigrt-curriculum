@@ -1,0 +1,45 @@
+id: area-vs-perimeter
+kps:
+  - id: area-vs-perimeter.kp1
+    explain: >-
+      Two rectangles can have the same perimeter but different areas.
+    templates:
+      - id: area-vs-perimeter.kp1.t1
+        vars:
+          p: {choose: [12, 16, 20, 24]}
+          w1: {int: [1, 5]}
+          w2: {int: [1, 5]}
+          h1: p / 2 - w1
+          h2: p / 2 - w2
+          a1: w1 * h1
+          a2: w2 * h2
+          ans: "a1 > a2 ? 'A' : 'B'"
+        where: ["w1 < h1", "w2 < h2", "a1 != a2"]
+        prompt: "Rectangle A is {w1} by {h1}. Rectangle B is {w2} by {h2}. Both have a perimeter of {p}. Which has the bigger area?"
+        answer:
+          type: choice
+          right: "{ans}"
+          distractors: ["{ans == 'A' ? 'B' : 'A'}", "They are the same"]
+        solution:
+          - "A: {w1} × {h1} = {a1}. B: {w2} × {h2} = {a2}."
+          - "{ans} has the bigger area."
+  - id: area-vs-perimeter.kp2
+    explain: >-
+      Area counts squares inside. Perimeter measures the edge. Do not mix them up.
+    templates:
+      - id: area-vs-perimeter.kp2.t1
+        vars:
+          w: {int: [3, 10]}
+          h: {int: [2, 9]}
+          s: {int: [0, 1]}
+          what: "s == 0 ? 'area' : 'perimeter'"
+          ans: "s == 0 ? w * h : 2 * (w + h)"
+        where: ["w * h != 2 * (w + h)"]
+        prompt: "A rectangle is {w} cm by {h} cm. What is its {what}?"
+        answer:
+          type: choice
+          right: "{ans}{s == 0 ? ' square cm' : ' cm'}"
+          distractors: ["{s == 0 ? 2 * (w + h) : w * h}{s == 0 ? ' square cm' : ' cm'}", "{w + h}{s == 0 ? ' square cm' : ' cm'}"]
+        solution:
+          - "{s == 0 ? join('Area: ', text(w), ' × ', text(h), '.') : join('Perimeter: ', text(w), ' + ', text(h), ' + ', text(w), ' + ', text(h), '.')}"
+          - "It is {ans}{s == 0 ? ' square cm' : ' cm'}."

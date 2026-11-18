@@ -1,0 +1,40 @@
+id: perimeter-missing-side
+kps:
+  - id: perimeter-missing-side.kp1
+    explain: >-
+      If you know the perimeter, add the sides you know. Take that from the perimeter.
+    templates:
+      - id: perimeter-missing-side.kp1.t1
+        vars:
+          a: {int: [3, 12]}
+          b: {int: [3, 12]}
+          c: {int: [3, 12]}
+        where: ["a + b > c && a + c > b && b + c > a"]
+        prompt: "The perimeter is {a + b + c} cm. What is the missing side, in centimetres?"
+        layout: figure
+        figure: polygon
+        figure_args: {shape: "'triangle'", sides: "join(text(a), '|', text(b), '|', text(c))", hide: 0, unit: "'cm'"}
+        answer: {type: integer, value: a}
+        solution:
+          - "The known sides: {b} + {c} = {b + c}."
+          - "{a + b + c} − {b + c} = {a} cm."
+  - id: perimeter-missing-side.kp2
+    explain: >-
+      In an L, the two short sides across add up to the long side across.
+    templates:
+      - id: perimeter-missing-side.kp2.t1
+        vars:
+          t: {int: [2, 6]}
+          r: {int: [2, 5]}
+          dn1: {int: [2, 5]}
+          dn2: {int: [2, 5]}
+          b: t + r
+          up: dn1 + dn2
+        prompt: "What is the length of the missing side, in metres?"
+        layout: figure
+        figure: polygon
+        figure_args: {shape: "'L'", sides: "join(text(t), '|', text(dn1), '|', text(r), '|', text(dn2), '|', text(b), '|', text(up))", hide: 0, unit: "'m'"}
+        answer: {type: integer, value: t}
+        solution:
+          - "Across the top: ? + {r} = {b}."
+          - "So the missing side is {b} − {r} = {t} m."
