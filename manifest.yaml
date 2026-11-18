@@ -1,9 +1,9 @@
-# The Zigrt curriculum: Arithmetic K-5 (plan section 4.4). This first release
-# is a 30-topic slice of the graph, chosen so every answer type, layout and
-# figure is exercised. Topic and template IDs are permanent once released.
+# The Zigrt curriculum: Arithmetic K-5 (plan section 4.4), all 255 topics of
+# the syllabus (syllabus/syllabus.yaml). Topic and template IDs are permanent
+# once released.
 id: zigrt-k5
 title: Arithmetic K-5
-version: 2026.11.1
+version: 2026.11.2
 min_app_version: 0.12.0
 licence: CC-BY-SA-4.0
 locales: [en]
