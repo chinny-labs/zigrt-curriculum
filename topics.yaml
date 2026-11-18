@@ -449,37 +449,185 @@ topics:
     standards: [1.G.A.3]
 
   # Grade 2
+  - id: hundreds-tens-ones
+    title: "Hundreds, tens and ones"
+    strand: place-value
+    grade: "2"
+    requires: [tens-and-ones, count-to-120]
+    encompasses: [{topic: tens-and-ones, weight: 0.5}]
+    xp: 12
+    standards: [2.NBT.A.1]
+  - id: skip-count-5-10-100
+    title: "Counting in 5s, 10s and 100s"
+    strand: place-value
+    grade: "2"
+    requires: [count-by-tens, hundreds-tens-ones]
+    xp: 12
+    standards: [2.NBT.A.2]
+  - id: count-to-1000
+    title: Counting to 1000
+    strand: place-value
+    grade: "2"
+    requires: [skip-count-5-10-100]
+    encompasses: [{topic: count-to-120, weight: 0.5}]
+    xp: 12
+    standards: [2.NBT.A.2]
+  - id: expanded-form-3d
+    title: Writing numbers in parts
+    strand: place-value
+    grade: "2"
+    requires: [hundreds-tens-ones]
+    xp: 12
+    standards: [2.NBT.A.3]
+  - id: number-words-1000
+    title: Number names to 1000
+    strand: place-value
+    grade: "2"
+    requires: [expanded-form-3d]
+    xp: 12
+    standards: [2.NBT.A.3]
+  - id: compare-3-digit
+    title: Comparing numbers to 1000
+    strand: place-value
+    grade: "2"
+    requires: [hundreds-tens-ones, compare-2-digit]
+    encompasses: [{topic: compare-2-digit, weight: 0.5}]
+    xp: 12
+    standards: [2.NBT.A.4]
+  - id: ten-hundred-more-less
+    title: 10 or 100 more or less
+    strand: place-value
+    grade: "2"
+    requires: [hundreds-tens-ones, ten-more-ten-less]
+    encompasses: [{topic: ten-more-ten-less, weight: 0.5}]
+    xp: 12
+    standards: [2.NBT.B.8]
+  - id: number-line-to-1000
+    title: Numbers on a line to 1000
+    strand: place-value
+    grade: "2"
+    requires: [number-line-to-100, count-to-1000]
+    encompasses: [{topic: number-line-to-100, weight: 0.5}]
+    xp: 12
+    standards: [2.MD.B.6]
+  - id: odd-even
+    title: Odd and even
+    strand: place-value
+    grade: "2"
+    requires: [doubles, skip-count-5-10-100]
+    xp: 12
+    standards: [2.OA.C.3]
+  - id: add-2d-2d-no-regroup
+    title: "Adding 2-digit numbers, no new ten"
+    strand: add-sub
+    grade: "2"
+    requires: [add-2d-tens]
+    encompasses: [{topic: add-2d-tens, weight: 0.5}]
+    xp: 12
+    standards: [2.NBT.B.5]
   - id: add-2d-2d-regroup
     title: Adding 2-digit numbers
     strand: add-sub
     grade: "2"
-    requires: [add-within-20, tens-and-ones]
+    requires: [add-2d-2d-no-regroup, add-2d-1d-regroup]
     encompasses: [{topic: add-within-20, weight: 1.0}, {topic: tens-and-ones, weight: 0.5}]
     xp: 12
     standards: [2.NBT.B.5]
-  - id: name-shapes
-    title: Naming shapes
-    strand: geometry
+  - id: sub-2d-1d
+    title: Taking ones from a 2-digit number
+    strand: add-sub
     grade: "2"
-    requires: [count-objects]
-    xp: 8
-    standards: [2.G.A.1]
-  - id: tell-time-5min
-    title: Telling the time to 5 minutes
-    strand: measurement
+    requires: [sub-tens, sub-within-20]
+    xp: 12
+    standards: [2.NBT.B.5]
+  - id: sub-2d-2d-no-regroup
+    title: "Taking away 2-digit numbers, no ten broken"
+    strand: add-sub
     grade: "2"
-    requires: [tell-time-hour]
-    encompasses: [{topic: tell-time-hour, weight: 1.0}]
-    xp: 10
-    standards: [2.MD.C.7]
+    requires: [sub-2d-1d]
+    encompasses: [{topic: sub-2d-1d, weight: 0.5}]
+    xp: 12
+    standards: [2.NBT.B.5]
   - id: sub-2d-2d-regroup
     title: Taking away 2-digit numbers
     strand: add-sub
     grade: "2"
-    requires: [add-2d-2d-regroup, sub-within-20]
+    requires: [sub-2d-2d-no-regroup, add-2d-2d-regroup]
     encompasses: [{topic: sub-within-20, weight: 1.0}]
     xp: 12
     standards: [2.NBT.B.5]
+  - id: add-four-2d
+    title: Adding up to four numbers
+    strand: add-sub
+    grade: "2"
+    requires: [add-2d-2d-regroup, add-three-numbers]
+    encompasses: [{topic: add-2d-2d-regroup, weight: 0.5}]
+    xp: 12
+    standards: [2.NBT.B.6]
+  - id: add-3d
+    title: Adding 3-digit numbers
+    strand: add-sub
+    grade: "2"
+    requires: [add-2d-2d-regroup, hundreds-tens-ones]
+    encompasses: [{topic: add-2d-2d-regroup, weight: 0.5}]
+    xp: 12
+    standards: [2.NBT.B.7]
+  - id: sub-3d
+    title: Taking away 3-digit numbers
+    strand: add-sub
+    grade: "2"
+    requires: [add-3d, sub-2d-2d-regroup]
+    encompasses: [{topic: sub-2d-2d-regroup, weight: 0.5}]
+    xp: 12
+    standards: [2.NBT.B.7]
+  - id: missing-number-100
+    title: The missing number to 100
+    strand: add-sub
+    grade: "2"
+    requires: [missing-addend, sub-2d-2d-regroup]
+    encompasses: [{topic: missing-addend, weight: 0.5}]
+    xp: 12
+    standards: [2.OA.A.1]
+  - id: word-problems-100
+    title: Word problems to 100
+    strand: add-sub
+    grade: "2"
+    requires: [add-sub-stories-20, sub-2d-2d-regroup]
+    xp: 12
+    standards: [2.OA.A.1]
+  - id: two-step-problems-100
+    title: Two-step word problems
+    strand: add-sub
+    grade: "2"
+    requires: [word-problems-100]
+    encompasses: [{topic: word-problems-100, weight: 0.5}]
+    xp: 12
+    standards: [2.OA.A.1]
+  - id: facts-to-20-fluent
+    title: Facts to 20 from memory
+    strand: add-sub
+    grade: "2"
+    requires: [fact-families-20]
+    encompasses: [{topic: add-within-20, weight: 0.5}, {topic: sub-within-20, weight: 0.5}]
+    xp: 12
+    standards: [2.OA.B.2]
+    fluency_seconds: 3
+  - id: add-3d-regroup
+    title: Adding 3-digit numbers with new tens and hundreds
+    strand: add-sub
+    grade: "2"
+    requires: [add-3d]
+    encompasses: [{topic: add-3d, weight: 1.0}]
+    xp: 12
+    standards: [2.NBT.B.7]
+  - id: sub-3d-regroup
+    title: "Taking away 3-digit numbers, breaking tens and hundreds"
+    strand: add-sub
+    grade: "2"
+    requires: [sub-3d, add-3d-regroup]
+    encompasses: [{topic: sub-3d, weight: 1.0}]
+    xp: 12
+    standards: [2.NBT.B.7]
   - id: equal-groups-arrays
     title: Rows of dots
     strand: multiplication
@@ -487,6 +635,66 @@ topics:
     requires: [add-within-20]
     xp: 10
     standards: [2.OA.C.4]
+  - id: repeated-addition
+    title: Adding equal groups
+    strand: multiplication
+    grade: "2"
+    requires: [equal-groups-arrays, add-three-numbers, skip-count-5-10-100]
+    encompasses: [{topic: equal-groups-arrays, weight: 0.5}]
+    xp: 12
+    standards: [2.OA.C.4]
+  - id: measure-length
+    title: Measuring with a ruler
+    strand: measurement
+    grade: "2"
+    requires: [measure-units]
+    xp: 12
+    standards: [2.MD.A.1]
+  - id: measure-two-units
+    title: Measuring in two units
+    strand: measurement
+    grade: "2"
+    requires: [measure-length]
+    xp: 12
+    standards: [2.MD.A.2]
+  - id: estimate-lengths
+    title: Estimating length
+    strand: measurement
+    grade: "2"
+    requires: [measure-length]
+    xp: 12
+    standards: [2.MD.A.3]
+  - id: compare-lengths-units
+    title: How much longer
+    strand: measurement
+    grade: "2"
+    requires: [measure-length, sub-2d-1d]
+    encompasses: [{topic: measure-length, weight: 0.5}]
+    xp: 12
+    standards: [2.MD.A.4]
+  - id: length-word-problems
+    title: Length word problems
+    strand: measurement
+    grade: "2"
+    requires: [compare-lengths-units, word-problems-100]
+    encompasses: [{topic: compare-lengths-units, weight: 0.3}]
+    xp: 12
+    standards: [2.MD.B.5]
+  - id: tell-time-5min
+    title: Telling the time to 5 minutes
+    strand: measurement
+    grade: "2"
+    requires: [tell-time-hour, skip-count-5-10-100]
+    encompasses: [{topic: tell-time-hour, weight: 1.0}]
+    xp: 10
+    standards: [2.MD.C.7]
+  - id: am-pm
+    title: Morning or afternoon
+    strand: measurement
+    grade: "2"
+    requires: [tell-time-5min]
+    xp: 12
+    standards: [2.MD.C.7]
   - id: count-coins
     title: Counting coins
     strand: measurement
@@ -495,6 +703,66 @@ topics:
     encompasses: [{topic: add-2d-2d-regroup, weight: 0.3}]
     xp: 12
     standards: [2.MD.C.8]
+  - id: dollars-and-cents
+    title: Dollars and cents
+    strand: measurement
+    grade: "2"
+    requires: [count-coins]
+    encompasses: [{topic: count-coins, weight: 1.0}]
+    xp: 12
+    standards: [2.MD.C.8]
+  - id: money-word-problems
+    title: Money word problems
+    strand: measurement
+    grade: "2"
+    requires: [dollars-and-cents, word-problems-100]
+    encompasses: [{topic: dollars-and-cents, weight: 0.3}]
+    xp: 12
+    standards: [2.MD.C.8]
+  - id: picture-graphs
+    title: Picture graphs
+    strand: measurement
+    grade: "2"
+    requires: [tally-charts]
+    xp: 12
+    standards: [2.MD.D.10]
+  - id: bar-graphs
+    title: Bar graphs
+    strand: measurement
+    grade: "2"
+    requires: [picture-graphs, data-how-many-more]
+    encompasses: [{topic: picture-graphs, weight: 0.3}]
+    xp: 12
+    standards: [2.MD.D.10]
+  - id: line-plots-whole
+    title: Line plots
+    strand: measurement
+    grade: "2"
+    requires: [measure-length, tally-charts]
+    xp: 12
+    standards: [2.MD.D.9]
+  - id: name-shapes
+    title: Naming shapes
+    strand: geometry
+    grade: "2"
+    requires: [shape-attributes]
+    xp: 8
+    standards: [2.G.A.1]
+  - id: partition-rectangles
+    title: Rows and columns of squares
+    strand: geometry
+    grade: "2"
+    requires: [equal-groups-arrays]
+    xp: 12
+    standards: [2.G.A.2]
+  - id: thirds
+    title: "Halves, thirds and quarters"
+    strand: fractions
+    grade: "2"
+    requires: [halves-quarters]
+    encompasses: [{topic: halves-quarters, weight: 1.0}]
+    xp: 12
+    standards: [2.G.A.3]
 
   # Grade 3
   - id: mult-facts-5

@@ -1,0 +1,41 @@
+id: line-plots-whole
+kps:
+  - id: line-plots-whole.kp1
+    explain: >-
+      Each X is one thing measured. Count the Xs above a number.
+    templates:
+      - id: line-plots-whole.kp1.t1
+        vars:
+          a: {int: [0, 4]}
+          b: {int: [1, 5]}
+          c: {int: [0, 4]}
+          d: {int: [1, 5]}
+          k: {int: [0, 3]}
+          len: "pick(k, 4, 5, 6, 7)"
+        prompt: "The class measured pencils in inches. How many pencils are {len} inches long?"
+        layout: figure
+        figure: line-plot
+        figure_args: {from: 3, to: 8, step: 1, marks: "join('4:', text(a), '|5:', text(b), '|6:', text(c), '|7:', text(d))"}
+        answer: {type: integer, value: "pick(k, a, b, c, d)"}
+        solution:
+          - "Count the Xs above {len}."
+          - "{pick(k, a, b, c, d)} {plural(pick(k, a, b, c, d), 'pencil is', 'pencils are')} {len} inches long."
+  - id: line-plots-whole.kp2
+    explain: >-
+      The tallest stack of Xs is the length that came up most.
+    templates:
+      - id: line-plots-whole.kp2.t1
+        vars:
+          a: {int: [1, 5]}
+          b: {int: [1, 5]}
+          c: {int: [1, 5]}
+          most: "a > b && a > c ? 4 : b > c ? 5 : 6"
+        where: ["a != b && b != c && a != c"]
+        prompt: "Which length, in inches, did the most pencils have?"
+        layout: figure
+        figure: line-plot
+        figure_args: {from: 3, to: 8, step: 1, marks: "join('4:', text(a), '|5:', text(b), '|6:', text(c))"}
+        answer: {type: integer, value: most}
+        solution:
+          - "The tallest stack is over {most}."
+          - "Most pencils were {most} inches long."

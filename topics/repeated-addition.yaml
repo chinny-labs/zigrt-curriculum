@@ -1,0 +1,34 @@
+id: repeated-addition
+kps:
+  - id: repeated-addition.kp1
+    explain: >-
+      Rows with the same number in each are equal groups. Add a row at a time.
+    templates:
+      - id: repeated-addition.kp1.t1
+        vars:
+          r: {int: [2, 5]}
+          c: {int: [2, 5]}
+        prompt: "There are {r} rows of {c} dots. How many dots in all?"
+        layout: figure
+        figure: array
+        figure_args: {rows: r, cols: c}
+        answer: {type: integer, value: r * c}
+        min_variety: 16
+        solution:
+          - "Add {c} for each row: {r} times."
+          - "There are {r * c} dots."
+  - id: repeated-addition.kp2
+    explain: >-
+      Skip count to add equal groups fast: 5, 10, 15, 20.
+    templates:
+      - id: repeated-addition.kp2.t1
+        vars:
+          r: {int: [2, 5]}
+          c: {choose: [2, 5, 10]}
+          sum: "join(text(c), r >= 2 ? join(' + ', text(c)) : '', r >= 3 ? join(' + ', text(c)) : '', r >= 4 ? join(' + ', text(c)) : '', r >= 5 ? join(' + ', text(c)) : '')"
+        prompt: "{sum}"
+        answer: {type: integer, value: r * c}
+        min_variety: 12
+        solution:
+          - "Count in {c}s, {r} times."
+          - "{sum} = {r * c}"

@@ -1,0 +1,34 @@
+id: skip-count-5-10-100
+kps:
+  - id: skip-count-5-10-100.kp1
+    explain: >-
+      Counting in fives, the ones digit goes 0, 5, 0, 5.
+    templates:
+      - id: skip-count-5-10-100.kp1.t1
+        vars:
+          k: {int: [1, 18]}
+        prompt: "{5 * k}, {5 * k + 5}, ?, {5 * k + 15}. What is missing?"
+        answer: {type: integer, value: 5 * k + 10}
+        min_variety: 18
+        solution:
+          - "Count in fives: {5 * k}, {5 * k + 5}, {5 * k + 10}, {5 * k + 15}."
+  - id: skip-count-5-10-100.kp2
+    explain: >-
+      Counting in tens or hundreds, only one digit changes each time.
+    templates:
+      - id: skip-count-5-10-100.kp2.t1
+        vars:
+          n: {int: [12, 860]}
+        prompt: "Count in tens: {n}, {n + 10}, ?, {n + 30}. What is missing?"
+        answer: {type: integer, value: n + 20}
+        solution:
+          - "Each time the tens digit goes up by one."
+          - "{n}, {n + 10}, {n + 20}, {n + 30}"
+      - id: skip-count-5-10-100.kp2.t2
+        vars:
+          n: {int: [5, 640]}
+        prompt: "Count in hundreds: {n}, {n + 100}, ?, {n + 300}. What is missing?"
+        answer: {type: integer, value: n + 200}
+        solution:
+          - "Each time the hundreds digit goes up by one."
+          - "{n}, {n + 100}, {n + 200}, {n + 300}"

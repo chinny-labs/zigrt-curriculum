@@ -1,0 +1,33 @@
+id: two-step-problems-100
+kps:
+  - id: two-step-problems-100.kp1
+    explain: >-
+      Some stories have two steps. Do the first step, then use its answer.
+    templates:
+      - id: two-step-problems-100.kp1.t1
+        vars:
+          who: {choose: ["'Ava'", "'Ben'", "'Mia'", "'Leo'", "'Zoe'", "'Sam'"]}
+          a: {int: [20, 60]}
+          b: {int: [10, 30]}
+          c: {int: [5, 30]}
+        where: ["a + b <= 99", "c < a + b"]
+        prompt: "{who} has {a} stickers. {who} is given {b} more, then gives {c} away. How many stickers are left?"
+        answer: {type: integer, value: a + b - c}
+        solution:
+          - "First: {a} + {b} = {a + b}."
+          - "Then: {a + b} − {c} = {a + b - c}."
+  - id: two-step-problems-100.kp2
+    explain: >-
+      Write down the answer to the first step so you don't forget it.
+    templates:
+      - id: two-step-problems-100.kp2.t1
+        vars:
+          a: {int: [12, 30]}
+          b: {int: [12, 30]}
+          t: {int: [70, 99]}
+        where: ["a + b < t"]
+        prompt: "A box holds {t} crayons. {a} are red and {b} are blue. The rest are green. How many are green?"
+        answer: {type: integer, value: t - a - b}
+        solution:
+          - "Red and blue: {a} + {b} = {a + b}."
+          - "Green: {t} − {a + b} = {t - a - b}."

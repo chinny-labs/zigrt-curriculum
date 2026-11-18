@@ -1,0 +1,19 @@
+id: measure-length
+kps:
+  - id: measure-length.kp1
+    explain: >-
+      Put one end at 0. Read the number at the other end.
+    templates:
+      - id: measure-length.kp1.t1
+        vars:
+          n: {int: [2, 12]}
+          u: {choose: ["'cm'", "'in'"]}
+        prompt: "How long is the pencil, in {u == 'cm' ? 'centimetres' : 'inches'}?"
+        layout: figure
+        figure: ruler
+        figure_args: {start: 0, length: n, max: 12, unit: u}
+        answer: {type: integer, value: n}
+        min_variety: 20
+        solution:
+          - "The pencil starts at 0 and ends at {n}."
+          - "It is {n} {u}."

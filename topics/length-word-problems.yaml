@@ -1,0 +1,25 @@
+id: length-word-problems
+kps:
+  - id: length-word-problems.kp1
+    explain: >-
+      Lengths add and take away like numbers. Keep the unit in your answer.
+    templates:
+      - id: length-word-problems.kp1.t1
+        vars:
+          a: {int: [20, 70]}
+          b: {int: [10, 29]}
+        where: ["a + b <= 99"]
+        prompt: "Two pieces of rope are {a} m and {b} m long. They are tied end to end. How long are they together, in metres?"
+        answer: {type: integer, value: a + b}
+        solution:
+          - "{a} + {b} = {a + b}"
+          - "Together they are {a + b} m."
+      - id: length-word-problems.kp1.t2
+        vars:
+          a: {int: [40, 99]}
+          b: {int: [10, 35]}
+        prompt: "A ribbon is {a} cm long. {b} cm is cut off. How long is it now, in centimetres?"
+        answer: {type: integer, value: a - b}
+        solution:
+          - "{a} − {b} = {a - b}"
+          - "It is {a - b} cm now."

@@ -1,0 +1,37 @@
+id: sub-3d
+kps:
+  - id: sub-3d.kp1
+    explain: >-
+      Line up the places. Take away the ones, then the tens, then the hundreds.
+    templates:
+      - id: sub-3d.kp1.t1
+        vars:
+          a: {int: [300, 999]}
+          b: {int: [100, 299]}
+        where: ["a % 10 >= b % 10", "(a // 10) % 10 >= (b // 10) % 10"]
+        prompt: "{a} − {b}"
+        layout: stacked
+        op: "-"
+        parts: [a, b]
+        answer: {type: integer, value: a - b}
+        solution:
+          - "Ones {a % 10 - b % 10}, tens {(a // 10) % 10 - (b // 10) % 10}, hundreds {a // 100 - b // 100}."
+          - "{a} − {b} = {a - b}"
+  - id: sub-3d.kp2
+    explain: >-
+      Not enough ones? Break a ten into 10 ones.
+    templates:
+      - id: sub-3d.kp2.t1
+        vars:
+          a: {int: [310, 999]}
+          b: {int: [100, 299]}
+        where: ["a % 10 < b % 10", "(a // 10) % 10 > (b // 10) % 10"]
+        prompt: "{a} − {b}"
+        layout: stacked
+        op: "-"
+        parts: [a, b]
+        answer: {type: integer, value: a - b}
+        solution:
+          - "Break a ten: {(a // 10) % 10} tens become {(a // 10) % 10 - 1}, and the ones become {a % 10 + 10}."
+          - "Ones: {a % 10 + 10} − {b % 10} = {a % 10 + 10 - b % 10}."
+          - "{a} − {b} = {a - b}"

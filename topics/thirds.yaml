@@ -1,0 +1,38 @@
+id: thirds
+kps:
+  - id: thirds.kp1
+    explain: >-
+      Three equal parts are thirds. Each part is one third.
+    templates:
+      - id: thirds.kp1.t1
+        vars:
+          k: {int: [0, 2]}
+          name: "pick(k, 'circle', 'square', 'rectangle')"
+          p: {choose: [2, 3, 4]}
+          word: "pick(p - 2, 'one half', 'one third', 'one quarter')"
+        prompt: "What part is shaded?"
+        layout: figure
+        figure: cut-shape
+        figure_args: {name: name, parts: p, equal: 1, shaded: 1}
+        answer:
+          type: choice
+          right: "{word}"
+          distractors: ["{p == 3 ? 'one half' : 'one third'}", "{p == 4 ? 'one half' : 'one quarter'}"]
+        min_variety: 9
+        solution:
+          - "There are {p} equal parts. One is shaded."
+          - "That is {word}."
+  - id: thirds.kp2
+    explain: >-
+      A whole is two halves, three thirds or four quarters.
+    templates:
+      - id: thirds.kp2.t1
+        vars:
+          k: {int: [0, 2]}
+          part: "pick(k, 'halves', 'thirds', 'quarters')"
+        prompt: "How many {part} make one whole?"
+        answer: {type: integer, value: "k + 2"}
+        min_variety: 3
+        solution:
+          - "A whole cut into {k + 2} equal parts makes {part}."
+          - "{k + 2} {part} make a whole."

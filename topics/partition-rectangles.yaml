@@ -1,0 +1,38 @@
+id: partition-rectangles
+kps:
+  - id: partition-rectangles.kp1
+    explain: >-
+      Count the squares in one row. Then count the rows and add.
+    templates:
+      - id: partition-rectangles.kp1.t1
+        vars:
+          r: {int: [2, 5]}
+          c: {int: [2, 6]}
+        prompt: "How many small squares make this rectangle?"
+        layout: figure
+        figure: grid
+        figure_args: {rows: r, cols: c, shaded: 0}
+        answer: {type: integer, value: r * c}
+        min_variety: 20
+        solution:
+          - "{r} rows of {c} squares."
+          - "That is {r * c} squares."
+  - id: partition-rectangles.kp2
+    explain: >-
+      Rows go across. Columns go up and down.
+    templates:
+      - id: partition-rectangles.kp2.t1
+        vars:
+          r: {int: [2, 6]}
+          c: {int: [2, 6]}
+          s: {int: [0, 1]}
+          what: "s == 0 ? 'rows' : 'columns'"
+        where: ["r != c"]
+        prompt: "How many {what} of squares are there?"
+        layout: figure
+        figure: grid
+        figure_args: {rows: r, cols: c, shaded: 0}
+        answer: {type: integer, value: "s == 0 ? r : c"}
+        solution:
+          - "{s == 0 ? 'Rows go across.' : 'Columns go up and down.'}"
+          - "There are {s == 0 ? r : c} {what}."

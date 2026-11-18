@@ -1,0 +1,36 @@
+id: compare-lengths-units
+kps:
+  - id: compare-lengths-units.kp1
+    explain: >-
+      If the pencil doesn't start at 0, take the start from the end.
+    templates:
+      - id: compare-lengths-units.kp1.t1
+        vars:
+          s: {int: [1, 4]}
+          n: {int: [3, 8]}
+        prompt: "How long is the pencil, in centimetres?"
+        layout: figure
+        figure: ruler
+        figure_args: {start: s, length: n, max: 12, unit: "'cm'"}
+        answer:
+          type: choice
+          right: "{n}"
+          distractors: ["{s + n}", "{n + 1}"]
+        min_variety: 18
+        solution:
+          - "It starts at {s} and ends at {s + n}."
+          - "{s + n} − {s} = {n}. It is {n} cm."
+  - id: compare-lengths-units.kp2
+    explain: >-
+      How much longer? Take the shorter length from the longer one.
+    templates:
+      - id: compare-lengths-units.kp2.t1
+        vars:
+          a: {int: [10, 60]}
+          b: {int: [5, 40]}
+        where: ["a > b"]
+        prompt: "A ribbon is {a} cm long. A string is {b} cm long. How much longer is the ribbon?"
+        answer: {type: integer, value: a - b}
+        solution:
+          - "{a} − {b} = {a - b}"
+          - "The ribbon is {a - b} cm longer."

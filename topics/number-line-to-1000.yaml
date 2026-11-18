@@ -1,0 +1,36 @@
+id: number-line-to-1000
+kps:
+  - id: number-line-to-1000.kp1
+    explain: >-
+      Read the numbers at the ends. Find how much each jump is worth.
+    templates:
+      - id: number-line-to-1000.kp1.t1
+        vars:
+          h: {int: [1, 8]}
+          from: 100 * h
+          k: {int: [1, 9]}
+        prompt: "Each jump is 10. What number is at the dot?"
+        layout: figure
+        figure: number-line
+        figure_args: {from: from, to: from + 100, step: 10, mark: from + 10 * k}
+        answer: {type: integer, value: from + 10 * k}
+        min_variety: 50
+        solution:
+          - "Start at {from}. Count {k} jumps of ten."
+          - "The dot is at {from + 10 * k}."
+  - id: number-line-to-1000.kp2
+    explain: >-
+      On a line from 0 to 1000, each jump can be a hundred.
+    templates:
+      - id: number-line-to-1000.kp2.t1
+        vars:
+          k: {int: [1, 9]}
+        prompt: "Each jump is 100. What number is at the dot?"
+        layout: figure
+        figure: number-line
+        figure_args: {from: 0, to: 1000, step: 100, mark: 100 * k}
+        answer: {type: integer, value: 100 * k}
+        min_variety: 9
+        solution:
+          - "Count {k} jumps of a hundred from 0."
+          - "The dot is at {100 * k}."

@@ -1,0 +1,31 @@
+id: money-word-problems
+kps:
+  - id: money-word-problems.kp1
+    explain: >-
+      Add what things cost to find the total. Use cents for both.
+    templates:
+      - id: money-word-problems.kp1.t1
+        vars:
+          a: {int: [15, 60]}
+          b: {int: [10, 35]}
+        where: ["a + b <= 99"]
+        prompt: "A pencil costs {a}¢ and an eraser costs {b}¢. How many cents for both?"
+        answer: {type: integer, value: a + b}
+        solution:
+          - "{a} + {b} = {a + b}"
+          - "Both cost {a + b}¢."
+  - id: money-word-problems.kp2
+    explain: >-
+      To find change, take the cost from the money you paid.
+    templates:
+      - id: money-word-problems.kp2.t1
+        vars:
+          q: {int: [2, 3]}
+          paid: 25 * q
+          cost: {int: [15, 70]}
+        where: ["cost < paid"]
+        prompt: "Leo pays with {q} quarters for a toy that costs {cost}¢. How much change, in cents?"
+        answer: {type: integer, value: paid - cost}
+        solution:
+          - "{q} quarters is {paid}¢."
+          - "{paid} − {cost} = {paid - cost}¢ change."

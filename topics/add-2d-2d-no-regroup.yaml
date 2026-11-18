@@ -1,0 +1,20 @@
+id: add-2d-2d-no-regroup
+kps:
+  - id: add-2d-2d-no-regroup.kp1
+    explain: >-
+      Line up the digits. Add the ones, then add the tens.
+    templates:
+      - id: add-2d-2d-no-regroup.kp1.t1
+        vars:
+          a: {int: [10, 89]}
+          b: {int: [10, 89]}
+        where: ["a % 10 + b % 10 <= 9", "a + b <= 99"]
+        prompt: "{a} + {b}"
+        layout: stacked
+        op: "+"
+        parts: [a, b]
+        answer: {type: integer, value: a + b}
+        solution:
+          - "Ones: {a % 10} + {b % 10} = {a % 10 + b % 10}."
+          - "Tens: {a // 10} + {b // 10} = {a // 10 + b // 10}."
+          - "{a} + {b} = {a + b}"

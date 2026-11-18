@@ -1,0 +1,47 @@
+id: odd-even
+kps:
+  - id: odd-even.kp1
+    explain: >-
+      An even number of things can be put in pairs with none left over.
+    templates:
+      - id: odd-even.kp1.t1
+        vars:
+          n: {int: [2, 20]}
+          ans: "n % 2 == 0 ? 'even' : 'odd'"
+        prompt: "Is {n} odd or even?"
+        layout: figure
+        figure: dots
+        figure_args: {count: n, arrange: "'line'"}
+        answer:
+          type: choice
+          right: "{ans}"
+          distractors: ["{n % 2 == 0 ? 'odd' : 'even'}"]
+        min_variety: 19
+        solution:
+          - "{n % 2 == 0 ? 'Every dot has a partner.' : 'One dot is left over.'}"
+          - "{n} is {ans}."
+      - id: odd-even.kp1.t2
+        vars:
+          n: {int: [21, 99]}
+          ans: "n % 2 == 0 ? 'even' : 'odd'"
+        prompt: "Is {n} odd or even?"
+        answer:
+          type: choice
+          right: "{ans}"
+          distractors: ["{n % 2 == 0 ? 'odd' : 'even'}"]
+        solution:
+          - "Look at the ones digit, {n % 10}. Even numbers end in 0, 2, 4, 6 or 8."
+          - "{n} is {ans}."
+  - id: odd-even.kp2
+    explain: >-
+      An even number is a double: it is two equal parts added together.
+    templates:
+      - id: odd-even.kp2.t1
+        vars:
+          a: {int: [2, 10]}
+        prompt: "{2 * a} = ? + ?  Both missing numbers are the same. What is each one?"
+        answer: {type: integer, value: a}
+        min_variety: 9
+        solution:
+          - "{2 * a} is even, so it is a double."
+          - "{a} + {a} = {2 * a}"

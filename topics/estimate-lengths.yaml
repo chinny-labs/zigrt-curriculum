@@ -1,0 +1,21 @@
+id: estimate-lengths
+kps:
+  - id: estimate-lengths.kp1
+    explain: >-
+      Use what you know. A finger is about 1 cm wide. A big step is about 1 m.
+    templates:
+      - id: estimate-lengths.kp1.t1
+        vars:
+          k: {int: [0, 5]}
+          thing: "pick(k, 'a pencil', 'a door', 'a paper clip', 'a classroom', 'a shoe', 'a car')"
+          right: "pick(k, '15 cm', '2 m', '3 cm', '10 m', '20 cm', '4 m')"
+          d1: "pick(k, '15 m', '2 cm', '3 m', '10 cm', '20 m', '4 cm')"
+          d2: "pick(k, '1 cm', '20 m', '30 cm', '100 m', '2 cm', '40 m')"
+        prompt: "About how long is {thing}?"
+        answer:
+          type: choice
+          right: "{right}"
+          distractors: ["{d1}", "{d2}"]
+        min_variety: 6
+        solution:
+          - "{thing} is about {right} long."

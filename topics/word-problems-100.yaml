@@ -1,0 +1,38 @@
+id: word-problems-100
+kps:
+  - id: word-problems-100.kp1
+    explain: >-
+      Find what you know and what you need. Then choose add or take away.
+    templates:
+      - id: word-problems-100.kp1.t1
+        vars:
+          a: {int: [15, 60]}
+          b: {int: [12, 39]}
+        where: ["a + b <= 99"]
+        prompt: "A school bus has {a} children on it. At the next stop, {b} more get on. How many children are on the bus now?"
+        answer: {type: integer, value: a + b}
+        solution:
+          - "More get on, so add."
+          - "{a} + {b} = {a + b}"
+      - id: word-problems-100.kp1.t2
+        vars:
+          a: {int: [40, 99]}
+          b: {int: [12, 39]}
+        prompt: "A shop has {a} apples. It sells {b} of them. How many apples are left?"
+        answer: {type: integer, value: a - b}
+        solution:
+          - "Selling some takes them away."
+          - "{a} − {b} = {a - b}"
+  - id: word-problems-100.kp2
+    explain: >-
+      Comparing two amounts? Take the smaller from the bigger to find the difference.
+    templates:
+      - id: word-problems-100.kp2.t1
+        vars:
+          a: {int: [40, 99]}
+          b: {int: [12, 39]}
+        prompt: "Mia read {a} pages. Leo read {b} pages. How many more pages did Mia read than Leo?"
+        answer: {type: integer, value: a - b}
+        solution:
+          - "The difference is {a} − {b}."
+          - "Mia read {a - b} more pages."

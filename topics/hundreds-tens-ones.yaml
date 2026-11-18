@@ -1,0 +1,52 @@
+id: hundreds-tens-ones
+kps:
+  - id: hundreds-tens-ones.kp1
+    explain: >-
+      A flat is a hundred. A rod is a ten. A small cube is a one.
+    templates:
+      - id: hundreds-tens-ones.kp1.t1
+        vars:
+          h: {int: [1, 5]}
+          t: {int: [0, 9]}
+          o: {int: [0, 9]}
+        prompt: "What number do the blocks show?"
+        layout: figure
+        figure: base-ten
+        figure_args: {hundreds: h, tens: t, ones: o}
+        answer: {type: integer, value: 100 * h + 10 * t + o}
+        solution:
+          - "{h} {plural(h, 'hundred', 'hundreds')}, {t} {plural(t, 'ten', 'tens')} and {o} {plural(o, 'one', 'ones')}."
+          - "{100 * h} + {10 * t} + {o} = {100 * h + 10 * t + o}"
+  - id: hundreds-tens-ones.kp2
+    explain: >-
+      In a 3-digit number, the first digit counts hundreds, then tens, then ones.
+    templates:
+      - id: hundreds-tens-ones.kp2.t1
+        vars:
+          n: {int: [100, 999]}
+          k: {int: [0, 2]}
+          place: "pick(k, 'hundreds', 'tens', 'ones')"
+          d: "pick(k, n // 100, (n // 10) % 10, n % 10)"
+        prompt: "What digit is in the {place} place of {n}?"
+        answer: {type: integer, value: d}
+        solution:
+          - "{n} is {n // 100} hundreds, {(n // 10) % 10} tens and {n % 10} ones."
+          - "The {place} digit is {d}."
+  - id: hundreds-tens-ones.kp3
+    explain: >-
+      A zero holds a place when there are no tens or no ones.
+    templates:
+      - id: hundreds-tens-ones.kp3.t1
+        vars:
+          h: {int: [1, 9]}
+          x: {int: [1, 9]}
+          z: {int: [0, 1]}
+          n: "z == 0 ? 100 * h + x : 100 * h + 10 * x"
+        prompt: "What number is {h} hundreds and {x} {z == 0 ? plural(x, 'one', 'ones') : plural(x, 'ten', 'tens')}?"
+        answer:
+          type: choice
+          right: "{n}"
+          distractors: ["{10 * h + x}", "{z == 0 ? 100 * h + 10 * x : 100 * h + x}"]
+        solution:
+          - "{z == 0 ? 'There are no tens, so the tens digit is 0.' : 'There are no ones, so the ones digit is 0.'}"
+          - "The number is {n}."

@@ -1,0 +1,31 @@
+id: facts-to-20-fluent
+kps:
+  - id: facts-to-20-fluent.kp1
+    explain: >-
+      Know these facts by heart. Answer without counting.
+    templates:
+      - id: facts-to-20-fluent.kp1.t1
+        vars:
+          a: {int: [2, 9]}
+          b: {int: [2, 9]}
+        prompt: "{a} + {b}"
+        layout: across
+        op: "+"
+        parts: [a, b]
+        answer: {type: integer, value: a + b}
+        min_variety: 50
+        solution:
+          - "{a} + {b} = {a + b}"
+      - id: facts-to-20-fluent.kp1.t2
+        vars:
+          a: {int: [2, 9]}
+          b: {int: [2, 9]}
+          s: a + b
+        prompt: "{s} − {a}"
+        layout: across
+        op: "-"
+        parts: [s, a]
+        answer: {type: integer, value: b}
+        min_variety: 50
+        solution:
+          - "{a} + {b} = {s}, so {s} − {a} = {b}."

@@ -1,0 +1,40 @@
+id: missing-number-100
+kps:
+  - id: missing-number-100.kp1
+    explain: >-
+      To find a missing part, take the known part from the whole.
+    templates:
+      - id: missing-number-100.kp1.t1
+        vars:
+          a: {int: [12, 70]}
+          b: {int: [12, 60]}
+          s: a + b
+        where: ["s <= 99"]
+        prompt: "{a} + ? = {s}"
+        layout: missing
+        op: "+"
+        parts: [a, b, s]
+        blank: 1
+        answer: {type: integer, value: b}
+        solution:
+          - "The missing part is {s} − {a}."
+          - "{s} − {a} = {b}, so {a} + {b} = {s}."
+  - id: missing-number-100.kp2
+    explain: >-
+      When the start is missing, add the two numbers you know.
+    templates:
+      - id: missing-number-100.kp2.t1
+        vars:
+          b: {int: [11, 45]}
+          c: {int: [11, 50]}
+          a: b + c
+        where: ["a <= 99"]
+        prompt: "? − {b} = {c}"
+        layout: missing
+        op: "-"
+        parts: [a, b, c]
+        blank: 0
+        answer: {type: integer, value: a}
+        solution:
+          - "Taking away {b} left {c}. So the start was {c} + {b}."
+          - "{c} + {b} = {a}, so {a} − {b} = {c}."

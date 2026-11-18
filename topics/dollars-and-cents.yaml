@@ -1,0 +1,38 @@
+id: dollars-and-cents
+kps:
+  - id: dollars-and-cents.kp1
+    explain: >-
+      Count the biggest coins first. Then count on the smaller ones.
+    templates:
+      - id: dollars-and-cents.kp1.t1
+        vars:
+          q: {int: [0, 3]}
+          d: {int: [0, 4]}
+          n: {int: [0, 3]}
+          p: {int: [0, 4]}
+          total: 25 * q + 10 * d + 5 * n + p
+        where: ["q + d + n + p >= 3", "q + d + n + p <= 10"]
+        prompt: "How many cents?"
+        layout: figure
+        figure: coins
+        figure_args: {pennies: p, nickels: n, dimes: d, quarters: q}
+        answer: {type: integer, value: total}
+        solution:
+          - "Quarters {25 * q}, dimes {10 * d}, nickels {5 * n}, pennies {p}."
+          - "{25 * q} + {10 * d} + {5 * n} + {p} = {total} cents."
+  - id: dollars-and-cents.kp2
+    explain: >-
+      100 cents make one dollar. Write dollars, a point, then the cents.
+    templates:
+      - id: dollars-and-cents.kp2.t1
+        vars:
+          c: {int: [105, 395]}
+        where: ["c % 5 == 0", "c % 100 != 0"]
+        prompt: "How do you write {c}¢ in dollars?"
+        answer:
+          type: choice
+          right: "${c // 100}.{pad(c % 100, 2)}"
+          distractors: ["${c}", "${c // 100}.{pad((c % 100) // 10, 1)}"]
+        solution:
+          - "{c} cents is {c // 100} {plural(c // 100, 'dollar', 'dollars')} and {c % 100} cents."
+          - "That is ${c // 100}.{pad(c % 100, 2)}."
