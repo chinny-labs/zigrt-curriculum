@@ -1,0 +1,36 @@
+id: sub-multi-digit
+kps:
+  - id: sub-multi-digit.kp1
+    explain: >-
+      Line up the places. When the top digit is smaller, break one from the next place.
+    templates:
+      - id: sub-multi-digit.kp1.t1
+        vars:
+          a: {int: [5000, 99999]}
+          b: {int: [1000, 49999]}
+          slip: "abs(digit(a, 1) - digit(b, 1)) + 10 * abs(digit(a, 10) - digit(b, 10)) + 100 * abs(digit(a, 100) - digit(b, 100)) + 1000 * abs(digit(a, 1000) - digit(b, 1000)) + 10000 * abs(digit(a, 10000) - digit(b, 10000))"
+        where: ["b < a", "slip != a - b"]
+        prompt: "{a} − {b}"
+        layout: stacked
+        op: "-"
+        parts: [a, b]
+        answer:
+          type: choice
+          right: "{group(a - b)}"
+          distractors: ["{group(slip)}", "{group(a - b + 1000)}"]
+        solution:
+          - "Work from the ones, breaking a ten, hundred or thousand where the top digit is smaller."
+          - "{group(a)} − {group(b)} = {group(a - b)}"
+      - id: sub-multi-digit.kp1.t2
+        vars:
+          k: {int: [2, 9]}
+          a: 10000 * k
+          b: {int: [1001, 9999]}
+        prompt: "{a} − {b}"
+        layout: stacked
+        op: "-"
+        parts: [a, b]
+        answer: {type: integer, value: a - b}
+        solution:
+          - "Across zeros: {group(a)} is {k - 1} ten thousands, 9 thousands, 9 hundreds, 9 tens and 10 ones."
+          - "{group(a)} − {group(b)} = {group(a - b)}"

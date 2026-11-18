@@ -1,0 +1,19 @@
+id: compare-to-half
+kps:
+  - id: compare-to-half.kp1
+    explain: >-
+      Half of the bottom number is the middle. If the top is more than that, the fraction is more than a half.
+    templates:
+      - id: compare-to-half.kp1.t1
+        vars:
+          d: {int: [3, 12]}
+          n: {int: [1, d - 1]}
+          ans: "2 * n > d ? 'more than 1/2' : (2 * n == d ? 'equal to 1/2' : 'less than 1/2')"
+        prompt: "Is {n}/{d} more than, less than or equal to 1/2?"
+        answer:
+          type: choice
+          right: "{ans}"
+          distractors: ["{ans == 'more than 1/2' ? 'less than 1/2' : 'more than 1/2'}", "{ans == 'equal to 1/2' ? 'less than 1/2' : 'equal to 1/2'}"]
+        solution:
+          - "Half of {d} is {mixed(d / 2)}. The top is {n}."
+          - "So {n}/{d} is {ans}."

@@ -1,0 +1,19 @@
+id: sub-mixed-same
+kps:
+  - id: sub-mixed-same.kp1
+    explain: >-
+      Take away the wholes and the parts. Not enough parts? Break one whole into parts.
+    templates:
+      - id: sub-mixed-same.kp1.t1
+        vars:
+          d: {int: [3, 10]}
+          w1: {int: [3, 7]}
+          w2: {int: [1, 2]}
+          a: {int: [1, d - 1]}
+          b: {int: [1, d - 1]}
+          ans: w1 + a / d - w2 - b / d
+        prompt: "{w1} {a}/{d} − {w2} {b}/{d}"
+        answer: {type: fraction, value: ans, simplest: false}
+        solution:
+          - "{a >= b ? join('Parts: ', text(a), '/', text(d), ' − ', text(b), '/', text(d), ' = ', text(a - b), '/', text(d), '.') : join('Break a whole: ', text(w1), ' ', text(a), '/', text(d), ' is ', text(w1 - 1), ' ', text(a + d), '/', text(d), '.')}"
+          - "The answer is {mixed(ans)}."

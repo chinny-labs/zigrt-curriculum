@@ -1,0 +1,40 @@
+id: mult-area-model
+kps:
+  - id: mult-area-model.kp1
+    explain: >-
+      Split each number into tens and ones. Each part of the rectangle is one small multiplication.
+    templates:
+      - id: mult-area-model.kp1.t1
+        vars:
+          t: {int: [1, 9]}
+          o: {int: [1, 9]}
+          b: {int: [3, 9]}
+          n: 10 * t + o
+        prompt: "Find each part, then add to find {n} × {b}."
+        layout: figure
+        figure: split-rectangle
+        figure_args: {cols: "join(text(10 * t), '|', text(o))", rows: b, areas: 0}
+        answer: {type: integer, value: n * b}
+        solution:
+          - "{10 * t} × {b} = {10 * t * b}. {o} × {b} = {o * b}."
+          - "{10 * t * b} + {o * b} = {n * b}"
+  - id: mult-area-model.kp2
+    explain: >-
+      With two 2-digit numbers there are four parts. Add all four.
+    templates:
+      - id: mult-area-model.kp2.t1
+        vars:
+          t1: {int: [1, 4]}
+          o1: {int: [1, 9]}
+          t2: {int: [1, 4]}
+          o2: {int: [1, 9]}
+          x: 10 * t1 + o1
+          y: 10 * t2 + o2
+        prompt: "Add the four parts to find {x} × {y}."
+        layout: figure
+        figure: split-rectangle
+        figure_args: {cols: "join(text(10 * t1), '|', text(o1))", rows: "join(text(10 * t2), '|', text(o2))", areas: 1}
+        answer: {type: integer, value: x * y}
+        solution:
+          - "{100 * t1 * t2} + {10 * o1 * t2} + {10 * t1 * o2} + {o1 * o2}"
+          - "{x} × {y} = {x * y}"

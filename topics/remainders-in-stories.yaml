@@ -1,0 +1,45 @@
+id: remainders-in-stories
+kps:
+  - id: remainders-in-stories.kp1
+    explain: >-
+      Read what the question asks. Sometimes the remainder needs one more group; sometimes it is left over.
+    templates:
+      - id: remainders-in-stories.kp1.t1
+        vars:
+          s: {int: [3, 8]}
+          q: {int: [3, 9]}
+          r: {int: [1, s - 1]}
+          n: s * q + r
+        prompt: "{n} children go on a trip. Each car takes {s}. How many cars are needed so everyone can go?"
+        answer:
+          type: choice
+          right: "{q + 1}"
+          distractors: ["{q}", "{r}"]
+        solution:
+          - "{n} ÷ {s} = {q} r {r}."
+          - "The {r} left over need one more car: {q + 1} cars."
+      - id: remainders-in-stories.kp1.t2
+        vars:
+          s: {int: [3, 8]}
+          q: {int: [3, 9]}
+          r: {int: [1, s - 1]}
+          n: s * q + r
+        prompt: "{n} eggs are packed in boxes of {s}. How many boxes can be filled?"
+        answer:
+          type: choice
+          right: "{q}"
+          distractors: ["{q + 1}", "{r}"]
+        solution:
+          - "{n} ÷ {s} = {q} r {r}."
+          - "Only full boxes count: {q} boxes."
+      - id: remainders-in-stories.kp1.t3
+        vars:
+          s: {int: [3, 8]}
+          q: {int: [3, 9]}
+          r: {int: [1, s - 1]}
+          n: s * q + r
+        prompt: "{n} cards are shared equally among {s} friends. How many cards are left over?"
+        answer: {type: integer, value: r}
+        solution:
+          - "{n} ÷ {s} = {q} r {r}."
+          - "{r} {plural(r, 'card is', 'cards are')} left over."

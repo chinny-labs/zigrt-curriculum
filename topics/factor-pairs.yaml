@@ -1,0 +1,38 @@
+id: factor-pairs
+kps:
+  - id: factor-pairs.kp1
+    explain: >-
+      Factors are numbers that multiply to make a number. 3 and 8 are a factor pair of 24.
+    templates:
+      - id: factor-pairs.kp1.t1
+        vars:
+          a: {int: [2, 9]}
+          b: {int: [2, 12]}
+        prompt: "{a * b} = {a} × ?"
+        layout: missing
+        op: "*"
+        parts: [a, b, a * b]
+        blank: 1
+        answer: {type: integer, value: b}
+        solution:
+          - "{a * b} ÷ {a} = {b}"
+          - "{a} and {b} are a factor pair of {a * b}."
+  - id: factor-pairs.kp2
+    explain: >-
+      A factor divides a number exactly. Check each choice by dividing.
+    templates:
+      - id: factor-pairs.kp2.t1
+        vars:
+          a: {int: [3, 9]}
+          b: {int: [3, 11]}
+          n: a * b
+          x: {int: [4, 9]}
+        where: ["n % x != 0", "n % (x + 1) != 0", "x != a", "x + 1 != a"]
+        prompt: "Which number is a factor of {n}?"
+        answer:
+          type: choice
+          right: "{a}"
+          distractors: ["{x}", "{x + 1}"]
+        solution:
+          - "{n} ÷ {a} = {b} exactly."
+          - "So {a} is a factor of {n}."

@@ -1,0 +1,30 @@
+id: missing-angle
+kps:
+  - id: missing-angle.kp1
+    explain: >-
+      If you know the whole angle and one part, take that part away to find the other.
+    templates:
+      - id: missing-angle.kp1.t1
+        vars:
+          t: {choose: [90, 90, 180]}
+          a: {int: [15, 75]}
+          b: t - a
+        prompt: "The two angles make {t == 90 ? 'a right angle' : 'a straight line'}. What is the missing angle, in degrees?"
+        layout: figure
+        figure: angle
+        figure_args: {a: a, b: b, turn: 0, labels: "join(text(a), '°|?')"}
+        answer: {type: integer, value: b}
+        solution:
+          - "{t == 90 ? 'A right angle' : 'A straight line'} is {t}°."
+          - "{t}° − {a}° = {b}°"
+      - id: missing-angle.kp1.t2
+        vars:
+          a: {int: [20, 70]}
+          b: {int: [20, 70]}
+        prompt: "The whole angle is {a + b}°. What is the missing angle, in degrees?"
+        layout: figure
+        figure: angle
+        figure_args: {a: a, b: b, turn: 0, labels: "join('?|', text(b), '°')"}
+        answer: {type: integer, value: a}
+        solution:
+          - "{a + b}° − {b}° = {a}°"

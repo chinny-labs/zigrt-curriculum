@@ -1,0 +1,24 @@
+id: div-zero-in-quotient
+kps:
+  - id: div-zero-in-quotient.kp1
+    explain: >-
+      If a step is too small to divide, write 0 in the answer for that place. Then bring down the next digit.
+    templates:
+      - id: div-zero-in-quotient.kp1.t1
+        vars:
+          d: {int: [2, 9]}
+          h: {int: [1, 9]}
+          o: {int: [1, 9]}
+          q: 100 * h + o
+          n: d * q
+        where: ["n <= 999"]
+        prompt: "{n} ÷ {d}"
+        layout: long-division
+        parts: [n, d]
+        answer:
+          type: choice
+          right: "{q}"
+          distractors: ["{10 * h + o}", "{q + 10}"]
+        solution:
+          - "Hundreds: {h}. The tens step is too small, so write 0."
+          - "{n} ÷ {d} = {q}"

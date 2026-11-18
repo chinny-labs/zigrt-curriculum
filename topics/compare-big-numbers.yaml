@@ -1,0 +1,28 @@
+id: compare-big-numbers
+kps:
+  - id: compare-big-numbers.kp1
+    explain: >-
+      A number with more digits is bigger. With the same number of digits, compare from the left.
+    templates:
+      - id: compare-big-numbers.kp1.t1
+        vars:
+          a: {int: [10000, 999999]}
+          b: {int: [10000, 999999]}
+          sym: "a < b ? '<' : (a > b ? '>' : '=')"
+        prompt: "{group(a)} ○ {group(b)}"
+        answer: {type: comparison, compare: [a, b]}
+        solution:
+          - "Compare digit by digit from the left."
+          - "{group(a)} {sym} {group(b)}"
+      - id: compare-big-numbers.kp1.t2
+        vars:
+          a: {int: [100000, 999999]}
+          x: {int: [1, 9]}
+          b: "a + (x <= 4 ? -1 : 1) * 1000 * x"
+          sym: "a < b ? '<' : '>'"
+        where: ["b >= 100000 && b <= 999999"]
+        prompt: "{group(a)} ○ {group(b)}"
+        answer: {type: comparison, compare: [a, b]}
+        solution:
+          - "The digits agree until the thousands."
+          - "{group(a)} {sym} {group(b)}"

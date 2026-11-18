@@ -1,0 +1,18 @@
+id: add-mixed-same
+kps:
+  - id: add-mixed-same.kp1
+    explain: >-
+      Add the wholes, then add the fractions. If the fractions make a whole, carry it over.
+    templates:
+      - id: add-mixed-same.kp1.t1
+        vars:
+          d: {int: [3, 10]}
+          w1: {int: [1, 5]}
+          w2: {int: [1, 5]}
+          a: {int: [1, d - 1]}
+          b: {int: [1, d - 1]}
+        prompt: "{w1} {a}/{d} + {w2} {b}/{d}"
+        answer: {type: fraction, value: "w1 + w2 + (a + b) / d", simplest: false}
+        solution:
+          - "Wholes: {w1} + {w2} = {w1 + w2}. Parts: {a}/{d} + {b}/{d} = {a + b}/{d}."
+          - "{a + b >= d ? join(text(a + b), '/', text(d), ' is ', mixed((a + b) / d), ', so the total is ', mixed(w1 + w2 + (a + b) / d), '.') : join('The total is ', mixed(w1 + w2 + (a + b) / d), '.')}"

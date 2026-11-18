@@ -1,0 +1,21 @@
+id: area-perimeter-rules
+kps:
+  - id: area-perimeter-rules.kp1
+    explain: >-
+      Area of a rectangle = length × width. Perimeter = 2 × (length + width).
+    templates:
+      - id: area-perimeter-rules.kp1.t1
+        vars:
+          l: {int: [12, 60]}
+          w: {int: [5, 30]}
+          s: {int: [0, 1]}
+          what: "s == 0 ? 'area, in square metres' : 'perimeter, in metres'"
+          ans: "s == 0 ? l * w : 2 * (l + w)"
+        where: ["l != w"]
+        prompt: "A field is {l} m long and {w} m wide. What is its {what}?"
+        answer:
+          type: choice
+          right: "{group(ans)}"
+          distractors: ["{group(s == 0 ? 2 * (l + w) : l * w)}", "{l + w}"]
+        solution:
+          - "{s == 0 ? join(text(l), ' × ', text(w)) : join('2 × (', text(l), ' + ', text(w), ')')} = {group(ans)}"

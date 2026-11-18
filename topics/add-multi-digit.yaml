@@ -1,0 +1,18 @@
+id: add-multi-digit
+kps:
+  - id: add-multi-digit.kp1
+    explain: >-
+      Line up the places. Add from the ones, carrying a 1 whenever a place makes 10 or more.
+    templates:
+      - id: add-multi-digit.kp1.t1
+        vars:
+          a: {int: [1000, 59999]}
+          b: {int: [1000, 39999]}
+        prompt: "{a} + {b}"
+        layout: stacked
+        op: "+"
+        parts: [a, b]
+        answer: {type: integer, value: a + b}
+        solution:
+          - "Add each place from the right, carrying when a place makes 10 or more."
+          - "{group(a)} + {group(b)} = {group(a + b)}"

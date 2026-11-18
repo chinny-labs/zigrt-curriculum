@@ -1,0 +1,20 @@
+id: add-fractions-same
+kps:
+  - id: add-fractions-same.kp1
+    explain: >-
+      With the same bottom number, add the tops. The bottom stays the same.
+    templates:
+      - id: add-fractions-same.kp1.t1
+        vars:
+          d: {int: [3, 12]}
+          a: {int: [1, d - 1]}
+          b: {int: [1, d - 1]}
+        where: ["a + b <= d"]
+        prompt: "{a}/{d} + {b}/{d}"
+        answer:
+          type: fraction
+          value: (a + b) / d
+          simplest: false
+        solution:
+          - "{a} + {b} = {a + b} parts of size 1/{d}."
+          - "{a}/{d} + {b}/{d} = {a + b}/{d}"

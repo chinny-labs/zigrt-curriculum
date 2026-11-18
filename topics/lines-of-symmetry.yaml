@@ -1,0 +1,42 @@
+id: lines-of-symmetry
+kps:
+  - id: lines-of-symmetry.kp1
+    explain: >-
+      A line of symmetry folds a shape into two halves that match exactly.
+    templates:
+      - id: lines-of-symmetry.kp1.t1
+        vars:
+          k: {int: [0, 7]}
+          name: "pick(k, 'square', 'square', 'rectangle', 'rectangle', 'rectangle', 'circle', 'square', 'triangle')"
+          axis: "pick(k, 45, 90, 0, 90, 45, 30, 20, 0)"
+          ans: "pick(k, 'yes', 'yes', 'yes', 'yes', 'no', 'yes', 'no', 'yes')"
+        prompt: "Is the dashed line a line of symmetry?"
+        layout: figure
+        figure: symmetry
+        figure_args: {name: name, axis: axis}
+        answer:
+          type: choice
+          right: "{ans}"
+          distractors: ["{ans == 'yes' ? 'no' : 'yes'}"]
+        min_variety: 8
+        solution:
+          - "{ans == 'yes' ? 'Folded on the line, the two halves match.' : 'Folded on the line, the halves do not match.'}"
+          - "So: {ans}."
+  - id: lines-of-symmetry.kp2
+    explain: >-
+      Some shapes have several lines of symmetry. A square has 4; a rectangle has 2.
+    templates:
+      - id: lines-of-symmetry.kp2.t1
+        vars:
+          k: {int: [0, 3]}
+          name: "pick(k, 'square', 'rectangle', 'hexagon', 'pentagon')"
+          n: "pick(k, 4, 2, 6, 5)"
+        prompt: "How many lines of symmetry does this shape have?"
+        layout: figure
+        figure: shape
+        figure_args: {name: name, turn: 0}
+        answer: {type: integer, value: n}
+        min_variety: 4
+        solution:
+          - "Try folding it every way that matches."
+          - "A {name} has {n} lines of symmetry."

@@ -1,0 +1,22 @@
+id: round-big-numbers
+kps:
+  - id: round-big-numbers.kp1
+    explain: >-
+      To round, look at the digit just right of the place you round to. 5 or more rounds up.
+    templates:
+      - id: round-big-numbers.kp1.t1
+        vars:
+          n: {int: [10001, 989999]}
+          k: {int: [0, 2]}
+          p: "pick(k, 1000, 10000, 100000)"
+          name: "pick(k, 'thousand', 'ten thousand', 'hundred thousand')"
+          r: "round(n, p)"
+        where: ["n % p != 0", "n >= p"]
+        prompt: "Round {group(n)} to the nearest {name}."
+        answer:
+          type: choice
+          right: "{group(r)}"
+          distractors: ["{group(r == p * (n // p) ? r + p : r - p)}", "{group(round(n, p / 10))}"]
+        solution:
+          - "Look at the digit after the {name}s place: {digit(n, p / 10)}."
+          - "{digit(n, p / 10) >= 5 ? 'Round up' : 'Round down'}: {group(r)}."

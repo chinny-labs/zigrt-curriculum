@@ -1,0 +1,35 @@
+id: place-value-million
+kps:
+  - id: place-value-million.kp1
+    explain: >-
+      After hundreds come thousands, ten thousands and hundred thousands. Commas split the number into groups of three.
+    templates:
+      - id: place-value-million.kp1.t1
+        vars:
+          n: {int: [100000, 999999]}
+          k: {int: [0, 2]}
+          place: "pick(k, 'thousands', 'ten thousands', 'hundred thousands')"
+          d: "digit(n, pick(k, 1000, 10000, 100000))"
+        prompt: "What digit is in the {place} place of {group(n)}?"
+        answer: {type: integer, value: d}
+        solution:
+          - "From the right: ones, tens, hundreds, thousands, ten thousands, hundred thousands."
+          - "The {place} digit is {d}."
+  - id: place-value-million.kp2
+    explain: >-
+      A digit's value is the digit times its place. A 4 in the ten thousands place is worth 40,000.
+    templates:
+      - id: place-value-million.kp2.t1
+        vars:
+          n: {int: [100000, 999999]}
+          k: {int: [0, 2]}
+          p: "pick(k, 1000, 10000, 100000)"
+          d: "digit(n, p)"
+        where: ["d != 0"]
+        prompt: "What is the value of the digit {d} in the {pick(k, 'thousands', 'ten thousands', 'hundred thousands')} place of {group(n)}?"
+        answer:
+          type: choice
+          right: "{group(d * p)}"
+          distractors: ["{d}", "{group(d * p / 10)}", "{group(d * p * 10)}"]
+        solution:
+          - "{d} × {group(p)} = {group(d * p)}"

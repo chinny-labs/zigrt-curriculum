@@ -1,0 +1,28 @@
+id: estimate-products
+kps:
+  - id: estimate-products.kp1
+    explain: >-
+      Round to an easy number, then multiply. The estimate tells you about how big the answer is.
+    templates:
+      - id: estimate-products.kp1.t1
+        vars:
+          a: {int: [21, 98]}
+          b: {int: [3, 9]}
+          ra: round(a, 10)
+        where: ["a % 10 != 0"]
+        prompt: "Estimate {a} × {b} by rounding {a} to the nearest ten."
+        answer: {type: integer, value: ra * b}
+        solution:
+          - "{a} rounds to {ra}."
+          - "{ra} × {b} = {ra * b}"
+      - id: estimate-products.kp1.t2
+        vars:
+          a: {int: [110, 980]}
+          b: {int: [3, 9]}
+          ra: round(a, 100)
+        where: ["a % 100 != 0"]
+        prompt: "Estimate {a} × {b} by rounding {a} to the nearest hundred."
+        answer: {type: integer, value: ra * b}
+        solution:
+          - "{a} rounds to {ra}."
+          - "{ra} × {b} = {group(ra * b)}"

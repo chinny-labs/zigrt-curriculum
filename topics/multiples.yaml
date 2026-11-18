@@ -1,0 +1,36 @@
+id: multiples
+kps:
+  - id: multiples.kp1
+    explain: >-
+      A multiple of 6 is 6 times a whole number: 6, 12, 18 and so on.
+    templates:
+      - id: multiples.kp1.t1
+        vars:
+          k: {int: [3, 9]}
+          m: {int: [3, 12]}
+          off: {int: [1, k - 1]}
+        prompt: "Which number is a multiple of {k}?"
+        answer:
+          type: choice
+          right: "{k * m}"
+          distractors: ["{k * m + off}", "{k * m - off}"]
+        solution:
+          - "{k} × {m} = {k * m}"
+          - "So {k * m} is a multiple of {k}."
+  - id: multiples.kp2
+    explain: >-
+      To check, divide. A multiple divides with no remainder.
+    templates:
+      - id: multiples.kp2.t1
+        vars:
+          k: {int: [3, 9]}
+          n: {int: [12, 100]}
+          ans: "n % k == 0 ? 'yes' : 'no'"
+        prompt: "Is {n} a multiple of {k}?"
+        answer:
+          type: choice
+          right: "{ans}"
+          distractors: ["{ans == 'yes' ? 'no' : 'yes'}"]
+        solution:
+          - "{n} ÷ {k} = {n // k} remainder {n % k}."
+          - "{n % k == 0 ? 'No remainder, so yes.' : 'There is a remainder, so no.'}"

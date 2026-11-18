@@ -1,0 +1,29 @@
+id: area-perimeter-missing
+kps:
+  - id: area-perimeter-missing.kp1
+    explain: >-
+      If you know the area and one side, divide to find the other side.
+    templates:
+      - id: area-perimeter-missing.kp1.t1
+        vars:
+          l: {int: [3, 12]}
+          w: {int: [3, 12]}
+        prompt: "A rectangle has an area of {l * w} square cm. One side is {l} cm. How long is the other side, in centimetres?"
+        answer: {type: integer, value: w}
+        solution:
+          - "{l} × ? = {l * w}"
+          - "{l * w} ÷ {l} = {w} cm"
+  - id: area-perimeter-missing.kp2
+    explain: >-
+      If you know the perimeter, half of it is one length plus one width.
+    templates:
+      - id: area-perimeter-missing.kp2.t1
+        vars:
+          l: {int: [4, 20]}
+          w: {int: [2, 15]}
+        where: ["l != w"]
+        prompt: "A rectangle has a perimeter of {2 * (l + w)} m. Its length is {l} m. What is its width, in metres?"
+        answer: {type: integer, value: w}
+        solution:
+          - "Half the perimeter: {2 * (l + w)} ÷ 2 = {l + w}."
+          - "{l + w} − {l} = {w} m"

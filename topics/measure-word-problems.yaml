@@ -1,0 +1,33 @@
+id: measure-word-problems
+kps:
+  - id: measure-word-problems.kp1
+    explain: >-
+      Change everything to the same unit first. Then add, take away, multiply or divide.
+    templates:
+      - id: measure-word-problems.kp1.t1
+        vars:
+          a: {int: [2, 5]}
+          b: {int: [150, 850]}
+        prompt: "A path is {a} km long. Ava has walked {b} m of it. How many metres are left?"
+        answer: {type: integer, value: 1000 * a - b}
+        solution:
+          - "{a} km = {group(1000 * a)} m."
+          - "{group(1000 * a)} − {b} = {group(1000 * a - b)} m"
+      - id: measure-word-problems.kp1.t2
+        vars:
+          n: {int: [3, 8]}
+          ml: {int: [150, 400]}
+        prompt: "{n} glasses each hold {ml} ml. How many millilitres is that in all?"
+        answer: {type: integer, value: n * ml}
+        solution:
+          - "{n} × {ml} = {group(n * ml)} ml"
+      - id: measure-word-problems.kp1.t3
+        vars:
+          start: {int: [1, 9]}
+          m: {int: [35, 95]}
+        prompt: "A film starts at {start}:00 and lasts {m} minutes. How many minutes after {start + 1}:00 does it end?"
+        answer: {type: integer, value: m - 60}
+        where: ["m > 60"]
+        solution:
+          - "60 minutes takes it to {start + 1}:00."
+          - "{m} − 60 = {m - 60} more minutes."

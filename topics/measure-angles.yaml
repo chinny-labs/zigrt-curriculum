@@ -1,0 +1,23 @@
+id: measure-angles
+kps:
+  - id: measure-angles.kp1
+    explain: >-
+      Put the centre on the corner and one ray on 0. Read the scale that starts at 0 on that ray.
+    templates:
+      - id: measure-angles.kp1.t1
+        vars:
+          d: {int: [2, 17]}
+          deg: 10 * d
+          side: {choose: ["'right'", "'left'"]}
+        where: ["deg != 90"]
+        prompt: "How many degrees is the angle?"
+        layout: figure
+        figure: protractor
+        figure_args: {degrees: deg, side: side}
+        answer:
+          type: choice
+          right: "{deg}°"
+          distractors: ["{180 - deg}°", "{deg + 10}°"]
+        solution:
+          - "The fixed ray is on the 0 of the {side == 'right' ? 'inner' : 'outer'} scale."
+          - "Reading that scale, the angle is {deg}°."

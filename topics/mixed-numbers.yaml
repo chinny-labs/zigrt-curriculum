@@ -1,0 +1,34 @@
+id: mixed-numbers
+kps:
+  - id: mixed-numbers.kp1
+    explain: >-
+      A mixed number is a whole number and a fraction: 2 3/4 means 2 wholes and 3/4 more.
+    templates:
+      - id: mixed-numbers.kp1.t1
+        vars:
+          w: {int: [1, 3]}
+          d: {choose: [2, 3, 4]}
+          n: {int: [1, d - 1]}
+        prompt: "What number is at the dot? Write it as a mixed number."
+        layout: figure
+        figure: number-line
+        figure_args: {from: 0, to: 4, step: 1 / d, mark: w + n / d}
+        answer: {type: fraction, value: w + n / d}
+        min_variety: 18
+        solution:
+          - "The dot is past {w} and {n} of the {d} jumps towards {w + 1}."
+          - "It is at {mixed(w + n / d)}."
+  - id: mixed-numbers.kp2
+    explain: >-
+      To turn a mixed number into a fraction, each whole is d over d. Add on the extra parts.
+    templates:
+      - id: mixed-numbers.kp2.t1
+        vars:
+          w: {int: [1, 5]}
+          d: {int: [2, 8]}
+          n: {int: [1, d - 1]}
+        prompt: "{w} {n}/{d} = ?/{d}"
+        answer: {type: integer, value: w * d + n}
+        solution:
+          - "{w} {plural(w, 'whole is', 'wholes are')} {w * d}/{d}."
+          - "{w * d}/{d} + {n}/{d} = {w * d + n}/{d}, so the missing number is {w * d + n}."

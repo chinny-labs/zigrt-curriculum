@@ -1,0 +1,18 @@
+id: mult-4d-1d
+kps:
+  - id: mult-4d-1d.kp1
+    explain: >-
+      Four digits work the same way: multiply each place, carrying as you go.
+    templates:
+      - id: mult-4d-1d.kp1.t1
+        vars:
+          a: {int: [1002, 9999]}
+          b: {int: [2, 9]}
+        prompt: "{a} × {b}"
+        layout: stacked
+        op: "*"
+        parts: [a, b]
+        answer: {type: integer, value: a * b}
+        solution:
+          - "Thousands {1000 * (a // 1000) * b}, hundreds {100 * digit(a, 100) * b}, tens {10 * digit(a, 10) * b}, ones {(a % 10) * b}."
+          - "{group(a)} × {b} = {group(a * b)}"

@@ -1,0 +1,29 @@
+id: split-fractions
+kps:
+  - id: split-fractions.kp1
+    explain: >-
+      A fraction can be split into smaller fractions with the same bottom. 3/5 = 1/5 + 2/5.
+    templates:
+      - id: split-fractions.kp1.t1
+        vars:
+          d: {int: [4, 12]}
+          n: {int: [3, d - 1]}
+          a: {int: [1, n - 1]}
+        prompt: "{n}/{d} = {a}/{d} + ?/{d}"
+        answer: {type: integer, value: n - a}
+        solution:
+          - "{a} + {n - a} = {n}"
+          - "{n}/{d} = {a}/{d} + {n - a}/{d}, so the missing number is {n - a}."
+  - id: split-fractions.kp2
+    explain: >-
+      Any fraction is a sum of unit fractions. 3/4 = 1/4 + 1/4 + 1/4.
+    templates:
+      - id: split-fractions.kp2.t1
+        vars:
+          d: {int: [3, 10]}
+          n: {int: [2, d - 1]}
+        prompt: "{n}/{d} is the sum of how many copies of 1/{d}?"
+        answer: {type: integer, value: n}
+        solution:
+          - "Each 1/{d} adds one to the top."
+          - "{n}/{d} is {n} copies of 1/{d}."

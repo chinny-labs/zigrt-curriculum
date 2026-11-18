@@ -1,0 +1,23 @@
+id: points-lines-rays
+kps:
+  - id: points-lines-rays.kp1
+    explain: >-
+      A line goes on forever both ways. A ray starts at a point and goes on one way. A segment has two ends.
+    templates:
+      - id: points-lines-rays.kp1.t1
+        vars:
+          k: {int: [0, 3]}
+          kind: "pick(k, 'line', 'ray', 'segment', 'point')"
+          turn: {choose: [0, 20, 45, 110, 160, 200]}
+        prompt: "What is this called?"
+        layout: figure
+        figure: lines
+        figure_args: {kind: kind, turn: turn}
+        answer:
+          type: choice
+          right: "a {kind}"
+          distractors: ["a {pick(k, 'ray', 'segment', 'line', 'segment')}", "a {pick(k, 'segment', 'line', 'ray', 'line')}"]
+        min_variety: 20
+        solution:
+          - "{pick(k, 'Arrows at both ends: it goes on forever both ways.', 'A point at one end, an arrow at the other.', 'A point at each end.', 'Just one dot.')}"
+          - "It is a {kind}."

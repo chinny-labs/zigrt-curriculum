@@ -1,0 +1,34 @@
+id: mult-by-10-100-1000
+kps:
+  - id: mult-by-10-100-1000.kp1
+    explain: >-
+      Times 10 moves every digit one place to the left. Times 100 moves it two places.
+    templates:
+      - id: mult-by-10-100-1000.kp1.t1
+        vars:
+          a: {int: [2, 99]}
+          k: {int: [0, 2]}
+          p: "pick(k, 10, 100, 1000)"
+        prompt: "{a} × {group(p)}"
+        answer:
+          type: choice
+          right: "{group(a * p)}"
+          distractors: ["{group(a * p / 10)}", "{group(a * p * 10)}"]
+        solution:
+          - "Move each digit {k + 1} {plural(k + 1, 'place', 'places')} to the left."
+          - "{a} × {group(p)} = {group(a * p)}"
+  - id: mult-by-10-100-1000.kp2
+    explain: >-
+      3 × 400 is 3 × 4 hundreds, which is 12 hundreds, or 1,200.
+    templates:
+      - id: mult-by-10-100-1000.kp2.t1
+        vars:
+          a: {int: [2, 9]}
+          b: {int: [2, 9]}
+          k: {int: [0, 2]}
+          p: "pick(k, 10, 100, 1000)"
+        prompt: "{a} × {group(b * p)}"
+        answer: {type: integer, value: a * b * p}
+        solution:
+          - "{a} × {b} = {a * b}"
+          - "{a} × {group(b * p)} = {group(a * b * p)}"
